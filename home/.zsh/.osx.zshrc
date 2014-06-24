@@ -125,5 +125,8 @@ alias open-idea='open -a /Applications/IntelliJ\ IDEA\ 13.app/'
 export M2_HOME=/Users/dan/Desktop/apache-maven-2.2.1
 export M2=$M2_HOME/bin
 
+#### COMMON STUFF ####
+function gi() { curl http://www.gitignore.io/api/$@ ;}
+
 # Home bin's
 export PATH=${PATH}:${HOME}/bin
