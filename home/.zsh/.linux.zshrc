@@ -82,5 +82,8 @@ alias ssh="ssh -X"
 alias zshconfig="mvim ~/.zsh/.linux.zshrc"
 alias ohmyzsh="mvim ~/.oh-my-zsh"
 
+#### COMMON STUFF ####
+function gi() { curl http://www.gitignore.io/api/$@ ;}
+
 # Home bin's
 export PATH=${PATH}:${HOME}/bin
