@@ -128,5 +128,5 @@ export M2=$M2_HOME/bin
 #### COMMON STUFF ####
 function gi() { curl http://www.gitignore.io/api/$@ ;}
 
-# Home bin's
-export PATH=${PATH}:${HOME}/bin
+# Home bin's and vim-s bin
+export PATH=${PATH}:${HOME}/bin:${HOME}/.vim/bin
