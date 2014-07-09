@@ -79,8 +79,8 @@ alias e="exit"
 alias ssh="ssh -X"
 
 # Alias for rc's
-alias zshconfig="mvim ~/.zsh/.linux.zshrc"
-alias ohmyzsh="mvim ~/.oh-my-zsh"
+alias zshconfig="vim ~/.zsh/.linux.zshrc"
+alias ohmyzsh="vim ~/.oh-my-zsh"
 
 #### COMMON STUFF ####
 function gi() { curl http://www.gitignore.io/api/$@ ;}
