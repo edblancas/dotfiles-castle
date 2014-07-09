@@ -48,7 +48,7 @@ ZSH_THEME="ys"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git common-aliases mvn vundle gitfast git-extras github sudo web-search wd)
+plugins=(git common-aliases mvn vundle gitfast git-extras github sudo web-search wd brew)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -80,10 +80,15 @@ export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:$HO
 # export EDITOR='subl -w'
 
 # MVIM
-alias vim='mvim -v'
-alias vi='mvim -v'
+#alias vim='mvim -v'
+#alias vi='mvim -v'
 # Por que solo con la de arriba al hacer 'git commit' sigue llamando a el vim del SO
-export EDITOR='mvim -v'
+#export EDITOR='mvim -v'
+
+#### PARA QUE TOME EL VIM COMPLIADO EN ~/local/bin/
+alias vim='$HOME/local/bin/vim'
+alias vi='$HOME/local/bin/vim'
+export EDITOR='$HOME/local/bin/vim'
 
 # Alias
 alias ghm='cd ~/Documents/Glider/Multicurrency/GitHub/multicurrency'
@@ -129,4 +134,4 @@ export M2=$M2_HOME/bin
 function gi() { curl http://www.gitignore.io/api/$@ ;}
 
 # Home bin's and vim-s bin
-export PATH=${PATH}:${HOME}/bin:${HOME}/.vim/bin
+export PATH=${HOME}/local/bin:${HOME}/.vim/bin:${PATH}
