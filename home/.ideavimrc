@@ -1,7 +1,3 @@
 " smash escape
-inoremap <esc> <nop>
 inoremap jk <Esc>
 inoremap kj <Esc>
-inoremap jj <Esc>
-inoremap kl <Esc>
-inoremap lk <Esc>
