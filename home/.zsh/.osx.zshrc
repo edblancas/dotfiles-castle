@@ -98,15 +98,7 @@ alias ghfp='cd ~/Documents/Glider/Multicurrency/GitHub/FinancialPlatform'
 export MANPATH=/opt/local/share/man:$MANPATH
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 
-if [ "$TERM" != "dumb" ]; then
-    export LS_OPTIONS='--color=auto'
-    eval `gdircolors ~/.dir_colors`
-fi
-
 # Useful aliases
-alias ls='gls $LS_OPTIONS -hF'
-alias ll='gls $LS_OPTIONS -lhF'
-alias l='gls $LS_OPTIONS -lAhF'
 alias c="clear"
 alias e="exit"
 alias ssh="ssh -X"
@@ -123,15 +115,15 @@ alias ohmyzsh="mvim ~/.oh-my-zsh"
 alias open-idea='open -a /Applications/IntelliJ\ IDEA\ 13.app/'
 
 # Maven 3
-#M2_HOME=/usr/local/Cellar/maven/3.2.1
-#M2=$M2_HOME/bin
+M2_HOME=/usr/local/Cellar/maven/3.2.1/libexec
+M2=$M2_HOME/bin
 
 # Maven 2
-export M2_HOME=/Users/dan/Desktop/apache-maven-2.2.1
-export M2=$M2_HOME/bin
+#export M2_HOME=/Users/dan/Desktop/apache-maven-2.2.1
+#export M2=$M2_HOME/bin
 
 #### COMMON STUFF ####
 function gi() { curl http://www.gitignore.io/api/$@ ;}
 
 # Home bin's and vim-s bin
-export PATH=${HOME}/local/bin:${HOME}/.vim/bin:${PATH}
+export PATH=${HOME}/local/bin:${HOME}/.vim/bin:${PATH}:${M2}
