@@ -5,7 +5,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="ys"
+ZSH_THEME="robbyrussell"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -80,15 +80,15 @@ export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:$HO
 # export EDITOR='subl -w'
 
 # MVIM
-#alias vim='mvim -v'
-#alias vi='mvim -v'
+alias vim='mvim -v'
+alias vi='mvim -v'
 # Por que solo con la de arriba al hacer 'git commit' sigue llamando a el vim del SO
-#export EDITOR='mvim -v'
+export EDITOR='mvim -v'
 
 #### PARA QUE TOME EL VIM COMPLIADO EN ~/local/bin/
-alias vim='$HOME/local/bin/vim'
-alias vi='$HOME/local/bin/vim'
-export EDITOR='$HOME/local/bin/vim'
+#alias vim='$HOME/local/bin/vim'
+#alias vi='$HOME/local/bin/vim'
+#export EDITOR='$HOME/local/bin/vim'
 
 # Alias
 alias ghm='cd ~/Documents/Glider/Multicurrency/GitHub/multicurrency'
@@ -122,8 +122,10 @@ M2=$M2_HOME/bin
 #export M2_HOME=/Users/dan/Desktop/apache-maven-2.2.1
 #export M2=$M2_HOME/bin
 
+export PATH=${HOME}/local/bin:${HOME}/.vim/bin:${PATH}:${M2}
+
 #### COMMON STUFF ####
 function gi() { curl http://www.gitignore.io/api/$@ ;}
 
 # Home bin's and vim-s bin
-export PATH=${HOME}/local/bin:${HOME}/.vim/bin:${PATH}:${M2}
+#export PATH=${HOME}/local/bin
