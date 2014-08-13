@@ -91,8 +91,9 @@ export EDITOR='mvim -v'
 #export EDITOR='$HOME/local/bin/vim'
 
 # Alias
-alias ghm='cd ~/Documents/Glider/Multicurrency/GitHub/multicurrency'
-alias ghfp='cd ~/Documents/Glider/Multicurrency/GitHub/FinancialPlatform'
+#alias ghm='cd ~/Documents/Glider/Multicurrency/GitHub/multicurrency'
+#alias ghfp='cd ~/Documents/Glider/Multicurrency/GitHub/FinancialPlatform'
+alias ghh='cd ~/Documents/Glider/HERA/GitHub/'
 
 # Para mac ports
 export MANPATH=/opt/local/share/man:$MANPATH
