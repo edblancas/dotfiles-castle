@@ -6,3 +6,5 @@ case `uname` in
     source $HOME/.zsh/.linux.zshrc
     ;;
 esac
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

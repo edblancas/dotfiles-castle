@@ -1,7 +1,0 @@
-set hlsearch
-set ignorecase
-set smartcase
-
-" smash escape
-inoremap jk <Esc>
-inoremap kj <Esc>

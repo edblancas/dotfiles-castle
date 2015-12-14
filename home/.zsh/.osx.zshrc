@@ -5,6 +5,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
+# Favs: robbyrussell, ys
 ZSH_THEME="robbyrussell"
 
 # Example aliases
@@ -48,7 +49,7 @@ ZSH_THEME="robbyrussell"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git common-aliases mvn vundle gitfast git-extras github sudo web-search wd brew)
+plugins=(git common-aliases mvn vundle gitfast git-extras github vim-interaction Helena Bonhamweb-search wd brew taskwarrior)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -130,3 +131,38 @@ function gi() { curl http://www.gitignore.io/api/$@ ;}
 
 # Home bin's and vim-s bin
 #export PATH=${HOME}/local/bin
+
+# Aliases for vim and kaleidoscope merge diff tool
+alias gkdiff='git config diff.tool kaleidoscope; git difftool'
+alias gvdiff='git config diff.tool mvimdiff; git difftool'
+alias gkmerge='git config merge.tool kaleidoscope; git mergetool'
+alias gvmerge='git config merge.tool mvimdiff; git mergetool'
+
+# Function for plugin vim-interaction
+# At the end of the callvim function we invoke the postCallVim function if it exists. 
+# If you're using MacVim, for example, you could define a function that brings window focus to it 
+# after the file is loaded.
+function postCallVim
+{
+  osascript -e 'tell application "MacVim" to activate'
+}
+
+### http://dougblack.io/words/zsh-vi-mode.html ###
+
+# Use vim cli mode
+bindkey '^P' up-history
+bindkey '^N' down-history
+
+# backspace and ^h working even after
+# returning from command mode
+bindkey '^?' backward-delete-char
+bindkey '^h' backward-delete-char
+
+# ctrl-w removed word backwards
+bindkey '^w' backward-kill-word
+
+# ctrl-r starts searching history backward
+bindkey '^r' history-incremental-search-backward
+
+# Kill the lag 
+export KEYTIMEOUT=1
