@@ -87,3 +87,6 @@ function gi() { curl http://www.gitignore.io/api/$@ ;}
 
 # Home bin's and vim-s bin
 export PATH=${PATH}:${HOME}/bin:${HOME}/.vim/bin
+
+# Java to execute IntelliJ IDEA
+export IDEA_JDK='/opt/jdk1.8.0_73'
