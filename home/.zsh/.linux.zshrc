@@ -90,3 +90,5 @@ export PATH=${PATH}:${HOME}/bin:${HOME}/.vim/bin
 
 # Java to execute IntelliJ IDEA
 export IDEA_JDK='/opt/jdk1.8.0_73'
+
+alias ls='ls -FGH'
