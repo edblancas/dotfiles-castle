@@ -97,3 +97,4 @@ export GRADLE_HOME='$HOME/.sdkman/candidates/gradle/current'
 
 export PATH=$PATH:$JAVA_HOME/bin:$MAVEN_HOME/bin:$GRADLE_HOME/bin
 
+alias ls='ls -FGH'

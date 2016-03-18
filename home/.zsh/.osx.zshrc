@@ -168,3 +168,5 @@ bindkey '^r' history-incremental-search-backward
 export KEYTIMEOUT=1
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+alias ls='ls -FGH'
