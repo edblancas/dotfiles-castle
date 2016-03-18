@@ -89,4 +89,11 @@ function gi() { curl http://www.gitignore.io/api/$@ ;}
 export PATH=${PATH}:${HOME}/bin:${HOME}/.vim/bin
 
 # Java to execute IntelliJ IDEA
-export IDEA_JDK='/opt/jdk1.8.0_73'
+export IDEA_JDK='/opt/jdk1.8.0_73_x64'
+
+export JAVA_HOME='/opt/jdk1.6.0_45_x64'
+export MAVEN_HOME='/opt/apache-maven-3.2.5'
+export GRADLE_HOME='$HOME/.sdkman/candidates/gradle/current'
+
+export PATH=$PATH:$JAVA_HOME/bin:$MAVEN_HOME/bin:$GRADLE_HOME/bin
+
