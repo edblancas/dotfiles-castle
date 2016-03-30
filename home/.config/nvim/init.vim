@@ -21,6 +21,7 @@ set noswapfile
 set mouse=a
 set showmatch
 set cursorline
+set relativenumber
 " Not compatible with nvim?
 "set encoding=utf-8
 set colorcolumn=100
