@@ -4,3 +4,6 @@
 [submodule "home/.tmux/tmux-powerline"]
 	path = home/.tmux/tmux-powerline
 	url = https://github.com/erikw/tmux-powerline.git
+[submodule "home/.config/nvim/bundle/Vundle.vim"]
+	path = home/.config/nvim/bundle/Vundle.vim
+	url = https://github.com/gmarik/Vundle.vim
