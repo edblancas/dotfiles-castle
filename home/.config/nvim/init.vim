@@ -84,7 +84,7 @@ map <Leader>W :w \| bd<CR>
 map <Leader>h :hide<CR>
 
 nnoremap <leader>se <C-w><C-v><C-l>:e $MYVIMRC<CR>
-nnoremap <Leader>sb <C-w><C-v><C-l>:e ~/.nvim/utils/bundles.vim<CR>
+nnoremap <Leader>sb <C-w><C-v><C-l>:e ~/.config/nvim/utils/bundles.vim<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 " Fix the & command in normal+visual modes {{{2

@@ -13,7 +13,15 @@ highlight Statement cterm=bold
 highlight MarkdownH1 cterm=bold
 highlight Error ctermfg=255
 highlight ErrorMsg ctermfg=255
+" Where the signs like ShowMarks go
+highlight SignColumn ctermbg=254
 
 " Tweak for LineNr gutter
 highlight LineNr guibg=#efefef ctermbg=254
 highlight CursorLineNr guibg=#efefef ctermbg=254
+
+" Tweaked colors for plugin ShowMarks
+highlight default ShowMarksHLl ctermfg=25 ctermbg=254 guifg=blue guibg=Gray gui=bold
+highlight default ShowMarksHLu ctermfg=97 ctermbg=254 guifg=blue guibg=Gray gui=bold
+highlight default ShowMarksHLo ctermfg=242 ctermbg=254 guifg=blue guibg=Gray gui=bold
+highlight default ShowMarksHLm ctermfg=Green ctermbg=254 guifg=blue guibg=Gray gui=bold
