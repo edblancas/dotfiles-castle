@@ -1,9 +1,9 @@
 case `uname` in
   Darwin)
-    source $HOME/.zsh/.osx.zshrc
+    source $HOME/.zsh/.zshrc.osx
     ;;
   Linux)
-    source $HOME/.zsh/.linux.zshrc
+    source $HOME/.zsh/.zshrc.linux
     ;;
 esac
 
