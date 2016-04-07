@@ -13,6 +13,7 @@ highlight Statement cterm=bold
 highlight MarkdownH1 cterm=bold
 highlight Error ctermfg=255
 highlight ErrorMsg ctermfg=255
+
 " Where the signs like ShowMarks go
 highlight SignColumn ctermbg=254
 

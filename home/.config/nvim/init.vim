@@ -46,9 +46,10 @@ set breakindentopt=shift:4,sbr
 set listchars=tab:▸–,trail:·,nbsp:¬,eol:<
 
 " Color Scheme
-colorscheme Tomorrow
-"set background=light
-"let g:solarized_visibility = "low" 
+colorscheme solarized
+set background=dark
+" For display spechial chars, when using with :set list
+let g:solarized_visibility = "low"
 
 set showtabline=2
 set guioptions-=e
@@ -178,7 +179,7 @@ nnoremap  <Plug>TransposeCharacters xp
 augroup markdown
     au!
     au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
-    autocmd FileType markdown,vim let b:loaded_delimitMate=1
+    autocmd FileType ghmarkdown,vim let b:loaded_delimitMate=1
 augroup END
 let g:vim_markdown_folding_disabled=1
 
