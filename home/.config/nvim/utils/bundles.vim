@@ -36,11 +36,13 @@ Plugin 'mileszs/ack.vim'
 " Require +lua
 " Plugin 'Shougo/neocomplete.vim'
 " Insted I just use basic autocomplete plugins
-Plugin 'AutoComplPop'
+"Plugin 'AutoComplPop'
 Plugin 'ervandew/supertab'
 Plugin 'Shougo/neosnippet'
 Plugin 'Shougo/neosnippet-snippets'
 Plugin 'honza/vim-snippets'
+" Most complex AUTOCOMPLETE
+Plugin 'Shougo/deoplete.nvim'
 
 " }}}
 

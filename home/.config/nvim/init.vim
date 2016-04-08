@@ -175,6 +175,9 @@ nnoremap  <Plug>TransposeCharacters xp
 \:call repeat#set("\<Plug>TransposeCharacters")<CR>
 
 " Plugin configuration {{{1
+" Deoplete {{{2
+let g:deoplete#enable_at_startup = 1
+
 " Markdown {{{2
 augroup markdown
     au!
