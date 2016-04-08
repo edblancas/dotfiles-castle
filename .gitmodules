@@ -1,9 +1,6 @@
 [submodule "oh-my-zsh"]
 	path = home/.oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
-[submodule "home/.tmux/tmux-powerline"]
-	path = home/.tmux/tmux-powerline
-	url = https://github.com/erikw/tmux-powerline.git
 [submodule "home/.config/nvim/bundle/Vundle.vim"]
 	path = home/.config/nvim/bundle/Vundle.vim
 	url = https://github.com/gmarik/Vundle.vim

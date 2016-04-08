@@ -54,7 +54,7 @@ let g:solarized_visibility = "low"
 set showtabline=2
 set guioptions-=e
 set laststatus=2
-set statusline=[%n]\ %f\ %m%y%r%h%w%{SL('fugitive#statusline')}\ %=%-35.(%{&fenc==\"\"?&enc:&fenc}[%{&ff}]\ [%L,%p%%]\ [%l,%c%V]\ %)%P
+set statusline=[%n]\ %f\ %m%y%r%h%w%{SL('fugitive#statusline')}\ %=%-35.(%{&fenc==\"\"?&enc:&fenc}\ [%{&ff}]\ [%L,%p%%]\ [%l,%c%V]\ %)%P
 
 " Para los logs
 au BufRead,BufNewFile *.log* set filetype=text
