@@ -4,3 +4,6 @@
 [submodule "Vundle.vim"]
 	path = home/.config/nvim/bundle/Vundle.vim
 	url = https://github.com/VundleVim/Vundle.vim
+[submodule "dircolors-solarized"]
+	path = home/.dircolors/dircolors-solarized
+	url = https://github.com/seebi/dircolors-solarized.git
