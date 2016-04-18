@@ -48,7 +48,7 @@ ZSH_THEME="ys"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git common-aliases mvn vundle gitfast git-extras github sudo web-search wd)
+plugins=(git common-aliases mvn vundle gitfast git-extras github web-search wd vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -97,3 +97,5 @@ export GRADLE_HOME='$HOME/.sdkman/candidates/gradle/current'
 
 export PATH=$PATH:$JAVA_HOME/bin:$MAVEN_HOME/bin:$GRADLE_HOME/bin
 
+# dircolors solariked ansi-dark, have bold, italics etc.
+eval `dircolors $HOME/.dircolors/dircolors-solarized/dircolors.ansi-dark` 
