@@ -79,7 +79,6 @@ map <leader>ev :vsp %%
 map <leader>et :tabe %%
 
 map <Leader><Tab> :b#<CR>
-map <Leader>n :new<CR>
 map <Leader>d :bd<CR>
 map <Leader>D :bd!<CR>
 map <Leader>W :w \| bd<CR>
@@ -173,6 +172,19 @@ endfunction
 nmap cp <Plug>TransposeCharacters
 nnoremap  <Plug>TransposeCharacters xp
 \:call repeat#set("\<Plug>TransposeCharacters")<CR>
+
+" Toggle relativenumber {{{2
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set norelativenumber
+  else
+    set relativenumber
+  endif
+endfunc
+
+" Clashes with multiple cursors
+map <Leader>nt :call NumberToggle()<CR>
+"}}}
 
 " Plugin configuration {{{1
 " Deoplete {{{2
@@ -326,7 +338,7 @@ let g:showmarks_ignore_type = "h"
 " NerdTree {{{2
 map <Leader>l :NERDTreeToggle<CR>
 map <Leader>L :NERDTree<CR>
-map <leader>nt :NERDTreeFind<CR>
+map <leader>nf :NERDTreeFind<CR>
 
 let NERDTreeShowBookmarks=1
 let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
@@ -340,7 +352,7 @@ let g:nerdtree_tabs_open_on_gui_startup=0
 " Flagship {{{2
 " Quit the defaul showing Vim GUI server name
 let g:tabprefix=''
-
+" }}}
 
 " Commands {{{1
 " From tpope .vimrc
@@ -353,3 +365,4 @@ if has("eval")
       endif
   endfunction
 endif
+" }}}
