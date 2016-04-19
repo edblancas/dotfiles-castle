@@ -169,4 +169,6 @@ export KEYTIMEOUT=1
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
-alias ls='ls -FGH'
+# Alias gls to ls for dircolors (brew install coreutils)
+eval `gdircolors $HOME/.dircolors/dircolors-solarized/dircolors.ansi-dark` 
+alias ls='gls --color -FGH'
