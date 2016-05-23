@@ -120,7 +120,7 @@ function! ExecuteMacroOverVisualRange()
 endfunction
 
 " Ctags {{{2
-silent! nnoremap <silent> TT :!~/.nvim/utils/ctags-proj.sh<CR>
+silent! nnoremap <silent> TT :!~/.config/nvim/utils/ctags-proj.sh<CR>
 
 " Smash Escape {{{2
 "inoremap <esc> <nop>
