@@ -54,7 +54,7 @@ let g:solarized_visibility = "low"
 set showtabline=2
 set guioptions-=e
 set laststatus=2
-set statusline=[%n]\ %f\ %m%y%r%h%w%{SL('fugitive#statusline')}\ %=%-35.(%{&fenc==\"\"?&enc:&fenc}\ [%{&ff}]\ [%L,%p%%]\ [%l,%c%V]\ %)%P
+set statusline=[%n]\ %f\ %m%y%r%h%w\ %=%-35.(%{&fenc==\"\"?&enc:&fenc}\ [%{&ff}]\ [%L,%p%%]\ [%l,%c%V]\ %)%P
 
 " Para los logs
 au BufRead,BufNewFile *.log* set filetype=text
@@ -349,9 +349,19 @@ let NERDTreeShowHidden=1
 let NERDTreeKeepTreeInNewTab=1
 let g:nerdtree_tabs_open_on_gui_startup=0
 
-" Flagship {{{2
+" Flagship {{{3
 " Quit the defaul showing Vim GUI server name
 let g:tabprefix=''
+
+" For when reload the vimrc reload fugitive default in flagship
+call flagship#setup()
+
+" For not acumulate autocmds
+" http://learnvimscriptthehardway.stevelosh.com/chapters/14.html
+augroup flagship_me
+    autocmd!
+    autocmd User Flags call Hoist("global", "%{&ignorecase ? '[IC]' : ''}")
+augroup END
 " }}}
 
 " Commands {{{1

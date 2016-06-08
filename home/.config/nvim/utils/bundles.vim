@@ -88,6 +88,7 @@ Plugin 'mbbill/undotree'
 
 Plugin 'derekwyatt/vim-scala'
 Plugin 'udalov/kotlin-vim'
+Plugin 'dag/vim-fish'
 " }}}
 
 call vundle#end()            
