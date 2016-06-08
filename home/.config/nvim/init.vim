@@ -187,6 +187,9 @@ map <Leader>nt :call NumberToggle()<CR>
 "}}}
 
 " Plugin configuration {{{1
+" Supertab {{{2
+let g:SuperTabDefaultCompletionType = "<c-n>"
+
 " Deoplete {{{2
 let g:deoplete#enable_at_startup = 1
 
