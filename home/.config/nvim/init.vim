@@ -356,15 +356,15 @@ let g:nerdtree_tabs_open_on_gui_startup=0
 " Quit the defaul showing Vim GUI server name
 let g:tabprefix=''
 
-" For when reload the vimrc reload fugitive default in flagship
-call flagship#setup()
-
 " For not acumulate autocmds
 " http://learnvimscriptthehardway.stevelosh.com/chapters/14.html
 augroup flagship_me
     autocmd!
-    autocmd User Flags call Hoist("global", "%{&ignorecase ? '[IC]' : ''}")
+    autocmd User Flags call Hoist("buffer", "%{&ignorecase ? '[IC]' : ''}")
 augroup END
+
+" For when reload the vimrc reload fugitive default in flagship
+call flagship#setup()
 " }}}
 
 " Commands {{{1
