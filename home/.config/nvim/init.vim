@@ -54,7 +54,7 @@ let g:solarized_visibility = "low"
 set showtabline=2
 set guioptions-=e
 set laststatus=2
-set statusline=[%n]\ %f\ %m%y%r%h%w\ %=%-35.(%{&fenc==\"\"?&enc:&fenc}\ [%{&ff}]\ [%L,%p%%]\ [%l,%c%V]\ %)%P
+set statusline=[%n]\ %f\ %m%y%r%h%w%=%-35.(%{&fenc==\"\"?&enc:&fenc}\ [%{&ff}]\ [%L,%p%%]\ [%l,%c%V]\ %)%P
 
 " Para los logs
 au BufRead,BufNewFile *.log* set filetype=text
@@ -189,6 +189,7 @@ map <Leader>nt :call NumberToggle()<CR>
 " Plugin configuration {{{1
 " Supertab {{{2
 let g:SuperTabDefaultCompletionType = "<c-n>"
+let g:SuperTabContextDefaultCompletionType = "<c-n>"
 
 " Deoplete {{{2
 let g:deoplete#enable_at_startup = 1
