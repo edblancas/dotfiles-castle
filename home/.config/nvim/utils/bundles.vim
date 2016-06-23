@@ -1,95 +1,84 @@
 " vim: fdm=marker
-filetype off                 
 
-set rtp+=~/.config/nvim/bundle/Vundle.vim
-call vundle#begin()
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall | source $MYVIMRC
+endif
 
-Plugin 'gmarik/Vundle.vim'
+call plug#begin('~/.config/nvim/plugged')
 
 " INDISPENSABLE STUFF {{{1
-"Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-sensible'
-Plugin 'tpope/vim-sleuth'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'scrooloose/nerdcommenter'
-"Plugin 'tpope/vim-vinegar'
-Plugin 'scrooloose/nerdtree'
-Plugin 'Raimondi/delimitMate'
-Plugin 'godlygeek/tabular'
-Plugin 'chrisbra/NrrwRgn'
-Plugin 'kien/ctrlp.vim'
-Plugin 'd11wtq/ctrlp_bdelete.vim'
-"Plugin 'svermeulen/vim-easyclip'
+"Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'scrooloose/nerdcommenter'
+"Plug 'tpope/vim-vinegar'
+Plug 'scrooloose/nerdtree'
+Plug 'Raimondi/delimitMate'
+Plug 'godlygeek/tabular'
+Plug 'chrisbra/NrrwRgn'
+Plug 'kien/ctrlp.vim'
+Plug 'd11wtq/ctrlp_bdelete.vim'
+"Plug 'svermeulen/vim-easyclip'
 
-Plugin 'kana/vim-textobj-user'
-Plugin 'kana/vim-textobj-indent'
-Plugin 'kana/vim-textobj-function'
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-indent'
+Plug 'kana/vim-textobj-function'
 
-Plugin 'mileszs/ack.vim'
+Plug 'mileszs/ack.vim'
 
 " }}}
 
 " AUTOCOMPLETE STUFF {{{1
 " Require +lua
-" Plugin 'Shougo/neocomplete.vim'
+" Plug 'Shougo/neocomplete.vim'
 " Insted I just use basic autocomplete plugins
-"Plugin 'AutoComplPop'
-Plugin 'ervandew/supertab'
-Plugin 'Shougo/neosnippet'
-Plugin 'Shougo/neosnippet-snippets'
-Plugin 'honza/vim-snippets'
+"Plug 'AutoComplPop'
+Plug 'ervandew/supertab'
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
+Plug 'honza/vim-snippets'
 " Most complex AUTOCOMPLETE
-Plugin 'Shougo/deoplete.nvim'
+Plug 'Shougo/deoplete.nvim'
 
 " }}}
 
 " COLOR SCHEMES {{{1
-Plugin 'AfterColors.vim'
-Plugin 'chriskempson/base16-vim'
-Plugin 'chriskempson/vim-tomorrow-theme'
-Plugin 'noahfrederick/vim-hemisu'
-Plugin 'tomasr/molokai'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'nelstrom/vim-mac-classic-theme'
+Plug 'AfterColors.vim'
+Plug 'chriskempson/base16-vim'
+Plug 'chriskempson/vim-tomorrow-theme'
+Plug 'noahfrederick/vim-hemisu'
+Plug 'tomasr/molokai'
+Plug 'altercation/vim-colors-solarized'
+Plug 'nelstrom/vim-mac-classic-theme'
 
 " }}}
 
 " MARKDOWN STUFF {{{1
-Plugin 'jtratner/vim-flavored-markdown'
-Plugin 'suan/vim-instant-markdown'
-Plugin 'tpope/vim-markdown'
-Plugin 'elzr/vim-json'
+Plug 'jtratner/vim-flavored-markdown'
+Plug 'suan/vim-instant-markdown'
+Plug 'tpope/vim-markdown'
+Plug 'elzr/vim-json'
 
 " }}}
 
 " OTHER STUFF {{{1
-Plugin 'tpope/vim-abolish'  "unix only stuff
-Plugin 'tpope/vim-eunuch'   "search and stuff
-"Plugin 'bling/vim-airline'
-Plugin 'bootleq/ShowMarks'
-Plugin 'tpope/vim-flagship'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'wikitopian/hardmode'
+Plug 'majutsushi/tagbar'
+Plug 'mbbill/undotree'
+"Plug 'myusuf3/numbers.vim'
+"Plug 'Yggdroot/indentLine'
+"Plug 'Lokaltog/vim-easymotion'
 
-Plugin 'rizzatti/funcoo.vim'
-Plugin 'rizzatti/dash.vim'
-
-Plugin 'gregsexton/gitv'
-"Plugin 'airblade/vim-gitgutter'
-
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'wikitopian/hardmode'
-Plugin 'majutsushi/tagbar'
-Plugin 'mbbill/undotree'
-"Plugin 'myusuf3/numbers.vim'
-"Plugin 'Yggdroot/indentLine'
-"Plugin 'Lokaltog/vim-easymotion'
-
-Plugin 'derekwyatt/vim-scala'
-Plugin 'udalov/kotlin-vim'
-Plugin 'dag/vim-fish'
+Plug 'derekwyatt/vim-scala'
+Plug 'udalov/kotlin-vim'
+Plug 'dag/vim-fish'
 " }}}
 
-call vundle#end()            
-filetype plugin indent on   
+call plug#end()
