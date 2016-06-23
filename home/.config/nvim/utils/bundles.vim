@@ -31,7 +31,6 @@ Plug 'kana/vim-textobj-indent'
 Plug 'kana/vim-textobj-function'
 
 Plug 'mileszs/ack.vim'
-
 " }}}
 
 " AUTOCOMPLETE STUFF {{{1
@@ -45,7 +44,6 @@ Plug 'Shougo/neosnippet-snippets'
 Plug 'honza/vim-snippets'
 " Most complex AUTOCOMPLETE
 Plug 'Shougo/deoplete.nvim'
-
 " }}}
 
 " COLOR SCHEMES {{{1
@@ -56,7 +54,6 @@ Plug 'noahfrederick/vim-hemisu'
 Plug 'tomasr/molokai'
 Plug 'altercation/vim-colors-solarized'
 Plug 'nelstrom/vim-mac-classic-theme'
-
 " }}}
 
 " MARKDOWN STUFF {{{1
@@ -64,10 +61,21 @@ Plug 'jtratner/vim-flavored-markdown'
 Plug 'suan/vim-instant-markdown'
 Plug 'tpope/vim-markdown'
 Plug 'elzr/vim-json'
-
 " }}}
 
 " OTHER STUFF {{{1
+Plug 'tpope/vim-abolish'  "unix only stuff
+Plug 'tpope/vim-eunuch'   "search and stuff
+"Plug 'bling/vim-airline'
+Plug 'bootleq/ShowMarks'
+Plug 'tpope/vim-flagship'
+
+Plug 'rizzatti/funcoo.vim'
+Plug 'rizzatti/dash.vim'
+
+Plug 'gregsexton/gitv'
+"Plug 'airblade/vim-gitgutter'
+
 Plug 'terryma/vim-multiple-cursors'
 Plug 'wikitopian/hardmode'
 Plug 'majutsushi/tagbar'
