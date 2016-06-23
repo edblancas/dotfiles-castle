@@ -2,3 +2,4 @@
 home/.oh-my-zsh
 home/.config/nvim/autoload/
 home/.config/nvim/plugged/
+.init.vim-rplugin~

@@ -43,7 +43,10 @@ Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'honza/vim-snippets'
 " Most complex AUTOCOMPLETE
-Plug 'Shougo/deoplete.nvim'
+function! DoRemote(arg)
+  UpdateRemotePlugins
+endfunction
+Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 " }}}
 
 " COLOR SCHEMES {{{1
