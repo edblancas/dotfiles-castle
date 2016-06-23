@@ -31,6 +31,9 @@ Plug 'kana/vim-textobj-indent'
 Plug 'kana/vim-textobj-function'
 
 Plug 'mileszs/ack.vim'
+
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 " }}}
 
 " AUTOCOMPLETE STUFF {{{1
