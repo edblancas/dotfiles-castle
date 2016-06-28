@@ -2,7 +2,7 @@
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="ys"
 COMPLETION_WAITING_DOTS="true"
-plugins=(git common-aliases mvn vi-mode)
+plugins=(git common-aliases mvn vi-mode zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -26,6 +26,9 @@ alias e="exit"
 alias ssh="ssh -X"
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec $SHELL -l"
+
+# Is replaced with fzf
+#bindkey '^R' history-incremental-pattern-search-backward
 
 . /usr/share/autojump/autojump.sh
 
@@ -52,6 +55,8 @@ export NVM_DIR="$HOME/.nvm"
 
 # EXPORTS
 export EDITOR='nvim';
+# For good colors in tmux
+export TERM='xterm-256color'
 
 # Enable persistent REPL history for `node`.
 export NODE_REPL_HISTORY=~/.node_history;
