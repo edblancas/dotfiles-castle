@@ -1,5 +1,16 @@
 [alias]
 
+	co = checkout
+	st = status
+	br = branch
+
+	lol = log --graph --decorate --pretty=oneline --abbrev-commit --color
+	unstage = reset HEAD
+	mylog = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short --color
+	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all --color
+	mylog2 = log --pretty=format:"[%h] %ae, %ar: %s" --stat
+	aliases = config --get-regexp '^alias\\.'
+
 	# View abbreviated SHA, description, and history graph of the latest 20 commits
 	l = log --pretty=oneline -n 20 --graph --abbrev-commit
 
@@ -82,6 +93,9 @@
 	whitespace = fix
 
 [core]
+
+	editor = nvim
+	quotepath = false
 
 	# Use custom `.gitignore` and `.gitattributes`
 	excludesfile = ~/.gitignore

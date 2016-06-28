@@ -1,11 +1,36 @@
 # PATH
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home"
+# Maven 3.2.5, last to support Java 6
+export M2_HOME="$HOME/opt/apache-maven-3.2.5"
+export M2="$M2_HOME/bin"
+# local apps installed like vim from github
+export HOME_LOCAL="$HOME/local"
+# Homebrew binaries, the paths are not exclusive of homebrew!
+export HOMEBREW="/usr/local"
+export HOMEBREW_COREUTILS="/usr/local/opt/coreutils/libexec"
+export PATH="$HOME_LOCAL/bin:$JAVA_HOME/bin:$M2:$HOMEBREW_COREUTILS/gnubin:$HOMEBREW/bin:/opt/local/bin:/opt/local/sbin:$PATH"
+export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:/opt/local/share/man:$MANPATH"
 
 # Aliases for vim and kaleidoscope merge diff tool
 alias gkdiff='git config diff.tool kaleidoscope; git difftool'
-alias gvdiff='git config diff.tool mvimdiff; git difftool'
 alias gkmerge='git config merge.tool kaleidoscope; git mergetool'
-alias gvmerge='git config merge.tool mvimdiff; git mergetool'
 
 # Alias gls to ls for dircolors (brew install coreutils)
 eval `gdircolors $HOME/.dircolors/dircolors-solarized/dircolors.ansi-dark` 
 alias ls='gls --color -FGH'
+
+# Like switchjdk 1.6|1.7|1.8
+function switchjdk() {
+  if [ $# -ne 0 ]; then
+   removeFromPath '/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/bin'
+   if [ -n "${JAVA_HOME+x}" ]; then
+    removeFromPath $JAVA_HOME
+   fi
+   export JAVA_HOME=`/usr/libexec/java_home -v $@`
+   export PATH=$JAVA_HOME/bin:$PATH
+  fi
+}
+
+function removeFromPath() {
+  export PATH=$(echo $PATH | sed -E -e "s;:$1;;" -e "s;$1:?;;")
+}
