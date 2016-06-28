@@ -3,3 +3,5 @@ home/.oh-my-zsh
 home/.config/nvim/autoload/
 home/.config/nvim/plugged/
 .init.vim-rplugin~
+# Personal info not pushed to the repo
+.personal
