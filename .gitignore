@@ -5,3 +5,5 @@ home/.config/nvim/plugged/
 .init.vim-rplugin~
 # Personal info not pushed to the repo
 .personal
+# because fisherman installs as submodules
+home/.config/fisherman

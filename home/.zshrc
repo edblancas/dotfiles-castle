@@ -6,6 +6,8 @@ plugins=(git common-aliases mvn vi-mode zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+# Override custom dir, inside custom themes or plugins
+ZSH_CUSTOM=$HOME/.config/oh-my-zsh/custom
 # Specific OS
 case `uname` in
   Darwin)
@@ -57,6 +59,8 @@ export NVM_DIR="$HOME/.nvm"
 export EDITOR='nvim';
 # For good colors in tmux
 export TERM='xterm-256color'
+# 10ms for key sequences, for zsh and vim
+export KEYTIMEOUT=1
 
 # Enable persistent REPL history for `node`.
 export NODE_REPL_HISTORY=~/.node_history;
