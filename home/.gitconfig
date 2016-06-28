@@ -180,3 +180,6 @@
 [url "git://gist.github.com/"]
 
 	insteadOf = "gist:"
+[user]
+	name = Daniel Blancas
+	email = edblancas@gmail.com

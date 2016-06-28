@@ -147,4 +147,4 @@ function tre() {
 }
 
 # SOURCE PERSONAL
-source .personal.sh
+source ~/.personal.sh
