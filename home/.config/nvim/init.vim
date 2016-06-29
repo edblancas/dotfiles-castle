@@ -34,6 +34,8 @@ set pastetoggle=<F2>
 nnoremap <silent> <F2> :set invpaste paste?<CR>
 " Yank from " to * register an viceversa
 set clipboard=unnamed
+" Yank from " to + register an viceversa, for linux
+set clipboard=unnamedplus
 
 " Otas opciones
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
