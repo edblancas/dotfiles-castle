@@ -8,17 +8,6 @@ ZSH_CUSTOM=$HOME/.config/oh-my-zsh/custom
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-# Specific OS
-case `uname` in
-  Darwin)
-    ZSHRC_FILE=$HOME/.zsh/.zshrc.osx
-    ;;
-  Linux)
-    ZSHRC_FILE=$HOME/.zsh/.zshrc.linux
-    ;;
-esac
-source $ZSHRC_FILE
-
 # EXTRA
 alias zshconfig="nvim $ZSHRC_FILE"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
@@ -28,16 +17,14 @@ alias e="exit"
 alias ssh="ssh -X"
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec $SHELL -l"
+alias update_fzf="cd ~/.fzf && git pull && ./install"
+alias update_dotfiles_submodules="cd ~/.homesick/repos/dotfiles-castle && git submodule update --init --recursive"
 
 # Is replaced with fzf
 #bindkey '^R' history-incremental-pattern-search-backward
 
-function update_fzf() {
-    cd ~/.fzf && git pull && ./install
-}
-
 function nv() {
-    if [ $# -eq 0]; then
+    if [ $# -eq 0 ]; then
         nvim .;
     else
         nvim "$@";
@@ -155,3 +142,15 @@ function tre() {
 
 # SOURCE PERSONAL
 source ~/.personal.sh
+
+# Specific OS
+case `uname` in
+  Darwin)
+    ZSHRC_FILE=$HOME/.zsh/.zshrc.osx
+    ;;
+  Linux)
+    ZSHRC_FILE=$HOME/.zsh/.zshrc.linux
+    ;;
+esac
+source $ZSHRC_FILE
+

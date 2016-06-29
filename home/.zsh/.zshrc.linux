@@ -11,3 +11,5 @@ eval `dircolors $HOME/.dircolors/dircolors-solarized/dircolors.ansi-dark`
 alias ls='ls --color -FGH'
 
 . /usr/share/autojump/autojump.sh
+
+alias update='npm install npm -g; npm update -g; update_fzf; update_dotfiles_submodules'
