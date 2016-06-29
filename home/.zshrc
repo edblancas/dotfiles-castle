@@ -3,11 +3,11 @@ export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="ys"
 COMPLETION_WAITING_DOTS="true"
 plugins=(git common-aliases mvn vi-mode zsh-syntax-highlighting)
+# Override custom dir, inside custom themes or plugins
+ZSH_CUSTOM=$HOME/.config/oh-my-zsh/custom
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-# Override custom dir, inside custom themes or plugins
-ZSH_CUSTOM=$HOME/.config/oh-my-zsh/custom
 # Specific OS
 case `uname` in
   Darwin)
