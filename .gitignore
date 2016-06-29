@@ -4,6 +4,8 @@ home/.config/nvim/autoload/
 home/.config/nvim/plugged/
 .init.vim-rplugin~
 # Personal info not pushed to the repo
-.personal
+.personal.sh
 # because fisherman installs as submodules
 home/.config/fisherman
+# because after sourcing insert user gitconfig ingo
+home/.gitconfig
