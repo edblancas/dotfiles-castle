@@ -123,3 +123,6 @@
 	default = simple
 	# Make `git push` push relevant annotated tags when pushing branches out.
 	followTags = true
+[user]
+	name = Daniel Blancas
+	email = edblancas@gmail.com

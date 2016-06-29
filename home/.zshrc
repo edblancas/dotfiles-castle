@@ -7,9 +7,20 @@ plugins=(git common-aliases mvn vi-mode zsh-syntax-highlighting)
 ZSH_CUSTOM=$HOME/.config/oh-my-zsh/custom
 source $ZSH/oh-my-zsh.sh
 
+# Specific OS PATH
+case `uname` in
+  Darwin)
+    PATH_FILE=$HOME/.zsh/.path_macOS.sh
+    ;;
+  Linux)
+    PATH_FILE=$HOME/.zsh/.path_linux.sh
+    ;;
+esac
+source $PATH_FILE
+
 # User configuration
 # EXTRA
-alias zshconfig="nvim $ZSHRC_FILE"
+alias zshconfig="nvim $HOME/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias stmux="tmux attach -t dev || tmux new -s dev"
 alias c="clear"
