@@ -19,6 +19,8 @@ alias gkmerge='git config merge.tool kaleidoscope; git mergetool'
 eval `gdircolors $HOME/.dircolors/dircolors-solarized/dircolors.ansi-dark` 
 alias ls='gls --color -FGH'
 
+[[ -s /usr/local/share/autojump/autojump.zsh ]] && source /usr/local/share/autojump/autojump.zsh
+
 # Like switchjdk 1.6|1.7|1.8
 function switchjdk() {
   if [ $# -ne 0 ]; then

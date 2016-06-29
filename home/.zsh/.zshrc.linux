@@ -9,3 +9,5 @@ export PATH="$JAVA_HOME/bin:$M2:$PATH"
 
 eval `dircolors $HOME/.dircolors/dircolors-solarized/dircolors.ansi-dark` 
 alias ls='ls --color -FGH'
+
+. /usr/share/autojump/autojump.sh

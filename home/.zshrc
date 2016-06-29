@@ -32,8 +32,6 @@ alias reload="exec $SHELL -l"
 # Is replaced with fzf
 #bindkey '^R' history-incremental-pattern-search-backward
 
-. /usr/share/autojump/autojump.sh
-
 function update_fzf() {
     cd ~/.fzf && git pull && ./install
 }
