@@ -9,3 +9,6 @@ home/.config/nvim/plugged/
 home/.config/fisherman
 # because after sourcing insert user gitconfig ingo
 home/.gitconfig
+# not commit and install via tmp
+home/.tmux/plugins/tmux-sensible/
+home/.tmux/plugins/tmux-yank/
