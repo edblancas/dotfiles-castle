@@ -93,6 +93,7 @@ Plug 'mbbill/undotree'
 Plug 'derekwyatt/vim-scala'
 Plug 'udalov/kotlin-vim'
 Plug 'dag/vim-fish'
+Plug 'leafgarland/typescript-vim'
 " }}}
 
 call plug#end()

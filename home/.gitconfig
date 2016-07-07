@@ -126,3 +126,5 @@
 [user]
 	name = Daniel Blancas
 	email = edblancas@gmail.com
+[credential]
+	helper = cache

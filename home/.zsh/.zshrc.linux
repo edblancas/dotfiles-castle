@@ -1,7 +1,8 @@
 # PATH
 export M2_HOME="/opt/apache-maven-3.2.5"
 export M2="$M2_HOME/bin"
-export JAVA_HOME="/opt/jdk1.6.0_45_x64"
+#export JAVA_HOME="/opt/jdk1.6.0_45_x64"
+export JAVA_HOME="/opt/jdk1.8.0_73_x64"
 export PATH="$JAVA_HOME/bin:$M2:$PATH"
 
 # command not found support zsh in ubuntu
@@ -13,3 +14,19 @@ alias ls='ls --color -FGH'
 . /usr/share/autojump/autojump.sh
 
 alias update='npm install npm -g; npm update -g; update_fzf; update_dotfiles_submodules'
+
+# Like switchjdk 1.6|1.7|1.8
+function switchjdk() {
+  if [ $# -ne 0 ]; then
+   removeFromPath '/opt/jdk1.6.0_45_x64/bin'
+   if [ -n "${JAVA_HOME+x}" ]; then
+    removeFromPath $JAVA_HOME
+   fi
+   export JAVA_HOME='/opt/jdk1.8.0_73_x64/'
+   export PATH=$JAVA_HOME/bin:$PATH
+  fi
+}
+
+function removeFromPath() {
+  export PATH=$(echo $PATH | sed -E -e "s;:$1;;" -e "s;$1:?;;")
+}

@@ -2,7 +2,8 @@
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="ys"
 COMPLETION_WAITING_DOTS="true"
-plugins=(git common-aliases mvn vi-mode zsh-syntax-highlighting)
+plugins=(common-aliases mvn vi-mode zsh-syntax-highlighting history-substring-search autojump npm web-search)
+# brew, brew-cask, git, gradle, jira, jsontools, osx, pip, pyenv, python, tmux (ya tengo lo que tiene), tmuxinator
 # Override custom dir, inside custom themes or plugins
 ZSH_CUSTOM=$HOME/.config/oh-my-zsh/custom
 source $ZSH/oh-my-zsh.sh
@@ -26,13 +27,15 @@ alias stmux="tmux attach -t dev || tmux new -s dev"
 alias c="clear"
 alias e="exit"
 alias ssh="ssh -X"
+alias g="git"
+alias d="docker"
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec $SHELL -l"
 alias update_fzf="cd ~/.fzf && git pull && ./install"
 alias update_dotfiles_submodules="cd ~/.homesick/repos/dotfiles-castle && git submodule update --init --recursive"
 
 # Is replaced with fzf
-#bindkey '^R' history-incremental-pattern-search-backward
+bindkey '^R' history-incremental-pattern-search-backward
 
 function nv() {
     if [ $# -eq 0 ]; then
@@ -49,7 +52,7 @@ export SDKMAN_DIR="$HOME/.sdkman"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # EXPORTS
 export EDITOR='nvim';
