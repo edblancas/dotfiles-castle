@@ -190,8 +190,8 @@ map <Leader>nt :call NumberToggle()<CR>
 
 " Plugin configuration {{{1
 " Supertab {{{2
-let g:SuperTabDefaultCompletionType = "<c-n>"
-let g:SuperTabContextDefaultCompletionType = "<c-n>"
+"let g:SuperTabDefaultCompletionType = "<c-n>"
+"let g:SuperTabContextDefaultCompletionType = "<c-n>"
 
 " Deoplete {{{2
 let g:deoplete#enable_at_startup = 1
@@ -251,51 +251,17 @@ function! AirlineThemePatch(palette)
   endif
 endfunction
 
-" neocomplete {{{2
-"let g:acp_enableAtStartup = 0
-"let g:neocomplete#enable_at_startup = 1
-"let g:neocomplete#enable_smart_case = 1
-"let g:neocomplete#enable_auto_delimiter = 1
-"let g:neocomplete#max_list = 30
-"let g:neocomplete#enable_auto_select = 1
-"
-"" Define dictionary.
-"let g:neocomplete#sources#dictionary#dictionaries = {
-"            \ 'default' : '',
-"            \ 'vimshell' : $HOME.'/.vimshell_hist',
-"            \ 'scheme' : $HOME.'/.gosh_completions'
-"            \ }
-"
-"" Define keyword.
-"if !exists('g:neocomplete#keyword_patterns')
-"    let g:neocomplete#keyword_patterns = {}
-"endif
-"let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-"
-"imap <C-k> <Plug>(neosnippet_expand_or_jump)
-"smap <C-k> <Plug>(neosnippet_expand_or_jump)
-"imap <expr> <TAB> pumvisible() ? neocomplete#close_popup() : "\<TAB>"
-"inoremap <expr> <ESC>  pumvisible() ? neocomplete#cancel_popup() : "\<ESC>"
-"inoremap <expr> <CR> delimitMate#WithinEmptyPair() ?
-"          \ "\<C-R>=delimitMate#ExpandReturn()\<CR>" :
-"          \ neocomplete#cancel_popup() . '<CR>'
-"inoremap <expr> <BS> delimitMate#WithinEmptyPair() ?
-"          \ "\<C-R>=delimitMate#BS()\<CR>" :
-"          \ neocomplete#smart_close_popup() . '<BS>'
-"
-"" Enable heavy omni completion.
-"if !exists('g:neocomplete#sources#omni#input_patterns')
-"    let g:neocomplete#sources#omni#input_patterns = {}
-"endif
-"let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-"let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
-"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-"let g:neocomplete#sources#omni#input_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
-
 " neosnippet {{{2
 let g:neosnippet#enable_snipmate_compatibility = 1
 let g:neosnippet#snippets_directory='~/.nvim/bundle/vim-snippets/snippets'
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
 
 " Tabular {{{2
 " Invoke by <leader>= alignment-character
@@ -355,7 +321,7 @@ let NERDTreeShowHidden=1
 let NERDTreeKeepTreeInNewTab=1
 let g:nerdtree_tabs_open_on_gui_startup=0
 
-" fzf.vim
+" fzf.vim {{2
 " Customize fzf colors to match your color scheme
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
@@ -381,7 +347,22 @@ endfunction
 
 autocmd! User FzfStatusLine call <SID>fzf_statusline()
 
-" Flagship {{{3
+" Tsuquyomi {{2
+" syntastic for displaying syntax and semantics errors instead of vim's
+" default quickfix window
+let g:tsuquyomi_disable_quickfix = 1
+let g:syntastic_typescript_checkers = ['tsuquyomi'] " You shouldn't use 'tsc' checker.
+
+" Syntastic {{2
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" Flagship {{{2
 " Quit the defaul showing Vim GUI server name
 let g:tabprefix=''
 
@@ -390,11 +371,11 @@ let g:tabprefix=''
 augroup flagship_me
     autocmd!
     autocmd User Flags call Hoist("buffer", "%{&ignorecase ? '[IC]' : ''}")
+    autocmd User Flags call Hoist("window", "SyntasticStatuslineFlag")
 augroup END
 
 " For when reload the vimrc reload fugitive default in flagship
 call flagship#setup()
-" }}}
 
 " Commands {{{1
 " From tpope .vimrc

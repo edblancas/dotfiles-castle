@@ -93,7 +93,10 @@ Plug 'mbbill/undotree'
 Plug 'derekwyatt/vim-scala'
 Plug 'udalov/kotlin-vim'
 Plug 'dag/vim-fish'
+Plug 'Quramy/tsuquyomi'
 Plug 'leafgarland/typescript-vim'
+Plug 'scrooloose/syntastic'
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 " }}}
 
 call plug#end()
