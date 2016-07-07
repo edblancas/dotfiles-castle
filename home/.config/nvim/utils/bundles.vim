@@ -22,7 +22,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'Raimondi/delimitMate'
 Plug 'godlygeek/tabular'
 Plug 'chrisbra/NrrwRgn'
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'd11wtq/ctrlp_bdelete.vim'
 "Plug 'svermeulen/vim-easyclip'
 

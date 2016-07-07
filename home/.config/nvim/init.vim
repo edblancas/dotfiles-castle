@@ -232,6 +232,15 @@ endif
 
 let g:ctrlp_match_window = 'max:30'
 
+" http://superuser.com/questions/649714/can-i-get-the-vim-ctrlp-plugin-to-ignore-a-specific-folder-in-one-project
+let g:ctrlp_user_command = {
+  \ 'types': {
+    \ 1: ['.git', 'cd %s && git ls-files --cached --exclude-standard --others'],
+    \ 2: ['.hg', 'hg --cwd %s locate -I .'],
+    \ },
+  \ 'fallback': 'find %s -type f'
+  \ }
+
 call ctrlp_bdelete#init()
 
 " Airline {{{2
