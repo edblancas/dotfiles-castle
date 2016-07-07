@@ -1,3 +1,5 @@
+// Settings in here override those in "Default/Preferences.sublime-settings",
+// and are overridden in turn by syntax-specific settings.
 {
 	"always_show_minimap_viewport": true,
 	"auto_complete": true,
@@ -6,10 +8,26 @@
 	"auto_find_in_selection": true,
 	"auto_indent": true,
 	"auto_match_enabled": true,
+	"binary_file_patterns":
+	[
+		"*.dds",
+		"*.eot",
+		"*.gif",
+		"*.ico",
+		"*.jar",
+		"*.jpeg",
+		"*.jpg",
+		"*.pdf",
+		"*.png",
+		"*.swf",
+		"*.tga",
+		"*.ttf",
+		"*.zip"
+	],
 	"bold_folder_labels": false,
 	"caret_style": "phase",
 	"close_windows_when_empty": true,
-	"color_scheme": "Packages/Monokai Extended/Monokai Extended.tmTheme",
+	"color_scheme": "Packages/Tomorrow Color Schemes/Tomorrow-Night.tmTheme",
 	"default_encoding": "UTF-8",
 	"default_line_ending": "system",
 	"detect_indentation": true,
@@ -35,10 +53,11 @@
 	"indent_subsequent_lines": true,
 	"line_padding_bottom": 0,
 	"line_padding_top": 0,
+	"node_path": "/home/dan/.nvm/versions/node/v6.2.2/bin/node",
 	"rulers":
 	[
-		120,
-		121
+		100,
+		101
 	],
 	"scroll_past_end": true,
 	"show_encoding": true,
@@ -47,10 +66,11 @@
 	"spell_check": false,
 	"tab_completion": false,
 	"tab_size": 4,
-	"theme": "Default.sublime-theme",
+	"theme": "SoDaReloaded Dark.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_automatic_white_space": false,
 	"trim_trailing_white_space_on_save": true,
+	"typescript_tsdk": "/home/dan/projects/timbrao-ui/node_modules/typescript/lib",
 	"use_tab_stops": true,
 	"vintage_ctrl_keys": false,
 	"vintage_start_in_command_mode": true,
