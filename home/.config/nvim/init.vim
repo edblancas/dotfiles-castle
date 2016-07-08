@@ -188,14 +188,6 @@ endfunc
 map <Leader>nt :call NumberToggle()<CR>
 "}}}
 
-" Plugin configuration {{{1
-" Supertab {{{2
-"let g:SuperTabDefaultCompletionType = "<c-n>"
-"let g:SuperTabContextDefaultCompletionType = "<c-n>"
-
-" Deoplete {{{2
-let g:deoplete#enable_at_startup = 1
-
 " Markdown {{{2
 augroup markdown
     au!
@@ -260,17 +252,11 @@ function! AirlineThemePatch(palette)
   endif
 endfunction
 
-" neosnippet {{{2
-let g:neosnippet#enable_snipmate_compatibility = 1
-let g:neosnippet#snippets_directory='~/.nvim/bundle/vim-snippets/snippets'
-" Plugin key-mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-" For conceal markers.
-if has('conceal')
-  set conceallevel=2 concealcursor=niv
-endif
+" UltiSnips {{2
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<C-k>"
+let g:UltiSnipsJumpForwardTrigger="<C-k>"
+let g:UltiSnipsJumpBackwardTrigger="<C-j>"
 
 " Tabular {{{2
 " Invoke by <leader>= alignment-character
@@ -385,6 +371,12 @@ augroup END
 
 " For when reload the vimrc reload fugitive default in flagship
 call flagship#setup()
+
+" YCM {{2
+if !exists("g:ycm_semantic_triggers")
+    let g:ycm_semantic_triggers = {}
+endif
+let g:ycm_semantic_triggers['typescript'] = ['.']
 
 " Commands {{{1
 " From tpope .vimrc

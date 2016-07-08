@@ -37,19 +37,9 @@ Plug 'junegunn/fzf.vim'
 " }}}
 
 " AUTOCOMPLETE STUFF {{{1
-" Require +lua
-" Plug 'Shougo/neocomplete.vim'
-" Insted I just use basic autocomplete plugins
-"Plug 'AutoComplPop'
-Plug 'ervandew/supertab'
-Plug 'Shougo/neosnippet'
-Plug 'Shougo/neosnippet-snippets'
+Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-" Most complex AUTOCOMPLETE
-function! DoRemote(arg)
-  UpdateRemotePlugins
-endfunction
-Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 " }}}
 
 " COLOR SCHEMES {{{1
