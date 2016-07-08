@@ -12,3 +12,7 @@ home/.gitconfig
 # not commit and install via tmp
 home/.tmux/plugins/tmux-sensible/
 home/.tmux/plugins/tmux-yank/
+
+home/.config/sublime-text-3/*
+!home/.config/sublime-text-3/Package/User/Preferences.sublime-settings
+!home/.config/sublime-text-3/Package/User/Package Control.sublime-settings  
