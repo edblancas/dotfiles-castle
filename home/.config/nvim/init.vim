@@ -390,3 +390,9 @@ if has("eval")
   endfunction
 endif
 " }}}
+
+" Semicolon & colon
+inoremap ;<cr> <end>;<cr>
+inoremap .<cr> <end>.
+inoremap ;;<cr> <down><end>;<cr>
+inoremap ..<cr> <down><end>.
