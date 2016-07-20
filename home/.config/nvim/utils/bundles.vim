@@ -16,6 +16,8 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-flagship'
+Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-tbone'
 Plug 'tpope/vim-jdaddy'
@@ -26,16 +28,10 @@ Plug 'godlygeek/tabular'
 Plug 'chrisbra/NrrwRgn'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'd11wtq/ctrlp_bdelete.vim'
-"Plug 'svermeulen/vim-easyclip'
-
+Plug 'mileszs/ack.vim'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-indent'
 Plug 'kana/vim-textobj-function'
-
-Plug 'mileszs/ack.vim'
-
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
 " }}}
 
 " AUTOCOMPLETE STUFF {{{1
@@ -48,7 +44,6 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'AfterColors.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'chriskempson/vim-tomorrow-theme'
-Plug 'noahfrederick/vim-hemisu'
 Plug 'tomasr/molokai'
 Plug 'altercation/vim-colors-solarized'
 Plug 'nelstrom/vim-mac-classic-theme'
@@ -61,34 +56,23 @@ Plug 'tpope/vim-markdown'
 Plug 'elzr/vim-json'
 " }}}
 
-" OTHER STUFF {{{1
-Plug 'tpope/vim-abolish'  "unix only stuff
-Plug 'tpope/vim-eunuch'   "search and stuff
-"Plug 'bling/vim-airline'
-Plug 'bootleq/ShowMarks'
-Plug 'tpope/vim-flagship'
-
-Plug 'rizzatti/funcoo.vim'
-Plug 'rizzatti/dash.vim'
-
-Plug 'gregsexton/gitv'
-"Plug 'airblade/vim-gitgutter'
-
-Plug 'terryma/vim-multiple-cursors'
-Plug 'wikitopian/hardmode'
-Plug 'majutsushi/tagbar'
-Plug 'mbbill/undotree'
-"Plug 'myusuf3/numbers.vim'
-"Plug 'Yggdroot/indentLine'
-"Plug 'Lokaltog/vim-easymotion'
-
-Plug 'derekwyatt/vim-scala'
-Plug 'udalov/kotlin-vim'
-Plug 'dag/vim-fish'
+" TypeScript STUFF {{1
 Plug 'Quramy/tsuquyomi'
 Plug 'leafgarland/typescript-vim'
 Plug 'scrooloose/syntastic'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+" }}
+
+" OTHER STUFF {{{1
+Plug 'tpope/vim-abolish'
+Plug 'bootleq/ShowMarks'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'majutsushi/tagbar'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+"Plug 'Yggdroot/indentLine'
+"Plug 'derekwyatt/vim-scala'
+"Plug 'udalov/kotlin-vim'
 " }}}
 
 call plug#end()
