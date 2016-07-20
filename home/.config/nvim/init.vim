@@ -35,7 +35,7 @@ nnoremap <silent> <F2> :set invpaste paste?<CR>
 " Yank from " to * register an viceversa
 set clipboard=unnamed
 " Yank from " to + register an viceversa, for linux
-set clipboard=unnamedplus
+set clipboard+=unnamedplus
 
 " Otas opciones
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
@@ -301,20 +301,6 @@ let delimitMate_expand_cr = 1
 " ShowMarks {{{2
 let g:showmarks_auto_toggle = 0
 let g:showmarks_ignore_type = "h"
-
-" NerdTree {{{2
-map <Leader>l :NERDTreeToggle<CR>
-map <Leader>L :NERDTree<CR>
-map <leader>nf :NERDTreeFind<CR>
-
-let NERDTreeShowBookmarks=1
-let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
-let NERDTreeChDirMode=2
-let NERDTreeQuitOnOpen=1
-let NERDTreeMouseMode=2
-let NERDTreeShowHidden=1
-let NERDTreeKeepTreeInNewTab=1
-let g:nerdtree_tabs_open_on_gui_startup=0
 
 " fzf.vim {{2
 " Customize fzf colors to match your color scheme

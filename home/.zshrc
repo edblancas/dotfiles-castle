@@ -89,6 +89,18 @@ export LESS_TERMCAP_md="${yellow}";
 export MANPAGER='less -X';
 
 # FUNCTIONS
+# C-Z back to nvim, vim
+fancy-ctrl-z () {
+  if [[ $#BUFFER -eq 0 ]]; then
+    BUFFER="fg"
+    zle accept-line
+  else
+    zle push-input
+    zle clear-screen
+  fi
+}
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z
 
 # Create a new directory and enter it
 function mkd() {
