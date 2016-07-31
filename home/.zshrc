@@ -20,6 +20,9 @@ case `uname` in
 esac
 source $PATH_FILE
 
+# Timbrao
+alias ssh-timbrao='ssh root@162.243.74.177'
+
 # User configuration
 # EXTRA
 alias zshconfig="nvim $HOME/.zshrc"
