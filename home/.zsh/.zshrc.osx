@@ -11,7 +11,7 @@ alias ls='gls --color -FGH'
 # Like switchjdk 1.6|1.7|1.8
 function switchjdk() {
   if [ $# -ne 0 ]; then
-   removeFromPath '/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/bin'
+   removeFromPath '$JAVA_HOME/bin'
    if [ -n "${JAVA_HOME+x}" ]; then
     removeFromPath $JAVA_HOME
    fi
