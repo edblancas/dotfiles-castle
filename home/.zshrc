@@ -2,7 +2,7 @@
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="ys"
 COMPLETION_WAITING_DOTS="true"
-plugins=(common-aliases mvn vi-mode zsh-syntax-highlighting history-substring-search autojump npm web-search docker)
+plugins=(common-aliases mvn vi-mode zsh-syntax-highlighting history-substring-search autojump npm web-search docker svn-fast-info)
 # brew, brew-cask, git, gradle, jira, jsontools, osx, pip, pyenv, python, tmux (ya tengo lo que tiene), tmuxinator
 
 # Override custom dir, inside custom themes or plugins
