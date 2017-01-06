@@ -8,6 +8,13 @@ export HOME_LOCAL="$HOME/local"
 # Homebrew binaries, the paths are not exclusive of homebrew!
 export HOMEBREW="/usr/local"
 export HOMEBREW_COREUTILS="/usr/local/opt/coreutils/libexec"
-export PATH="$JAVA_HOME/bin:$HOME_LOCAL/bin:$M2:$HOMEBREW_COREUTILS/gnubin:$HOMEBREW/bin:/opt/local/bin:/opt/local/sbin:$PATH"
+
+YARN="$HOME/.yarn/bin"
+
+export PATH="$JAVA_HOME/bin:$HOME_LOCAL/bin:$M2:$HOMEBREW_COREUTILS/gnubin:$HOMEBREW/bin:/opt/local/bin:/opt/local/sbin:$PATH:$YARN"
+
+# rustup
+export PATH="$HOME/.cargo/bin:$PATH"
+
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:/opt/local/share/man:$MANPATH"
 

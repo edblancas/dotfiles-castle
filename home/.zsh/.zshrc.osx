@@ -25,3 +25,5 @@ function removeFromPath() {
 }
 
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade --all; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update; update_fzf; update_dotfiles_submodules'
+
+#source $HOME/.zsh/.ng-completion
