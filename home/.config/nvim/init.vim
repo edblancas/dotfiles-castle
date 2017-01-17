@@ -67,7 +67,7 @@ let g:xml_syntax_folding=1
 " Override defaults {{{2
 let mapleader = ","
 nnoremap Q <Nop>
-nnoremap <space> za
+"nnoremap <space> za
 nnoremap j gj
 nnoremap k gk
 nnoremap <Leader>w :w<Enter>
@@ -377,6 +377,13 @@ if has("eval")
       endif
   endfunction
 endif
+" }}}
+
+" Vroom {{{1
+let g:vroom_map_keys = 0
+nnoremap <space>r :VroomRunTestFile<CR>
+let g:vroom_use_colors = 1
+let g:vroom_use_vimux = 1
 " }}}
 
 " Semicolon & colon

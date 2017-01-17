@@ -56,12 +56,16 @@ Plug 'tpope/vim-markdown'
 Plug 'elzr/vim-json'
 " }}}
 
-" TypeScript STUFF {{1
+" TypeScript STUFF {{{1
 Plug 'Quramy/tsuquyomi'
 Plug 'leafgarland/typescript-vim'
 Plug 'scrooloose/syntastic'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-" }}
+" }}}
+
+" Ruby STUFF {{{1
+Plug 'skalnik/vim-vroom'
+" }}}
 
 " OTHER STUFF {{{1
 Plug 'tpope/vim-abolish'
@@ -70,6 +74,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'majutsushi/tagbar'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'benmills/vimux'
 "Plug 'Yggdroot/indentLine'
 "Plug 'derekwyatt/vim-scala'
 "Plug 'udalov/kotlin-vim'
