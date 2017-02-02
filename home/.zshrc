@@ -184,5 +184,4 @@ case `uname` in
 esac
 source $ZSHRC_FILE
 
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+function gi() { curl -L -s https://www.gitignore.io/api/\$@ ;}
