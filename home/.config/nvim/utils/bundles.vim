@@ -75,6 +75,7 @@ Plug 'majutsushi/tagbar'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'benmills/vimux'
+Plug 'ekalinin/Dockerfile.vim'
 "Plug 'Yggdroot/indentLine'
 "Plug 'derekwyatt/vim-scala'
 "Plug 'udalov/kotlin-vim'
