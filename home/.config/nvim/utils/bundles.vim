@@ -65,6 +65,7 @@ Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 
 " Ruby STUFF {{{1
 Plug 'skalnik/vim-vroom'
+Plug 'tpope/vim-rails'
 " }}}
 
 " OTHER STUFF {{{1
