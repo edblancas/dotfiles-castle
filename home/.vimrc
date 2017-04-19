@@ -138,7 +138,6 @@ let g:tabprefix=''
 augroup flagship_me
     autocmd!
     autocmd User Flags call Hoist("buffer", "%{&ignorecase ? '[IC]' : ''}")
-    autocmd User Flags call Hoist("window", "SyntasticStatuslineFlag")
 augroup END
 call flagship#setup()
 " }}}
