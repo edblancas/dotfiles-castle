@@ -41,7 +41,6 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 " }}}
 
 " COLOR SCHEMES {{{1
-Plug 'AfterColors.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'tomasr/molokai'
