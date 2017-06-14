@@ -1,0 +1,96 @@
+" vim: fdm=marker
+
+let mapleader = "," 
+
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase
+set showmode
+"set history=1000 "utiliza mucho cpu
+"set relativenumber
+set scrolloff=3
+" Para siempre copiar del unnamed al * y viceversa
+set clipboard=unnamed
+
+" easy window navigation
+nnoremap <c-l> <c-w>l
+nnoremap <c-j> <c-w>j
+nnoremap <c-h> <c-w>h
+nnoremap <c-k> <c-w>k
+
+" Utils
+nnoremap <silent> <C-L> :nohlsearch<CR>
+
+" Smash escape
+inoremap jk <Esc>
+inoremap kj <Esc>
+inoremap JK <Esc>
+inoremap KJ <Esc>
+
+" File opening
+map <Leader>d :hide<CR>
+
+" Save
+nnoremap <Leader>w :w<Enter>
+
+" Force yourself to stop using arrow keys
+"noremap   <Up>     <Nop>
+"noremap   <Down>   <Nop>
+"noremap   <Left>   <Nop>
+"noremap   <Right>  <Nop>
+"inoremap  <Up>     <Nop>
+"inoremap  <Down>   <Nop>
+"inoremap  <Left>   <Nop>
+"inoremap  <Right>  <Nop>
+
+" Override defaults
+nnoremap Q <Nop>
+"nnoremap <space> za " not work
+nnoremap j gj
+nnoremap k gk
+
+" Visual line repeat
+xnoremap . :normal .<CR> 
+xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+ 
+function! ExecuteMacroOverVisualRange()
+  echo "@".getcmdline()
+  execute ":'<,'>normal @".nr2char(getchar())
+endfunction
+
+" Emulated Vim Plugins {{{1
+" Emulates vim-surround
+" Commands: ys, cs, ds, S
+set surround
+" }}}
+
+" Action IntelliJ IDEA {{{1
+"
+nnoremap <Space>t :action ChooseTestConfiguration<CR>
+nnoremap <Space>r :action ChooseRunConfiguration<CR>
+"nnoremap \ :action FindInPath<cr>
+" refactoring
+noremap <Leader>r :action Refactorings.QuickListPopupAction<CR>
+nnoremap <Leader>g :action Generate<CR>
+
+" code navigation {{{2
+"nnoremap <C-]> :action FindUsagesInFile<CR>
+nnoremap <C-]> :action GotoImplementation<CR>
+nnoremap <C-[> :action GotoSuperMethod<CR>
+" built-in navigation to navigated items works better
+nnoremap <C-o> :action Back<CR>
+nnoremap <C-i> :action Forward<CR>
+" but preserve ideavim defaults
+nnoremap g<C-o> <c-o>
+nnoremap g<C-i> <c-i>
+
+" unimpaired mappings
+nnoremap [<Space> O<Esc>j
+nnoremap ]<Space> o<Esc>k
+nnoremap [q :action PreviousOccurence<CR>
+nnoremap ]q :action NextOccurence<CR>
+nnoremap [m :action MethodUp<CR>
+nnoremap ]m :action MethodDown<CR>
+nnoremap [c :action VcsShowPrevChangeMarker<CR>
+nnoremap ]c :action VcsShowNextChangeMarker<CR>
