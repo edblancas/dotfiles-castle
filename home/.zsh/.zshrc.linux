@@ -25,3 +25,7 @@ function removeFromPath() {
 }
 
 #export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
+
+# RabbitMQ 
+# https://www.rabbitmq.com/management-cli.html
+source /etc/bash_completion.d/rabbitmqadmin
