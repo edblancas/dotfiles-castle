@@ -76,6 +76,8 @@ nnoremap Q <Nop>
 nnoremap <Leader>w :w<Enter>
 colorscheme solarized
 set background=dark
+" For transparent bg in terminal
+hi Normal guibg=NONE ctermbg=NONE
 " For display spechial chars, when using with :set list
 let g:solarized_visibility = "low"
 au BufRead,BufNewFile *.log* set filetype=text

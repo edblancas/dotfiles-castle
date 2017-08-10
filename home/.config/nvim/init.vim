@@ -52,6 +52,8 @@ colorscheme solarized
 set background=dark
 " For display spechial chars, when using with :set list
 let g:solarized_visibility = "low"
+" For transparent bg in terminal
+hi Normal guibg=NONE ctermbg=NONE
 
 set showtabline=2
 set guioptions-=e
