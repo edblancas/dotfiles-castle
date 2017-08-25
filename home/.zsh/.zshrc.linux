@@ -8,14 +8,14 @@ alias ls='ls --color -FGH'
 
 alias update='npm install npm -g; npm update -g; update_fzf; update_dotfiles_submodules'
 
-# Like switchjdk 1.6|1.7|1.8
+# Like switchjdk 1.7|1.8
 function switchjdk() {
   if [ $# -ne 0 ]; then
-   removeFromPath '/opt/jdk1.6.0_45_x64/bin'
+   removeFromPath '/opt/jdk1.7.0_80/bin'
    if [ -n "${JAVA_HOME+x}" ]; then
     removeFromPath $JAVA_HOME
    fi
-   export JAVA_HOME='/opt/jdk1.8.0_73_x64/'
+   export JAVA_HOME='/opt/jdk1.8.0_131/'
    export PATH=$JAVA_HOME/bin:$PATH
   fi
 }
@@ -24,4 +24,8 @@ function removeFromPath() {
   export PATH=$(echo $PATH | sed -E -e "s;:$1;;" -e "s;$1:?;;")
 }
 
-export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
+#export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
+
+# RabbitMQ 
+# https://www.rabbitmq.com/management-cli.html
+source /etc/bash_completion.d/rabbitmqadmin
