@@ -8,7 +8,7 @@ alias ls='gls --color -FGH'
 
 [[ -s /usr/local/share/autojump/autojump.zsh ]] && source /usr/local/share/autojump/autojump.zsh
 
-# Like switchjdk 1.6|1.7|1.8
+# Like switchjdk 1.6|1.7|1.8|9
 function switchjdk() {
   if [ $# -ne 0 ]; then
    removeFromPath '$JAVA_HOME/bin'

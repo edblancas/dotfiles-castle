@@ -48,10 +48,10 @@ set breakindentopt=shift:4,sbr
 set listchars=tab:▸–,trail:·,nbsp:¬,eol:<
 
 " Color Scheme
-colorscheme solarized
-set background=dark
+colorscheme Tomorrow-Night-Eighties
+"set background=dark
 " For display spechial chars, when using with :set list
-let g:solarized_visibility = "low"
+"let g:solarized_visibility = "low"
 " For transparent bg in terminal
 hi Normal guibg=NONE ctermbg=NONE
 
@@ -288,7 +288,10 @@ nmap <F8> :TagbarToggle<CR>
 "nmap xx <Plug>MoveMotionLinePlug
 
 " ag & ack.vim {{{2
+" Only one match per line
 "let g:ackprg = 'ag -H --nogroup --nocolor --column'
+" Report every match on the line
+let g:ackprg = 'ag --vimgrep'
 
 nnoremap K :AckWindow! "\b<C-R><C-W>\b"<CR>
 nnoremap \ :AckWindow!<Space>
