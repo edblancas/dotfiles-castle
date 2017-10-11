@@ -20,3 +20,6 @@ export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:/opt/local/share/man:$MA
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+# BIN HOME
+export PATH="~/bin:$PATH"

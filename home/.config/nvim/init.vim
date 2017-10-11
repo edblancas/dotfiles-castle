@@ -48,8 +48,8 @@ set breakindentopt=shift:4,sbr
 set listchars=tab:▸–,trail:·,nbsp:¬,eol:<
 
 " Color Scheme
-colorscheme Tomorrow-Night-Eighties
-"set background=dark
+colorscheme solarized
+set background=dark
 " For display spechial chars, when using with :set list
 "let g:solarized_visibility = "low"
 " For transparent bg in terminal
