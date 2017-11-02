@@ -16,6 +16,7 @@ Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-surround'
 Plug 'altercation/vim-colors-solarized'
+Plug 'joshdick/onedark.vim'
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sleuth'
@@ -74,7 +75,7 @@ set statusline=[%n]\ %f\ %m%y%r%h%w%=%-35.(%{&fenc==\"\"?&enc:&fenc}\ [%{&ff}]\ 
 let mapleader = ","
 nnoremap Q <Nop>
 nnoremap <Leader>w :w<Enter>
-colorscheme solarized
+colorscheme onedark
 set background=dark
 " For transparent bg in terminal
 hi Normal guibg=NONE ctermbg=NONE

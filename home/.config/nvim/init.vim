@@ -48,17 +48,18 @@ set breakindentopt=shift:4,sbr
 set listchars=tab:▸–,trail:·,nbsp:¬,eol:<
 
 " Color Scheme
-colorscheme solarized
-set background=dark
+colorscheme onedark
+"set background=dark
 " For display spechial chars, when using with :set list
 "let g:solarized_visibility = "low"
 " For transparent bg in terminal
 hi Normal guibg=NONE ctermbg=NONE
+let g:airline_theme='onedark'
 
 set showtabline=2
 set guioptions-=e
 set laststatus=2
-set statusline=[%n]\ %f\ %m%y%r%h%w%=%-35.(%{&fenc==\"\"?&enc:&fenc}\ [%{&ff}]\ [%L,%p%%]\ [%l,%c%V]\ %)%P
+"set statusline=[%n]\ %f\ %m%y%r%h%w%=%-35.(%{&fenc==\"\"?&enc:&fenc}\ [%{&ff}]\ [%L,%p%%]\ [%l,%c%V]\ %)%P
 
 " Para los logs
 au BufRead,BufNewFile *.log* set filetype=text

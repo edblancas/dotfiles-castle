@@ -46,6 +46,7 @@ Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'tomasr/molokai'
 Plug 'altercation/vim-colors-solarized'
 Plug 'nelstrom/vim-mac-classic-theme'
+Plug 'joshdick/onedark.vim'
 " }}}
 
 " MARKDOWN STUFF {{{1
@@ -79,6 +80,8 @@ Plug 'ekalinin/Dockerfile.vim'
 "Plug 'Yggdroot/indentLine'
 "Plug 'derekwyatt/vim-scala'
 "Plug 'udalov/kotlin-vim'
+Plug 'sheerun/vim-polyglot'
+Plug 'vim-airline/vim-airline'
 " }}}
 
 call plug#end()
