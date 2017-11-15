@@ -16,7 +16,6 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-flagship'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-tbone'
@@ -63,11 +62,6 @@ Plug 'Quramy/tsuquyomi'
 Plug 'leafgarland/typescript-vim'
 Plug 'scrooloose/syntastic'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-" }}}
-
-" Ruby STUFF {{{1
-Plug 'skalnik/vim-vroom'
-Plug 'tpope/vim-rails'
 " }}}
 
 " OTHER STUFF {{{1

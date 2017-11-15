@@ -279,20 +279,6 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': ['python', 'typescript'],
                            \ 'passive_filetypes': ['java'] }
-" Flagship {{{2
-" Quit the defaul showing Vim GUI server name
-let g:tabprefix=''
-
-" For not acumulate autocmds
-" http://learnvimscriptthehardway.stevelosh.com/chapters/14.html
-augroup flagship_me
-    autocmd!
-    autocmd User Flags call Hoist("buffer", "%{&ignorecase ? '[IC]' : ''}")
-    autocmd User Flags call Hoist("window", "SyntasticStatuslineFlag")
-augroup END
-
-" For when reload the vimrc reload fugitive default in flagship
-"call flagship#setup()
 
 " YCM {{2
 if !exists("g:ycm_semantic_triggers")
@@ -311,21 +297,6 @@ if has("eval")
       endif
   endfunction
 endif
-" }}}
-
-" Vroom {{{1
-let g:vroom_map_keys = 0
-nnoremap <space>r :VroomRunTestFile<CR>
-let g:vroom_use_colors = 1
-let g:vroom_use_vimux = 1
-" }}}
-
-" Vimux {{{1
-map <Leader>vp :VimuxPromptCommand<CR>
-map <Leader>vl :VimuxRunLastCommand<CR>
-map <Leader>vi :VimuxInspectRunner<CR>
-map <Leader>vi :VimuxInspectRunner<CR>
-map <Leader>vz :VimuxZoomRunner<CR>
 " }}}
 
 " Semicolon & colon
