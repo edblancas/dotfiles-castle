@@ -245,16 +245,6 @@ endfunction
 " Tagbar {{{2
 nmap <F8> :TagbarToggle<CR>
 
-" EasyClip {{{2
-"nmap <silent> gs <plug>SubstituteOverMotionMap
-"nmap gss <plug>SubstituteLine
-"xmap gs p
-"
-"let g:EasyClipUseCutDefaults = 0
-"nmap x <Plug>MoveMotionPlug
-"xmap x <Plug>MoveMotionXPlug
-"nmap xx <Plug>MoveMotionLinePlug
-
 " ag & ack.vim {{{2
 " Only one match per line
 "let g:ackprg = 'ag -H --nogroup --nocolor --column'
@@ -265,41 +255,12 @@ nnoremap K :AckWindow! "\b<C-R><C-W>\b"<CR>
 nnoremap \ :AckWindow!<Space>
 nnoremap <Leader>a :Ack<Space>
 
-" UndoTree {{{2
-nnoremap <F5> :UndotreeToggle<cr>
-
 " delimitMate {{{2
 let delimitMate_expand_cr = 1
 
 " ShowMarks {{{2
 let g:showmarks_auto_toggle = 0
 let g:showmarks_ignore_type = "h"
-
-" fzf.vim {{2
-" Customize fzf colors to match your color scheme
-let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
-
-function! s:fzf_statusline()
-  " Override statusline as you like
-  highlight fzf1 ctermfg=0 ctermbg=11
-  highlight fzf2 ctermfg=0 ctermbg=11
-  highlight fzf3 ctermfg=0 ctermbg=11
-  setlocal statusline=%#fzf1#\ >\ %#fzf2#fz%#fzf3#f
-endfunction
-
-autocmd! User FzfStatusLine call <SID>fzf_statusline()
 
 " Tsuquyomi {{2
 " syntastic for displaying syntax and semantics errors instead of vim's

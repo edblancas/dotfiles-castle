@@ -75,12 +75,7 @@ Plug 'tpope/vim-abolish'
 Plug 'bootleq/ShowMarks'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'majutsushi/tagbar'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
 Plug 'ekalinin/Dockerfile.vim'
-"Plug 'Yggdroot/indentLine'
-"Plug 'derekwyatt/vim-scala'
-"Plug 'udalov/kotlin-vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-airline/vim-airline'
 " }}}
