@@ -47,7 +47,6 @@ Plug 'tomasr/molokai'
 Plug 'altercation/vim-colors-solarized'
 Plug 'nelstrom/vim-mac-classic-theme'
 Plug 'joshdick/onedark.vim'
-Plug 'vim-airline/vim-airline-themes'
 " }}}
 
 " MARKDOWN STUFF {{{1
@@ -72,6 +71,7 @@ Plug 'majutsushi/tagbar'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 " }}}
 
 " TMUX {{{1

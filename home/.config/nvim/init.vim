@@ -173,8 +173,15 @@ endfunc
 
 " Clashes with multiple cursors
 map <Leader>nt :call NumberToggle()<CR>
-"}}}
 
+" Semicolon & colon {{{2
+inoremap ;<cr> <end>;<cr>
+inoremap .<cr> <end>.
+inoremap ;;<cr> <down><end>;<cr>
+inoremap ..<cr> <down><end>.
+
+
+" Plugins {{{1
 " Markdown {{{2
 augroup markdown
     au!
@@ -286,6 +293,24 @@ if !exists("g:ycm_semantic_triggers")
 endif
 let g:ycm_semantic_triggers['typescript'] = ['.']
 
+" Airline {{{2
+let g:airline_powerline_fonts = 1
+let g:airline_section_warning=''
+"let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#fnamemod = ':t'
+"let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline_inactive_collapse=0
+
+let g:airline_theme_patch_func = 'AirlineThemePatch'
+function! AirlineThemePatch(palette)
+  if g:airline_theme == 'tomorrow'
+    for colors in values(a:palette.inactive)
+      let colors[2] = 102
+    endfor
+  endif
+endfunction
+
+
 " Commands {{{1
 " From tpope .vimrc
 if has("eval")
@@ -297,10 +322,3 @@ if has("eval")
       endif
   endfunction
 endif
-" }}}
-
-" Semicolon & colon
-inoremap ;<cr> <end>;<cr>
-inoremap .<cr> <end>.
-inoremap ;;<cr> <down><end>;<cr>
-inoremap ..<cr> <down><end>.
