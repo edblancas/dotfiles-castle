@@ -222,23 +222,6 @@ let g:ctrlp_user_command = {
 
 call ctrlp_bdelete#init()
 
-" Airline {{{2
-let g:airline_powerline_fonts = 1
-let g:airline_section_warning=''
-"let g:airline#extensions#tabline#enabled = 1
-"let g:airline#extensions#tabline#fnamemod = ':t'
-"let g:airline#extensions#tabline#buffer_nr_show = 1
-let g:airline_inactive_collapse=0
-
-let g:airline_theme_patch_func = 'AirlineThemePatch'
-function! AirlineThemePatch(palette)
-  if g:airline_theme == 'tomorrow'
-    for colors in values(a:palette.inactive)
-      let colors[2] = 102
-    endfor
-  endif
-endfunction
-
 " UltiSnips {{2
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<C-k>"
