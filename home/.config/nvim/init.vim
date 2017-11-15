@@ -48,13 +48,11 @@ set breakindentopt=shift:4,sbr
 set listchars=tab:▸–,trail:·,nbsp:¬,eol:<
 
 " Color Scheme
-colorscheme onedark
-"set background=dark
+colorscheme solarized
+set background=dark
 " For display spechial chars, when using with :set list
-"let g:solarized_visibility = "low"
-" For transparent bg in terminal
-hi Normal guibg=NONE ctermbg=NONE
-let g:airline_theme='onedark'
+let g:solarized_visibility = "low"
+let g:airline_theme='solarized'
 
 set showtabline=2
 set guioptions-=e
@@ -128,11 +126,7 @@ endfunction
 silent! nnoremap <silent> TT :!~/.config/nvim/utils/ctags-proj.sh<CR>
 
 " Smash Escape {{{2
-"inoremap <esc> <nop>
-inoremap jk <Esc>
-inoremap kj <Esc>
-inoremap JK <Esc>
-inoremap KJ <Esc>
+call arpeggio#map('i', '', 0, 'jk', '<Esc>')
 
 " Custom mappings and functions {{{2
 " Delete a word to the right
@@ -146,16 +140,6 @@ function! MeGetFilePath()
     let @+ = expand("%:p")
     let @* = expand("%:p")
 endfunction
-
-" Force yourself to stop using arrow keys
-noremap   <Up>     <Nop>
-noremap   <Down>   <Nop>
-noremap   <Left>   <Nop>
-noremap   <Right>  <Nop>
-inoremap  <Up>     <Nop>
-inoremap  <Down>   <Nop>
-inoremap  <Left>   <Nop>
-inoremap  <Right>  <Nop>
 
 " Quit <F1> for showing the help.txt
 noremap <F1>    <Nop>
@@ -364,7 +348,7 @@ augroup flagship_me
 augroup END
 
 " For when reload the vimrc reload fugitive default in flagship
-call flagship#setup()
+"call flagship#setup()
 
 " YCM {{2
 if !exists("g:ycm_semantic_triggers")
@@ -390,6 +374,14 @@ let g:vroom_map_keys = 0
 nnoremap <space>r :VroomRunTestFile<CR>
 let g:vroom_use_colors = 1
 let g:vroom_use_vimux = 1
+" }}}
+
+" Vimux {{{1
+map <Leader>vp :VimuxPromptCommand<CR>
+map <Leader>vl :VimuxRunLastCommand<CR>
+map <Leader>vi :VimuxInspectRunner<CR>
+map <Leader>vi :VimuxInspectRunner<CR>
+map <Leader>vz :VimuxZoomRunner<CR>
 " }}}
 
 " Semicolon & colon

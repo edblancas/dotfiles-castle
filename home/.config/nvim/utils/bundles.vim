@@ -32,6 +32,7 @@ Plug 'mileszs/ack.vim'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-indent'
 Plug 'kana/vim-textobj-function'
+Plug 'kana/vim-arpeggio'
 " }}}
 
 " AUTOCOMPLETE STUFF {{{1
@@ -47,6 +48,7 @@ Plug 'tomasr/molokai'
 Plug 'altercation/vim-colors-solarized'
 Plug 'nelstrom/vim-mac-classic-theme'
 Plug 'joshdick/onedark.vim'
+Plug 'vim-airline/vim-airline-themes'
 " }}}
 
 " MARKDOWN STUFF {{{1
@@ -75,13 +77,17 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'majutsushi/tagbar'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'benmills/vimux'
 Plug 'ekalinin/Dockerfile.vim'
 "Plug 'Yggdroot/indentLine'
 "Plug 'derekwyatt/vim-scala'
 "Plug 'udalov/kotlin-vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-airline/vim-airline'
+" }}}
+
+" TMUX {{{1
+Plug 'benmills/vimux'
+Plug 'christoomey/vim-tmux-navigator'
 " }}}
 
 call plug#end()

@@ -17,6 +17,8 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-surround'
 Plug 'altercation/vim-colors-solarized'
 Plug 'joshdick/onedark.vim'
+Plug 'KeitaNakamura/neodark.vim'
+Plug 'rakr/vim-one'
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sleuth'
@@ -75,10 +77,8 @@ set statusline=[%n]\ %f\ %m%y%r%h%w%=%-35.(%{&fenc==\"\"?&enc:&fenc}\ [%{&ff}]\ 
 let mapleader = ","
 nnoremap Q <Nop>
 nnoremap <Leader>w :w<Enter>
-colorscheme onedark
+colorscheme solarized
 set background=dark
-" For transparent bg in terminal
-hi Normal guibg=NONE ctermbg=NONE
 " For display spechial chars, when using with :set list
 let g:solarized_visibility = "low"
 au BufRead,BufNewFile *.log* set filetype=text
