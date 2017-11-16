@@ -180,6 +180,12 @@ inoremap .<cr> <end>.
 inoremap ;;<cr> <down><end>;<cr>
 inoremap ..<cr> <down><end>.
 
+" Vimux {{{2
+map <Leader>vp :VimuxPromptCommand<CR>
+map <Leader>vl :VimuxRunLastCommand<CR>
+map <Leader>vi :VimuxInspectRunner<CR>
+map <Leader>vz :VimuxZoomRunner<CR>
+
 
 " Plugins {{{1
 " Markdown {{{2
