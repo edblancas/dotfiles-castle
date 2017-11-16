@@ -15,8 +15,8 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-surround'
+
 Plug 'altercation/vim-colors-solarized'
-Plug 'joshdick/onedark.vim'
 Plug 'KeitaNakamura/neodark.vim'
 Plug 'rakr/vim-one'
 
@@ -30,6 +30,8 @@ Plug 'jtratner/vim-flavored-markdown'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-tbone'
 Plug 'benmills/vimux'
+Plug 'sheerun/vim-polyglot'
+Plug 'kana/vim-arpeggio'
 
 call plug#end()
 "}}}
@@ -55,18 +57,18 @@ set mouse=a
 set showmatch
 set cursorline
 set relativenumber
-set colorcolumn=120
+set colorcolumn=100
 set vb t_vb=
 set scrolloff=3
 set clipboard=unnamed
 set clipboard+=unnamedplus
 set pastetoggle=<F2>
 nnoremap <silent> <F2> :set invpaste paste?<CR>
-let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+let &t_SI="\<Esc>]50;CursorShape=1\x7"
+let &t_EI="\<Esc>]50;CursorShape=0\x7"
 set shell=zsh
 set t_Co=256
-let &showbreak = "↳"
+let &showbreak="↳"
 set breakindent
 set breakindentopt=shift:4,sbr
 set listchars=tab:▸–,trail:·,nbsp:¬,eol:<
@@ -80,7 +82,7 @@ nnoremap <Leader>w :w<Enter>
 colorscheme solarized
 set background=dark
 " For display spechial chars, when using with :set list
-let g:solarized_visibility = "low"
+let g:solarized_visibility="low"
 au BufRead,BufNewFile *.log* set filetype=text
 let g:xml_syntax_folding=1
 " }}}
@@ -96,14 +98,10 @@ endfunction
 " }}}
 
 " Smash Escape {{{1
-inoremap jk <Esc>
-inoremap kj <Esc>
-inoremap JK <Esc>
-inoremap KJ <Esc>
+call arpeggio#map('i', '', 0, 'jk', '<Esc>')
 " }}}
 
 " Custom mappings and functions {{{1
-imap <C-d> <C-o>diw
 function! MeGetFilePath()
     let @+ = expand("%:p")
     let @* = expand("%:p")
