@@ -24,8 +24,8 @@ alias ssh-timbrao='ssh root@162.243.74.177'
 
 # User configuration
 # EXTRA
-alias zshconfig="nvim $HOME/.zshrc"
-alias ohmyzsh="nvim ~/.oh-my-zsh"
+alias zshconfig="vim $HOME/.zshrc"
+alias ohmyzsh="vim ~/.oh-my-zsh"
 alias stmux="tmux attach -t dev || tmux new -s dev"
 alias c="clear"
 alias e="exit"
@@ -56,10 +56,12 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# Override system vi
+alias vi='vim'
 
 # EXPORTS
-export EDITOR='nvim';
+export EDITOR='vim';
+export VISUAL='vim';
 # For good colors in tmux
 export TERM='xterm-256color'
 # 10ms for key sequences, for zsh and vim

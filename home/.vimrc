@@ -29,9 +29,11 @@ Plug 'tpope/vim-abolish'
 Plug 'jtratner/vim-flavored-markdown'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-tbone'
-Plug 'benmills/vimux'
 Plug 'sheerun/vim-polyglot'
 Plug 'kana/vim-arpeggio'
+Plug 'benmills/vimux'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'tmux-plugins/vim-tmux'
 
 call plug#end()
 "}}}

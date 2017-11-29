@@ -77,6 +77,7 @@ Plug 'vim-airline/vim-airline-themes'
 " TMUX {{{1
 Plug 'benmills/vimux'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'tmux-plugins/vim-tmux'
 " }}}
 
 call plug#end()
