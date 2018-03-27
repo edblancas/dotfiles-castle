@@ -1,6 +1,6 @@
 # OH-MY-ZSH
 export ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="ys"
+ZSH_THEME="robbyrussell"
 COMPLETION_WAITING_DOTS="true"
 plugins=(common-aliases vi-mode zsh-syntax-highlighting history-substring-search autojump web-search docker git-flow mvn brew-cask docker-compose)
 
@@ -187,3 +187,22 @@ esac
 source $ZSHRC_FILE
 
 function gi() { curl -L -s https://www.gitignore.io/api/\$@ ;}
+
+# ZSH completitions from brew
+#==> Caveats
+#To activate these completions, add the following to your .zshrc:
+#
+#  fpath=(/usr/local/share/zsh-completions $fpath)
+#
+#You may also need to force rebuild `zcompdump`:
+#
+#  rm -f ~/.zcompdump; compinit
+#
+#Additionally, if you receive "zsh compinit: insecure directories" warnings when attempting
+#to load these completions, you may need to run this:
+#
+#  chmod go-w '/usr/local/share'
+fpath=(/usr/local/share/zsh-completions $fpath)
+
+# MVN alias
+alias mvna='mvn clean install -DskipTests -Djacoco.skip=true -Dcheckstyle.skip -DskipITs -Dfindbugs.skip=true'

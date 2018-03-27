@@ -23,3 +23,6 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # BIN HOME
 export PATH="$HOME/bin:$PATH"
+
+export GOPATH="$HOME/opt/go"
+export PATH="$PATH:$GOPATH/bin:$HOME/.cargo/bin"
