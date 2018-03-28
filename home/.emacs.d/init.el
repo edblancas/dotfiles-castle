@@ -38,3 +38,9 @@
 
 (use-package evil
   :demand)
+
+(use-package ensime
+  :ensure t
+  :pin melpa-stable)
+
+(add-to-list 'exec-path "/usr/local/bin")
