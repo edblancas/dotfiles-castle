@@ -72,6 +72,7 @@ nnoremap Q <Nop>
 nnoremap j gj
 nnoremap k gk
 nnoremap <Leader>w :w<Enter>
+nnoremap <Leader><space> :nohlsearch<CR>
 
 " File opening {{{2
 cnoremap <expr> %%  getcmdtype() == ':' ? fnameescape(expand('%:h')).'/' : '%%'

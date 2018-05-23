@@ -35,6 +35,8 @@ Plug 'benmills/vimux'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tmux-plugins/vim-tmux'
 
+Plug 'junegunn/vim-easy-align'
+
 call plug#end()
 "}}}
 
@@ -143,4 +145,9 @@ augroup flagship_me
     autocmd User Flags call Hoist("buffer", "%{&ignorecase ? '[IC]' : ''}")
 augroup END
 call flagship#setup()
+" }}}
+
+" File mappings {{{1
+" Align GitHub-flavored Markdown tables
+au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 " }}}

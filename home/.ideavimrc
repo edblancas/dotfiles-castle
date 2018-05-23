@@ -20,7 +20,7 @@ nnoremap <c-h> <c-w>h
 nnoremap <c-k> <c-w>k
 
 " Utils
-nnoremap <silent> <C-L> :nohlsearch<CR>
+nnoremap <Leader><space> :nohlsearch<CR>
 
 " Smash escape
 inoremap jk <Esc>
@@ -51,9 +51,9 @@ nnoremap j gj
 nnoremap k gk
 
 " Visual line repeat
-xnoremap . :normal .<CR> 
+xnoremap . :normal .<CR>
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
- 
+
 function! ExecuteMacroOverVisualRange()
   echo "@".getcmdline()
   execute ":'<,'>normal @".nr2char(getchar())
