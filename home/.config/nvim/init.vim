@@ -47,12 +47,28 @@ set breakindent
 set breakindentopt=shift:4,sbr
 set listchars=tab:▸–,trail:·,nbsp:¬,eol:<
 
+" True Colour
+let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+set termguicolors
+
 " Color Scheme
-colorscheme solarized
 set background=dark
+
+let g:solarized_visibility="low"
+let g:solarized_termtrans=1
+"colorscheme solarized
+
+let g:solarized_term_italics=1
+"colorscheme solarized8
+
+let g:gruvbox_italic=1
+let g:gruvbox_contrast_dark='hard'
+colorscheme gruvbox
+
 " For display spechial chars, when using with :set list
-let g:solarized_visibility = "low"
-let g:airline_theme='solarized'
+let g:airline_theme='gruvbox'
+"let g:airline_theme='solarized'
 
 set showtabline=2
 set guioptions-=e
@@ -275,6 +291,11 @@ let delimitMate_expand_cr = 1
 " ShowMarks {{{2
 let g:showmarks_auto_toggle = 0
 let g:showmarks_ignore_type = "h"
+highlight SignColumn ctermbg=0
+highlight default ShowMarksHLl ctermfg=DarkGray ctermbg=0
+highlight default ShowMarksHLu ctermfg=DarkGray ctermbg=0
+highlight default ShowMarksHLo ctermfg=Gray ctermbg=0
+highlight default ShowMarksHLm ctermfg=DarkGray ctermbg=0
 
 " Tsuquyomi {{2
 " syntastic for displaying syntax and semantics errors instead of vim's

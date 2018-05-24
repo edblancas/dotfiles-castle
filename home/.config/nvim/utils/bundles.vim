@@ -47,6 +47,8 @@ Plug 'tomasr/molokai'
 Plug 'altercation/vim-colors-solarized'
 Plug 'nelstrom/vim-mac-classic-theme'
 Plug 'joshdick/onedark.vim'
+Plug 'morhetz/gruvbox'
+Plug 'lifepillar/vim-solarized8'
 " }}}
 
 " MARKDOWN STUFF {{{1

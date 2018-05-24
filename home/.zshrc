@@ -1,7 +1,6 @@
 # OH-MY-ZSH
 export ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="robbyrussell"
-COMPLETION_WAITING_DOTS="true"
+ZSH_THEME="spaceship"
 plugins=(common-aliases vi-mode zsh-syntax-highlighting history-substring-search autojump web-search docker git-flow mvn brew-cask docker-compose)
 
 # Override custom dir, inside custom themes or plugins
@@ -62,8 +61,10 @@ alias vi='vim'
 # EXPORTS
 export EDITOR='vim';
 export VISUAL='vim';
-# For good colors in tmux
-export TERM='xterm-256color'
+# For good colors in tmux, TRUE COLOUR
+export TERM='xterm-256color-italic'
+alias ssh='TERM=xterm-256color ssh'
+
 # 10ms for key sequences, for zsh and vim
 export KEYTIMEOUT=1
 
@@ -186,7 +187,7 @@ case `uname` in
 esac
 source $ZSHRC_FILE
 
-function gi() { curl -L -s https://www.gitignore.io/api/\$@ ;}
+function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 
 # ZSH completitions from brew
 #==> Caveats

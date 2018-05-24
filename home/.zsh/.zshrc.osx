@@ -24,6 +24,6 @@ function removeFromPath() {
   export PATH=$(echo $PATH | sed -E -e "s;:$1;;" -e "s;$1:?;;")
 }
 
-alias update='sudo softwareupdate -i -a; brew update; brew upgrade --all; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update; update_fzf; update_dotfiles_submodules'
+alias update='sudo softwareupdate -i -a; brew update; brew upgrade --all; brew cleanup; update_dotfiles_submodules'
 
 #source $HOME/.zsh/.ng-completion
