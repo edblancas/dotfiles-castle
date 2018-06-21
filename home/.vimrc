@@ -19,6 +19,8 @@ Plug 'tpope/vim-surround'
 Plug 'altercation/vim-colors-solarized'
 Plug 'KeitaNakamura/neodark.vim'
 Plug 'rakr/vim-one'
+Plug 'morhetz/gruvbox'
+Plug 'lifepillar/vim-solarized8'
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sleuth'
@@ -83,12 +85,29 @@ set statusline=[%n]\ %f\ %m%y%r%h%w%=%-35.(%{&fenc==\"\"?&enc:&fenc}\ [%{&ff}]\ 
 let mapleader = ","
 nnoremap Q <Nop>
 nnoremap <Leader>w :w<Enter>
-colorscheme solarized
-set background=dark
 " For display spechial chars, when using with :set list
 let g:solarized_visibility="low"
 au BufRead,BufNewFile *.log* set filetype=text
 let g:xml_syntax_folding=1
+
+" True Colour
+let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+set termguicolors
+
+" Color Scheme
+set background=dark
+
+let g:solarized_visibility="low"
+let g:solarized_termtrans=1
+"colorscheme solarized
+
+let g:solarized_term_italics=1
+"colorscheme solarized8
+
+let g:gruvbox_italic=1
+let g:gruvbox_contrast_dark='hard'
+colorscheme gruvbox
 " }}}
 
 " Visual line repeat {{{1

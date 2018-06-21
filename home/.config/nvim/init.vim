@@ -297,24 +297,6 @@ highlight default ShowMarksHLu ctermfg=DarkGray ctermbg=0
 highlight default ShowMarksHLo ctermfg=Gray ctermbg=0
 highlight default ShowMarksHLm ctermfg=DarkGray ctermbg=0
 
-" Tsuquyomi {{2
-" syntastic for displaying syntax and semantics errors instead of vim's
-" default quickfix window
-let g:tsuquyomi_disable_quickfix = 1
-let g:syntastic_typescript_checkers = ['tsuquyomi'] " You shouldn't use 'tsc' checker.
-
-" Syntastic {{2
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_mode_map = { 'mode': 'active',
-                           \ 'active_filetypes': ['python', 'typescript'],
-                           \ 'passive_filetypes': ['java'] }
-
 " YCM {{2
 if !exists("g:ycm_semantic_triggers")
     let g:ycm_semantic_triggers = {}
@@ -338,6 +320,27 @@ function! AirlineThemePatch(palette)
   endif
 endfunction
 
+" Javascript syntax {{{1
+let g:jsx_ext_required=0
+let g:mta_filetypes = {
+  \ 'javascript.jsx' : 1,
+  \}
+
+" EditorConfig {{{1
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']
+
+" Vim Multiple Cursors {{{1
+let g:multi_cursor_use_default_mapping=0
+
+" Default mapping
+let g:multi_cursor_start_word_key      = '<C-g>'
+let g:multi_cursor_select_all_word_key = '<C-A-g>'
+let g:multi_cursor_start_key           = 'g<C-g>'
+let g:multi_cursor_select_all_key      = 'g<C-A-g>'
+let g:multi_cursor_next_key            = '<C-g>'
+let g:multi_cursor_prev_key            = '<A-S-g>'
+let g:multi_cursor_skip_key            = '<C-S-g>'
+let g:multi_cursor_quit_key            = '<Esc>'
 
 " Commands {{{1
 " From tpope .vimrc

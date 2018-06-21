@@ -58,11 +58,22 @@ Plug 'tpope/vim-markdown'
 Plug 'elzr/vim-json'
 " }}}
 
-" TypeScript STUFF {{{1
-Plug 'Quramy/tsuquyomi'
-Plug 'leafgarland/typescript-vim'
-Plug 'scrooloose/syntastic'
-Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+" IDE STUFF {{{1
+"Plug 'w0rp/ale'
+Plug 'editorconfig/editorconfig-vim'
+" }}}
+
+" Javascript {{{1
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+" post install (yarn install | npm install) then load plugin only for editing supported files
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
+Plug 'valloric/MatchTagAlways'
+" Currently, es6 version of snippets is available in es6 branch only
+Plug 'letientai299/vim-react-snippets', { 'branch': 'es6' }
+Plug 'mattn/emmet-vim'
 " }}}
 
 " OTHER STUFF {{{1
@@ -71,7 +82,7 @@ Plug 'bootleq/ShowMarks'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'majutsushi/tagbar'
 Plug 'ekalinin/Dockerfile.vim'
-Plug 'sheerun/vim-polyglot'
+"Plug 'sheerun/vim-polyglot'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " }}}
@@ -80,6 +91,11 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'benmills/vimux'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tmux-plugins/vim-tmux'
+" }}}
+
+" SUBLIME LIKE {{{1
+Plug 'terryma/vim-multiple-cursors'
+Plug 'airblade/vim-gitgutter'
 " }}}
 
 call plug#end()
