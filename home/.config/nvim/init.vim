@@ -29,6 +29,7 @@ set colorcolumn=100
 " set textwidth=100
 set vb t_vb=
 set scrolloff=3
+set nofoldenable    " disable folding
 
 set pastetoggle=<F2>
 nnoremap <silent> <F2> :set invpaste paste?<CR>
@@ -55,6 +56,9 @@ set termguicolors
 " Color Scheme
 set background=dark
 
+" https://github.com/airblade/vim-gitgutter/#getting-started
+set updatetime=100
+
 let g:solarized_visibility="low"
 let g:solarized_termtrans=1
 "colorscheme solarized
@@ -64,11 +68,19 @@ let g:solarized_term_italics=1
 
 let g:gruvbox_italic=1
 let g:gruvbox_contrast_dark='hard'
-colorscheme gruvbox
+"colorscheme gruvbox
+
+let g:one_allow_italics=1
+"colorscheme one
+
+let g:onedark_terminal_italics=1
+colorscheme onedark
 
 " For display spechial chars, when using with :set list
-let g:airline_theme='gruvbox'
+"let g:airline_theme='gruvbox'
 "let g:airline_theme='solarized'
+"let g:airline_theme='one'
+let g:airline_theme='onedark'
 
 set showtabline=2
 set guioptions-=e
@@ -331,6 +343,13 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
 " Vim Multiple Cursors {{{1
 let g:multi_cursor_use_default_mapping=0
+
+" Prettier {{{1
+nmap <Leader>i <Plug>(PrettierAsync)
+
+" Emmet {{{1
+let g:user_emmet_leader_key='<C-e>'
+
 
 " Default mapping
 let g:multi_cursor_start_word_key      = '<C-g>'

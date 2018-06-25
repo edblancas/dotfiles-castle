@@ -1,11 +1,16 @@
 # OH-MY-ZSH
 export ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="spaceship"
+ZSH_THEME=""
 plugins=(common-aliases vi-mode zsh-syntax-highlighting history-substring-search autojump web-search docker git-flow brew-cask docker-compose)
 
 # Override custom dir, inside custom themes or plugins
 ZSH_CUSTOM=$HOME/.config/oh-my-zsh/custom
 source $ZSH/oh-my-zsh.sh
+
+# sindresorhus/pure
+fpath=( "$HOME/.zfunctions" $fpath )
+autoload -U promptinit; promptinit
+prompt pure
 
 # Specific OS PATH
 case `uname` in

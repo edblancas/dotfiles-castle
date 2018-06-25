@@ -10,3 +10,6 @@
 [submodule "home/.tmux/plugins/tpm"]
 	path = home/.tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
+[submodule "home/.zfunctions/pure"]
+	path = home/.zfunctions/pure
+	url = https://github.com/sindresorhus/pure

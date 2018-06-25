@@ -47,8 +47,10 @@ Plug 'tomasr/molokai'
 Plug 'altercation/vim-colors-solarized'
 Plug 'nelstrom/vim-mac-classic-theme'
 Plug 'joshdick/onedark.vim'
+Plug 'rakr/vim-one'
 Plug 'morhetz/gruvbox'
 Plug 'lifepillar/vim-solarized8'
+Plug 'connorholyday/vim-snazzy'
 " }}}
 
 " MARKDOWN STUFF {{{1
@@ -59,7 +61,7 @@ Plug 'elzr/vim-json'
 " }}}
 
 " IDE STUFF {{{1
-"Plug 'w0rp/ale'
+Plug 'w0rp/ale'
 Plug 'editorconfig/editorconfig-vim'
 " }}}
 
@@ -82,7 +84,7 @@ Plug 'bootleq/ShowMarks'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'majutsushi/tagbar'
 Plug 'ekalinin/Dockerfile.vim'
-"Plug 'sheerun/vim-polyglot'
+Plug 'sheerun/vim-polyglot'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " }}}
