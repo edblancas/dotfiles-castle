@@ -156,6 +156,7 @@ silent! nnoremap <silent> TT :!~/.config/nvim/utils/ctags-proj.sh<CR>
 
 " Smash Escape {{{2
 call arpeggio#map('i', '', 0, 'jk', '<Esc>')
+inoremap jj <Esc>
 
 " Custom mappings and functions {{{2
 " Delete a word to the right
