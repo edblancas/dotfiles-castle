@@ -9,7 +9,6 @@ endif
 call plug#begin('~/.config/nvim/plugged')
 
 " INDISPENSABLE STUFF {{{1
-"Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sensible'
@@ -41,7 +40,6 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 " }}}
 
 " COLOR SCHEMES {{{1
-Plug 'chriskempson/base16-vim'
 Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'tomasr/molokai'
 Plug 'altercation/vim-colors-solarized'
@@ -51,6 +49,7 @@ Plug 'rakr/vim-one'
 Plug 'morhetz/gruvbox'
 Plug 'lifepillar/vim-solarized8'
 Plug 'connorholyday/vim-snazzy'
+Plug 'nikitavoloboev/vim-night-blue'
 " }}}
 
 " MARKDOWN STUFF {{{1
@@ -87,6 +86,7 @@ Plug 'ekalinin/Dockerfile.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'junegunn/vim-easy-align'
 " }}}
 
 " TMUX {{{1

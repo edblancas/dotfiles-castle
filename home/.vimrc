@@ -21,6 +21,7 @@ Plug 'KeitaNakamura/neodark.vim'
 Plug 'rakr/vim-one'
 Plug 'morhetz/gruvbox'
 Plug 'lifepillar/vim-solarized8'
+Plug 'nikitavoloboev/vim-night-blue'
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sleuth'

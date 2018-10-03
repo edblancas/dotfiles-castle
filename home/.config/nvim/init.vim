@@ -74,13 +74,17 @@ let g:one_allow_italics=1
 "colorscheme one
 
 let g:onedark_terminal_italics=1
-colorscheme onedark
+"colorscheme onedark
+
+colorscheme night-blue
 
 " For display spechial chars, when using with :set list
 "let g:airline_theme='gruvbox'
 "let g:airline_theme='solarized'
 "let g:airline_theme='one'
-let g:airline_theme='onedark'
+"let g:airline_theme='onedark'
+"let g:airline_theme='powerlineish'
+let g:airline_theme='cool'
 
 set showtabline=2
 set guioptions-=e
@@ -219,13 +223,10 @@ map <Leader>vz :VimuxZoomRunner<CR>
 
 " Plugins {{{1
 " Markdown {{{2
-augroup markdown
-    au!
-    au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
-    autocmd FileType ghmarkdown,vim let b:loaded_delimitMate=1
-augroup END
+ 
+" Align GitHub-flavored Markdown tables
+au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 let g:vim_markdown_folding_disabled=1
-
 let g:instant_markdown_autostart = 0
 
 " CtrlP {{{2

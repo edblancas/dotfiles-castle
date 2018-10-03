@@ -13,3 +13,6 @@
 [submodule "home/.zfunctions/pure"]
 	path = home/.zfunctions/pure
 	url = https://github.com/sindresorhus/pure
+[submodule "home/.config/oh-my-zsh/custom/plugins/zsh-iterm-touchbar"]
+	path = home/.config/oh-my-zsh/custom/plugins/zsh-iterm-touchbar
+	url = https://github.com/iam4x/zsh-iterm-touchbar.git
