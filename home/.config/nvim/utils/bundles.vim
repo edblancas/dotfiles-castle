@@ -49,7 +49,6 @@ Plug 'rakr/vim-one'
 Plug 'morhetz/gruvbox'
 Plug 'lifepillar/vim-solarized8'
 Plug 'connorholyday/vim-snazzy'
-Plug 'nikitavoloboev/vim-night-blue'
 " }}}
 
 " MARKDOWN STUFF {{{1
