@@ -30,6 +30,8 @@ set colorcolumn=100
 set vb t_vb=
 set scrolloff=3
 set nofoldenable    " disable folding
+" not show the mode
+set noshowmode
 
 set pastetoggle=<F2>
 nnoremap <silent> <F2> :set invpaste paste?<CR>
@@ -71,12 +73,12 @@ let g:gruvbox_contrast_dark='hard'
 "colorscheme gruvbox
 
 let g:one_allow_italics=1
-"colorscheme one
+colorscheme one
 
 let g:onedark_terminal_italics=1
 "colorscheme onedark
 
-colorscheme night-blue
+"colorscheme night-blue
 
 " For display spechial chars, when using with :set list
 "let g:airline_theme='gruvbox'
@@ -311,7 +313,7 @@ highlight default ShowMarksHLu ctermfg=DarkGray ctermbg=0
 highlight default ShowMarksHLo ctermfg=Gray ctermbg=0
 highlight default ShowMarksHLm ctermfg=DarkGray ctermbg=0
 
-" YCM {{2
+" YCM {{{2
 if !exists("g:ycm_semantic_triggers")
     let g:ycm_semantic_triggers = {}
 endif
@@ -333,6 +335,10 @@ function! AirlineThemePatch(palette)
     endfor
   endif
 endfunction
+
+" ALE {{{2
+" Only run linters named in ale_linters settings.
+let g:ale_linters_explicit = 1
 
 " Javascript syntax {{{1
 let g:jsx_ext_required=0
