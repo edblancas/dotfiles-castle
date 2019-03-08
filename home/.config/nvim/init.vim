@@ -73,12 +73,12 @@ let g:gruvbox_contrast_dark='hard'
 "colorscheme gruvbox
 
 let g:one_allow_italics=1
-colorscheme one
+"colorscheme one
 
 let g:onedark_terminal_italics=1
 "colorscheme onedark
 
-"colorscheme night-blue
+colorscheme night-blue
 
 " For display spechial chars, when using with :set list
 "let g:airline_theme='gruvbox'

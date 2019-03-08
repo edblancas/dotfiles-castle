@@ -1,5 +1,5 @@
 # PATH
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-11.jdk/Contents/Home"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home"
 # Maven 3.2.5, last to support Java 6
 export M2_HOME="$SDKMAN_DIR/candidates/maven/current"
 export M2="$M2_HOME/bin"

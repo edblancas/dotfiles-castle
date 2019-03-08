@@ -21,7 +21,7 @@ Plug 'tpope/vim-tbone'
 Plug 'tpope/vim-jdaddy'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-vinegar'
-Plug 'Raimondi/delimitMate'
+Plug 'jiangmiao/auto-pairs'
 Plug 'godlygeek/tabular'
 Plug 'chrisbra/NrrwRgn'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -59,7 +59,7 @@ Plug 'elzr/vim-json'
 " }}}
 
 " IDE STUFF {{{1
-Plug 'w0rp/ale'
+"Plug 'w0rp/ale'
 Plug 'editorconfig/editorconfig-vim'
 " }}}
 
