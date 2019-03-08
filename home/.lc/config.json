@@ -1,0 +1,22 @@
+
+{
+    "auto_login": {
+        "enable": true
+    },
+    "code": {
+        "editor": "nvim",
+        "lang": "java"
+    },
+    "color": {
+        "enable": true,
+        "theme": "solarized"
+    },
+    "file": {
+        "show": "${fid}.${slug}.${level}",
+        "submission": "${fid}.${slug}.${sid}.${ac}.${level}"
+    },
+    "icon": {
+        "theme": ""
+    },
+    "plugins": {}
+}
