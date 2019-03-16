@@ -9,7 +9,10 @@ set hidden
 set foldmethod=syntax
 set tabstop=4 expandtab shiftwidth=4
 set formatoptions-=t    " No autowrap long lines
-set wildmode=list:longest,full
+" Get in the way with wildoptions=pum
+""set wildmode=list:longest,full
+set wildoptions=pum
+set pumblend=20
 set ignorecase
 set smartcase
 set number
@@ -21,7 +24,7 @@ set noswapfile
 set mouse=a
 set showmatch
 set cursorline
-set relativenumber
+"set relativenumber
 " Not compatible with nvim?
 "set encoding=utf-8
 set colorcolumn=100
