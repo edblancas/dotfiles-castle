@@ -63,7 +63,7 @@ set noswapfile
 set mouse=a
 set showmatch
 set cursorline
-set relativenumber
+"set relativenumber
 set colorcolumn=100
 set vb t_vb=
 set scrolloff=3
