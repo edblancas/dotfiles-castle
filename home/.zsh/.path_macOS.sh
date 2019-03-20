@@ -11,7 +11,7 @@ export HOMEBREW_COREUTILS="/usr/local/opt/coreutils/libexec"
 
 YARN="$HOME/.yarn/bin"
 
-export PATH="$JAVA_HOME/bin:$M2:$HOMEBREW_COREUTILS/gnubin:$HOMEBREW/bin:/opt/local/bin:/opt/local/sbin:$PATH:$YARN"
+export PATH="$JAVA_HOME/bin:$M2:$HOMEBREW_COREUTILS/gnubin:$HOMEBREW/bin:$HOMEBREW/sbin:/opt/local/bin:/opt/local/sbin:$PATH:$YARN"
 
 # rustup
 export PATH="$HOME/.cargo/bin:$PATH"

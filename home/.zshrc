@@ -213,3 +213,6 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 # MVN alias
 alias mvnis='mvn clean install -DskipTests -Djacoco.skip=true -Dcheckstyle.skip -DskipITs -Dfindbugs.skip=true'
 alias mvnps='mvn clean package -DskipTests -Djacoco.skip=true -Dcheckstyle.skip -DskipITs -Dfindbugs.skip=true'
+
+# fzf autocompletition for zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
