@@ -12,16 +12,10 @@ fpath=( "$HOME/.zfunctions" $fpath )
 autoload -U promptinit; promptinit
 prompt pure
 
-# Specific OS PATH
-case `uname` in
-  Darwin)
-    PATH_FILE=$HOME/.zsh/.path_macOS.sh
-    ;;
-  Linux)
-    PATH_FILE=$HOME/.zsh/.path_linux.sh
-    ;;
-esac
-source $PATH_FILE
+if [[ -z $TMUX ]]; then
+  PATH_FILE=$HOME/.zsh/.path_macOS.sh
+  source $PATH_FILE
+fi
 
 # Timbrao
 alias ssh-timbrao='ssh root@162.243.74.177'
@@ -51,14 +45,6 @@ function nv() {
         nvim "$@";
     fi;
 }
-
-# UTILS
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Override system vi
 alias vi='vim'
@@ -181,15 +167,7 @@ function tre() {
 # SOURCE PERSONAL
 source ~/.personal.sh
 
-# Specific OS
-case `uname` in
-  Darwin)
-    ZSHRC_FILE=$HOME/.zsh/.zshrc.osx
-    ;;
-  Linux)
-    ZSHRC_FILE=$HOME/.zsh/.zshrc.linux
-    ;;
-esac
+ZSHRC_FILE=$HOME/.zsh/.zshrc.osx
 source $ZSHRC_FILE
 
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
@@ -214,5 +192,28 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 alias mvnis='mvn clean install -DskipTests -Djacoco.skip=true -Dcheckstyle.skip -DskipITs -Dfindbugs.skip=true'
 alias mvnps='mvn clean package -DskipTests -Djacoco.skip=true -Dcheckstyle.skip -DskipITs -Dfindbugs.skip=true'
 
-# fzf autocompletition for zsh
-# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# Aliases for vim and kaleidoscope merge diff tool
+alias gkdiff='git config diff.tool kaleidoscope; git difftool'
+alias gkmerge='git config merge.tool kaleidoscope; git mergetool'
+
+# Alias gls to ls for dircolors (brew install coreutils)
+eval `gdircolors $HOME/.dircolors/dircolors-solarized/dircolors.ansi-dark` 
+alias ls='gls --color -FGH'
+
+# Like switchjdk 1.6|1.7|1.8|9
+function switchjdk() {
+  if [ $# -ne 0 ]; then
+   removeFromPath '$JAVA_HOME/bin'
+   if [ -n "${JAVA_HOME+x}" ]; then
+    removeFromPath $JAVA_HOME
+   fi
+   export JAVA_HOME=`/usr/libexec/java_home -v $@`
+   export PATH=$JAVA_HOME/bin:$PATH
+  fi
+}
+
+function removeFromPath() {
+  export PATH=$(echo $PATH | sed -E -e "s;:$1;;" -e "s;$1:?;;")
+}
+
+alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; update_dotfiles_submodules'
