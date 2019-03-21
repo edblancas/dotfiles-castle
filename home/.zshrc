@@ -215,4 +215,4 @@ alias mvnis='mvn clean install -DskipTests -Djacoco.skip=true -Dcheckstyle.skip 
 alias mvnps='mvn clean package -DskipTests -Djacoco.skip=true -Dcheckstyle.skip -DskipITs -Dfindbugs.skip=true'
 
 # fzf autocompletition for zsh
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
