@@ -26,3 +26,17 @@ export PATH="$HOME/bin:$PATH"
 
 export GOPATH="$HOME/opt/go"
 export PATH="$PATH:$GOPATH/bin:$HOME/.cargo/bin"
+
+[[ -s /usr/local/share/autojump/autojump.zsh ]] && source /usr/local/share/autojump/autojump.zsh
+
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# fzf autocompletition for zsh
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+#source $HOME/.zsh/.ng-completion
