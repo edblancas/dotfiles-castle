@@ -10,7 +10,7 @@ set foldmethod=syntax
 set tabstop=4 expandtab shiftwidth=4
 set formatoptions-=t    " No autowrap long lines
 " Get in the way with wildoptions=pum
-""set wildmode=list:longest,full
+set wildmode=full:longest
 set wildoptions=pum
 set pumblend=20
 set ignorecase
