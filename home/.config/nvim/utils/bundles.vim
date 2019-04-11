@@ -49,6 +49,7 @@ Plug 'rakr/vim-one'
 Plug 'morhetz/gruvbox'
 Plug 'lifepillar/vim-solarized8'
 Plug 'connorholyday/vim-snazzy'
+Plug 'dracula/vim', { 'as': 'dracula' }
 " }}}
 
 " MARKDOWN STUFF {{{1

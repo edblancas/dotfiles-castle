@@ -9,10 +9,10 @@ module.exports = {
     updateChannel: 'stable',
 
     // default font size in pixels for all tabs
-    fontSize: 15,
+    fontSize: 19,
 
     // font family with optional fallbacks
-    fontFamily: '"Operator Mono", Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
+    fontFamily: 'OperatorMono-Medium, Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
 
     // default font weight: 'normal' or 'bold'
     fontWeight: 'normal',
@@ -38,6 +38,8 @@ module.exports = {
     // terminal background color
     // opacity is only supported on macOS
     backgroundColor: '#000',
+
+    opacity: 0.95,
 
     // terminal selection color
     selectionColor: 'rgba(248,28,229,0.9)',
@@ -123,6 +125,37 @@ module.exports = {
     // bellSoundURL: 'http://example.com/bell.mp3',
 
     // for advanced config flags please refer to https://hyper.is/#cfg
+
+    hyperCustomTouchbar: [
+      // if you just need a single button then don't add options array
+      { label: 'clear', command: 'clear', backgroundColor: '#d13232' },
+      { label: 'man', command: 'man ', prompt: true },
+      {
+        label: 'git',
+        options: [
+          { label: 'diff', command: 'git diff' },          
+          { label: 'status', command: 'git status' },  
+          { label: 'log', command: 'git log' },
+          { label: 'add .', command: 'git add .', icon: '/tmp/icons8-add-file-44.png', iconPosition: 'right' },
+          { label: 'clone', command: 'git clone ', prompt: true },
+        ]
+      },
+      {
+        // icon: '/tmp/icon.png'
+        label: '📁',
+        options: [
+          { command: 'cd ~/Dropbox/', icon: '/Applications/Dropbox.app/Contents/Resources/box_32.png' },
+          { label: '⬇️', command: 'cd ~/Downloads/' },
+        ]
+      },
+      {
+        label: 'vim',
+        options: [
+          { label: 'quit', command: ':q!', esc: true },
+          { label: 'save & quit', command: ':x', esc: true },
+        ]
+      },
+    ]
   },
 
   // a list of plugins to fetch and install from npm
@@ -131,7 +164,14 @@ module.exports = {
   //   `hyperpower`
   //   `@company/project`
   //   `project#1.0.1`
-  plugins: ["hyper-snazzy", "hyperterm-1password", "hyper-transparent", "hyper-touchbar"],
+  plugins: [
+    //'hyper-snazzy',
+    'hyper-dracula',
+    'hyperterm-1password',
+    'hyper-opacity',
+    'hyper-custom-touchbar',
+    "hyperminimal"
+  ],
 
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here
