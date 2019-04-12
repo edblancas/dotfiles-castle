@@ -134,10 +134,12 @@ module.exports = {
         label: 'vim',
         icon: '/Users/dan/.utils/icons/vim.png',
         options: [
-          { label: 'vimux run last', command: ':VimuxRunLastCommand', esc: true },
+          // colors: blue #009ABF
+          { label: 'save', command: ':w', esc: true, backgroundColor: '#17A52E' },
+          { label: 'vimux run last', command: ':VimuxRunLastCommand', esc: true, backgroundColor: '#FFFFFF'},
           { label: 'vimux prompt', command: ':VimuxPromptCommand', esc: true },
           { label: 'quit', command: ':q!', esc: true, backgroundColor: '#d13232' },
-          { label: 'save & quit', command: ':x', esc: true, backgroundColor: '#17A52E' },
+          { label: 'save & quit', command: ':x', esc: true, backgroundColor: '#F4D03F' },
         ]
       },
       {
