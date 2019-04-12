@@ -135,6 +135,8 @@ module.exports = {
         icon: '/Users/dan/.utils/icons/vim.png',
         options: [
           // colors: blue #009ABF
+          // esc command is to the code for the delete character, so it emulates esc as close as possible
+          { label: 'esc', command: '\x7f', esc: true, prompt: true },
           { label: 'save', command: ':w', esc: true, backgroundColor: '#17A52E' },
           { label: 'vimux run last', command: ':VimuxRunLastCommand', esc: true, backgroundColor: '#FFFFFF'},
           { label: 'vimux prompt', command: ':VimuxPromptCommand', esc: true },
