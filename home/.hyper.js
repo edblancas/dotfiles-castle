@@ -129,30 +129,33 @@ module.exports = {
     hyperCustomTouchbar: [
       // if you just need a single button then don't add options array
       { label: 'clear', command: 'clear', backgroundColor: '#d13232' },
-      { label: 'man', command: 'man ', prompt: true },
+      //{ label: 'man', command: 'man ', prompt: true },
+      {
+        label: 'vim',
+        icon: '/Users/dan/.utils/icons/vim.png',
+        options: [
+          { label: 'vimux run last', command: ':VimuxRunLastCommand', esc: true },
+          { label: 'vimux prompt', command: ':VimuxPromptCommand', esc: true },
+          { label: 'quit', command: ':q!', esc: true, backgroundColor: '#d13232' },
+          { label: 'save & quit', command: ':x', esc: true, backgroundColor: '#17A52E' },
+        ]
+      },
       {
         label: 'git',
+        icon: '/Users/dan/.utils/icons/git.png', 
         options: [
           { label: 'diff', command: 'git diff' },          
           { label: 'status', command: 'git status' },  
           { label: 'log', command: 'git log' },
-          { label: 'add .', command: 'git add .', icon: '/tmp/icons8-add-file-44.png', iconPosition: 'right' },
+          { label: 'add .', command: 'git add .' },
           { label: 'clone', command: 'git clone ', prompt: true },
         ]
       },
       {
-        // icon: '/tmp/icon.png'
-        label: '📁',
+        label: '📁 cd',
         options: [
-          { command: 'cd ~/Dropbox/', icon: '/Applications/Dropbox.app/Contents/Resources/box_32.png' },
-          { label: '⬇️', command: 'cd ~/Downloads/' },
-        ]
-      },
-      {
-        label: 'vim',
-        options: [
-          { label: 'quit', command: ':q!', esc: true },
-          { label: 'save & quit', command: ':x', esc: true },
+          { command: 'cd ~/Dropbox/', icon: '/Users/dan/.utils/icons/dropbox.png', label: 'cd', iconPosition: 'right' },
+          { label: 'cd', icon: '/Users/dan/.utils/icons/downloads.png', iconPosition: 'right', command: 'cd ~/Downloads/', backgroundColor: '#17A52E' },
         ]
       },
     ]

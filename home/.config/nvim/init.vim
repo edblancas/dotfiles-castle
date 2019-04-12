@@ -86,12 +86,9 @@ let g:onedark_terminal_italics=1
 colorscheme dracula
 
 " For display spechial chars, when using with :set list
-"let g:airline_theme='gruvbox'
-"let g:airline_theme='solarized'
-"let g:airline_theme='one'
-"let g:airline_theme='onedark'
-"let g:airline_theme='powerlineish'
-let g:airline_theme='cool'
+" raven, wombat, cool, powerlineish, one, onedark, solarized, gruvbox,
+" peaksea, ayu_mirage
+let g:airline_theme='raven'
 
 set showtabline=2
 set guioptions-=e
@@ -331,6 +328,20 @@ let g:airline_section_warning=''
 "let g:airline#extensions#tabline#fnamemod = ':t'
 "let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline_inactive_collapse=0
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+let g:airline#extensions#branch#enabled = 1
+"let g:airline#extensions#default#section_truncate_width = {
+"    \ 'b': 79,
+"    \ 'x': 60,
+"    \ 'y': 88,
+"    \ 'z': 45,
+"    \ 'warning': 80,
+"    \ 'error': 80,
+"    \ }
 
 let g:airline_theme_patch_func = 'AirlineThemePatch'
 function! AirlineThemePatch(palette)
