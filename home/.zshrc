@@ -1,7 +1,7 @@
 # OH-MY-ZSH
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME=""
-plugins=(common-aliases vi-mode zsh-syntax-highlighting history-substring-search autojump web-search docker git-flow brew-cask docker-compose zsh-iterm-touchbar)
+plugins=(common-aliases vi-mode zsh-syntax-highlighting history-substring-search autojump web-search docker git-flow brew-cask docker-compose)
 
 # Override custom dir, inside custom themes or plugins
 ZSH_CUSTOM=$HOME/.config/oh-my-zsh/custom
@@ -200,7 +200,7 @@ alias gkmerge='git config merge.tool kaleidoscope; git mergetool'
 eval `gdircolors $HOME/.dircolors/dircolors-solarized/dircolors.ansi-dark` 
 alias ls='gls --color -FGH'
 
-# Like switchjdk 1.6|1.7|1.8|9
+# Like switchjdk 1.6|1.7|1.8|9|12
 function switchjdk() {
   if [ $# -ne 0 ]; then
    removeFromPath '$JAVA_HOME/bin'
@@ -217,3 +217,4 @@ function removeFromPath() {
 }
 
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; update_dotfiles_submodules'
+
