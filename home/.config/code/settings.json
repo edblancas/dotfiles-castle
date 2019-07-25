@@ -18,6 +18,10 @@
     {
       "before": ["<leader>", "<space>"],
       "commands": [":nohl"]
+    },
+    {
+      "before": ["<leader>", "w"],
+      "commands": ["workbench.action.files.save"]
     }
   ],
   "vim.leader": ",",
