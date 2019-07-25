@@ -141,3 +141,5 @@
 	email = edblancas@gmail.com
 [credential]
 	helper = cache
+[includeIf "gitdir:~/rappi-projects/"]
+  path = ~/rappi-projects/.gitconfig_include

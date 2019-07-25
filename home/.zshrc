@@ -167,9 +167,6 @@ function tre() {
 # SOURCE PERSONAL
 source ~/.personal.sh
 
-ZSHRC_FILE=$HOME/.zsh/.zshrc.osx
-source $ZSHRC_FILE
-
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 
 # ZSH completitions from brew
