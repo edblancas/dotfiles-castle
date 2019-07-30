@@ -12,7 +12,7 @@ module.exports = {
     fontSize: 19,
 
     // font family with optional fallbacks
-    fontFamily: 'OperatorMono-Medium, Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
+    fontFamily: '"Operator Mono", Menlo, Consolas',
 
     // default font weight: 'normal' or 'bold'
     fontWeight: 'normal',
@@ -127,6 +127,10 @@ module.exports = {
     // for advanced config flags please refer to https://hyper.is/#cfg
 
     hyperCustomTouchbar: [
+      // the icons were obtain from Dash.app assets at (or dash ios project from github)
+      // /Users/dan/macbook/projects/Dash-iOS/Dash/Images.xcassets/Platforms/vim.imageset/vim@2x.png
+      // /Applications/Dash.app/Contents/Resources/git.tiff
+
       // if you just need a single button then don't add options array
       { label: 'clear', command: 'clear', backgroundColor: '#d13232' },
       //{ label: 'man', command: 'man ', prompt: true },
