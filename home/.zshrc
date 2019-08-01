@@ -26,7 +26,7 @@ alias ssh-timbrao='ssh root@162.243.74.177'
 
 # User configuration
 # EXTRA
-alias cloud="cd $HOME/Library/Mobile Documents/com~apple~CloudDocs"
+alias cloud="cd $HOME/Library/Mobile\ Documents/com~apple~CloudDocs"
 alias zshconfig="vim $HOME/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias stmux="tmux attach -t dev || tmux new -s dev"
