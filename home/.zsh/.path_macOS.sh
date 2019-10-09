@@ -1,5 +1,5 @@
 # PATH
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_221.jdk/Contents/Home"
 # Maven 3.2.5, last to support Java 6
 export M2_HOME="$SDKMAN_DIR/candidates/maven/current"
 export M2="$M2_HOME/bin"
@@ -9,9 +9,10 @@ export HOME_LOCAL="$HOME/local"
 export HOMEBREW="/usr/local"
 export HOMEBREW_COREUTILS="/usr/local/opt/coreutils/libexec"
 
-YARN="$HOME/.yarn/bin"
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
-export PATH="$JAVA_HOME/bin:$M2:$HOMEBREW_COREUTILS/gnubin:$HOMEBREW/bin:$HOMEBREW/sbin:/opt/local/bin:/opt/local/sbin:$PATH:$YARN"
+# yarn via script
+export PATH="$JAVA_HOME/bin:$M2:$HOMEBREW_COREUTILS/gnubin:$HOMEBREW/bin:$HOMEBREW/sbin:/opt/local/bin:/opt/local/sbin:$PATH"
 
 # rustup
 export PATH="$HOME/.cargo/bin:$PATH"

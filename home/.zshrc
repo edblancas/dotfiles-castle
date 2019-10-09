@@ -1,7 +1,7 @@
 # OH-MY-ZSH
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME=""
-plugins=(common-aliases vi-mode zsh-syntax-highlighting history-substring-search autojump web-search docker git-flow brew-cask docker-compose zsh-iterm-touchbar)
+plugins=(common-aliases vi-mode zsh-syntax-highlighting history-substring-search web-search docker git-flow docker-compose)
 
 # Override custom dir, inside custom themes or plugins
 ZSH_CUSTOM=$HOME/.config/oh-my-zsh/custom
@@ -12,6 +12,10 @@ fpath=( "$HOME/.zfunctions" $fpath )
 autoload -U promptinit; promptinit
 prompt pure
 
+PATH_FILE=$HOME/.zsh/.path_macOS.sh
+source $PATH_FILE
+
+# Conditional so we do not load the file again when we are inside tmux
 if [[ -z $TMUX ]]; then
   PATH_FILE=$HOME/.zsh/.path_macOS.sh
   source $PATH_FILE
@@ -22,6 +26,7 @@ alias ssh-timbrao='ssh root@162.243.74.177'
 
 # User configuration
 # EXTRA
+alias cloud="cd $HOME/Library/Mobile\ Documents/com~apple~CloudDocs"
 alias zshconfig="vim $HOME/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias stmux="tmux attach -t dev || tmux new -s dev"
@@ -167,9 +172,6 @@ function tre() {
 # SOURCE PERSONAL
 source ~/.personal.sh
 
-ZSHRC_FILE=$HOME/.zsh/.zshrc.osx
-source $ZSHRC_FILE
-
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 
 # ZSH completitions from brew
@@ -200,7 +202,7 @@ alias gkmerge='git config merge.tool kaleidoscope; git mergetool'
 eval `gdircolors $HOME/.dircolors/dircolors-solarized/dircolors.ansi-dark` 
 alias ls='gls --color -FGH'
 
-# Like switchjdk 1.6|1.7|1.8|9
+# Like switchjdk 1.6|1.7|1.8|9|12
 function switchjdk() {
   if [ $# -ne 0 ]; then
    removeFromPath '$JAVA_HOME/bin'
@@ -217,3 +219,4 @@ function removeFromPath() {
 }
 
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; update_dotfiles_submodules'
+

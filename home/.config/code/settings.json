@@ -1,7 +1,33 @@
 {
-  "editor.fontSize": 15,
-  "terminal.integrated.fontSize": 15,
+  "editor.fontSize": 18,
+  "terminal.integrated.fontSize": 16,
+  "editor.lineHeight": 21,
   "editor.fontFamily": "'Operator Mono', Monaco, 'Courier New', monospace",
+
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "<space>"],
+      "commands": [":nohl"]
+    },
+    {
+      "before": ["<leader>", "w"],
+      "commands": ["workbench.action.files.save"]
+    }
+  ],
+  "vim.leader": ",",
+  "vim.handleKeys": {
+  },
+
   "workbench.colorCustomizations": {
     // The background is optional
     // "terminal.background": "#282a36",
@@ -23,5 +49,6 @@
     "terminal.ansiBrightCyan": "#9aedfe",
     "terminal.ansiBrightWhite": "#eff0eb"
   },
-  "workbench.colorTheme": "Dracula Soft"
+  "workbench.colorTheme": "Monokai Pro (Filter Octagon)",
+  "workbench.iconTheme": "Monokai Pro (Filter Octagon) Icons"
 }
