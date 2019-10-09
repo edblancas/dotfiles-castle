@@ -1,5 +1,8 @@
 # PATH
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_221.jdk/Contents/Home"
+
+# Java Home default to version 8 at the begining. Use this cause it can differ from
+# one mac to another (rappi, personal, 13"). And cause the 1.8 is the more used.
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 # Maven 3.2.5, last to support Java 6
 export M2_HOME="$SDKMAN_DIR/candidates/maven/current"
 export M2="$M2_HOME/bin"
