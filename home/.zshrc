@@ -12,9 +12,6 @@ fpath=( "$HOME/.zfunctions" $fpath )
 autoload -U promptinit; promptinit
 prompt pure
 
-PATH_FILE=$HOME/.zsh/.path_macOS.sh
-source $PATH_FILE
-
 # Conditional so we do not load the file again when we are inside tmux
 if [[ -z $TMUX ]]; then
   PATH_FILE=$HOME/.zsh/.path_macOS.sh
