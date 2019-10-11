@@ -1,8 +1,24 @@
 {
-  "editor.fontSize": 18,
+  "editor.fontSize": 19,
   "terminal.integrated.fontSize": 16,
   "editor.lineHeight": 21,
   "editor.fontFamily": "'Operator Mono', Monaco, 'Courier New', monospace",
+  "[javascript]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  "nasc-touchbar.enableFuncGroup": true,
+  "nasc-touchbar.toggleSidebar": true,
+  "nasc-touchbar.togglePanel": true,
+  "nasc-touchbar.rename": true,
+  "nasc-touchbar.docs": true,
+  "nasc-touchbar.goToDefinition": false,
+  "nasc-touchbar.addCursorBelow": false,
+  "nasc-touchbar.showCommands": false,
+  
+  "code-runner.runInTerminal": false,
+  "code-runner.clearPreviousOutput": true,
 
   "vim.incsearch": true,
   "vim.useSystemClipboard": true,
@@ -10,7 +26,7 @@
   "vim.hlsearch": true,
   "vim.insertModeKeyBindings": [
     {
-      "before": ["j", "j"],
+      "before": ["k", "j"],
       "after": ["<Esc>"]
     }
   ],
@@ -29,7 +45,7 @@
   },
 
   "workbench.colorCustomizations": {
-    // The background is optional
+    // The background is optional2
     // "terminal.background": "#282a36",
     "terminal.foreground": "#eff0eb",
     "terminal.ansiBlack": "#282a36",
@@ -49,6 +65,10 @@
     "terminal.ansiBrightCyan": "#9aedfe",
     "terminal.ansiBrightWhite": "#eff0eb"
   },
-  "workbench.colorTheme": "Monokai Pro (Filter Octagon)",
-  "workbench.iconTheme": "Monokai Pro (Filter Octagon) Icons"
+  "workbench.colorTheme": "Monokai Night",
+  "workbench.iconTheme": "Monokai Pro Icons",
+  "editor.minimap.enabled": false,
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
