@@ -386,6 +386,9 @@ let g:multi_cursor_skip_key            = '<C-S-g>'
 let g:multi_cursor_quit_key            = '<Esc>'
 
 " Commands {{{1
+" cd to notes
+command Cdnotes cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/notes
+
 " From tpope .vimrc
 if has("eval")
   function! SL(function)
