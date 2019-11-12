@@ -7,7 +7,7 @@ source ~/.config/nvim/utils/watch_for_changes.vim
 set showmode " Por que vim-airline muestra el modo en el que estamos
 set hidden
 set foldmethod=syntax
-set tabstop=4 expandtab shiftwidth=4
+set tabstop=2 expandtab shiftwidth=2
 set formatoptions-=t    " No autowrap long lines
 " Get in the way with wildoptions=pum
 set wildmode=full:longest
