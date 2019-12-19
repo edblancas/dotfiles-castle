@@ -12,9 +12,9 @@ export HOME_LOCAL="$HOME/local"
 export HOMEBREW="/usr/local"
 export HOMEBREW_COREUTILS="/usr/local/opt/coreutils/libexec"
 
+# yarn via script
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
-# yarn via script
 export PATH="$JAVA_HOME/bin:$M2:$HOMEBREW_COREUTILS/gnubin:$HOMEBREW/bin:$HOMEBREW/sbin:/opt/local/bin:/opt/local/sbin:$PATH"
 
 # rustup
