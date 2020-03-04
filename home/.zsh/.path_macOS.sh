@@ -33,3 +33,6 @@ export PATH="$PATH:$GOPATH/bin:$HOME/.cargo/bin"
 export SDKMAN_DIR="$HOME/.sdkman"
 
 export NVM_DIR="$HOME/.nvm"
+
+# Add user base binary directory for python (pipenv, pep8, ...)
+export PATH="$HOME/Library/Python/3.7/bin:$PATH"
