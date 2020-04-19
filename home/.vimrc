@@ -111,6 +111,20 @@ let g:gruvbox_contrast_dark='hard'
 colorscheme gruvbox
 " }}}
 
+" netrw like NERDTree {{{1
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 20
+nnoremap <D-1> :Lexplore<CR>
+nnoremap <Leader>1 :Lexplore<CR>
+"augroup ProjectDrawer
+"  autocmd!
+"  autocmd VimEnter * :Lexplore
+"augroup END
+" }}}
+
 " Visual line repeat {{{1
 xnoremap . :normal .<CR>
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
