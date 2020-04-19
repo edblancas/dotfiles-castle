@@ -19,3 +19,5 @@ home/.config/sublime-text-3/*
 home/.tmux/plugins/
 elpa/
 .DS_Store
+
+home/.lc/leetcode/user.json
