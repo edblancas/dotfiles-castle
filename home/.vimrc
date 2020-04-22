@@ -22,6 +22,7 @@ Plug 'rakr/vim-one'
 Plug 'morhetz/gruvbox'
 Plug 'lifepillar/vim-solarized8'
 Plug 'nikitavoloboev/vim-night-blue'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sleuth'
@@ -108,7 +109,9 @@ let g:solarized_term_italics=1
 
 let g:gruvbox_italic=1
 let g:gruvbox_contrast_dark='hard'
-colorscheme gruvbox
+"colorscheme gruvbox
+
+colorscheme dracula
 " }}}
 
 " netrw like NERDTree {{{1
