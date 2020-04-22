@@ -2,7 +2,7 @@ set guioptions-=rL
 " Add gui tabs
 set guioptions+=e
 
-colorscheme one
+colorscheme dracula
 set background=dark
 let g:one_allow_italics=1
 set guifont=MonoLisa:h16
