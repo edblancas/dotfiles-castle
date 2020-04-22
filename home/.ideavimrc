@@ -102,3 +102,5 @@ nnoremap [m :action MethodUp<CR>
 nnoremap ]m :action MethodDown<CR>
 nnoremap [c :action VcsShowPrevChangeMarker<CR>
 nnoremap ]c :action VcsShowNextChangeMarker<CR>
+
+set ideajoin
