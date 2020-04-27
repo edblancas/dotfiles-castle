@@ -41,6 +41,8 @@ Plug 'tmux-plugins/vim-tmux'
 
 Plug 'junegunn/vim-easy-align'
 
+Plug 'preservim/nerdtree'
+
 call plug#end()
 "}}}
 
@@ -114,17 +116,11 @@ let g:gruvbox_contrast_dark='hard'
 colorscheme dracula
 " }}}
 
-" netrw like NERDTree {{{1
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-let g:netrw_browse_split = 4
-let g:netrw_altv = 1
-let g:netrw_winsize = 20
-nnoremap <D-1> :Lexplore<CR>
-nnoremap <Leader>1 :Lexplore<CR>
+" NERDTree idea like keymap {{{1
+nnoremap <Leader>1 :NERDTreeToggle<CR>
 "augroup ProjectDrawer
 "  autocmd!
-"  autocmd VimEnter * :Lexplore
+"  autocmd VimEnter * :NERDTreeToggle
 "augroup END
 " }}}
 

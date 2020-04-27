@@ -62,6 +62,7 @@ Plug 'elzr/vim-json'
 " IDE STUFF {{{1
 "Plug 'w0rp/ale'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'preservim/nerdtree'
 " }}}
 
 " Javascript {{{1

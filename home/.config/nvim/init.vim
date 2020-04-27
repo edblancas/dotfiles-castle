@@ -23,7 +23,7 @@ set nowritebackup
 set noswapfile
 set mouse=a
 set showmatch
-set cursorline
+"set cursorline
 "set relativenumber
 " Not compatible with nvim?
 "set encoding=utf-8
@@ -109,6 +109,13 @@ nnoremap j gj
 nnoremap k gk
 nnoremap <Leader>w :w<Enter>
 nnoremap <Leader><space> :nohlsearch<CR>
+
+" NERDTree idea like keymap {{{1
+nnoremap <Leader>1 :NERDTreeToggle<CR>
+"augroup ProjectDrawer
+"  autocmd!
+"  autocmd VimEnter * :NERDTreeToggle
+"augroup END
 
 " File opening {{{2
 cnoremap <expr> %%  getcmdtype() == ':' ? fnameescape(expand('%:h')).'/' : '%%'
