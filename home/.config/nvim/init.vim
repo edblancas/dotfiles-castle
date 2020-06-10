@@ -10,7 +10,7 @@ set foldmethod=syntax
 set tabstop=2 expandtab shiftwidth=2
 set formatoptions-=t    " No autowrap long lines
 " Get in the way with wildoptions=pum
-set wildmode=full:longest
+set wildmode=longest,full
 set wildoptions=pum
 set pumblend=20
 set ignorecase
@@ -327,6 +327,7 @@ if !exists("g:ycm_semantic_triggers")
     let g:ycm_semantic_triggers = {}
 endif
 let g:ycm_semantic_triggers['typescript'] = ['.']
+let g:ycm_autoclose_preview_window_after_insertion = 0
 
 " Airline {{{2
 let g:airline_powerline_fonts = 0
