@@ -48,7 +48,7 @@ def configure(repl):
     repl.show_sidebar_help = True
 
     # Swap light/dark colors on or off
-    repl.swap_light_and_dark = True
+    repl.swap_light_and_dark = False
 
     # Highlight matching parethesis.
     repl.highlight_matching_parenthesis = True
