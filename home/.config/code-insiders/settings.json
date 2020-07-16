@@ -1,2 +1,50 @@
 {
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "workbench.colorTheme": "Moonlight II Italic",
+    "editor.fontFamily": "'MonoLisa', Menlo, Monaco, 'Courier New', monospace",
+    "terminal.integrated.fontSize": 16,
+    "editor.fontSize": 16,
+    "editor.lineHeight": 21,
+    "editor.fontLigatures": true,
+    "[javascript]": {
+      "editor.tabSize": 2,
+    },
+    "code-runner.runInTerminal": false,
+    "code-runner.clearPreviousOutput": true,
+  
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.insertModeKeyBindings": [
+      {
+        "before": ["k", "j"],
+        "after": ["<Esc>"]
+      }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+      {
+        "before": ["<leader>", "<space>"],
+        "commands": [":nohl"]
+      },
+      {
+        "before": ["<leader>", "w"],
+        "commands": ["workbench.action.files.save"]
+      }
+    ],
+    "vim.leader": ",",
+    "vim.handleKeys": {
+    },
+    "editor.minimap.enabled": false,
+    "editor.renderWhitespace": "all",
+    "editor.tabSize": 2,
+    "markdown.preview.fontSize": 16,
+    "leetcode.hint.configWebviewMarkdown": false,
+    "leetcode.workspaceFolder": "/Users/dan/.leetcode",
+    "python.jediEnabled": false,
+    "python.insidersChannel": "off",
+    "python.pythonPath": "/usr/local/bin/python3",
+    "leetcode.defaultLanguage": "python3",
+    "leetcode.hint.commentDescription": false,
 }
