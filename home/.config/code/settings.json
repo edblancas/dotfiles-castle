@@ -1,13 +1,17 @@
 {
-  "editor.fontSize": 19,
+  "editor.fontSize": 16,
   "terminal.integrated.fontSize": 16,
   "editor.lineHeight": 21,
-  "editor.fontFamily": "'Operator Mono', Monaco, 'Courier New', monospace",
+  "editor.fontFamily": "'MonoLisa', 'Operator Mono', 'Courier New', monospace",
+  "editor.fontLigatures": true,
   "[javascript]": {
     "editor.tabSize": 2,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-
+  "[markdown]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "nasc-touchbar.enableFuncGroup": true,
   "nasc-touchbar.toggleSidebar": true,
   "nasc-touchbar.togglePanel": true,
@@ -65,10 +69,16 @@
     "terminal.ansiBrightCyan": "#9aedfe",
     "terminal.ansiBrightWhite": "#eff0eb"
   },
-  "workbench.colorTheme": "Monokai Night",
+  "workbench.colorTheme": "GitHub Dark",
   "workbench.iconTheme": "Monokai Pro Icons",
   "editor.minimap.enabled": false,
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "editor.renderWhitespace": "all",
+  "editor.tabSize": 2,
+  "yaml.schemas": {
+    "file:///Users/dan/.vscode/extensions/atlassian.atlascode-2.6.0/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+  },
+  "atlascode.jira.enabled": false
 }

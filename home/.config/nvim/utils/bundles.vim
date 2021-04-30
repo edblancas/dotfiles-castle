@@ -69,9 +69,7 @@ Plug 'preservim/nerdtree'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 " post install (yarn install | npm install) then load plugin only for editing supported files
-Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'valloric/MatchTagAlways'
 " Currently, es6 version of snippets is available in es6 branch only
 Plug 'letientai299/vim-react-snippets', { 'branch': 'es6' }
