@@ -3,6 +3,9 @@ export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME=""
 plugins=(common-aliases vi-mode zsh-syntax-highlighting history-substring-search web-search docker git-flow docker-compose)
 
+# Disable warning of bad permissions in work mackbook
+ZSH_DISABLE_COMPFIX=true
+
 # Override custom dir, inside custom themes or plugins
 ZSH_CUSTOM=$HOME/.config/oh-my-zsh/custom
 source $ZSH/oh-my-zsh.sh
