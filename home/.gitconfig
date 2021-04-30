@@ -139,10 +139,13 @@
   default = simple
   # Make `git push` push relevant annotated tags when pushing branches out.
   followTags = true
+
 [user]
   name = Daniel Blancas
   email = edblancas@gmail.com
+
 [credential]
   helper = cache
-[includeIf "gitdir:~/rappi-projects/"]
-  path = ~/rappi-projects/.gitconfig_include
+
+[includeIf "gitdir:~/nubank-projects/"]
+  path = ~/nubank-projects/.gitconfig_include
