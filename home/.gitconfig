@@ -141,8 +141,8 @@
   followTags = true
 
 [user]
-  name = Daniel Blancas
-  email = edblancas@gmail.com
+	name = Daniel Blancas
+	email = edblancas@gmail.com
 
 [credential]
   helper = cache

@@ -8,7 +8,7 @@ ZSH_CUSTOM=$HOME/.config/oh-my-zsh/custom
 source $ZSH/oh-my-zsh.sh
 
 # sindresorhus/pure
-fpath=( "$HOME/.zfunctions" $fpath )
+fpath=( "$HOME/.zfunctions/pure" $fpath )
 autoload -U promptinit; promptinit
 prompt pure
 
