@@ -16,3 +16,6 @@
 [submodule "home/.config/oh-my-zsh/custom/plugins/zsh-iterm-touchbar"]
 	path = home/.config/oh-my-zsh/custom/plugins/zsh-iterm-touchbar
 	url = https://github.com/iam4x/zsh-iterm-touchbar.git
+[submodule "home/.config/oh-my-zsh/custom/plugins/zsh-vi-mode"]
+	path = home/.config/oh-my-zsh/custom/plugins/zsh-vi-mode
+	url = https://github.com/jeffreytse/zsh-vi-mode.git

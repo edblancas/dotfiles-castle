@@ -6,6 +6,10 @@ git submodule update --init --recursive < `tty` > `tty`
 
 echo "-- Symlink pure prompt..." < `tty` > `tty`
 ln -s $HOME/.zfunction/pure/pure.zsh /usr/local/share/zsh/site-functions/prompt_pure_setup < `tty` > `tty`
+ln -s $HOME/.zfunctions/pure/async.zsh /usr/local/share/zsh/site-functions/async < `tty` > `tty`
+
+echo "-- Symlink spaceship prompt..." < `tty` > `tty`
+ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme" < `tty` > `tty`
 
 echo "--> Installing nvim plugins with vundle..." < `tty` > `tty`
 nvim +PluginInstall! +PluginClean +qall < `tty` > `tty`
