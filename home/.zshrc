@@ -1,16 +1,26 @@
 # OH-MY-ZSH
 export ZSH=$HOME/.oh-my-zsh
-ZSH_THEME=""
-plugins=(common-aliases zsh-syntax-highlighting history-substring-search web-search docker git-flow docker-compose vi-mode)
+ZSH_THEME="spaceship"
+plugins=(common-aliases zsh-syntax-highlighting history-substring-search web-search docker git-flow docker-compose zsh-vi-mode)
 
 # Override custom dir, inside custom themes or plugins
 ZSH_CUSTOM=$HOME/.config/oh-my-zsh/custom
 source $ZSH/oh-my-zsh.sh
 
-# sindresorhus/pure
-fpath=( "$HOME/.zfunctions/pure" $fpath )
-autoload -U promptinit; promptinit
-prompt pure
+# history-substring-search with vim mode
+# https://github.com/zsh-users/zsh-history-substring-search
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
+
+# fix history-substring-search for zsh-vi-mode overwriting bindings
+# https://github.com/jeffreytse/zsh-vi-mode#execute-extra-commands
+# The plugin will auto execute this zvm_after_lazy_keybindings function
+# bindkey: https://github.com/zsh-users/zsh-history-substring-search
+function my_init() {
+    bindkey '^[[A' history-substring-search-up
+    bindkey '^[[B' history-substring-search-down
+}
+zvm_after_init_commands+=(my_init)
 
 # Conditional so we do not load the file again when we are inside tmux
 if [[ -z $TMUX ]]; then

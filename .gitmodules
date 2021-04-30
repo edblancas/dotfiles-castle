@@ -19,3 +19,6 @@
 [submodule "home/.config/oh-my-zsh/custom/plugins/zsh-vi-mode"]
 	path = home/.config/oh-my-zsh/custom/plugins/zsh-vi-mode
 	url = https://github.com/jeffreytse/zsh-vi-mode.git
+[submodule "home/.config/oh-my-zsh/custom/themes/spaceship-prompt"]
+	path = home/.config/oh-my-zsh/custom/themes/spaceship-prompt
+	url = https://github.com/denysdovhan/spaceship-prompt.git
