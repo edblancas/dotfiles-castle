@@ -1,7 +1,7 @@
 # OH-MY-ZSH
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="spaceship"
-plugins=(common-aliases zsh-syntax-highlighting history-substring-search web-search docker git-flow docker-compose zsh-vi-mode)
+plugins=(common-aliases zsh-syntax-highlighting history-substring-search web-search docker git-flow docker-compose zsh-vi-mode zsh-autosuggestions)
 
 # Override custom dir, inside custom themes or plugins
 ZSH_CUSTOM=$HOME/.config/oh-my-zsh/custom
@@ -21,6 +21,9 @@ function my_init() {
     bindkey '^[[B' history-substring-search-down
 }
 zvm_after_init_commands+=(my_init)
+# Disable the cursor style feature
+# With true the terminal slows down
+ZVM_CURSOR_STYLE_ENABLED=false
 
 # Conditional so we do not load the file again when we are inside tmux
 if [[ -z $TMUX ]]; then

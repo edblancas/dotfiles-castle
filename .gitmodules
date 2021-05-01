@@ -22,3 +22,6 @@
 [submodule "home/.config/oh-my-zsh/custom/themes/spaceship-prompt"]
 	path = home/.config/oh-my-zsh/custom/themes/spaceship-prompt
 	url = https://github.com/denysdovhan/spaceship-prompt.git
+[submodule "home/.config/oh-my-zsh/custom/plugins/zsh-autosuggestions"]
+	path = home/.config/oh-my-zsh/custom/plugins/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions.git
