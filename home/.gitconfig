@@ -152,3 +152,6 @@
 
 [includeIf "gitdir:~/nubank-projects/"]
   path = ~/nubank-projects/.gitconfig_include
+
+[includeIf "gitdir:~/dev/nu/"]
+  path = ~/dev/nu/.gitconfig_include

@@ -36,7 +36,6 @@ Plug 'kana/vim-arpeggio'
 " AUTOCOMPLETE STUFF {{{1
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 " }}}
 
 " COLOR SCHEMES {{{1
@@ -67,13 +66,8 @@ Plug 'preservim/nerdtree'
 
 " Javascript {{{1
 Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
-" post install (yarn install | npm install) then load plugin only for editing supported files
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'valloric/MatchTagAlways'
-" Currently, es6 version of snippets is available in es6 branch only
-Plug 'letientai299/vim-react-snippets', { 'branch': 'es6' }
-Plug 'mattn/emmet-vim'
 " }}}
 
 " OTHER STUFF {{{1
