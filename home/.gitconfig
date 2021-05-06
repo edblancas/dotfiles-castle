@@ -147,11 +147,11 @@
 	name = Daniel Blancas
 	email = edblancas@gmail.com
 
-[credential]
-  helper = cache
+[filter "lfs"]
+	smudge = git-lfs smudge --skip %f
+	process = git-lfs filter-process --skip
+	clean = git-lfs clean -- %f
+	required = True
 
-[includeIf "gitdir:~/nubank-projects/"]
-  path = ~/nubank-projects/.gitconfig_include
-
-[includeIf "gitdir:~/dev/nu/"]
-  path = ~/dev/nu/.gitconfig_include
+[url "git@github.com:"]
+	insteadOf = https://github.com/
