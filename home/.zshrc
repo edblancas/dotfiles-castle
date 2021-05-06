@@ -1,12 +1,18 @@
 ### START OH-MY-ZSH ###
 export ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="spaceship"
-plugins=(common-aliases zsh-syntax-highlighting history-substring-search web-search docker git-flow docker-compose zsh-vi-mode zsh-autosuggestions)
+ZSH_THEME=""
+plugins=(common-aliases zsh-syntax-highlighting history-substring-search web-search docker git-flow docker-compose zsh-autosuggestions zsh-vi-mode)
 
 # Override custom dir, inside custom themes or plugins
 ZSH_CUSTOM=$HOME/.config/oh-my-zsh/custom
 source $ZSH/oh-my-zsh.sh
 ### END OH-MY-ZSH ###
+
+
+### START PURE PROMPT ###
+autoload -U promptinit; promptinit
+prompt pure
+### END PURE PROMPT ###
 
 
 ### START ZSH VIM MODE PLUGIN ###
@@ -27,6 +33,9 @@ zvm_after_init_commands+=(my_init)
 # Disable the cursor style feature
 # With true the terminal slows down
 ZVM_CURSOR_STYLE_ENABLED=false
+# Change to Zsh's default readkey engine
+# The default slows the terminal and vim
+ZVM_READKEY_ENGINE=$ZVM_READKEY_ENGINE_ZLE
 ### END ZSH VIM MODE PLUGIN ###
 
 
@@ -36,7 +45,7 @@ export EDITOR='vim';
 export VISUAL='vim';
 # For good colors in tmux, TRUE COLOUR
 export TERM='xterm-256color-italic'
-# 10ms for key sequences, for zsh and vim
+# 1ms for key sequences, for zsh and vim, not zhs-vim-plugin
 export KEYTIMEOUT=1
 # Increase Bash history size. Allow 32³ entries; the default is 500.
 export HISTSIZE='32768';
