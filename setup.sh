@@ -9,7 +9,7 @@ ln -s $HOME/.zfunction/pure/pure.zsh /usr/local/share/zsh/site-functions/prompt_
 ln -s $HOME/.zfunctions/pure/async.zsh /usr/local/share/zsh/site-functions/async < `tty` > `tty`
 
 echo "-- Symlink spaceship prompt..." < `tty` > `tty`
-ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme" < `tty` > `tty`
+ln -s "$HOME/.config/oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme" "$HOME/.config/oh-my-zsh/custom/themes/spaceship.zsh-theme" < `tty` > `tty`
 
 echo "--> Installing nvim plugins with vundle..." < `tty` > `tty`
 nvim +PluginInstall! +PluginClean +qall < `tty` > `tty`
