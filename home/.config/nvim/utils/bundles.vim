@@ -36,6 +36,7 @@ Plug 'kana/vim-arpeggio'
 " AUTOCOMPLETE STUFF {{{1
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " }}}
 
 " COLOR SCHEMES {{{1
@@ -54,6 +55,7 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 " CLOJURE {{{1
 Plug 'guns/vim-sexp',    {'for': 'clojure'}
 Plug 'liquidz/vim-iced', {'for': 'clojure'}
+Plug 'liquidz/vim-iced-coc-source', {'for': 'clojure'}
 " }}} 
 
 " MARKDOWN STUFF {{{1

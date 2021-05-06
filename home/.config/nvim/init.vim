@@ -360,9 +360,8 @@ function! AirlineThemePatch(palette)
   endif
 endfunction
 
-" ALE {{{2
-" Only run linters named in ale_linters settings.
-let g:ale_linters_explicit = 1
+" Iced (Clojure) {{{2
+let g:iced_enable_default_key_mappings = v:true
 
 " Javascript syntax {{{1
 let g:jsx_ext_required=0
