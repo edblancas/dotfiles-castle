@@ -51,6 +51,11 @@ Plug 'connorholyday/vim-snazzy'
 Plug 'dracula/vim', { 'as': 'dracula' }
 " }}}
 
+" CLOJURE {{{1
+Plug 'guns/vim-sexp',    {'for': 'clojure'}
+Plug 'liquidz/vim-iced', {'for': 'clojure'}
+" }}} 
+
 " MARKDOWN STUFF {{{1
 Plug 'jtratner/vim-flavored-markdown'
 Plug 'suan/vim-instant-markdown'
@@ -67,7 +72,6 @@ Plug 'preservim/nerdtree'
 " Javascript {{{1
 Plug 'pangloss/vim-javascript'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-Plug 'valloric/MatchTagAlways'
 " }}}
 
 " OTHER STUFF {{{1

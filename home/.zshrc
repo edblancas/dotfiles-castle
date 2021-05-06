@@ -183,3 +183,5 @@ if [[ -z $TMUX ]]; then
   fi
 fi
 
+### COMMON SETTINGS ###
+export PATH=$PATH:~/.config/nvim/plugged/vim-iced/bin
