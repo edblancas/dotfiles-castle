@@ -54,8 +54,12 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 
 " CLOJURE {{{1
 Plug 'guns/vim-sexp',    {'for': 'clojure'}
+Plug 'tpope/vim-sexp-mappings-for-regular-people'
 Plug 'liquidz/vim-iced', {'for': 'clojure'}
 Plug 'liquidz/vim-iced-coc-source', {'for': 'clojure'}
+Plug 'guns/vim-clojure-highlight'
+Plug 'guns/vim-clojure-static'
+Plug 'junegunn/rainbow_parentheses.vim'
 " }}} 
 
 " MARKDOWN STUFF {{{1
@@ -66,7 +70,6 @@ Plug 'elzr/vim-json'
 " }}}
 
 " IDE STUFF {{{1
-"Plug 'w0rp/ale'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'preservim/nerdtree'
 " }}}

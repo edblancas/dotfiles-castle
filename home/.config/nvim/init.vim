@@ -360,8 +360,16 @@ function! AirlineThemePatch(palette)
   endif
 endfunction
 
-" Iced (Clojure) {{{2
+" Clojure {{{1
 let g:iced_enable_default_key_mappings = v:true
+
+let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
+augroup rainbow_lisp
+  autocmd!
+  autocmd FileType lisp,clojure,scheme RainbowParentheses
+augroup END
+
+let g:airline#extensions#coc#enabled = 1
 
 " Javascript syntax {{{1
 let g:jsx_ext_required=0
