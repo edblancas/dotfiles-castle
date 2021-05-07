@@ -153,9 +153,6 @@ function removeFromPath() {
 # This is cause it was in the .path_macOS but when starting a tmux session the functions 
 # where not available inside
 [[ -s /usr/local/share/autojump/autojump.zsh ]] && source /usr/local/share/autojump/autojump.zsh
-[[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fpath=(/usr/local/share/zsh-completions $fpath)
 
 ### Node Settings ###
