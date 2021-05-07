@@ -144,14 +144,14 @@
   followTags = true
 
 [user]
-	name = Daniel Blancas
-	email = edblancas@gmail.com
+  name = Daniel Blancas
+  email = edblancas@gmail.com
 
-[filter "lfs"]
-	smudge = git-lfs smudge --skip %f
-	process = git-lfs filter-process --skip
-	clean = git-lfs clean -- %f
-	required = True
+[credential]
+  helper = cache
 
-[url "git@github.com:"]
-	insteadOf = https://github.com/
+[includeIf "gitdir:~/nu-projects/"]
+  path = ~/nu-projects/.gitconfig_include
+
+[includeIf "gitdir:~/dev/nu/"]
+  path = ~/dev/nu/.gitconfig_include
