@@ -93,7 +93,6 @@ let g:airline_theme='raven'
 set showtabline=2
 set guioptions-=e
 set laststatus=2
-"set statusline=[%n]\ %f\ %m%y%r%h%w%=%-35.(%{&fenc==\"\"?&enc:&fenc}\ [%{&ff}]\ [%L,%p%%]\ [%l,%c%V]\ %)%P
 
 " Para los logs
 au BufRead,BufNewFile *.log* set filetype=text
@@ -371,12 +370,6 @@ augroup END
 
 let g:airline#extensions#coc#enabled = 1
 
-" Javascript syntax {{{1
-let g:jsx_ext_required=0
-let g:mta_filetypes = {
-  \ 'javascript.jsx' : 1,
-  \}
-
 " EditorConfig {{{1
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
@@ -400,14 +393,3 @@ let g:VM_maps["Add Cursor Up"]      = '<A-Up>'
 " Commands {{{1
 " cd to notes
 command Cdnotes cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/notes
-
-" From tpope .vimrc
-if has("eval")
-  function! SL(function)
-      if exists('*'.a:function)
-          return ' '.call(a:function,[])
-      else
-          return ''
-      endif
-  endfunction
-endif
