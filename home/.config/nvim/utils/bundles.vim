@@ -80,7 +80,6 @@ Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 " OTHER STUFF {{{1
 Plug 'tpope/vim-abolish'
 Plug 'bootleq/ShowMarks'
-Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'majutsushi/tagbar'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'sheerun/vim-polyglot'
@@ -96,7 +95,7 @@ Plug 'tmux-plugins/vim-tmux'
 " }}}
 
 " SUBLIME LIKE {{{1
-Plug 'terryma/vim-multiple-cursors'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'airblade/vim-gitgutter'
 " }}}
 
