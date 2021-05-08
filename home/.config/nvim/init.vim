@@ -390,15 +390,12 @@ nmap <Leader>i <Plug>(PrettierAsync)
 let g:user_emmet_leader_key='<C-e>'
 
 
-" Default mapping
-let g:multi_cursor_start_word_key      = '<C-g>'
-let g:multi_cursor_select_all_word_key = '<C-A-g>'
-let g:multi_cursor_start_key           = 'g<C-g>'
-let g:multi_cursor_select_all_key      = 'g<C-A-g>'
-let g:multi_cursor_next_key            = '<C-g>'
-let g:multi_cursor_prev_key            = '<A-S-g>'
-let g:multi_cursor_skip_key            = '<C-S-g>'
-let g:multi_cursor_quit_key            = '<Esc>'
+" vim-visual-multi {{{1
+let g:VM_maps = {}
+let g:VM_maps['Find Under']         = '<C-g>'
+let g:VM_maps['Find Subword Under'] = '<C-g>'
+let g:VM_maps["Add Cursor Down"]    = '<A-Down>'
+let g:VM_maps["Add Cursor Up"]      = '<A-Up>'
 
 " Commands {{{1
 " cd to notes
