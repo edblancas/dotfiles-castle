@@ -8,10 +8,10 @@ set showmode " Por que vim-airline muestra el modo en el que estamos
 set hidden
 set foldmethod=syntax
 set tabstop=2 expandtab shiftwidth=2
-set formatoptions-=t    " No autowrap long lines
-" Get in the way with wildoptions=pum
-set wildmode=longest,full
-set wildoptions=pum
+" No autowrap long lines
+set formatoptions-=t    
+" https://stackoverflow.com/a/13043196/15803739
+set wildmode=longest:full,full
 set pumblend=20
 set ignorecase
 set smartcase
@@ -215,14 +215,13 @@ function! NumberToggle()
   endif
 endfunc
 
-" Clashes with multiple cursors
 map <Leader>nt :call NumberToggle()<CR>
 
-" Semicolon & colon {{{2
-inoremap ;<cr> <end>;<cr>
-inoremap .<cr> <end>.
-inoremap ;;<cr> <down><end>;<cr>
-inoremap ..<cr> <down><end>.
+" Semicolon & colon for java {{{2
+"inoremap ;<cr> <end>;<cr>
+"inoremap .<cr> <end>.
+"inoremap ;;<cr> <down><end>;<cr>
+"inoremap ..<cr> <down><end>.
 
 " Vimux {{{2
 map <Leader>vp :VimuxPromptCommand<CR>
@@ -321,13 +320,6 @@ highlight default ShowMarksHLu ctermfg=DarkGray ctermbg=0
 highlight default ShowMarksHLo ctermfg=Gray ctermbg=0
 highlight default ShowMarksHLm ctermfg=DarkGray ctermbg=0
 
-" YCM {{{2
-if !exists("g:ycm_semantic_triggers")
-    let g:ycm_semantic_triggers = {}
-endif
-let g:ycm_semantic_triggers['typescript'] = ['.']
-let g:ycm_autoclose_preview_window_after_insertion = 0
-
 " Airline {{{2
 let g:airline_powerline_fonts = 0
 let g:airline_section_warning=''
@@ -361,27 +353,20 @@ endfunction
 
 " Clojure {{{1
 let g:iced_enable_default_key_mappings = v:true
-
 let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
 augroup rainbow_lisp
   autocmd!
   autocmd FileType lisp,clojure,scheme RainbowParentheses
 augroup END
-
 let g:airline#extensions#coc#enabled = 1
+" Treat words with dash as a word in Vim
+set iskeyword+=-
 
 " EditorConfig {{{1
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
-" Vim Multiple Cursors {{{1
-let g:multi_cursor_use_default_mapping=0
-
 " Prettier {{{1
 nmap <Leader>i <Plug>(PrettierAsync)
-
-" Emmet {{{1
-let g:user_emmet_leader_key='<C-e>'
-
 
 " vim-visual-multi {{{1
 let g:VM_maps = {}
@@ -392,4 +377,4 @@ let g:VM_maps["Add Cursor Up"]      = '<A-Up>'
 
 " Commands {{{1
 " cd to notes
-command Cdnotes cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/notes
+command! Cdnotes cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/notes
