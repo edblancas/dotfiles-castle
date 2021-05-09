@@ -35,7 +35,6 @@ Plug 'machakann/vim-highlightedyank'
 " }}}
 
 " AUTOCOMPLETE STUFF {{{1
-Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " }}}

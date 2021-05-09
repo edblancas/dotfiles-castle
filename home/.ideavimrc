@@ -52,6 +52,7 @@ map <Leader>p <Action>(GotoFile)
 map <Leader>t <Action>(FileStructurePopup)
 map <Leader>T <Action>(ActivateStructureToolWindow)
 map <Leader>o <Action>(ShowBookmarks)
+map <Leader>b <Action>(Switcher)
 
 " easy window navigation
 nnoremap <c-l> <c-w>l
