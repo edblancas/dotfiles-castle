@@ -31,7 +31,7 @@ set smartcase
 
 " IdeaVim only commands {{{1
 set ideajoin
-set ideastatusicon = 'gray'
+set ideastatusicon=gray
 " }}}
 
 " easy window navigation
