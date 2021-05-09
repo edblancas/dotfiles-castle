@@ -38,6 +38,21 @@ set ideajoin
 set ideastatusicon=gray
 " }}}
 
+" Utils for keeb 65%
+map <leader>= <Action>(HideAllWindows)
+
+" Tabs
+" not works
+"map <Leader><Tab> <Action>(GoToLastTab)
+
+" CtrlP like
+" as there are other maps with <leader>e use an arrow to trigger immediately the action
+map <Leader>e <Action>(RecentFiles)
+map <Leader>p <Action>(GotoFile)
+map <Leader>t <Action>(FileStructurePopup)
+map <Leader>T <Action>(ActivateStructureToolWindow)
+map <Leader>o <Action>(ShowBookmarks)
+
 " easy window navigation
 nnoremap <c-l> <c-w>l
 nnoremap <c-j> <c-w>j
@@ -89,24 +104,16 @@ nnoremap <Leader>rt :action :cursive.actions.paredit/thread-form<CR>
 " }}}
 
 " Action IntelliJ IDEA {{{1
-"
-nnoremap <Space>t :action ChooseTestConfiguration<CR>
-nnoremap <Space>r :action ChooseRunConfiguration<CR>
-"nnoremap \ :action FindInPath<cr>
+nnoremap \ :action FindInPath<cr>
 " refactoring
 noremap <Leader>r :action Refactorings.QuickListPopupAction<CR>
-nnoremap <Leader>g :action Generate<CR>
 
 " code navigation {{{2
 "nnoremap <C-]> :action FindUsagesInFile<CR>
 nnoremap <C-]> :action GotoImplementation<CR>
-nnoremap <C-[> :action GotoSuperMethod<CR>
 " built-in navigation to navigated items works better
 nnoremap <C-o> :action Back<CR>
 nnoremap <C-i> :action Forward<CR>
-" but preserve ideavim defaults
-nnoremap g<C-o> <c-o>
-nnoremap g<C-i> <c-i>
 
 " Force yourself to stop using arrow keys
 "noremap   <Up>     <Nop>
