@@ -13,6 +13,10 @@ Plug 'tpope/vim-commentary'
 Plug 'machakann/vim-highlightedyank'
 " }}}
 
+" NERDTree Settings {{{1
+nnoremap <Leader>1 :NERDTreeToggle<CR>
+" }}}
+
 " Common settings {{{1
 " Copy from vim to SO and
 set clipboard=unnamed
