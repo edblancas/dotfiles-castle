@@ -39,7 +39,8 @@ set ideastatusicon=gray
 " }}}
 
 " Utils for keeb 65%
-map <leader>= <Action>(HideAllWindows)
+map <Leader>= <Action>(HideAllWindows)
+map <Leader>` <Action>(ActivateREPLToolWindow)
 
 " Tabs
 " not works
