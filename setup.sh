@@ -1,14 +1,20 @@
 echo "--> Symlinking..." < `tty` > `tty`
 homesick link dotfiles-castle < `tty` > `tty`
 
-echo "-- Submodules init..." < `tty` > `tty`
+echo "--> Submodules init..." < `tty` > `tty`
 git submodule update --init --recursive < `tty` > `tty`
 
-echo "-- Symlink pure prompt..." < `tty` > `tty`
+echo "--> Symlink pure prompt..." < `tty` > `tty`
 ln -s $HOME/.config/oh-my-zsh/custom/themes/pure/pure.zsh /usr/local/share/zsh/site-functions/prompt_pure_setup < `tty` > `tty`
 ln -s $HOME/.config/oh-my-zsh/custom/themes/pure/async.zsh /usr/local/share/zsh/site-functions/async < `tty` > `tty`
 
-echo "--> Installing nvim plugins with vundle..." < `tty` > `tty`
+echo "--> Symlink iTerm2 settins (only if its clean installation)..." < `tty` > `tty`
+ln -s $HOME/.config/iterm/com.googlecode.iterm2.plist $HOME/Library/Preferences/com.googlecode.iterm2.plist < `tty` > `tty`
+
+echo "--> Installing nvim plugins with Plug..." < `tty` > `tty`
 nvim +PluginInstall! +PluginClean +qall < `tty` > `tty`
+
+echo "--> Install Coc Diagnostin in vim..." < `tty` > `tty`
+nvim -c ':CocInstall coc-diagnostic | quit' < `tty` > `tty`
 
 echo "--> Done! Happy Vimming! :x" < `tty` > `tty`
