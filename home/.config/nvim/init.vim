@@ -375,17 +375,14 @@ let g:VM_maps["Add Cursor Down"]    = '<C-M-S-j>'
 let g:VM_maps["Add Cursor Up"]      = '<C-M-S-k>'
 
 " Remapping vim-sexp {{{1
-" Fix inside string E moves per word
-function! SexpMappings() abort
-  nmap E <Plug>(sexp_move_to_next_element_tail)
-  nmap B <Plug>(sexp_move_to_prev_element_tail)
-  nmap <silent><buffer> <M-o> <Plug>(sexp_raise_list)
-endfunction
-
-augroup sexp_mappings_for_regular_people
-  autocmd!
-  execute 'autocmd FileType' get(g:, 'sexp_filetypes', 'lisp,scheme,clojure') 'call SexpMappings()'
-augroup END
+" Fix inside string E moves per word, and remap anothers
+" see: h sexp-explicit-mappings
+let g:sexp_mappings = {
+    \ 'sexp_move_to_next_element_tail': 'E',
+    \ 'sexp_move_to_prev_element_tail': 'B',
+    \ 'sexp_raise_list': '<M-o>',
+    \ 'sexp_splice_list': '<M-s>',
+    \ }
 " }}}
 
 " Commands {{{1

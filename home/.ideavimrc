@@ -76,6 +76,9 @@ nnoremap <A-S-k> :action :cursive.actions.paredit/barf-forwards<CR>
 nnoremap <A-S-h> :action :cursive.actions.paredit/slurp-backwards<CR>
 nnoremap <A-S-l> :action :cursive.actions.paredit/slurp-forwards<CR>
 nnoremap <A-o> :action :cursive.actions.paredit/rise<CR>
+nnoremap <A-s> :action :cursive.actions.paredit/splice<CR>
+nnoremap <A-j> :action :cursive.actions.paredit/move-form-down<CR>
+nnoremap <A-k> :action :cursive.actions.paredit/move-form-up<CR>
 " }}}
 
 " Action IntelliJ IDEA {{{1
