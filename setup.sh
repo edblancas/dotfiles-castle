@@ -14,7 +14,8 @@ ln -s $HOME/.config/iterm/com.googlecode.iterm2.plist $HOME/Library/Preferences/
 echo "--> Installing nvim plugins with Plug..." < `tty` > `tty`
 nvim +PluginInstall! +PluginClean +qall < `tty` > `tty`
 
-echo "--> Install Coc Diagnostin in vim..." < `tty` > `tty`
+echo "--> Install Coc Plugins in vim..." < `tty` > `tty`
 nvim -c ':CocInstall coc-diagnostic | quit' < `tty` > `tty`
+nvim -c ':CocInstall coc-snippets | quit' < `tty` > `tty`
 
 echo "--> Done! Happy Vimming! :x" < `tty` > `tty`
