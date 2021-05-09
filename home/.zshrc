@@ -11,6 +11,11 @@ source $ZSH/oh-my-zsh.sh
 
 ### START PURE PROMPT ###
 autoload -U promptinit; promptinit
+
+# Options
+zstyle :prompt:pure:git:stash show yes
+zstyle :prompt:pure:git:fetch only_upstream yes
+
 prompt pure
 ### END PURE PROMPT ###
 
