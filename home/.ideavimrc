@@ -83,6 +83,9 @@ nnoremap <A-o> :action :cursive.actions.paredit/rise<CR>
 nnoremap <A-s> :action :cursive.actions.paredit/splice<CR>
 nnoremap <A-j> :action :cursive.actions.paredit/move-form-down<CR>
 nnoremap <A-k> :action :cursive.actions.paredit/move-form-up<CR>
+" Like vim-iced
+nnoremap <leader>et :action :cursive.repl.actions/run-top-sexp<CR>
+nnoremap <Leader>rt :action :cursive.actions.paredit/thread-form<CR>
 " }}}
 
 " Action IntelliJ IDEA {{{1
