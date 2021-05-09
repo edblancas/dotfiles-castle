@@ -1,17 +1,38 @@
 " vim: fdm=marker
 
-let mapleader = "," 
+" NOT SUPPORTED: creation of functions
+" So, no 'visual line repeat (drew neil)'
+" or toggle relativenumber with <leader>nt
 
-set incsearch
+let mapleader = ','
+
+" Plugins {{{1
+Plug 'tpope/vim-surround'
+Plug 'preservim/nerdtree'
+Plug 'tpope/vim-commentary'
+Plug 'machakann/vim-highlightedyank'
+" }}}
+
+" Common settings {{{1
+" Copy from vim to SO and
+set clipboard=unnamed
+"set history=1000 "utiliza mucho cpu
 set hlsearch
 set ignorecase
-set smartcase
-set showmode
-"set history=1000 "utiliza mucho cpu
+set iskeyword+=-
+set incsearch
+set number
 "set relativenumber
 set scrolloff=3
-" Para siempre copiar del unnamed al * y viceversa
-set clipboard=unnamed
+set showmode
+set showcmd
+set smartcase
+" }}}
+
+" IdeaVim only commands {{{1
+set ideajoin
+set ideastatusicon = 'gray'
+" }}}
 
 " easy window navigation
 nnoremap <c-l> <c-w>l
@@ -34,43 +55,27 @@ map <Leader>d :hide<CR>
 " Save
 nnoremap <Leader>w :w<Enter>
 
-" Force yourself to stop using arrow keys
-"noremap   <Up>     <Nop>
-"noremap   <Down>   <Nop>
-"noremap   <Left>   <Nop>
-"noremap   <Right>  <Nop>
-"inoremap  <Up>     <Nop>
-"inoremap  <Down>   <Nop>
-"inoremap  <Left>   <Nop>
-"inoremap  <Right>  <Nop>
+" unimpaired mappings
+nnoremap [<Space> O<Esc>j
+nnoremap ]<Space> o<Esc>k
+" unimpaired like mappings
+nnoremap [q :action PreviousOccurence<CR>
+nnoremap ]q :action NextOccurence<CR>
+nnoremap [m :action MethodUp<CR>
+nnoremap ]m :action MethodDown<CR>
+nnoremap [c :action VcsShowPrevChangeMarker<CR>
+nnoremap ]c :action VcsShowNextChangeMarker<CR>
 
-" Override defaults
-nnoremap Q <Nop>
-"nnoremap <space> za " not work
-nnoremap j gj
-nnoremap k gk
-
-" Visual line repeat
-xnoremap . :normal .<CR>
-xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
-
-function! ExecuteMacroOverVisualRange()
-  echo "@".getcmdline()
-  execute ":'<,'>normal @".nr2char(getchar())
-endfunction
-
-" Emulated Vim Plugins {{{1
-" Emulates vim-surround
-" Commands: ys, cs, ds, S
-set surround
-
-" Emulates commentary.vim
-" Commands: gcc, gc + motion, v_gc
-set commentary
-
-" Emulates vim-multiple-cursors
-" Commands: <A-n>, <A-x>, <A-p>, g<A-n>
-set multiple-cursors
+" Clojure {{{1
+" Cursive paredit same as
+" guns/vim-sexp or tpope/vim-sexp-mappings-for-regular-people
+nnoremap E :action :cursive.actions.paredit/forward<CR>
+nnoremap B :action :cursive.actions.paredit/backward<CR>
+nnoremap <A-S-j> :action :cursive.actions.paredit/barf-backwards<CR>
+nnoremap <A-S-k> :action :cursive.actions.paredit/barf-forwards<CR>
+nnoremap <A-S-h> :action :cursive.actions.paredit/slurp-backwards<CR>
+nnoremap <A-S-l> :action :cursive.actions.paredit/slurp-forwards<CR>
+nnoremap <A-o> :action :cursive.actions.paredit/rise<CR>
 " }}}
 
 " Action IntelliJ IDEA {{{1
@@ -93,14 +98,18 @@ nnoremap <C-i> :action Forward<CR>
 nnoremap g<C-o> <c-o>
 nnoremap g<C-i> <c-i>
 
-" unimpaired mappings
-nnoremap [<Space> O<Esc>j
-nnoremap ]<Space> o<Esc>k
-nnoremap [q :action PreviousOccurence<CR>
-nnoremap ]q :action NextOccurence<CR>
-nnoremap [m :action MethodUp<CR>
-nnoremap ]m :action MethodDown<CR>
-nnoremap [c :action VcsShowPrevChangeMarker<CR>
-nnoremap ]c :action VcsShowNextChangeMarker<CR>
+" Force yourself to stop using arrow keys
+"noremap   <Up>     <Nop>
+"noremap   <Down>   <Nop>
+"noremap   <Left>   <Nop>
+"noremap   <Right>  <Nop>
+"inoremap  <Up>     <Nop>
+"inoremap  <Down>   <Nop>
+"inoremap  <Left>   <Nop>
+"inoremap  <Right>  <Nop>
 
-set ideajoin
+" Override defaults
+nnoremap Q <Nop>
+"nnoremap <space> zo " to slow
+"nnoremap j gj
+"nnoremap k gk

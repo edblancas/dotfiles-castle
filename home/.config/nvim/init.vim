@@ -40,8 +40,6 @@ set pastetoggle=<F2>
 nnoremap <silent> <F2> :set invpaste paste?<CR>
 " Yank from " to * register an viceversa
 set clipboard=unnamed
-" Yank from " to + register an viceversa, for linux
-set clipboard+=unnamedplus
 
 " Otas opciones
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
@@ -213,7 +211,7 @@ function! NumberToggle()
   else
     set relativenumber
   endif
-endfunc
+endfunction
 
 map <Leader>nt :call NumberToggle()<CR>
 
@@ -375,6 +373,20 @@ let g:VM_maps['Find Subword Under'] = '<C-g>'
 " M in mac is option
 let g:VM_maps["Add Cursor Down"]    = '<C-M-S-j>'
 let g:VM_maps["Add Cursor Up"]      = '<C-M-S-k>'
+
+" Remapping vim-sexp {{{1
+" Fix inside string E moves per word
+function! SexpMappings() abort
+  nmap E <Plug>(sexp_move_to_next_element_tail)
+  nmap B <Plug>(sexp_move_to_prev_element_tail)
+  nmap <silent><buffer> <M-o> <Plug>(sexp_raise_list)
+endfunction
+
+augroup sexp_mappings_for_regular_people
+  autocmd!
+  execute 'autocmd FileType' get(g:, 'sexp_filetypes', 'lisp,scheme,clojure') 'call SexpMappings()'
+augroup END
+" }}}
 
 " Commands {{{1
 " cd to notes
