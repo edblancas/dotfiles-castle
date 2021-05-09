@@ -372,8 +372,9 @@ nmap <Leader>i <Plug>(PrettierAsync)
 let g:VM_maps = {}
 let g:VM_maps['Find Under']         = '<C-g>'
 let g:VM_maps['Find Subword Under'] = '<C-g>'
-let g:VM_maps["Add Cursor Down"]    = '<A-Down>'
-let g:VM_maps["Add Cursor Up"]      = '<A-Up>'
+" M in mac is option
+let g:VM_maps["Add Cursor Down"]    = '<C-M-S-j>'
+let g:VM_maps["Add Cursor Up"]      = '<C-M-S-k>'
 
 " Commands {{{1
 " cd to notes
