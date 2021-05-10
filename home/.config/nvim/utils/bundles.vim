@@ -31,7 +31,6 @@ Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-indent'
 Plug 'kana/vim-textobj-function'
 Plug 'kana/vim-arpeggio'
-Plug 'machakann/vim-highlightedyank'
 " }}}
 
 " AUTOCOMPLETE STUFF {{{1

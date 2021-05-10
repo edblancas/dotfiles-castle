@@ -31,6 +31,7 @@ set scrolloff=3
 set showmode
 set showcmd
 set smartcase
+set visualbell
 " }}}
 
 " IdeaVim only commands {{{1
@@ -103,6 +104,9 @@ nnoremap <A-k> :action :cursive.actions.paredit/move-form-up<CR>
 " Like vim-iced
 nnoremap <leader>et :action :cursive.repl.actions/run-top-sexp<CR>
 nnoremap <Leader>rt :action :cursive.actions.paredit/thread-form<CR>
+
+" Toggle structural editing
+map <Leader>; <Action>(:cursive.actions.paredit/toggle)
 " }}}
 
 " Action IntelliJ IDEA {{{1

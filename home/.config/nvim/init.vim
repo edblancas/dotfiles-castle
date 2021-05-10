@@ -30,6 +30,7 @@ set showmatch
 set colorcolumn=100
 " Es el valor que toma en cuenta gq, pero lo hace automatico si se deja
 " set textwidth=100
+" Disable beep and flash
 set vb t_vb=
 set scrolloff=3
 set nofoldenable    " disable folding
