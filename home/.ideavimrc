@@ -95,19 +95,28 @@ nnoremap <C-S> i()<left>
 " guns/vim-sexp or tpope/vim-sexp-mappings-for-regular-people
 nnoremap E :action :cursive.actions.paredit/forward<CR>
 nnoremap B :action :cursive.actions.paredit/backward<CR>
-map <A-S-j> <Action>(:cursive.actions.paredit/barf-backwards)
-map <A-S-k> <Action>(:cursive.actions.paredit/barf-forwards)
-map <A-S-h> <Action>(:cursive.actions.paredit/slurp-backwards)
-map <A-S-l> <Action>(:cursive.actions.paredit/slurp-forwards)
+" normal mode
+map <A-j> <Action>(:cursive.actions.paredit/barf-backwards)
+map <A-k> <Action>(:cursive.actions.paredit/barf-forwards)
+map <A-h> <Action>(:cursive.actions.paredit/slurp-backwards)
+map <A-l> <Action>(:cursive.actions.paredit/slurp-forwards)
+map <A-S-j> <Action>(:cursive.actions.paredit/move-form-down)
+map <A-S-k> <Action>(:cursive.actions.paredit/move-form-up)
 map <A-o> <Action>(:cursive.actions.paredit/raise)
 map <A-s> <Action>(:cursive.actions.paredit/splice)
-map <A-j> <Action>(:cursive.actions.paredit/move-form-down)
-map <A-k> <Action>(:cursive.actions.paredit/move-form-up)
+map <C-A-s> <Action>(:cursive.actions.paredit/split)
+map <C-A-j> <Action>(:cursive.actions.paredit/join)
 " for some reason put this to make it work in insert mode
+imap <A-j> <Action>(:cursive.actions.paredit/barf-backwards)
+imap <A-k> <Action>(:cursive.actions.paredit/barf-forwards)
+imap <A-h> <Action>(:cursive.actions.paredit/slurp-backwards)
+imap <A-l> <Action>(:cursive.actions.paredit/slurp-forwards)
+imap <A-S-j> <Action>(:cursive.actions.paredit/move-form-down)
+imap <A-S-k> <Action>(:cursive.actions.paredit/move-form-up)
 imap <A-o> <Action>(:cursive.actions.paredit/raise)
 imap <A-s> <Action>(:cursive.actions.paredit/splice)
-imap <A-j> <Action>(:cursive.actions.paredit/move-form-down)
-imap <A-k> <Action>(:cursive.actions.paredit/move-form-up)
+imap <C-A-s> <Action>(:cursive.actions.paredit/split)
+imap <C-A-j> <Action>(:cursive.actions.paredit/join)
 " Like vim-iced
 nnoremap <leader>et :action :cursive.repl.actions/run-top-sexp<CR>
 nnoremap <Leader>rt :action :cursive.actions.paredit/thread-form<CR>

@@ -393,6 +393,12 @@ let g:VM_maps["Add Cursor Up"]      = '<C-M-S-k>'
 let g:sexp_mappings = {
     \ 'sexp_move_to_next_element_tail': 'E',
     \ 'sexp_move_to_prev_element_tail': 'B',
+    \ 'sexp_emit_head_element': '<M-j>',
+    \ 'sexp_emit_tail_element': '<M-k>',
+    \ 'sexp_capture_prev_element': '<M-h>',
+    \ 'sexp_capture_next_element': '<M-l>',
+    \ 'sexp_swap_list_backward': '<M-S-k>',
+    \ 'sexp_swap_list_forward': '<M-S-j>',
     \ 'sexp_raise_list': '<M-o>',
     \ 'sexp_splice_list': '<M-s>',
     \ }
