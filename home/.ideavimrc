@@ -57,10 +57,10 @@ map <Leader>o <Action>(ShowBookmarks)
 map <Leader>b <Action>(Switcher)
 
 " easy window navigation
-nnoremap <c-l> <c-w>l
-nnoremap <c-j> <c-w>j
-nnoremap <c-h> <c-w>h
-nnoremap <c-k> <c-w>k
+map <c-l> <c-w>l
+map <c-j> <c-w>j
+map <c-h> <c-w>h
+map <c-k> <c-w>k
 
 " Utils
 nnoremap <Leader><space> :nohlsearch<CR>
@@ -89,18 +89,25 @@ nnoremap [c :action VcsShowPrevChangeMarker<CR>
 nnoremap ]c :action VcsShowNextChangeMarker<CR>
 
 " Clojure {{{1
+inoremap <C-S> ()<left>
+nnoremap <C-S> i()<left>
 " Cursive paredit same as
 " guns/vim-sexp or tpope/vim-sexp-mappings-for-regular-people
 nnoremap E :action :cursive.actions.paredit/forward<CR>
 nnoremap B :action :cursive.actions.paredit/backward<CR>
-nnoremap <A-S-j> :action :cursive.actions.paredit/barf-backwards<CR>
-nnoremap <A-S-k> :action :cursive.actions.paredit/barf-forwards<CR>
-nnoremap <A-S-h> :action :cursive.actions.paredit/slurp-backwards<CR>
-nnoremap <A-S-l> :action :cursive.actions.paredit/slurp-forwards<CR>
-nnoremap <A-o> :action :cursive.actions.paredit/rise<CR>
-nnoremap <A-s> :action :cursive.actions.paredit/splice<CR>
-nnoremap <A-j> :action :cursive.actions.paredit/move-form-down<CR>
-nnoremap <A-k> :action :cursive.actions.paredit/move-form-up<CR>
+map <A-S-j> <Action>(:cursive.actions.paredit/barf-backwards)
+map <A-S-k> <Action>(:cursive.actions.paredit/barf-forwards)
+map <A-S-h> <Action>(:cursive.actions.paredit/slurp-backwards)
+map <A-S-l> <Action>(:cursive.actions.paredit/slurp-forwards)
+map <A-o> <Action>(:cursive.actions.paredit/raise)
+map <A-s> <Action>(:cursive.actions.paredit/splice)
+map <A-j> <Action>(:cursive.actions.paredit/move-form-down)
+map <A-k> <Action>(:cursive.actions.paredit/move-form-up)
+" for some reason put this to make it work in insert mode
+imap <A-o> <Action>(:cursive.actions.paredit/raise)
+imap <A-s> <Action>(:cursive.actions.paredit/splice)
+imap <A-j> <Action>(:cursive.actions.paredit/move-form-down)
+imap <A-k> <Action>(:cursive.actions.paredit/move-form-up)
 " Like vim-iced
 nnoremap <leader>et :action :cursive.repl.actions/run-top-sexp<CR>
 nnoremap <Leader>rt :action :cursive.actions.paredit/thread-form<CR>
