@@ -372,6 +372,9 @@ augroup END
 let g:airline#extensions#coc#enabled = 1
 " Treat words with dash as a word in Vim
 set iskeyword+=-
+" utils
+inoremap <C-S> ()<left><left>
+nnoremap <C-S> i()<left><left>
 
 " EditorConfig {{{1
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
@@ -399,6 +402,8 @@ let g:sexp_mappings = {
     \ 'sexp_capture_next_element': '<M-l>',
     \ 'sexp_swap_list_backward': '<M-S-k>',
     \ 'sexp_swap_list_forward': '<M-S-j>',
+    \ 'sexp_swap_element_backward': '<M-S-h>',
+    \ 'sexp_swap_element_forward': '<M-S-l>',
     \ 'sexp_raise_list': '<M-o>',
     \ 'sexp_splice_list': '<M-s>',
     \ }

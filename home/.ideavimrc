@@ -89,8 +89,6 @@ nnoremap [c :action VcsShowPrevChangeMarker<CR>
 nnoremap ]c :action VcsShowNextChangeMarker<CR>
 
 " Clojure {{{1
-inoremap <C-S> ()<left>
-nnoremap <C-S> i()<left>
 " Cursive paredit same as
 " guns/vim-sexp or tpope/vim-sexp-mappings-for-regular-people
 nnoremap E :action :cursive.actions.paredit/forward<CR>
@@ -100,13 +98,31 @@ map <A-j> <Action>(:cursive.actions.paredit/barf-backwards)
 map <A-k> <Action>(:cursive.actions.paredit/barf-forwards)
 map <A-h> <Action>(:cursive.actions.paredit/slurp-backwards)
 map <A-l> <Action>(:cursive.actions.paredit/slurp-forwards)
+" works both as move list and element in sexp
 map <A-S-j> <Action>(:cursive.actions.paredit/move-form-down)
 map <A-S-k> <Action>(:cursive.actions.paredit/move-form-up)
+" same maps in nvim
 map <A-o> <Action>(:cursive.actions.paredit/raise)
 map <A-s> <Action>(:cursive.actions.paredit/splice)
+" NO equivalent in vim-sexp
 map <C-A-s> <Action>(:cursive.actions.paredit/split)
 map <C-A-j> <Action>(:cursive.actions.paredit/join)
-" for some reason put this to make it work in insert mode
+" like vim objects
+map <C-A-k> <Action>(:cursive.actions.paredit/kill)
+"<M-A-k> kill-sexp
+"<C-S-K> copy-as-kill
+" Like vim-iced
+nnoremap <leader>et :action :cursive.repl.actions/run-top-sexp<CR>
+nnoremap <Leader>rt :action :cursive.actions.paredit/thread-form<CR>
+" not supported in vim iced
+nnoremap <Leader>ru :action :cursive.actions.paredit/unthread-form<CR>
+" Toggle structural editing
+map <Leader>; <Action>(:cursive.actions.paredit/toggle)
+" utils
+inoremap <C-S> ()<left><left>
+nnoremap <C-S> i()<left><left>
+
+""" for some reason put this to make it work in insert mode """
 imap <A-j> <Action>(:cursive.actions.paredit/barf-backwards)
 imap <A-k> <Action>(:cursive.actions.paredit/barf-forwards)
 imap <A-h> <Action>(:cursive.actions.paredit/slurp-backwards)
@@ -117,18 +133,15 @@ imap <A-o> <Action>(:cursive.actions.paredit/raise)
 imap <A-s> <Action>(:cursive.actions.paredit/splice)
 imap <C-A-s> <Action>(:cursive.actions.paredit/split)
 imap <C-A-j> <Action>(:cursive.actions.paredit/join)
-" Like vim-iced
-nnoremap <leader>et :action :cursive.repl.actions/run-top-sexp<CR>
-nnoremap <Leader>rt :action :cursive.actions.paredit/thread-form<CR>
-
-" Toggle structural editing
-map <Leader>; <Action>(:cursive.actions.paredit/toggle)
+imap <C-A-k> <Action>(:cursive.actions.paredit/kill)
 " }}}
+
 
 " Action IntelliJ IDEA {{{1
 nnoremap \ :action FindInPath<cr>
 " refactoring
 noremap <Leader>r :action Refactorings.QuickListPopupAction<CR>
+
 
 " code navigation {{{2
 "nnoremap <C-]> :action FindUsagesInFile<CR>
