@@ -373,8 +373,8 @@ let g:airline#extensions#coc#enabled = 1
 " Treat words with dash as a word in Vim
 set iskeyword+=-
 " utils
-inoremap <C-S> ()<left><left>
-nnoremap <C-S> i()<left><left>
+inoremap <C-S> ()<left>
+nnoremap <C-S> i()<left>
 
 " EditorConfig {{{1
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
