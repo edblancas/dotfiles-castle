@@ -145,10 +145,15 @@ noremap <Leader>r :action Refactorings.QuickListPopupAction<CR>
 
 " code navigation {{{2
 "nnoremap <C-]> :action FindUsagesInFile<CR>
-nnoremap <C-]> :action GotoImplementation<CR>
+map <C-]> :action GotoImplementation<CR>
 " built-in navigation to navigated items works better
-nnoremap <C-o> :action Back<CR>
-nnoremap <C-i> :action Forward<CR>
+map <C-o> :action Back<CR>
+map <C-i> :action Forward<CR>
+
+" to work also in insert mode
+imap <C-]> <Action>(GotoImplementation)
+imap <C-o> <Action>(Back)
+imap <C-i> <Action>(Forward)
 
 " Force yourself to stop using arrow keys
 "noremap   <Up>     <Nop>
