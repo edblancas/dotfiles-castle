@@ -101,8 +101,8 @@ nnoremap <Leader>ru :action :cursive.actions.paredit/unthread-form<CR>
 " Toggle structural editing
 map <Leader>; <Action>(:cursive.actions.paredit/toggle)
 " utils
-inoremap <C-S> ()<left>
-nnoremap <C-S> i()<left>
+inoremap <C-;> ()<left>
+nnoremap <C-;> i()<left>
 " }}}
 
 
