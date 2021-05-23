@@ -146,6 +146,7 @@
 [user]
   name = Daniel Blancas
   email = edblancas@gmail.com
+	signingkey = 7CC41AD13FF90E67
 
 [credential]
   helper = cache

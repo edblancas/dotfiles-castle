@@ -187,3 +187,4 @@ fi
 
 ### COMMON SETTINGS ###
 export PATH=$PATH:~/.config/nvim/plugged/vim-iced/bin
+alias sdatomic='$HOME/opt/datomic-pro-1.0.6269/bin/transactor config/dev-transactor-template.properties'

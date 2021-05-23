@@ -93,24 +93,6 @@ nnoremap ]c :action VcsShowNextChangeMarker<CR>
 " guns/vim-sexp or tpope/vim-sexp-mappings-for-regular-people
 nnoremap E :action :cursive.actions.paredit/forward<CR>
 nnoremap B :action :cursive.actions.paredit/backward<CR>
-" normal mode
-map <A-j> <Action>(:cursive.actions.paredit/barf-backwards)
-map <A-k> <Action>(:cursive.actions.paredit/barf-forwards)
-map <A-h> <Action>(:cursive.actions.paredit/slurp-backwards)
-map <A-l> <Action>(:cursive.actions.paredit/slurp-forwards)
-" works both as move list and element in sexp
-map <A-S-j> <Action>(:cursive.actions.paredit/move-form-down)
-map <A-S-k> <Action>(:cursive.actions.paredit/move-form-up)
-" same maps in nvim
-map <A-o> <Action>(:cursive.actions.paredit/raise)
-map <A-s> <Action>(:cursive.actions.paredit/splice)
-" NO equivalent in vim-sexp
-map <C-A-s> <Action>(:cursive.actions.paredit/split)
-map <C-A-j> <Action>(:cursive.actions.paredit/join)
-" like vim objects
-map <C-A-k> <Action>(:cursive.actions.paredit/kill)
-"<M-A-k> kill-sexp
-"<C-S-K> copy-as-kill
 " Like vim-iced
 nnoremap <leader>et :action :cursive.repl.actions/run-top-sexp<CR>
 nnoremap <Leader>rt :action :cursive.actions.paredit/thread-form<CR>
@@ -121,19 +103,6 @@ map <Leader>; <Action>(:cursive.actions.paredit/toggle)
 " utils
 inoremap <C-S> ()<left>
 nnoremap <C-S> i()<left>
-
-""" for some reason put this to make it work in insert mode """
-imap <A-j> <Action>(:cursive.actions.paredit/barf-backwards)
-imap <A-k> <Action>(:cursive.actions.paredit/barf-forwards)
-imap <A-h> <Action>(:cursive.actions.paredit/slurp-backwards)
-imap <A-l> <Action>(:cursive.actions.paredit/slurp-forwards)
-imap <A-S-j> <Action>(:cursive.actions.paredit/move-form-down)
-imap <A-S-k> <Action>(:cursive.actions.paredit/move-form-up)
-imap <A-o> <Action>(:cursive.actions.paredit/raise)
-imap <A-s> <Action>(:cursive.actions.paredit/splice)
-imap <C-A-s> <Action>(:cursive.actions.paredit/split)
-imap <C-A-j> <Action>(:cursive.actions.paredit/join)
-imap <C-A-k> <Action>(:cursive.actions.paredit/kill)
 " }}}
 
 
@@ -155,18 +124,7 @@ imap <C-]> <Action>(GotoImplementation)
 imap <C-o> <Action>(Back)
 imap <C-i> <Action>(Forward)
 
-" Force yourself to stop using arrow keys
-"noremap   <Up>     <Nop>
-"noremap   <Down>   <Nop>
-"noremap   <Left>   <Nop>
-"noremap   <Right>  <Nop>
-"inoremap  <Up>     <Nop>
-"inoremap  <Down>   <Nop>
-"inoremap  <Left>   <Nop>
-"inoremap  <Right>  <Nop>
-
 " Override defaults
 nnoremap Q <Nop>
-"nnoremap <space> zo " to slow
 "nnoremap j gj
 "nnoremap k gk
