@@ -151,8 +151,5 @@
 [credential]
   helper = cache
 
-[includeIf "gitdir:~/nu-projects/"]
-  path = ~/nu-projects/.gitconfig_include
-
 [includeIf "gitdir:~/dev/nu/"]
   path = ~/dev/nu/.gitconfig_include

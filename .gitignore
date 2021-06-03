@@ -19,3 +19,6 @@ home/.lc/leetcode/user.json
 
 # created by setup.sh, cause is different for each pc
 home/.config/oh-my-zsh/custom/themes/spaceship.zsh-theme
+
+# Environment variables are automatically generated
+.spacemacs.env
