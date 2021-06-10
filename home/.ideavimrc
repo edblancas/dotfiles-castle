@@ -14,7 +14,8 @@ Plug 'machakann/vim-highlightedyank'
 " }}}
 
 " NERDTree Settings {{{1
-nnoremap <Leader>1 :NERDTreeToggle<CR>
+" emulate something like cmd+1 idea keymap
+nnoremap <Leader>1 :NERDTree<CR>
 " }}}
 
 " Common settings {{{1

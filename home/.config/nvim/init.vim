@@ -109,7 +109,7 @@ nnoremap <Leader>w :w<Enter>
 nnoremap <Leader><space> :nohlsearch<CR>
 
 " NERDTree idea like keymap {{{1
-nnoremap <Leader>1 :NERDTreeToggle<CR>
+nnoremap <Leader>1 :NERDTree<CR>
 "augroup ProjectDrawer
 "  autocmd!
 "  autocmd VimEnter * :NERDTreeToggle
