@@ -112,18 +112,6 @@ nnoremap \ :action FindInPath<cr>
 noremap <Leader>r :action Refactorings.QuickListPopupAction<CR>
 
 
-" code navigation {{{2
-"nnoremap <C-]> :action FindUsagesInFile<CR>
-map <C-]> :action GotoImplementation<CR>
-" built-in navigation to navigated items works better
-map <C-o> :action Back<CR>
-map <C-i> :action Forward<CR>
-
-" to work also in insert mode
-imap <C-]> <Action>(GotoImplementation)
-imap <C-o> <Action>(Back)
-imap <C-i> <Action>(Forward)
-
 " Override defaults
 nnoremap Q <Nop>
 "nnoremap j gj
