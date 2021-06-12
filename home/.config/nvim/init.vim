@@ -371,7 +371,7 @@ augroup rainbow_lisp
 augroup END
 let g:airline#extensions#coc#enabled = 1
 " Treat words with dash as a word in Vim
-set iskeyword+=-
+" set iskeyword+=-
 " utils
 inoremap <C-;> ()<left>
 nnoremap <C-;> i()<left>
