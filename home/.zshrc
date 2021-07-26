@@ -174,6 +174,25 @@ export PYTHONIOENCODING='UTF-8';
 alias qtpy='jupyter qtconsole --ConsoleWidget.font_family="MonoLisa" --ConsoleWidget.font_size=16'
 ### END CONFIGURATIONS ###
 
+### Alias from nu .bash_profile ###
+alias path='echo -e ${PATH//:/\\n}'         # path:         Echo all executable Paths
+# System shortcuts
+alias flushdns='sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder;say cache flushed'
+alias sha1='/usr/bin/openssl sha1'
+alias md5='md5 -r'
+alias md5sum='md5 -r'
+alias running_services="sudo lsof -nPi -sTCP:LISTEN"
+alias whatismyipaddress='dig +short myip.opendns.com @resolver1.opendns.com'
+alias localip='ipconfig getifaddr en0'
+alias chrome='open -a "Google Chrome" --args --user-data-dir=/tmp/chrome-$((1 + RANDOM % 10))'
+# Utils
+alias uuid="python -c 'import sys,uuid; sys.stdout.write(str(uuid.uuid4()))' | pbcopy && pbpaste && echo"
+## get top process eating memory
+alias psmem='ps aux | sort -nr -k 4'
+alias psmem10='ps aux | sort -nr -k 4 | head -10'
+## get top process eating cpu ##
+alias pscpu=' ps aux | sort -nr -k 3 '
+alias pscpu10=' ps aux | sort -nr -k 3 | head -10 '
 
 ### PERSONAL OR WORK ###
 # Conditional so we do not load the file again when we are inside tmux
