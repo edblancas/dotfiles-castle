@@ -34,6 +34,11 @@ set smartcase
 set visualbell
 " }}}
 
+" Treat words with dash as a word in Vim
+" E and B not works, e.g. |hello-world]
+" use dE, expected: delete hello-world, actual: delete hello-world]
+set iskeyword+=-
+
 " IdeaVim only commands {{{1
 set ideajoin
 set ideastatusicon=gray
