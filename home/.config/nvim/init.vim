@@ -118,10 +118,12 @@ nnoremap <Leader>1 :NERDTree<CR>
 " File opening {{{2
 cnoremap <expr> %%  getcmdtype() == ':' ? fnameescape(expand('%:h')).'/' : '%%'
 
-map <leader>ew :e %%
-map <leader>es :sp %%
-map <leader>ev :vsp %%
-map <leader>et :tabe %%
+" conflict with ctrl-p recent files
+" just use it without the mappings! XD
+"map <leader>ew :e %%
+"map <leader>es :sp %%
+"map <leader>ev :vsp %%
+"map <leader>et :tabe %%
 
 map <Leader><Tab> :b#<CR>
 map <Leader>d :bd<CR>
