@@ -54,7 +54,7 @@ map <Leader>` <Action>(ActivateREPLToolWindow)
 
 " CtrlP like
 " as there are other maps with <leader>e use an arrow to trigger immediately the action
-map <Leader>e <Action>(RecentFiles)
+map <Leader>ee <Action>(RecentFiles)
 map <Leader>p <Action>(GotoFile)
 map <Leader>t <Action>(FileStructurePopup)
 map <Leader>T <Action>(ActivateStructureToolWindow)
@@ -114,7 +114,7 @@ nnoremap <C-;> i()<left>
 " Action IntelliJ IDEA {{{1
 nnoremap \ :action FindInPath<cr>
 " refactoring
-noremap <Leader>r :action Refactorings.QuickListPopupAction<CR>
+noremap <Leader>rr :action Refactorings.QuickListPopupAction<CR>
 
 
 " Override defaults

@@ -244,9 +244,8 @@ silent! nnoremap <unique> <silent> <Leader>p :CtrlP<CR>
 silent! nnoremap <unique> <silent> <Leader>b :CtrlPBuffer<CR>
 silent! nnoremap <unique> <silent> <Leader>T :CtrlPTag<CR>
 silent! nnoremap <unique> <silent> <Leader>t :CtrlPBufTag<CR>
-" as vim-iced maps also start with <leader>e, use anoter 
-" key to trigger immediately, e.g. <c-m>
-silent! nnoremap <unique> <silent> <Leader>e :CtrlPMRUFiles<CR>
+" double e to not conflict with vim-iced maps that start with <leader>e...
+silent! nnoremap <unique> <silent> <Leader>ee :CtrlPMRUFiles<CR>
 silent! nnoremap <unique> <silent> <Leader>o :CtrlPBookmarkDir<CR>
 
 let g:ctrlp_custom_ignore = {
