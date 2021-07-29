@@ -205,6 +205,10 @@ alias pscpu10=' ps aux | sort -nr -k 3 | head -10 '
 # https://thoughtbot.com/blog/input-output-redirection-in-the-shell#zsh-users-take-note
 unsetopt MULTIOS
 
+### fzf ###
+# use the silver searcher instead of `find`
+export FZF_DEFAULT_COMMAND='ag --hidden --follow --ignore .git -g ""'
+
 ### PERSONAL OR WORK ###
 # Conditional so we do not load the file again when we are inside tmux
 if [[ -z $TMUX ]]; then
