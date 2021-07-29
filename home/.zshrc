@@ -198,6 +198,9 @@ alias pscpu10=' ps aux | sort -nr -k 3 | head -10 '
 # https://thoughtbot.com/blog/input-output-redirection-in-the-shell#zsh-users-take-note
 unsetopt MULTIOS
 
+### fzf: install useful key bindings and fuzzy completition ###
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 ### PERSONAL OR WORK ###
 # Conditional so we do not load the file again when we are inside tmux
 if [[ -z $TMUX ]]; then
@@ -208,6 +211,7 @@ if [[ -z $TMUX ]]; then
   fi
 fi
 
-### COMMON SETTINGS ###
+### COMMON PATH SETTINGS ###
 export PATH=$PATH:~/.config/nvim/plugged/vim-iced/bin
 alias sdatomic='$HOME/opt/datomic-pro-1.0.6269/bin/transactor config/dev-transactor-template.properties'
+
