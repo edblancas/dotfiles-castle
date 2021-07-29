@@ -210,6 +210,7 @@ alias fzfnv='nvim $(fzf)'
 alias fzfv='vim $(fzf)'
 # use the silver searcher instead of `find`
 export FZF_DEFAULT_COMMAND='ag --hidden --follow --ignore .git -g ""'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_CTRL_T_OPTS='--preview "bat --style=numbers --color=always --line-range :500 {}"'
 export FZF_CTRL_T_OPTS="--select-1 --exit-0"
 export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
