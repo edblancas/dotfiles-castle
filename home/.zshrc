@@ -48,6 +48,7 @@ zvm_after_init_commands+=(my_init)
 # Change to Zsh's default readkey engine
 # The default slows the terminal and vim
 ZVM_READKEY_ENGINE=$ZVM_READKEY_ENGINE_ZLE
+ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
 ### END ZSH VIM MODE PLUGIN ###
 
 
