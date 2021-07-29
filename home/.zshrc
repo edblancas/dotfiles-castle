@@ -194,6 +194,10 @@ alias psmem10='ps aux | sort -nr -k 4 | head -10'
 alias pscpu=' ps aux | sort -nr -k 3 '
 alias pscpu10=' ps aux | sort -nr -k 3 | head -10 '
 
+### Only pipe the stdout from echo `echo something >&1 | other_command` ###
+# https://thoughtbot.com/blog/input-output-redirection-in-the-shell#zsh-users-take-note
+unsetopt MULTIOS
+
 ### PERSONAL OR WORK ###
 # Conditional so we do not load the file again when we are inside tmux
 if [[ -z $TMUX ]]; then
