@@ -231,6 +231,48 @@ if [[ -z $TMUX ]]; then
   fi
 fi
 
+### WORKAROND ###
+# when starting tmux the function and commands are not sourced, so in tmux session
+# are not found, e.g. nurefresh is not found, and was in .nurc.
+# if we remove the conditional `if [[-x $TMUX]];then` then the exports are run again and the
+# PATH have duplicated entries
+# we only check if its nu macbook
+if [[ $USER == "daniel.blancas" ]];then
+  [ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && . "$(brew --prefix)/opt/nvm/nvm.sh"
+  # zsh completition
+  autoload -Uz compinit bashcompinit && compinit && bashcompinit
+  source "$NU_HOME/nucli/nu.bashcompletion"
+  # fzf for a command: not works in zsh
+  #complete -o bashdefault -o default -F _fzf_path_completion nu
+  #complete -o bashdefault -o default -F _fzf_path_completion nu-mx
+  #complete -o bashdefault -o default -F _fzf_path_completion nu-br
+
+  function nurefresh() {
+    if [[ $# -eq 0 ]] ; then
+      echo "Refreshing okta and nu-mx staging!"
+      nu aws credentials refresh --okta && nu-mx auth get-refresh-token --env staging && nu-mx auth get-access-token --env staging
+    else
+      if [ $# -lt 2 ]; then
+        echo "Zero or two args must passed, first mx|br, and second staging|prod."
+      else
+        co="$1"
+        env="$2"
+        if [ $co != "mx" ] && [ $co != "br" ]; then
+          echo "Invalid country $co! Must be mx or br!"
+        else
+          if [ $env != "staging" ] && [ $env != "prod" ]; then
+            echo "Invalid environment $env! Must be staging or prod!"
+          else
+            echo "Refreshing okta and nu-$co $env!"
+            nu aws credentials refresh --okta && nu auth get-refresh-token --env $env --country $co && nu auth get-access-token --env $env --country $co
+          fi
+        fi
+      fi
+    fi
+  }
+fi
+### END WORKAROUND ###
+
 ### COMMON PATH SETTINGS ###
 export PATH=$PATH:~/.config/nvim/plugged/vim-iced/bin
 alias sdatomic='$HOME/opt/datomic-pro-1.0.6269/bin/transactor config/dev-transactor-template.properties'
