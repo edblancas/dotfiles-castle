@@ -8,7 +8,7 @@ echo "--> Symlink pure prompt..." < `tty` > `tty`
 ln -s $HOME/.config/oh-my-zsh/custom/themes/pure/pure.zsh /usr/local/share/zsh/site-functions/prompt_pure_setup < `tty` > `tty`
 ln -s $HOME/.config/oh-my-zsh/custom/themes/pure/async.zsh /usr/local/share/zsh/site-functions/async < `tty` > `tty`
 
-echo "--> Symlink iTerm2 settins (only if its clean installation)..." < `tty` > `tty`
+echo "--> Symlink iTerm2 settings (only if its clean installation)..." < `tty` > `tty`
 ln -s $HOME/.config/iterm/com.googlecode.iterm2.plist $HOME/Library/Preferences/com.googlecode.iterm2.plist < `tty` > `tty`
 
 echo "--> Installing nvim plugins with Plug..." < `tty` > `tty`

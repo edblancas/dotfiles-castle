@@ -44,11 +44,14 @@ function my_init() {
 zvm_after_init_commands+=(my_init)
 # Disable the cursor style feature
 # With true the terminal slows down
-#ZVM_CURSOR_STYLE_ENABLED=false
+# and really slows down vim
+ZVM_CURSOR_STYLE_ENABLED=false
 # Change to Zsh's default readkey engine
 # The default slows the terminal and vim
 ZVM_READKEY_ENGINE=$ZVM_READKEY_ENGINE_ZLE
 ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
+# for yank to send to macos clipboard
+# https://github.com/jeffreytse/zsh-vi-mode/issues/19
 ### END ZSH VIM MODE PLUGIN ###
 
 
