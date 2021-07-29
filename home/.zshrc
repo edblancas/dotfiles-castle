@@ -208,6 +208,8 @@ unsetopt MULTIOS
 ### fzf ###
 # use the silver searcher instead of `find`
 export FZF_DEFAULT_COMMAND='ag --hidden --follow --ignore .git -g ""'
+alias fzfnv='nvim $(fzf)'
+alias fzfv='vim $(fzf)'
 
 ### PERSONAL OR WORK ###
 # Conditional so we do not load the file again when we are inside tmux
