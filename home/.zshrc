@@ -27,17 +27,24 @@ bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
 # fix history-substring-search for zsh-vi-mode overwriting bindings
+# without this, if you start writing e.g. `ls ` up and down only 
+# goes forward and backwards command history, and the correct behavior 
+# must be that search with the first chars entered.
 # https://github.com/jeffreytse/zsh-vi-mode#execute-extra-commands
 # The plugin will auto execute this zvm_after_lazy_keybindings function
 # bindkey: https://github.com/zsh-users/zsh-history-substring-search
 function my_init() {
     bindkey '^[[A' history-substring-search-up
     bindkey '^[[B' history-substring-search-down
+    # fzf: install useful key bindings and fuzzy completition
+    # so it not conflicts with zsh-vim-mode and source it at
+    # the end of all the zsh plugins
+    [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 }
 zvm_after_init_commands+=(my_init)
 # Disable the cursor style feature
 # With true the terminal slows down
-ZVM_CURSOR_STYLE_ENABLED=false
+#ZVM_CURSOR_STYLE_ENABLED=false
 # Change to Zsh's default readkey engine
 # The default slows the terminal and vim
 ZVM_READKEY_ENGINE=$ZVM_READKEY_ENGINE_ZLE
@@ -197,9 +204,6 @@ alias pscpu10=' ps aux | sort -nr -k 3 | head -10 '
 ### Only pipe the stdout from echo `echo something >&1 | other_command` ###
 # https://thoughtbot.com/blog/input-output-redirection-in-the-shell#zsh-users-take-note
 unsetopt MULTIOS
-
-### fzf: install useful key bindings and fuzzy completition ###
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 ### PERSONAL OR WORK ###
 # Conditional so we do not load the file again when we are inside tmux

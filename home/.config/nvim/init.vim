@@ -23,13 +23,7 @@ set nowritebackup
 set noswapfile
 set mouse=a
 set showmatch
-"set cursorline
-"set relativenumber
-" Not compatible with nvim?
-"set encoding=utf-8
 set colorcolumn=80,100
-" Es el valor que toma en cuenta gq, pero lo hace automatico si se deja
-" set textwidth=100
 " Disable beep and flash
 set vb t_vb=
 set scrolloff=3
@@ -42,8 +36,10 @@ nnoremap <silent> <F2> :set invpaste paste?<CR>
 " Yank from " to * register an viceversa
 set clipboard=unnamed
 
-" Otas opciones
+" change block cursor when in insert mode
+" https://stackoverflow.com/questions/4777950/vim-change-block-cursor-when-in-insert-mode
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_SR = "\<Esc>]50;CursorShape=2\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 set shell=zsh
 set t_Co=256

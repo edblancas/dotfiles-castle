@@ -65,8 +65,6 @@ set nowritebackup
 set noswapfile
 set mouse=a
 set showmatch
-set cursorline
-"set relativenumber
 set colorcolumn=100
 set vb t_vb=
 set scrolloff=3
@@ -74,8 +72,16 @@ set clipboard=unnamed
 set clipboard+=unnamedplus
 set pastetoggle=<F2>
 nnoremap <silent> <F2> :set invpaste paste?<CR>
-let &t_SI="\<Esc>]50;CursorShape=1\x7"
-let &t_EI="\<Esc>]50;CursorShape=0\x7"
+" fix cursor shape change when insert mode when in tmux, only for vim, nvim
+" works fine
+" https://vi.stackexchange.com/questions/3379/cursor-shape-under-vim-tmux
+if exists('$TMUX')
+    let &t_SI = "\<Esc>Ptmux;\<Esc>\e[5 q\<Esc>\\"
+    let &t_EI = "\<Esc>Ptmux;\<Esc>\e[2 q\<Esc>\\"
+else
+    let &t_SI = "\e[5 q"
+    let &t_EI = "\e[2 q"
+endif
 set shell=zsh
 set t_Co=256
 let &showbreak="↳"
