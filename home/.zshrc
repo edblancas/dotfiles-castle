@@ -206,10 +206,15 @@ alias pscpu10=' ps aux | sort -nr -k 3 | head -10 '
 unsetopt MULTIOS
 
 ### fzf ###
-# use the silver searcher instead of `find`
-export FZF_DEFAULT_COMMAND='ag --hidden --follow --ignore .git -g ""'
 alias fzfnv='nvim $(fzf)'
 alias fzfv='vim $(fzf)'
+# use the silver searcher instead of `find`
+export FZF_DEFAULT_COMMAND='ag --hidden --follow --ignore .git -g ""'
+export FZF_CTRL_T_OPTS='--preview "bat --style=numbers --color=always --line-range :500 {}"'
+export FZF_CTRL_T_OPTS="--select-1 --exit-0"
+export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
+export FZF_ALT_C_OPTS="--select-1 --exit-0"
+export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 
 ### PERSONAL OR WORK ###
 # Conditional so we do not load the file again when we are inside tmux
