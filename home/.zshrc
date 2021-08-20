@@ -220,6 +220,8 @@ export FZF_CTRL_T_OPTS="--select-1 --exit-0"
 export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
 export FZF_ALT_C_OPTS="--select-1 --exit-0"
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
+export FZF_TMUX=1
+export FZF_TMUX_OPTS="-p 60%,80%"
 
 ### PERSONAL OR WORK ###
 # Conditional so we do not load the file again when we are inside tmux
