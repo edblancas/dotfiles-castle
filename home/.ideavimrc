@@ -38,8 +38,8 @@ set visualbell
 " E and B not works, e.g. |hello-world]
 " use dE, expected: delete hello-world, actual: delete hello-world]
 " The same for colon :
-set iskeyword+=-
-set iskeyword+=:
+"set iskeyword+=-
+"set iskeyword+=:
 
 " IdeaVim only commands {{{1
 set ideajoin
@@ -98,8 +98,8 @@ nnoremap ]c :action VcsShowNextChangeMarker<CR>
 " Clojure {{{1
 " Cursive paredit same as
 " guns/vim-sexp or tpope/vim-sexp-mappings-for-regular-people
-nnoremap E :action :cursive.actions.paredit/forward<CR>
-nnoremap B :action :cursive.actions.paredit/backward<CR>
+"nnoremap E :action :cursive.actions.paredit/forward<CR>
+"nnoremap B :action :cursive.actions.paredit/backward<CR>
 " Like vim-iced
 nnoremap <leader>et :action :cursive.repl.actions/run-top-sexp<CR>
 nnoremap <Leader>rt :action :cursive.actions.paredit/thread-form<CR>
