@@ -97,9 +97,14 @@ alias mvnps='mvn clean package -DskipTests -Djacoco.skip=true -Dcheckstyle.skip 
 # Aliases for vim and kaleidoscope merge diff tool
 alias gkdiff='git config diff.tool kaleidoscope; git difftool'
 alias gkmerge='git config merge.tool kaleidoscope; git mergetool'
+
 # Alias gls to ls for dircolors (brew install coreutils)
 eval `gdircolors $HOME/.dircolors/dircolors-solarized/dircolors.ansi-dark` 
-alias ls='gls --color -FGH'
+export LS_OPTIONS='--color=auto'
+alias ls='gls $LS_OPTIONS -FGH'
+alias la='gls $LS_OPTIONS -lAhF'
+alias l='gls $LS_OPTIONS -lhF'
+
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; update_dotfiles_submodules'
 alias cloud="cd $HOME/Library/Mobile\ Documents/com~apple~CloudDocs"
 # Alias for datomic

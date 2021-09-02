@@ -1,7 +1,7 @@
 ;; ALIAS ;;
-(defalias ls "ls --color=auto")
-(defalias la "ls -a --color=auto")
-(defalias l "ls -l --color=auto")
+(defalias ls "gls --color=auto -FGH")
+(defalias la "gls --color=auto -lAhF")
+(defalias l "gls --color=auto -lhF")
 (defalias g "git")
 
 ;; ABBREVIATIONS ;;
