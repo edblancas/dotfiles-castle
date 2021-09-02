@@ -107,6 +107,7 @@ alias l='gls $LS_OPTIONS -lhF'
 
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; update_dotfiles_submodules'
 alias cloud="cd $HOME/Library/Mobile\ Documents/com~apple~CloudDocs"
+alias notes="cd $HOME/Dropbox/dev/current/notes"
 # Alias for datomic
 alias sdatomic='$HOME/opt/datomic-pro-1.0.6269/bin/transactor config/dev-transactor-template.properties'
 # Alias for closh

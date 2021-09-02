@@ -3,10 +3,18 @@
 (defalias la "gls --color=auto -lAhF")
 (defalias l "gls --color=auto -lhF")
 (defalias g "git")
+(defalias c "clear")
 
 ;; ABBREVIATIONS ;;
 (defabbr gco "git checkout")
 (defabbr gc "git commit")
+
+;; COMMANDS ;;
+(defcmd nu-proj []
+  (sh cd (str (System/getenv "HOME") "/dev/nu")))
+
+(defcmd notes []
+  (sh cd (str (System/getenv "HOME") "/Dropbox/dev/current/notes")))
 
 (defcmd h []
   (sh sqlite3 (str (getenv "HOME") "/.closh/closh.sqlite") "SELECT command FROM history ORDER BY id ASC" | cat))
@@ -24,6 +32,7 @@
 (defcmd closhrc []
   (load-file (str (getenv "HOME") "/.closhrc")))
 
+;; FUNCTIONS ;;
 (defn git-current-branch []
   (let [{:keys [code stdout]} (sh-value "git" "branch")]
     (when (zero? code)
@@ -50,7 +59,7 @@
 
 (defn compare-semantic-versions [a b]
   (loop [[head-a & left-a] (destructure-semantic-version a)
-         [head-b & left-b] ( destructure-semantic-version b)]
+         [head-b & left-b] (destructure-semantic-version b)]
     (let [comparison (compare head-a head-b)]
       (if (and head-a head-b
               (zero? comparison))
@@ -99,9 +108,6 @@
                          (when (git-dirty?)
                            (color/bold (color/yellow  "✗")))
                          ""])))
-
-(defcmd Adgoji []
-  (sh cd (str (System/getenv "HOME") "/Projects/Adgoji")))
 
 #_(do
     ;; Fast closh scripts see https://github.com/dundalek/closh/pull/123
