@@ -102,6 +102,10 @@ eval `gdircolors $HOME/.dircolors/dircolors-solarized/dircolors.ansi-dark`
 alias ls='gls --color -FGH'
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; update_dotfiles_submodules'
 alias cloud="cd $HOME/Library/Mobile\ Documents/com~apple~CloudDocs"
+# Alias for datomic
+alias sdatomic='$HOME/opt/datomic-pro-1.0.6269/bin/transactor config/dev-transactor-template.properties'
+# Alias for closh
+alias closh="$HOME/Dropbox/bin/closh-zero.jar"
 
 ### Functions ###
 function nv() {
@@ -277,5 +281,4 @@ fi
 
 ### COMMON PATH SETTINGS ###
 export PATH=$PATH:~/.config/nvim/plugged/vim-iced/bin
-alias sdatomic='$HOME/opt/datomic-pro-1.0.6269/bin/transactor config/dev-transactor-template.properties'
 
