@@ -26,3 +26,6 @@
 	path = home/.emacs.d
 	url = https://github.com/syl20bnr/spacemacs
 	branch = develop
+[submodule "home/.spacemacs.d"]
+	path = home/.spacemacs.d
+	url = https://github.com/edblancas/spacemacs.d.git

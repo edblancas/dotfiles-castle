@@ -19,3 +19,7 @@ nvim -c ':CocInstall coc-diagnostic | quit' < `tty` > `tty`
 nvim -c ':CocInstall coc-snippets | quit' < `tty` > `tty`
 
 echo "--> Done! Happy Vimming! :x" < `tty` > `tty`
+
+echo "--> practicalli ln dot-lsp config to ~/.lsp" < `tty` > `tty`
+ln -s $HOME/.homesick/repos/dotfiles-castle/home/.spacemacs.d/dot-lsp/config.edn $HOME/.lsp/config.edn < `tty` > `tty`
+
