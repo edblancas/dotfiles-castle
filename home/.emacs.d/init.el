@@ -344,7 +344,7 @@
          ("C-p" . company-select-previous))
   :config
   (setq company-idle-delay 0.1)
-  (global-company-mode t)
+  (global-company-mode nil)
 
   ;; Configure hippie expand as well.
   (setq hippie-expand-try-functions-list
@@ -357,7 +357,20 @@
   ;; https://emacs-lsp.github.io/lsp-mode/tutorials/clojure-guide/
   (setq company-minimum-prefix-length 1)
 
+  (require 'color)
+  (let ((bg (face-attribute 'default :background)))
+    (custom-set-faces
+     `(company-tooltip ((t (:inherit default :background ,(color-lighten-name bg 2)))))
+     `(company-scrollbar-bg ((t (:background ,(color-lighten-name bg 10)))))
+     `(company-scrollbar-fg ((t (:background ,(color-lighten-name bg 5)))))
+     `(company-tooltip-selection ((t (:inherit font-lock-function-name-face))))
+     `(company-tooltip-common ((t (:inherit font-lock-constant-face))))))
+
   :delight)
+
+(use-package company-box
+  :ensure t
+  :hook (company-mode . company-box-mode))
 
 (use-package paredit
   :doc "Better handling of parenthesis when writing Lisp"
@@ -423,7 +436,7 @@
   (setq lsp-file-watch-threshold 10000)
   (setq lsp-log-io nil)
 
-  (setq lsp-signature-auto-activate :on-trigger-char)
+  (setq lsp-signature-auto-activate t)
   (setq lsp-signature-render-documentation t)
   (setq lsp-completion-show-detail t)
   (setq lsp-completion-show-kind t)
