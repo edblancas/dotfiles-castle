@@ -1,1 +1,1 @@
-("~/.homesick/repos/dotfiles-castle/" "~/projects/playground/" "~/dev/nu/jigglypuff/")
+("~/dev/nu/jigglypuff/" "~/.homesick/repos/dotfiles-castle/" "~/projects/playground/")

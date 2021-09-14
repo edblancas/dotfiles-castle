@@ -344,7 +344,7 @@
          ("C-p" . company-select-previous))
   :config
   (setq company-idle-delay 0.1)
-  (global-company-mode nil)
+  (global-company-mode 1)
 
   ;; Configure hippie expand as well.
   (setq hippie-expand-try-functions-list
@@ -368,12 +368,6 @@
 
   :delight)
 
-(use-package company-box
-  :ensure t
-  :config
-  (setq company-box-enable-icon nil)
-  :hook (company-mode . company-box-mode))
-
 (use-package paredit
   :doc "Better handling of parenthesis when writing Lisp"
   :ensure t
@@ -391,8 +385,7 @@
          ("C-s-l" . paredit-forward-slurp-sexp)
          ("C-s-h" . paredit-backward-slurp-sexp)
          ("C-s-k" . paredit-forward-barf-sexp)
-         ("C-s-j" . paredit-backward-barf-sexp))
-  :delight)
+         ("C-s-j" . paredit-backward-barf-sexp)))
 
 (use-package rainbow-delimiters
   :doc "Colorful paranthesis matching"
@@ -408,8 +401,6 @@
   :ensure t
   :init
   (add-hook 'clojure-mode-hook 'global-prettify-symbols-mode)
-  (add-hook 'clojure-mode-hook 'prettify-sets)
-  (add-hook 'cider-repl-mode-hook 'prettify-sets)
   (add-hook 'clojure-mode-hook 'lsp)
   (setq clojure-indent-style 'align-arguments)
   (setq clojure-align-forms-automatically t)
@@ -425,7 +416,8 @@
 ;; https://github.com/practicalli/spacemacs.d/blob/live/init.el
 (use-package lsp-mode
   :ensure t
-  :config
+  :init
+  (setq lsp-keymap-prefix "C-c l")
   (setq lsp-enable-on-type-formatting t)
   (setq lsp-enable-indentation t)
   (setq lsp-enable-snippet t)
@@ -438,10 +430,15 @@
   (setq lsp-file-watch-threshold 10000)
   (setq lsp-log-io nil)
 
-  (setq lsp-signature-auto-activate t)
+  (setq
+    lsp-signature-auto-activate t
+    lsp-signature-doc-lines 1)
   (setq lsp-signature-render-documentation t)
   (setq lsp-completion-show-detail t)
   (setq lsp-completion-show-kind t)
+  :hook ((clojure-mode . lsp)
+         (lsp-mode . lsp-enable-which-key-integration))
+  :commands lsp
   :delight)
 
 ;; https://github.com/practicalli/spacemacs.d/blob/live/init.el
@@ -478,6 +475,8 @@
   :doc "Integration with a Clojure REPL cider"
   :ensure t
   :config
+  (setq cider-eldoc-display-for-symbol-at-point nil) ; disable cider showing eldoc during symbol at point
+
   ;; Where to store the cider history.
   (setq cider-repl-history-file "~/.emacs.d/cider-history")
 
@@ -487,7 +486,6 @@
   ;; Attempt to jump at the symbol under the point without having to press RET
   (setq cider-prompt-for-symbol nil)
 
-  ;; Always pretty print
   (setq cider-repl-use-pretty-printing t)
 
   ;; Log client-server messaging in *nrepl-messages* buffer
@@ -532,6 +530,20 @@
 (setq gc-cons-threshold (* 100 1024 1024)
       read-process-output-max (* 1024 1024))
 
+(use-package clojure-snippets
+  :ensure t)
+
+(use-package yasnippet
+  :ensure t
+  :config
+  (yas-global-mode 1))
+
+(use-package helm
+  :ensure t)
+
+(use-package helm-lsp
+  :ensure t
+  :commands helm-lsp-workspace-symbol)
 
 ;; ───────────────────────────────────────── VIM ────────────────────────────────────────
 (use-package evil

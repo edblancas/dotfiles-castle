@@ -1,0 +1,3 @@
+clojure -M:inspect/reveal-nrepl-cider
+clojure -M:inspect/reveal-nrepl-cider
+clojure -M:inspect/reveal-nrepl-cider
