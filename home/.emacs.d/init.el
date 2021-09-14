@@ -360,19 +360,23 @@
   :delight)
 
 (use-package paredit
-  :doc "Better handling of paranthesis when writing Lisp"
+  :doc "Better handling of parenthesis when writing Lisp"
   :ensure t
   :init
-  (add-hook 'clojure-mode-hook #'enable-paredit-mode)
-  (add-hook 'cider-repl-mode-hook #'enable-paredit-mode)
-  (add-hook 'emacs-lisp-mode-hook #'enable-paredit-mode)
-  (add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
-  (add-hook 'lisp-mode-hook #'enable-paredit-mode)
-  (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
+  (add-hook 'clojure-mode-hook 'paredit-mode)
+  (add-hook 'cider-repl-mode-hook 'paredit-mode)
+  (add-hook 'emacs-lisp-mode-hook 'paredit-mode)
+  (add-hook 'eval-expression-minibuffer-setup-hook 'paredit-mode)
+  (add-hook 'lisp-mode-hook 'paredit-mode)
+  (add-hook 'lisp-interaction-mode-hook 'paredit-mode)
   :config
   (show-paren-mode t)
   :bind (("M-[" . paredit-wrap-square)
-         ("M-{" . paredit-wrap-curly))
+         ("M-{" . paredit-wrap-curly)
+         ("C-s-l" . paredit-forward-slurp-sexp)
+         ("C-s-h" . paredit-backward-slurp-sexp)
+         ("C-s-k" . paredit-forward-barf-sexp)
+         ("C-s-j" . paredit-backward-barf-sexp))
   :delight)
 
 (use-package rainbow-delimiters
@@ -387,13 +391,14 @@
 (use-package clojure-mode
   :doc "A major mode for editing Clojure code"
   :ensure t
-  :config
-  ;; This is useful for working with camel-case tokens, like names of
-  ;; Java classes (e.g. JavaClassName)
-  (add-hook 'clojure-mode-hook #'subword-mode)
+  :init
+  (add-hook 'clojure-mode-hook 'global-prettify-symbols-mode)
   (add-hook 'clojure-mode-hook 'prettify-sets)
   (add-hook 'cider-repl-mode-hook 'prettify-sets)
   (add-hook 'clojure-mode-hook 'lsp)
+  (setq clojure-indent-style 'align-arguments)
+  (setq clojure-align-forms-automatically t)
+  (setq clojure-toplevel-inside-comment-form t)  ;; evaluate expressions in comment as top level
   :delight)
 
 (use-package clojure-mode-extra-font-locking
@@ -402,25 +407,51 @@
   :delight)
 
 ;; https://emacs-lsp.github.io/lsp-mode/tutorials/clojure-guide/
+;; https://github.com/practicalli/spacemacs.d/blob/live/init.el
 (use-package lsp-mode
   :ensure t
   :config
   (setq lsp-enable-on-type-formatting t)
   (setq lsp-enable-indentation t)
   (setq lsp-enable-snippet t)
+  (setq lsp-enable-symbol-highlighting t)
+  ;; Show lint error indicator in the mode line
+  (setq lsp-modeline-diagnostics-enable t)
   (setq lsp-lens-enable t)
   (setq lsp-headerline-breadcrumb-enable nil)
+  ;; Optimization for large files
+  (setq lsp-file-watch-threshold 10000)
+  (setq lsp-log-io nil)
+
+  (setq lsp-signature-auto-activate :on-trigger-char)
+  (setq lsp-signature-render-documentation t)
+  (setq lsp-completion-show-detail t)
+  (setq lsp-completion-show-kind t)
   :delight)
 
+;; https://github.com/practicalli/spacemacs.d/blob/live/init.el
 (use-package lsp-ui
   :doc "UI integrations for lsp-mode"
   :config
+  (setq lsp-ui-doc-show-with-cursor nil)   ;; doc popup for cursor
+  (setq lsp-ui-doc-show-with-mouse nil)   ;; doc popup for cursor
+  (setq lsp-ui-doc-include-signature t)    ;; include function signature
+  (setq lsp-ui-doc-position 'at-point)
+  ;; code actions and diagnostics text as right-hand side of buffer
+  (setq lsp-ui-sideline-enable nil)
+  (setq lsp-ui-sideline-show-code-actions nil)
   :ensure t
   :delight)
 
 (use-package lsp-ivy
   :doc "This package provides an interactive ivy interface to the workspace symbol functionality offered by lsp-mode"
   :ensure t
+  :delight)
+
+(use-package lsp-origami
+  :ensure t
+  :init
+  (add-hook 'lsp-after-open-hook #'lsp-origami-try-enable)
   :delight)
 
 (use-package which-key
@@ -468,6 +499,20 @@
   :ensure t
   :delight)
 
+(use-package smartparens
+  :ensure t
+  :commands (sp-point-in-string-or-comment sp-forward-symbol sp-split-sexp sp-newline sp-up-sexp)
+  :init
+  (add-hook 'clojure-mode-hook #'smartparens-mode))
+
+(use-package evil-cleverparens
+  :ensure t
+  :init
+  (setq evil-cleverparens-use-regular-insert t)
+  :config
+  ;; `evil-cp-change' should move the point, see https://github.com/luxbock/evil-cleverparens/pull/71
+  (evil-set-command-properties 'evil-cp-change :move-point t))
+
 ;; https://emacs-lsp.github.io/lsp-mode/tutorials/clojure-guide/
 (setq gc-cons-threshold (* 100 1024 1024)
       read-process-output-max (* 1024 1024))
@@ -500,7 +545,10 @@
   (add-hook 'after-init-hook #'global-emojify-mode)
   :delight)
 
-(display-line-numbers-mode)
-(setq display-line-numbers 'relative)
+;; set type of line numbering (global variable)
+(setq display-line-numbers-type 'relative)
+;; activate line numbering in all buffers/modes
+(global-display-line-numbers-mode)
+
 
 ;;; init.el ends here
