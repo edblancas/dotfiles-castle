@@ -69,6 +69,8 @@
 ;;   (setq mac-command-modifier 'meta)
 ;;   (setq mac-right-command-modifier 'hyper))
 
+(global-set-key (kbd "s-e") 'counsel-recentf)
+
 ;; `C-x o' is a 2 step key binding. `M-o' is much easier.
 (global-set-key (kbd "M-o") 'other-window)
 
@@ -400,12 +402,13 @@
   :doc "A major mode for editing Clojure code"
   :ensure t
   :init
+  (add-hook 'clojure-mode-hook
+            (lambda () (local-set-key (kbd "C-S-O") #'lsp-ivy-workspace-symbol)))
   (add-hook 'clojure-mode-hook 'global-prettify-symbols-mode)
   (add-hook 'clojure-mode-hook 'lsp)
   (setq clojure-indent-style 'align-arguments)
   (setq clojure-align-forms-automatically t)
-  (setq clojure-toplevel-inside-comment-form t)  ;; evaluate expressions in comment as top level
-  :delight)
+  (setq clojure-toplevel-inside-comment-form t))
 
 (use-package clojure-mode-extra-font-locking
   :doc "Extra syntax highlighting for clojure"
@@ -537,13 +540,6 @@
   :ensure t
   :config
   (yas-global-mode 1))
-
-(use-package helm
-  :ensure t)
-
-(use-package helm-lsp
-  :ensure t
-  :commands helm-lsp-workspace-symbol)
 
 ;; ───────────────────────────────────────── VIM ────────────────────────────────────────
 (use-package evil

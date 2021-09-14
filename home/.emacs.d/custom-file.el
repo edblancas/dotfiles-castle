@@ -4,7 +4,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(safe-local-variable-values
-   '((cider-clojure-cli-parameters . "")
+   '((cider-lein-global-options . "-M:inspect/reveal-nrepl-cider")
+     (cider-clojure-cli-parameters . "")
      (cider-jack-in-lein-plugins)
      (cider-jack-in-nrepl-middlewares)
      (cider-jack-in-dependencies)
