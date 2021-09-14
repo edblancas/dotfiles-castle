@@ -370,6 +370,8 @@
 
 (use-package company-box
   :ensure t
+  :config
+  (setq company-box-enable-icon nil)
   :hook (company-mode . company-box-mode))
 
 (use-package paredit
