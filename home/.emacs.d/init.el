@@ -382,8 +382,13 @@
   (add-hook 'lisp-interaction-mode-hook 'paredit-mode)
   :config
   (show-paren-mode t)
-  :bind (("M-[" . paredit-wrap-square)
-         ("M-{" . paredit-wrap-curly)
+  :bind (("s-[" . paredit-wrap-square)
+         ("s-{" . paredit-wrap-curly)
+         ("s-(" . paredit-wrap-round)
+         ("s-]" . paredit-bracket-and-newline)
+         ("s-}" . paredit-curly-and-newline)
+         ("s-)" . paredit-round-and-newline)
+         ("M-C-J)" . paredit-join-sexps)
          ("C-s-l" . paredit-forward-slurp-sexp)
          ("C-s-h" . paredit-backward-slurp-sexp)
          ("C-s-k" . paredit-forward-barf-sexp)
@@ -419,6 +424,8 @@
 ;; https://github.com/practicalli/spacemacs.d/blob/live/init.el
 (use-package lsp-mode
   :ensure t
+  :bind
+  (("s-C-]" . lsp-clojure-cycle-coll))
   :init
   (setq lsp-keymap-prefix "C-c l")
   (setq lsp-enable-on-type-formatting t)
