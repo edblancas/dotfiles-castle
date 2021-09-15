@@ -454,9 +454,9 @@
    ("C-]" . lsp-find-definition)
    ("M-]" . lsp-find-references)
    ("<f1>" .  lsp-describe-thing-at-point)
-   ("C-M-o" . lsp-clojure-add-missing-libspec))
+   ("C-M-o" . lsp-clojure-add-missing-libspec)
+   ("M-<return> . lsp-execute-code-action"))
   :init
-  (setq lsp-keymap-prefix "C-c l")
   (setq lsp-enable-on-type-formatting t)
   (setq lsp-enable-indentation t)
   (setq lsp-enable-snippet t)
@@ -601,15 +601,103 @@
 (if (fboundp 'mac-auto-operator-composition-mode)
     (mac-auto-operator-composition-mode))
 
-;; prefix
-(define-prefix-command 'leader-map)
-(global-set-key (kbd "C-,") 'leader-map)
-(define-key leader-map (kbd "w") 'save-buffer)
-(define-key leader-map (kbd "c") 'cider-jack-in)
-(define-key leader-map (kbd "s") 'shell-pop)
-(define-key leader-map (kbd "b") 'ivy-switch-buffer)
-(define-key leader-map (kbd "f") 'counsel-find-file)
-(define-key leader-map (kbd "g") 'git-gutter:update-all-windows)
+(use-package general
+  :ensure t
+  :delight)
+
+(defun get-file-dir-or-home ()
+  "If inside a file buffer, return the directory, else return home"
+  (interactive)
+  (let ((filename (buffer-file-name)))
+    (if (not (and filename (file-exists-p filename)))
+	"~/"
+      (file-name-directory filename))))
+
+(defun iterm-goto-filedir-or-home ()
+  "Go to present working dir and focus iterm"
+  (interactive)
+  (do-applescript
+   (concat
+    " tell application \"iTerm2\"\n"
+    "   tell the current session of current window\n"
+    (format "     write text \"cd %s\" \n" (get-file-dir-or-home))
+    "   end tell\n"
+    " end tell\n"
+    " do shell script \"open -a iTerm\"\n"
+    )))
+
+(defun sam--iterm-goto-filedir-or-home ()
+  "Go to present working dir and focus iterm"
+  (interactive)
+  (do-applescript
+   (concat
+    " tell application \"iTerm2\"\n"
+    "   tell the current session of current window\n"
+    (format "     write text \"cd %s\" \n"
+            ;; string escaping madness for applescript
+            (replace-regexp-in-string "\\\\" "\\\\\\\\"
+                                      (shell-quote-argument (or default-directory "~"))))
+    "   end tell\n"
+    " end tell\n"
+    " do shell script \"open -a iTerm\"\n"
+    )))
+
+(defun iterm-focus ()
+  (interactive)
+  (do-applescript
+   " do shell script \"open -a iTerm\"\n"))
+
+(use-package hydra
+  :ensure t
+  :delight)
+
+(defhydra hydra-launcher (:color blue)
+   "Launch"
+   ("h" man "man")
+   ("c" (browse-url "https://clojuredocs.org/") "clojuredocs")
+   ("s" shell "shell")
+   ("q" nil "cancel"))
+
+(defhydra hydra-buffer (:color blue :columns 3)
+  "
+                Buffers :
+  "
+  ("n" next-buffer "next" :color red)
+  ("b" ivy-switch-buffer "switch")
+  ("B" ibuffer "ibuffer")
+  ("p" previous-buffer "prev" :color red)
+  ("C-b" buffer-menu "buffer menu")
+  ("N" evil-buffer-new "new")
+  ("d" kill-this-buffer "delete" :color red)
+  ;; don't come back to previous buffer after delete
+  ("D" (progn (kill-this-buffer) (next-buffer)) "Delete" :color red)
+  ("s" save-buffer "save" :color red))
+
+(defhydra hydra-magit (:color blue)
+  "Magit"
+  ("u" git-gutter:update-all-windows "update gutter")
+  ("b" magit-branch-checkout "branch checkout"))
+
+;; https://sam217pa.github.io/2016/09/23/keybindings-strategies-in-emacs/
+(general-define-key
+ :states '(normal visual insert emacs)
+ :prefix "SPC"
+ :non-normal-prefix "M-SPC"
+  "'" '(iterm-focus :which-key "iterm")
+  "?" '(iterm-goto-filedir-or-home :which-key "iterm - goto dir")
+  "/" '(counsel-ag :wich-key "ag")
+  "TAB" '(ivy-switch-buffer :which-key "prev buffer")
+
+  "w" '(save-bufer :wich-key "save buffer")
+  "s" '(sell-pop :wich-key "shell pop")
+  "f" '(counsel-git :which-key "find in git dir")
+
+  "." '(avy-goto-word-or-subword-1  :which-key "go to word")
+  "SPC" '(counsel-M-x :which-key "M-x")
+  "a" '(hydra-launcher/body :which-key "Applications")
+  "b" '(hydra-buffer/body t :which-key "Buffer")
+  "c" '(cider-jack-in)
+  "g" '(hydra-magit/body :which-key "Magit"))
 
 (use-package evil-collection
   :after evil

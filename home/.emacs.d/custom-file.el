@@ -4,7 +4,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(shades-of-purple-theme evil-nerd-commenter evil-goggles evil-textobj-line evil-surround evil-collection clojure-snippets evil-cleverparens smartparens flycheck cider lsp-origami lsp-ivy lsp-ui lsp-mode clojure-mode-extra-font-locking clojure-mode rainbow-delimiters company markdown-mode diminish exec-path-from-shell define-word esup multiple-cursors region-bindings-mode git-timemachine git-gutter counsel swiper ivy which-key magit projectile delight expand-region use-package)))
+   '(general shades-of-purple-theme evil-nerd-commenter evil-goggles evil-textobj-line evil-surround evil-collection clojure-snippets evil-cleverparens smartparens flycheck cider lsp-origami lsp-ivy lsp-ui lsp-mode clojure-mode-extra-font-locking clojure-mode rainbow-delimiters company markdown-mode diminish exec-path-from-shell define-word esup multiple-cursors region-bindings-mode git-timemachine git-gutter counsel swiper ivy which-key magit projectile delight expand-region use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
