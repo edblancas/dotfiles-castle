@@ -228,7 +228,7 @@
 (use-package swiper
   :doc "A better search"
   :ensure t
-  :bind (("S-s-f" . swiper-isearch)
+  :bind (("s-F" . swiper-isearch)
          ("s-s" . isearch-forward-regexp))
   :delight)
 
@@ -604,6 +604,7 @@
 (define-key leader-map (kbd "c") 'cider-jack-in)
 (define-key leader-map (kbd "s") 'shell-pop)
 (define-key leader-map (kbd "b") 'ibuffer)
+(define-key leader-map (kbd "f") 'counsel-find-file)
 
 (use-package evil-collection
   :after evil
