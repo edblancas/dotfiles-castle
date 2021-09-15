@@ -451,7 +451,8 @@
   :bind
   (("s-C-]" . lsp-clojure-cycle-coll)
    ("C-]" . lsp-find-definition)
-   ("M-]" . lsp-find-references))
+   ("M-]" . lsp-find-references)
+   ("<f1>" .  lsp-describe-thing-at-point))
   :init
   (setq lsp-keymap-prefix "C-c l")
   (setq lsp-enable-on-type-formatting t)
@@ -604,7 +605,7 @@
 (define-key leader-map (kbd "w") 'save-buffer)
 (define-key leader-map (kbd "c") 'cider-jack-in)
 (define-key leader-map (kbd "s") 'shell-pop)
-(define-key leader-map (kbd "b") 'ibuffer)
+(define-key leader-map (kbd "b") 'ivy-switch-buffer)
 (define-key leader-map (kbd "f") 'counsel-find-file)
 (define-key leader-map (kbd "g") 'git-gutter:update-all-windows)
 
