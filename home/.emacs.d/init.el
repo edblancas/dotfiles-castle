@@ -75,19 +75,15 @@
 ;; Delete whitespace just when a file is saved.
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-;; Enable narrowing commands.
-(put 'narrow-to-region 'disabled nil)
-(put 'narrow-to-page 'disabled nil)
-
-(global-set-key (kbd "H-r") 'narrow-to-region)
-(global-set-key (kbd "H-d") 'narrow-to-defun)
-(global-set-key (kbd "H-w") 'widen)
-(global-set-key (kbd "H-c") 'calendar)
-
 ;; Automatically update buffers if file content on the disk has changed.
 (global-auto-revert-mode t)
 
 (column-number-mode 1)
+
+(use-package expand-region
+  :ensure t
+  :bind  (("M-<up>" . er/expand-region)
+          ("M-<down>" . er/contract-region)))
 
 ;; ─────────────────────────── Disable unnecessary UI elements ──────────────────────────
 (progn
@@ -233,15 +229,15 @@
 (use-package swiper
   :doc "A better search"
   :ensure t
-  :bind (("C-s" . swiper-isearch)
-         ("H-s" . isearch-forward-regexp))
+  :bind (("S-s-f" . swiper-isearch)
+         ("s-s" . isearch-forward-regexp))
   :delight)
 
 (use-package counsel
   :doc "Ivy enhanced Emacs commands"
   :ensure t
   :bind (("M-x" . counsel-M-x)
-         ("C-x C-f" . counsel-find-file)
+         ("M-S-o" . counsel-find-file)
          ("C-'" . counsel-imenu)
          ("C-c s" . counsel-rg)
          ("M-y" . counsel-yank-pop)
@@ -387,12 +383,22 @@
   (add-hook 'lisp-interaction-mode-hook 'paredit-mode)
   :config
   (show-paren-mode t)
+  (defun reverse-transpose-sexps (arg)
+    (interactive "*p")
+    (transpose-sexps (- arg))
+    ;; when transpose-sexps can no longer transpose, it throws an error and code
+    ;; below this line won't be executed. So, we don't have to worry about side
+    ;; effects of backward-sexp and forward-sexp.
+    (backward-sexp (1+ arg))
+    (forward-sexp 1))
   :bind (("s-[" . paredit-wrap-square)
          ("s-{" . paredit-wrap-curly)
          ("s-(" . paredit-wrap-round)
+         ("s-\"" . paredit-meta-doublequote)
          ("s-]" . paredit-bracket-and-newline)
          ("s-}" . paredit-curly-and-newline)
          ("s-)" . paredit-round-and-newline)
+         ("s-'" . paredit-meta-doublequote-and-newline)
          ("M-C-J" . paredit-join-sexps)
          ("M-s-K" . paredit-kill)
          ("M-C-J" . paredit-kill-kill-region)
@@ -401,7 +407,13 @@
          ("C-s-l" . paredit-forward-slurp-sexp)
          ("C-s-h" . paredit-backward-slurp-sexp)
          ("C-s-k" . paredit-forward-barf-sexp)
-         ("C-s-j" . paredit-backward-barf-sexp)))
+         ("C-s-j" . paredit-backward-barf-sexp)
+         ("M-s" . paredit-splice-sexp)
+         ("M-o" . paredit-rise-sexp)
+         ("C-M-j" . paredit-join-sexp)
+         ("M-k" . transpose-sexp)
+         ("M-j" . reverse-transpose-sexp)
+         (nil . paredit-splice-sexp-killing-backward)))
 
 (use-package rainbow-delimiters
   :doc "Colorful paranthesis matching"
@@ -436,7 +448,9 @@
 (use-package lsp-mode
   :ensure t
   :bind
-  (("s-C-]" . lsp-clojure-cycle-coll))
+  (("s-C-]" . lsp-clojure-cycle-coll)
+   ("C-]" . lsp-find-definition)
+   ("C-}" . lsp-find-references))
   :init
   (setq lsp-keymap-prefix "C-c l")
   (setq lsp-enable-on-type-formatting t)
@@ -445,7 +459,7 @@
   (setq lsp-enable-symbol-highlighting t)
   ;; Show lint error indicator in the mode line
   (setq lsp-modeline-diagnostics-enable t)
-  (setq lsp-lens-enable t)
+  (setq lsp-lens-enable nil)
   (setq lsp-headerline-breadcrumb-enable nil)
   ;; Optimization for large files
   (setq lsp-file-watch-threshold 10000)
@@ -521,8 +535,8 @@
 
   :bind (:map
          cider-mode-map
-         ("H-t" . cider-test-run-test)
-         ("H-n" . cider-test-run-ns-tests)
+         ("S-s-." . cider-test-run-test)
+         ("S-s-," . cider-test-run-ns-tests)
          ("s-L" . cider-eval-buffer)
          ("s-P" . cider-eval-defun-at-point)
          ("C-S-p" . cider-eval-last-sexp)
@@ -552,7 +566,8 @@
   (setq evil-cleverparens-use-regular-insert t)
   :config
   ;; `evil-cp-change' should move the point, see https://github.com/luxbock/evil-cleverparens/pull/71
-  (evil-set-command-properties 'evil-cp-change :move-point t))
+  (evil-set-command-properties 'evil-cp-change :move-point t)
+  :delight)
 
 ;; https://emacs-lsp.github.io/lsp-mode/tutorials/clojure-guide/
 (setq gc-cons-threshold (* 100 1024 1024)
@@ -570,6 +585,8 @@
 ;; ───────────────────────────────────────── VIM ────────────────────────────────────────
 (use-package evil
   :ensure t
+  :init
+  (setq evil-want-keybinding nil)
   :config
   (evil-mode 1))
 
@@ -590,19 +607,26 @@
   :config
   (evil-collection-init))
 
-(use-package all-the-icons
-  :ensure t)
-
-(use-package doom-modeline
+(use-package evil-surround
   :ensure t
   :init
-  (setq doom-modeline-height 20)
-  :hook (after-init . doom-modeline-mode))
+  ;; `s' for surround instead of `substitute'
+  ;; see motivation here:
+  ;; https://github.com/syl20bnr/spacemacs/blob/develop/doc/DOCUMENTATION.org#the-vim-surround-case
+  (evil-define-key 'visual evil-surround-mode-map "s" 'evil-surround-region)
+  (evil-define-key 'visual evil-surround-mode-map "S" 'evil-substitute)
+  :config
+  (global-evil-surround-mode 1))
 
-(defun my-doom-modeline--font-height ()
-  "Calculate the actual char height of the mode-line."
-  (+ (frame-char-height) 2))
-(advice-add #'doom-modeline--font-height :override #'my-doom-modeline--font-height)
+(use-package evil-textobj-line
+  :ensure t)
+
+(use-package evil-nerd-commenter
+  :ensure t
+  :commands evilnc-comment-operator
+  :config
+  (evilnc-default-hotkeys))
+
 
 ;; ──────────────────────────────────── Look and feel ───────────────────────────────────
 (set-face-attribute 'default nil
