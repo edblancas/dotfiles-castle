@@ -72,12 +72,6 @@
 
 (global-set-key (kbd "s-e") 'counsel-recentf)
 
-;; `C-x o' is a 2 step key binding. `M-o' is much easier.
-(global-set-key (kbd "M-o") 'other-window)
-
-;; Unbind `save-buffers-kill-terminal` to avoid accidentally quiting Emacs.
-(global-unset-key (kbd "C-x C-c"))
-
 ;; Delete whitespace just when a file is saved.
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
@@ -93,6 +87,7 @@
 ;; Automatically update buffers if file content on the disk has changed.
 (global-auto-revert-mode t)
 
+(column-number-mode 1)
 
 ;; ─────────────────────────── Disable unnecessary UI elements ──────────────────────────
 (progn
@@ -569,7 +564,8 @@
 (use-package yasnippet
   :ensure t
   :config
-  (yas-global-mode 1))
+  (yas-global-mode 1)
+  :delight)
 
 ;; ───────────────────────────────────────── VIM ────────────────────────────────────────
 (use-package evil
@@ -587,6 +583,26 @@
 (define-key leader-map (kbd "w") 'save-buffer)
 (define-key leader-map (kbd "c") 'cider-jack-in)
 (define-key leader-map (kbd "s") 'eshell)
+
+(use-package evil-collection
+  :after evil
+  :ensure t
+  :config
+  (evil-collection-init))
+
+(use-package all-the-icons
+  :ensure t)
+
+(use-package doom-modeline
+  :ensure t
+  :init
+  (setq doom-modeline-height 20)
+  :hook (after-init . doom-modeline-mode))
+
+(defun my-doom-modeline--font-height ()
+  "Calculate the actual char height of the mode-line."
+  (+ (frame-char-height) 2))
+(advice-add #'doom-modeline--font-height :override #'my-doom-modeline--font-height)
 
 ;; ──────────────────────────────────── Look and feel ───────────────────────────────────
 (set-face-attribute 'default nil
