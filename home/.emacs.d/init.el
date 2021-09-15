@@ -64,10 +64,11 @@
 ;; Change all yes/no questions to y/n type
 (fset 'yes-or-no-p 'y-or-n-p)
 
-;; Make the command key behave as 'meta'
-;; (when (eq system-type 'darwin)
-;;   (setq mac-command-modifier 'meta)
-;;   (setq mac-right-command-modifier 'hyper))
+;; because emacs-mac changes the command for meta
+;; https://github.com/railwaycat/homebrew-emacsmacport
+(when (eq system-type 'darwin)
+  (setq mac-command-modifier 'super)
+  (setq mac-option-modifier 'meta))
 
 (global-set-key (kbd "s-e") 'counsel-recentf)
 
@@ -126,6 +127,15 @@
  ;; Mouse yank commands yank at point instead of at click.
  mouse-yank-at-point t)
 
+
+;; ───────────────────────────────── Unbind keys ────────────────────────────────────────
+(global-unset-key (kbd "s-P"))
+(global-unset-key (kbd "s-L"))
+(defun insert-open-close-paren ()
+  (interactive)
+  (insert "()")
+  (backward-char 1))
+(global-set-key (kbd "C-;") #'insert-open-close-paren)
 
 ;; ───────────────────── Additional packages and their configurations ─────────────────────
 (require 'use-package)
@@ -388,7 +398,11 @@
          ("s-]" . paredit-bracket-and-newline)
          ("s-}" . paredit-curly-and-newline)
          ("s-)" . paredit-round-and-newline)
-         ("M-C-J)" . paredit-join-sexps)
+         ("M-C-J" . paredit-join-sexps)
+         ("M-s-K" . paredit-kill)
+         ("M-C-J" . paredit-kill-kill-region)
+         ("s-<right>" . paredit-forward)
+         ("s-<left>" . paredit-backward)
          ("C-s-l" . paredit-forward-slurp-sexp)
          ("C-s-h" . paredit-backward-slurp-sexp)
          ("C-s-k" . paredit-forward-barf-sexp)
@@ -406,6 +420,8 @@
 (use-package clojure-mode
   :doc "A major mode for editing Clojure code"
   :ensure t
+  :bind (("M-C-," . clojure-thread)
+         ("M-C-." . clojure-unwind))
   :init
   (add-hook 'clojure-mode-hook
             (lambda () (local-set-key (kbd "C-S-O") #'lsp-ivy-workspace-symbol)))
@@ -512,6 +528,13 @@
          cider-mode-map
          ("H-t" . cider-test-run-test)
          ("H-n" . cider-test-run-ns-tests)
+         ("s-L" . cider-eval-buffer)
+         ("s-P" . cider-eval-defun-at-point)
+         ("C-S-p" . cider-eval-last-sexp)
+         ("C-P" . cider-eval-sexp-at-point)
+         ;; cider changes the namespace automatically for the curr buffer
+         ;; SO, NOT NEEDED
+         ("s-N" . cider-repl-set-ns)
          :map
          cider-repl-mode-map
          ("C-c M-o" . cider-repl-clear-buffer))
@@ -554,6 +577,16 @@
   :config
   (evil-mode 1))
 
+;; ligatures only for osx
+(if (fboundp 'mac-auto-operator-composition-mode)
+    (mac-auto-operator-composition-mode))
+
+;; prefix
+(define-prefix-command 'leader-map)
+(global-set-key (kbd "C-,") 'leader-map)
+(define-key leader-map (kbd "w") 'save-buffer)
+(define-key leader-map (kbd "c") 'cider-jack-in)
+(define-key leader-map (kbd "s") 'eshell)
 
 ;; ──────────────────────────────────── Look and feel ───────────────────────────────────
 (set-face-attribute 'default nil
