@@ -606,6 +606,7 @@
 (define-key leader-map (kbd "s") 'shell-pop)
 (define-key leader-map (kbd "b") 'ibuffer)
 (define-key leader-map (kbd "f") 'counsel-find-file)
+(define-key leader-map (kbd "g") 'git-gutter:update-all-windows)
 
 (use-package evil-collection
   :after evil
@@ -642,10 +643,8 @@
   (evil-set-command-properties 'evil-cp-change :move-point t)
   :delight)
 
-(use-package ag
-  :ensure t
-  :config
-  (setq ag-highlight-search t))
+(use-package rg
+  :ensure t)
 
 ;; osx compatibility super instead of hyper
 (define-key global-map [?\s-x] 'kill-region)
