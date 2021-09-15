@@ -180,7 +180,8 @@
   ;; Use it everywhere
   (projectile-mode t)
   :bind (("s-O" . projectile-find-file)
-         ("s-F" . projectile-ripgrep))
+         ("s-F" . projectile-ripgrep)
+         ("C-M-s-P" . projectile-switch-project))
   :delight)
 
 (use-package magit
