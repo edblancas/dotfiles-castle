@@ -642,6 +642,17 @@
   (evil-set-command-properties 'evil-cp-change :move-point t)
   :delight)
 
+(use-package ag
+  :ensure t
+  :config
+  (setq ag-highlight-search t))
+
+;; osx compatibility super instead of hyper
+(define-key global-map [?\s-x] 'kill-region)
+(define-key global-map [?\s-c] 'kill-ring-save)
+(define-key global-map [?\s-v] 'yank)
+(define-key global-map [?\s-q] 'save-buffers-kill-emacs)
+
 
 ;; ──────────────────────────────────── Look and feel ───────────────────────────────────
 (set-face-attribute 'default nil
