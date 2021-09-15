@@ -181,7 +181,7 @@
   (projectile-mode t)
   :bind (("s-O" . projectile-find-file)
          ("s-F" . projectile-grep))
-  :delight))
+  :delight)
 
 (use-package magit
   :doc "Git integration for Emacs"
