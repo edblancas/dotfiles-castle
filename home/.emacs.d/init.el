@@ -171,7 +171,6 @@
 
 (use-package ibuffer
   :doc "Better buffer management"
-  :bind ("C-x C-b" . ibuffer)
   :delight)
 
 (use-package projectile
@@ -180,7 +179,7 @@
   :config
   ;; Use it everywhere
   (projectile-mode t)
-  :bind ("C-x f" . projectile-find-file)
+  :bind ("s-O" . projectile-find-file)
   :delight)
 
 (use-package magit
@@ -237,7 +236,7 @@
   :doc "Ivy enhanced Emacs commands"
   :ensure t
   :bind (("M-x" . counsel-M-x)
-         ("M-S-o" . counsel-find-file)
+         ("M-s-o" . counsel-find-file)
          ("C-'" . counsel-imenu)
          ("C-c s" . counsel-rg)
          ("M-y" . counsel-yank-pop)
@@ -391,6 +390,8 @@
     ;; effects of backward-sexp and forward-sexp.
     (backward-sexp (1+ arg))
     (forward-sexp 1))
+  :config
+  (setq paredit-splice-sexp-killing-backward nil)
   :bind (("s-[" . paredit-wrap-square)
          ("s-{" . paredit-wrap-curly)
          ("s-(" . paredit-wrap-round)
@@ -412,8 +413,7 @@
          ("M-o" . paredit-rise-sexp)
          ("C-M-j" . paredit-join-sexp)
          ("M-k" . transpose-sexp)
-         ("M-j" . reverse-transpose-sexp)
-         (nil . paredit-splice-sexp-killing-backward)))
+         ("M-j" . reverse-transpose-sexp)))
 
 (use-package rainbow-delimiters
   :doc "Colorful paranthesis matching"
@@ -560,15 +560,6 @@
   :init
   (add-hook 'clojure-mode-hook #'smartparens-mode))
 
-(use-package evil-cleverparens
-  :ensure t
-  :init
-  (setq evil-cleverparens-use-regular-insert t)
-  :config
-  ;; `evil-cp-change' should move the point, see https://github.com/luxbock/evil-cleverparens/pull/71
-  (evil-set-command-properties 'evil-cp-change :move-point t)
-  :delight)
-
 ;; https://emacs-lsp.github.io/lsp-mode/tutorials/clojure-guide/
 (setq gc-cons-threshold (* 100 1024 1024)
       read-process-output-max (* 1024 1024))
@@ -588,6 +579,12 @@
   (setq shell-pop-shell-type (quote ("ansi-term" "*ansi-term*" (lambda nil (ansi-term shell-pop-term-shell)))))
   (setq shell-pop-term-shell "/bin/zsh"))
 
+(use-package json-mode
+  :ensure t
+  :init
+  (defconst json-mode-standard-file-ext '(".json" ".jsonld" ".json.base")
+    "List of JSON file extensions."))
+
 ;; ───────────────────────────────────────── VIM ────────────────────────────────────────
 (use-package evil
   :ensure t
@@ -606,6 +603,7 @@
 (define-key leader-map (kbd "w") 'save-buffer)
 (define-key leader-map (kbd "c") 'cider-jack-in)
 (define-key leader-map (kbd "s") 'shell-pop)
+(define-key leader-map (kbd "b") 'ibuffer)
 
 (use-package evil-collection
   :after evil
@@ -632,6 +630,15 @@
   :commands evilnc-comment-operator
   :config
   (evilnc-default-hotkeys))
+
+(use-package evil-cleverparens
+  :ensure t
+  :init
+  (setq evil-cleverparens-use-regular-insert t)
+  :config
+  ;; `evil-cp-change' should move the point, see https://github.com/luxbock/evil-cleverparens/pull/71
+  (evil-set-command-properties 'evil-cp-change :move-point t)
+  :delight)
 
 
 ;; ──────────────────────────────────── Look and feel ───────────────────────────────────
