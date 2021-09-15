@@ -582,6 +582,12 @@
   (yas-global-mode 1)
   :delight)
 
+(use-package shell-pop
+  :ensure t
+  :init
+  (setq shell-pop-shell-type (quote ("ansi-term" "*ansi-term*" (lambda nil (ansi-term shell-pop-term-shell)))))
+  (setq shell-pop-term-shell "/bin/zsh"))
+
 ;; ───────────────────────────────────────── VIM ────────────────────────────────────────
 (use-package evil
   :ensure t
@@ -599,7 +605,7 @@
 (global-set-key (kbd "C-,") 'leader-map)
 (define-key leader-map (kbd "w") 'save-buffer)
 (define-key leader-map (kbd "c") 'cider-jack-in)
-(define-key leader-map (kbd "s") 'eshell)
+(define-key leader-map (kbd "s") 'shell-pop)
 
 (use-package evil-collection
   :after evil
@@ -637,8 +643,12 @@
 
 (use-package shades-of-purple-theme
   :ensure t
-  :config (load-theme 'shades-of-purple t)
+  ;;:config (load-theme 'shades-of-purple t)
   :delight)
+
+(use-package dracula-theme
+  :ensure t
+  :config (load-theme 'dracula t))
 
 (use-package emojify
   :doc "Display Emoji in Emacs."
