@@ -179,8 +179,9 @@
   :config
   ;; Use it everywhere
   (projectile-mode t)
-  :bind ("s-O" . projectile-find-file)
-  :delight)
+  :bind (("s-O" . projectile-find-file)
+         ("s-F" . projectile-grep))
+  :delight))
 
 (use-package magit
   :doc "Git integration for Emacs"
@@ -228,7 +229,7 @@
 (use-package swiper
   :doc "A better search"
   :ensure t
-  :bind (("s-F" . swiper-isearch)
+  :bind (("s-f" . swiper-isearch)
          ("s-s" . isearch-forward-regexp))
   :delight)
 
