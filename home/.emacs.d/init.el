@@ -696,7 +696,7 @@
   "SPC" '(counsel-M-x :which-key "M-x")
   "a" '(hydra-launcher/body :which-key "Applications")
   "b" '(hydra-buffer/body t :which-key "Buffer")
-  "c" '(cider-jack-in)
+  "c" '(cider-jack-in :wich-key "Cider Jack In")
   "g" '(hydra-magit/body :which-key "Magit"))
 
 (use-package evil-collection
