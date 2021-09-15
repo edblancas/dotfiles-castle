@@ -451,7 +451,7 @@
   :bind
   (("s-C-]" . lsp-clojure-cycle-coll)
    ("C-]" . lsp-find-definition)
-   ("C-}" . lsp-find-references))
+   ("M-]" . lsp-find-references))
   :init
   (setq lsp-keymap-prefix "C-c l")
   (setq lsp-enable-on-type-formatting t)
