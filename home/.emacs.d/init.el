@@ -453,7 +453,8 @@
   (("s-C-]" . lsp-clojure-cycle-coll)
    ("C-]" . lsp-find-definition)
    ("M-]" . lsp-find-references)
-   ("<f1>" .  lsp-describe-thing-at-point))
+   ("<f1>" .  lsp-describe-thing-at-point)
+   ("C-M-o" . lsp-clojure-add-missing-libspec))
   :init
   (setq lsp-keymap-prefix "C-c l")
   (setq lsp-enable-on-type-formatting t)
