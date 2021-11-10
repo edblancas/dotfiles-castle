@@ -392,7 +392,6 @@
     ;; effects of backward-sexp and forward-sexp.
     (backward-sexp (1+ arg))
     (forward-sexp 1))
-  :config
   (setq paredit-splice-sexp-killing-backward nil)
   :bind (("s-[" . paredit-wrap-square)
          ("s-{" . paredit-wrap-curly)
@@ -402,9 +401,9 @@
          ("s-}" . paredit-curly-and-newline)
          ("s-)" . paredit-round-and-newline)
          ("s-'" . paredit-meta-doublequote-and-newline)
-         ("M-C-J" . paredit-join-sexps)
-         ("M-s-K" . paredit-kill)
-         ("M-C-J" . paredit-kill-kill-region)
+         ("M-C-j" . paredit-join-sexps)
+         ("M-s-k" . paredit-kill)
+         ("M-C-j" . paredit-kill-region)
          ("s-<right>" . paredit-forward)
          ("s-<left>" . paredit-backward)
          ("C-s-l" . paredit-forward-slurp-sexp)
@@ -455,7 +454,8 @@
    ("M-]" . lsp-find-references)
    ("<f1>" .  lsp-describe-thing-at-point)
    ("C-M-o" . lsp-clojure-add-missing-libspec)
-   ("M-<return> . lsp-execute-code-action"))
+   ("M-s-l" . lsp-format-buffer)
+   ("M-<return>" . lsp-execute-code-action))
   :init
   (setq lsp-enable-on-type-formatting t)
   (setq lsp-enable-indentation t)
@@ -513,6 +513,8 @@
 (use-package cider
   :doc "Integration with a Clojure REPL cider"
   :ensure t
+  :init
+  (add-hook 'cider-mode-hook (lambda () (add-to-list 'cider-test-defining-forms '("defflow" "defflow-mx" "defflow-i18n"))))
   :config
   (setq cider-eldoc-display-for-symbol-at-point nil) ; disable cider showing eldoc during symbol at point
 
@@ -647,6 +649,9 @@
   (do-applescript
    " do shell script \"open -a iTerm\"\n"))
 
+(use-package neotree
+  :ensure t)
+
 (use-package hydra
   :ensure t
   :delight)
@@ -688,6 +693,7 @@
   "/" '(counsel-ag :wich-key "ag")
   "TAB" '(ivy-switch-buffer :which-key "prev buffer")
 
+  "t" '(neotree-toggle :wich-key "neotree")
   "w" '(save-bufer :wich-key "save buffer")
   "s" '(sell-pop :wich-key "shell pop")
   "f" '(counsel-git :which-key "find in git dir")

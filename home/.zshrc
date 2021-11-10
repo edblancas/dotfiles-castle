@@ -8,6 +8,9 @@ ZSH_CUSTOM=$HOME/.config/oh-my-zsh/custom
 source $ZSH/oh-my-zsh.sh
 ### END OH-MY-ZSH ###
 
+# https://gist.github.com/zulhfreelancer/9c410cad5efa9c5f7c74cd0849765865
+# man strftime
+RPROMPT="[%D{%a %f %b} %D{%T}]"
 
 ### START PURE PROMPT ###
 autoload -U promptinit; promptinit
