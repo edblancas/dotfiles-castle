@@ -29,3 +29,6 @@
 [submodule "home/.spacemacs.d"]
 	path = home/.spacemacs.d
 	url = https://github.com/edblancas/spacemacs.d.git
+[submodule "home/.config/dracula_zsh-syntax-highlighting"]
+	path = home/.config/dracula_zsh-syntax-highlighting
+	url = https://github.com/dracula/zsh-syntax-highlighting.git

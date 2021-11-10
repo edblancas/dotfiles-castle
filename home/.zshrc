@@ -1,3 +1,6 @@
+# dracula zsh syntax highlighting before activating the plugin oh-my-zsh
+source $HOME/.config/dracula_zsh-syntax-highlighting/zsh-syntax-highlighting.sh
+
 ### START OH-MY-ZSH ###
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME=""
