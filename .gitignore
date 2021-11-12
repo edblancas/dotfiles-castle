@@ -22,3 +22,14 @@ home/.config/oh-my-zsh/custom/themes/spaceship.zsh-theme
 
 # Environment variables are automatically generated
 .spacemacs.env
+
+# emacs.d
+auto-save-list/
+backups/
+eshell/
+transient/
+.lsp-session*
+projectile-bookmarks.eld
+cider-history
+backups
+.recentf
