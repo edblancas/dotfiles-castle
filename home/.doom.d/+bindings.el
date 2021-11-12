@@ -15,7 +15,15 @@
 (global-set-key (kbd "M-<up>") #'er/expand-region)
 (global-set-key (kbd "M-<down>") (lambda () (interactive) (er/expand-region -1)))
 (global-set-key (kbd "<f3>") #'bookmark-set)
-(global-set-key (kbd "s-<f3>") #'counsel-bookmark)
+(global-set-key (kbd "s-<f3>") #'counsel-projectile-bookmark)  ;; only bookmarks of the project
+(global-set-key (kbd "M-<f3>") #'counsel-bookmark)  ;; all bookmarks
+
+(defun bmacs-project-root ()
+    "Get the path to the root of your project.
+  If STRICT-P, return nil if no project was found, otherwise return
+  `default-directory'."
+    (let (projectile-require-project-root)
+          (projectile-project-root)))
 ;;(global-set-key (kbd "<f16>") #')  ;; someting like run like idea
 ;;(global-set-key (kbd "<f17>") #')  ;; someting like focus editor like idea
 (global-set-key (kbd "<f18>") #'+vterm/toggle)
