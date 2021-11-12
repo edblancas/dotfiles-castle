@@ -6,6 +6,7 @@
 (undefine-key! clj-refactor-mode-map "M-<up>" "M-<down>")
 (undefine-key! paredit-mode-map "M-<up>" "M-<down>")
 (undefine-key! global-map "M-<up>" "M-<down>")
+(undefine-key! global-map "<f18>")
 
 (global-set-key (kbd "s-e") #'counsel-recentf)
 (global-set-key (kbd "C-;") #'insert-open-close-paren)
@@ -13,6 +14,11 @@
 (global-set-key (kbd "M-S-<down>") #'drag-stuff-down)
 (global-set-key (kbd "M-<up>") #'er/expand-region)
 (global-set-key (kbd "M-<down>") (lambda () (interactive) (er/expand-region -1)))
+(global-set-key (kbd "<f3>") #'bookmark-set)
+(global-set-key (kbd "s-<f3>") #'counsel-bookmark)
+;;(global-set-key (kbd "<f16>") #')  ;; someting like run like idea
+;;(global-set-key (kbd "<f17>") #')  ;; someting like focus editor like idea
+(global-set-key (kbd "<f18>") #'+vterm/toggle)
 
 (map! :nvi
 
