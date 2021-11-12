@@ -109,6 +109,8 @@
  doom-themes-treemacs-theme "all-the-icons"
  doom-localleader-key ","
 
+ ;doom-modeline-buffer-file-name-style 'auto
+
  evil-collection-setup-minibuffer t
  org-directory "~/Dropbox/org")
 
@@ -266,10 +268,10 @@
 
 (put 'narrow-to-region 'disabled nil)
 
-(def-modeline-var! +modeline-modes ; remove minor modes
-  '(""
-    mode-line-process
-    "%n"))
+;(def-modeline-var! +modeline-modes ; remove minor modes
+;  '(""
+;    mode-line-process
+;    "%n"))
 
 (def-modeline! :main
   '(""
@@ -280,7 +282,9 @@
   `(""
     mode-line-misc-info
     +modeline-modes
-    "  "
+    (vc-mode (" "
+              ,(all-the-icons-octicon "git-branch" :v-adjust 0.0)
+              vc-mode " "))
     (+modeline-checker ("" +modeline-checker "    "))))
 
 (set-modeline! :main 'default)
