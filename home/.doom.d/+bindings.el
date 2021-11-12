@@ -18,6 +18,7 @@
 (global-set-key (kbd "s-<f3>") #'counsel-projectile-bookmark)  ;; only bookmarks of the project
 (global-set-key (kbd "M-<f3>") #'counsel-bookmark)  ;; all bookmarks
 (global-set-key (kbd "M-A") #'counsel-M-x)
+;(global-set-key (kbd "s-1") #'+treemacs/toggle)  ;; taken by switch workspace
 
 (defun bmacs-project-root ()
     "Get the path to the root of your project.
@@ -68,6 +69,9 @@
   (define-key paredit-mode-map (kbd "C-<left>") nil)
   (define-key paredit-mode-map (kbd "C-<right>") nil)
 
+  (map! :map paredit-mode-map
+        "C-")
+
   (map! :nvi
         "C-s-l" #'paredit-forward-slurp-sexp
         "C-s-h" #'paredit-backward-slurp-sexp
@@ -79,10 +83,10 @@
         "M-<left>" #'paredit-backward-up
         "M-<right>" #'paredit-forward-down
 
-        "C-L" #'paredit-forward
-        "C-H" #'paredit-backward
-        "C-K" #'paredit-backward-up
-        "C-J" #'paredit-forward-down
+        "C-S-l" #'paredit-forward
+        "C-S-h" #'paredit-backward
+        "C-S-k" #'paredit-backward-up
+        "C-S-j" #'paredit-forward-down
 
         "M-o" #'paredit-raise-sexp
 
