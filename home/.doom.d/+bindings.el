@@ -17,6 +17,7 @@
 (global-set-key (kbd "<f3>") #'bookmark-set)
 (global-set-key (kbd "s-<f3>") #'counsel-projectile-bookmark)  ;; only bookmarks of the project
 (global-set-key (kbd "M-<f3>") #'counsel-bookmark)  ;; all bookmarks
+(global-set-key (kbd "M-A") #'counsel-M-x)
 
 (defun bmacs-project-root ()
     "Get the path to the root of your project.
@@ -70,13 +71,12 @@
   (map! :nvi
         "s-[" #'paredit-wrap-square
          "s-{" #'paredit-wrap-curly
-         "s-(" #'paredit-wrap-round
+         "s-(" #'paredit-wrap-parentheses
          "s-\"" #'paredit-meta-doublequote
-         "s-]" #'paredit-bracket-and-newline
-         "s-}" #'paredit-curly-and-newline
-         "s-)" #'paredit-round-and-newline
+         "s-]" #'paredit-close-bracket-and-newline
+         "s-}" #'paredit-close-curly-and-newline
+         "s-)" #'paredit-close-parentheses-and-newline
          "s-'" #'paredit-meta-doublequote-and-newline
-         "M-C-j" #'paredit-join-sexps
          "M-s-k" #'paredit-kill
          "M-C-j" #'paredit-kill-region
          "s-<right>" #'paredit-forward

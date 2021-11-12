@@ -285,6 +285,14 @@
 
 (set-modeline! :main 'default)
 
+;; fix bug when paren matching flickers line height, in theme was 'ultrabold
+;; https://www.reddit.com/r/emacs/comments/fr9ozc/overlay_from_showparenmode_taller_than_line_height/
+;; https://github.com/hlissner/emacs-doom-themes/blob/3e6f5d9ce129ac6fc0f466eb6f5518593625578f/doom-themes-base.el#L963
+;; https://www.reddit.com/r/emacs/comments/f531pt/doom_wherehow_to_change_syntax_highlighting/
+(custom-set-faces! 
+  '(show-paren-match :weight bold :underline t)
+  '(show-paren-mismatch :weight bold :underline t))
+
 (defun insert-open-close-paren ()
   (interactive)
   (insert "()")
