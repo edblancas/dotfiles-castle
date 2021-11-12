@@ -22,13 +22,6 @@
 [submodule "home/.config/oh-my-zsh/custom/themes/pure"]
 	path = home/.config/oh-my-zsh/custom/themes/pure
 	url = https://github.com/sindresorhus/pure.git
-[submodule "home/.emacs.d"]
-	path = home/.emacs.d
-	url = https://github.com/syl20bnr/spacemacs
-	branch = develop
-[submodule "home/.spacemacs.d"]
-	path = home/.spacemacs.d
-	url = https://github.com/edblancas/spacemacs.d.git
 [submodule "home/.config/dracula_zsh-syntax-highlighting"]
 	path = home/.config/dracula_zsh-syntax-highlighting
 	url = https://github.com/dracula/zsh-syntax-highlighting.git
