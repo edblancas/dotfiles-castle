@@ -63,8 +63,12 @@
       "M-r" #'evil-multiedit-match-all)
 
 (map! :leader
+
+      :desc "Ivy switch buffer"
+      "b i" #'ivy-switch-buffer
+
       :desc "Project sidebar"
-      "1"
+      "1" #'+treemacs/toggle
 
       :desc "Open dotfiles"
       "f T" #'open-dotfiles
@@ -210,7 +214,3 @@
 
 (after! company
   (define-key company-active-map (kbd "<f1>") #'company-quickhelp-manual-begin))
-
-(map! :leader
-      :desc "Ivy switch buffer"
-      "b i" #'ivy-switch-buffer)
