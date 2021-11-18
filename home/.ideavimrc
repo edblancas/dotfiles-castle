@@ -3,8 +3,8 @@
 " NOT SUPPORTED: creation of functions
 " So, no 'visual line repeat (drew neil)'
 " or toggle relativenumber with <leader>nt
-
-let mapleader = ','
+nnoremap <SPACE> <Nop>
+let mapleader = ' '
 
 " Plugins {{{1
 Plug 'tpope/vim-surround'

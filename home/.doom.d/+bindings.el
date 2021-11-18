@@ -62,6 +62,8 @@
       "M-r" #'evil-multiedit-match-all)
 
 (map! :leader
+      :desc "Project sidebar"
+      "1"
 
       :desc "Open dotfiles"
       "f T" #'open-dotfiles
