@@ -6,6 +6,7 @@
 (undefine-key! clj-refactor-mode-map "M-<up>" "M-<down>")
 (undefine-key! paredit-mode-map "M-<up>" "M-<down>")
 (undefine-key! global-map "M-<up>" "M-<down>")
+(undefine-key! global-map "<f16>")
 (undefine-key! global-map "<f18>")
 
 (global-set-key (kbd "s-e") #'counsel-recentf)
