@@ -51,9 +51,10 @@
 
 (package! treemacs-all-the-icons)
 (package! paredit)
+(package! posframe)
 (package! git-gutter)
+(package! company-quickhelp)
 
-(unpin! hover)
 (unpin! treemacs)
 (unpin! lsp-treemacs)
 (unpin! lsp-mode)

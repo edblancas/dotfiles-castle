@@ -19,6 +19,10 @@
 (global-set-key (kbd "M-<f3>") #'counsel-bookmark)  ;; all bookmarks
 (global-set-key (kbd "M-A") #'counsel-M-x)
 ;(global-set-key (kbd "s-1") #'+treemacs/toggle)  ;; taken by switch workspace
+(global-set-key (kbd "s-g") #'evil-mc-make-and-goto-next-match)
+(global-set-key (kbd "s-G") #'evil-mc-make-and-goto-prev-match)
+(global-set-key (kbd "M-s-g") #'evil-mc-make-all-cursors)
+(global-set-key (kbd "C-s-g") #'evil-mc-make-cursor-in-visual-selection-beg)
 
 (defun bmacs-project-root ()
     "Get the path to the root of your project.
@@ -197,9 +201,12 @@
       :map cider-repl-mode-map
       "C-c M-o" #'cider-repl-clear-buffer)
 
-(map! :after company
-      :map global-map
-       "TAB" #'company-complete-common-or-cycle)
+; (map! :after company
+;       :map global-map
+;        "TAB" #'company-complete-common-or-cycle)
+
+(after! company
+  (define-key company-active-map (kbd "<f1>") #'company-quickhelp-manual-begin))
 
 (map! :leader
       :desc "Ivy switch buffer"

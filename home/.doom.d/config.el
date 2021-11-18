@@ -158,7 +158,15 @@
 (use-package! company
   :config
   (setq company-tooltip-align-annotations t
-        company-icon-size 20))
+        company-frontends '(company-pseudo-tooltip-frontend)))
+
+(use-package! company-quickhelp
+  :init
+  (company-quickhelp-mode)
+  :config
+  (setq company-quickhelp-delay nil
+        company-quickhelp-use-propertized-text t
+        company-quickhelp-max-lines 10))
 
 (use-package! lsp-java
   :after lsp
@@ -179,7 +187,7 @@
   (setq lsp-headerline-breadcrumb-enable nil
         lsp-lens-enable t
         lsp-enable-file-watchers t
-        lsp-signature-render-documentation t
+        lsp-signature-render-documentation nil
         lsp-signature-function 'lsp-signature-posframe
         lsp-semantic-tokens-enable t
         lsp-idle-delay 0.3
