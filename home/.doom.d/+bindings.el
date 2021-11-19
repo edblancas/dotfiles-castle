@@ -54,9 +54,6 @@
 
 (map! :leader
 
-      :desc "Ivy switch buffer"
-      "b i" #'ivy-switch-buffer
-
       :desc "Project sidebar"
       "1" #'+treemacs/toggle
 
@@ -130,9 +127,14 @@
       "C-]" #'lsp-find-definition
       "M-]" #'lsp-find-references
       "<f1>" #'lsp-describe-thing-at-point
-      "C-M-o" #'lsp-clojure-add-missing-libspec
+      "C-M-o" #'lsp-clojure-clean-ns
       "M-s-l" #'lsp-format-buffer
-      "M-<return>" #'lsp-execute-code-action)
+      "M-<return>" #'lsp-execute-code-action
+      "M-<space>" #'lsp-ui-peek-find-definitions)
+
+(map! :after iedit-mode
+      :ni
+      "C-M-s-g" #'lsp-edit-linked-ranges)
 
 (map! :after dap-mode
       :map dap-mode-map
@@ -168,8 +170,8 @@
 
 (map! :after projectile
       :map projectile-mode-map
-      "s-O" #'projectile-find-file
-      "s-F" #'project-find-regexp
+      "s-O" #'+ivy/projectile-find-file
+      "s-F" #'+ivy/project-search
       "C-M-s-p" #'projectile-switch-project)
 
 (map! :after magit
@@ -179,8 +181,8 @@
 (map! :after ivy
       :map ivy-map
       "s-e" #'counsel-recentf
-      "M-s-o" #'counsel-find-file
-      "C-<tab>" #'ivy-switch-buffer)
+      "M-O" #'+ivy/projectile-find-file
+      "C-<tab>" #'+ivy/switch-workspace-buffer)
 
 (map! :after cider-mode
       :map cider-mode-map
@@ -196,9 +198,9 @@
       :map cider-repl-mode-map
       "C-c M-o" #'cider-repl-clear-buffer)
 
-; (map! :after company
-;       :map global-map
-;        "TAB" #'company-complete-common-or-cycle)
+(map! :after company
+      :map global-map
+       "TAB" #'company-complete-common-or-cycle)
 
 (after! company
   (define-key company-active-map (kbd "<f1>") #'company-quickhelp-manual-begin))

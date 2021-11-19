@@ -213,8 +213,8 @@
   :after lsp-mode
   :commands lsp-ui-mode
   :config
-  (setq lsp-ui-peek-enable t
-        lsp-ui-peek-list-width 60
+  (setq
+   lsp-ui-peek-list-width 60
         lsp-ui-doc-max-width 60
         lsp-ui-doc-enable nil
         lsp-ui-peek-fontify 'always
