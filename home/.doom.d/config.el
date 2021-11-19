@@ -109,8 +109,6 @@
  doom-themes-treemacs-theme "all-the-icons"
  doom-localleader-key ","
 
- ;doom-modeline-buffer-file-name-style 'auto
-
  evil-collection-setup-minibuffer t
  org-directory "~/Dropbox/org")
 
@@ -187,8 +185,9 @@
   (setq lsp-headerline-breadcrumb-enable nil
         lsp-lens-enable t
         lsp-enable-file-watchers t
+        lsp-signature-auto-activate t
         lsp-signature-render-documentation nil
-        lsp-signature-function 'lsp-signature-posframe
+        ;lsp-signature-function 'lsp-signature-posframe
         lsp-semantic-tokens-enable t
         lsp-idle-delay 0.3
         lsp-use-plists nil
@@ -201,7 +200,6 @@
         lsp-enable-symbol-highlighting t
         lsp-modeline-diagnostics-enable t
         lsp-headerline-breadcrumb-enable nil
-        lsp-signature-auto-activate t
         lsp-completion-show-detail t
         lsp-completion-show-kind t)
   (advice-add #'lsp-rename :after (lambda (&rest _) (projectile-save-project-buffers)))

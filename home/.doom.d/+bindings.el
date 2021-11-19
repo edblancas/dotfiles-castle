@@ -127,10 +127,11 @@
       "-" #'lsp-clojure-cursor-info)
 
 (map! :after lsp-mode
-      :n
+      :ni
 
       :desc "Start lsp on buffer"
       "M-l" #'lsp
+      "s-p" #'lsp-signature-activate
       "s-C-]" #'lsp-clojure-cycle-coll
       "C-]" #'lsp-find-definition
       "M-]" #'lsp-find-references
