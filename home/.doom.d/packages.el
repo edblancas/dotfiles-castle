@@ -51,7 +51,6 @@
 
 (package! treemacs-all-the-icons)
 (package! paredit)
-(package! posframe)
 (package! git-gutter)
 (package! company-quickhelp)
 

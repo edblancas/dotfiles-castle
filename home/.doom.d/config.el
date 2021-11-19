@@ -217,14 +217,9 @@
   :config
   (setq lsp-ui-peek-list-width 60
         lsp-ui-doc-max-width 60
-        ;lsp-ui-doc-enable nil
+        lsp-ui-doc-enable nil
         lsp-ui-peek-fontify 'always
-        lsp-ui-sideline-show-code-actions nil
-        lsp-ui-doc-show-with-cursor nil
-        lsp-ui-doc-show-with-mouse nil
-        lsp-ui-doc-include-signature t
-        lsp-ui-doc-position 'at-point
-        lsp-ui-sideline-enable nil))
+        lsp-ui-sideline-show-code-actions nil))
 
 (defun org-mode-hide-all-stars ()
   (font-lock-add-keywords
@@ -276,33 +271,12 @@
 
 (put 'narrow-to-region 'disabled nil)
 
-;(def-modeline-var! +modeline-modes ; remove minor modes
-;  '(""
-;    mode-line-process
-;    "%n"))
-
-(def-modeline! :main
-  '(""
-    +modeline-matches
-    " "
-    +modeline-buffer-identification
-    +modeline-position)
-  `(""
-    mode-line-misc-info
-    +modeline-modes
-    (vc-mode (" "
-              ,(all-the-icons-octicon "git-branch" :v-adjust 0.0)
-              vc-mode " "))
-    (+modeline-checker ("" +modeline-checker "    "))))
-
-(set-modeline! :main 'default)
-
 ;; fix bug when paren matching flickers line height, in theme was 'ultrabold, can put :underline t
 ;; https://www.reddit.com/r/emacs/comments/fr9ozc/overlay_from_showparenmode_taller_than_line_height/
 ;; https://github.com/hlissner/emacs-doom-themes/blob/3e6f5d9ce129ac6fc0f466eb6f5518593625578f/doom-themes-base.el#L963
 ;; https://www.reddit.com/r/emacs/comments/f531pt/doom_wherehow_to_change_syntax_highlighting/
 (custom-set-faces! 
-  '(show-paren-match :weight bold)
+  '(show-paren-match :weight bold :underline t)
   '(show-paren-mismatch :weight bold))
 
 (defun insert-open-close-paren ()
