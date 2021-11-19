@@ -62,7 +62,7 @@
     (require 'nu nil t)
     (require 'nu-datomic-query nil t)))
 
-(add-to-list 'default-frame-alist '(fullscreen . maximized))
+;(add-to-list 'default-frame-alist '(fullscreen . maximized))
 (add-to-list 'auto-mode-alist '("\\.repl\\'" . clojure-mode))
 
 (defun rg-ignoring-folders (folders)
@@ -361,4 +361,3 @@ If STRICT-P, return nil if no project was found, otherwise return
     (string-prefix-p (bmacs-project-root) bmark-path)))
 
 (load! "+bindings")
-
