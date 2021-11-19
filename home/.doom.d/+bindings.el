@@ -8,6 +8,7 @@
 (undefine-key! global-map "M-<up>" "M-<down>")
 (undefine-key! global-map "<f16>")
 (undefine-key! global-map "<f18>")
+(undefine-key! global-map "M-SPC")
 
 (global-set-key (kbd "s-e") #'counsel-recentf)
 (global-set-key (kbd "C-;") #'insert-open-close-paren)
@@ -129,8 +130,8 @@
       "<f1>" #'lsp-describe-thing-at-point
       "C-M-o" #'lsp-clojure-clean-ns
       "M-s-l" #'lsp-format-buffer
-      "M-<return>" #'lsp-execute-code-action
-      "M-<space>" #'lsp-ui-peek-find-definitions)
+      ;"M-SPC" #'lsp-ui-peek-find-definitions
+      "M-<return>" #'lsp-execute-code-action)
 
 (map! :after iedit-mode
       :ni
