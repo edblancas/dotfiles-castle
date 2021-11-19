@@ -47,16 +47,10 @@
       "C-S-<right>" (lambda () (interactive) (enlarge-window -5 t))
 
       :desc "increase window height"
-      "C-S-<down>" (lambda () (interactive) (enlarge-window 5))
+      "C-S-<down>" (lambda () (interactive) (enlarge-window -5))
 
       :desc "decrease window height"
-      "C-S-<up>" (lambda () (interactive) (enlarge-window -5))
-
-      :desc "scroll up bottom window"
-      "C-S-M-<down>" #'scroll-up-bottom-window
-
-      :desc "scroll down bottom window"
-      "C-S-M-<up>" #'scroll-down-bottom-window)
+      "C-S-<up>" (lambda () (interactive) (enlarge-window 5)))
 
 (map! :leader
 
