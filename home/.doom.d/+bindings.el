@@ -181,9 +181,9 @@
 
 (map! :after ivy
       :map ivy-map
-      "s-e" #'counsel-recentf
+      "C-s-e" #'counsel-recentf
       "M-O" #'+ivy/projectile-find-file
-      "C-<tab>" #'+ivy/switch-workspace-buffer)
+      "s-e" #'+ivy/switch-workspace-buffer)
 
 (map! :after cider-mode
       :map cider-mode-map
