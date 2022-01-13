@@ -86,14 +86,15 @@
 
         "M-o" #'paredit-raise-sexp
 
-        "s-k" #'paredit-kill
+        "M-s-k" #'paredit-kill
+        "s-k" #'kill-sexp
         "M-k" #'paredit-splice-sexp-killing-backward
 
         "M-s" #'paredit-splice-sexp
         "M-j" #'paredit-join-sexp
 
-        "M-s-k" #'transpose-sexp
-        "M-s-j" #'reverse-transpose-sexp
+        "M-s-<down>" #'transpose-sexp
+        "M-s-<up>" #'reverse-transpose-sexp
 
         "s-[" #'paredit-wrap-square
         "s-{" #'paredit-wrap-curly

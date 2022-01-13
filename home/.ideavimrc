@@ -26,7 +26,7 @@ set hlsearch
 set ignorecase
 set incsearch
 set number
-" set relativenumber
+set relativenumber
 set scrolloff=3
 set showmode
 set showcmd
