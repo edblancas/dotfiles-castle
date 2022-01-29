@@ -96,7 +96,8 @@ let g:xml_syntax_folding=1
 
 " Mappings {{{1
 " Override defaults {{{2
-let mapleader = ","
+nnoremap <SPACE> <Nop>
+let mapleader = " "
 nnoremap Q <Nop>
 "nnoremap <space> za
 nnoremap j gj

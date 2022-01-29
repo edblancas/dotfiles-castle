@@ -1,3 +1,6 @@
+# dracula zsh syntax highlighting before activating the plugin oh-my-zsh
+source $HOME/.config/dracula_zsh-syntax-highlighting/zsh-syntax-highlighting.sh
+
 ### START OH-MY-ZSH ###
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME=""
@@ -8,6 +11,9 @@ ZSH_CUSTOM=$HOME/.config/oh-my-zsh/custom
 source $ZSH/oh-my-zsh.sh
 ### END OH-MY-ZSH ###
 
+# https://gist.github.com/zulhfreelancer/9c410cad5efa9c5f7c74cd0849765865
+# man strftime
+RPROMPT="[%D{%a %f %b} %D{%T}]"
 
 ### START PURE PROMPT ###
 autoload -U promptinit; promptinit
@@ -97,11 +103,17 @@ alias mvnps='mvn clean package -DskipTests -Djacoco.skip=true -Dcheckstyle.skip 
 # Aliases for vim and kaleidoscope merge diff tool
 alias gkdiff='git config diff.tool kaleidoscope; git difftool'
 alias gkmerge='git config merge.tool kaleidoscope; git mergetool'
+
 # Alias gls to ls for dircolors (brew install coreutils)
 eval `gdircolors $HOME/.dircolors/dircolors-solarized/dircolors.ansi-dark` 
-alias ls='gls --color -FGH'
+export LS_OPTIONS='--color=auto'
+alias ls='gls $LS_OPTIONS -FGH'
+alias la='gls $LS_OPTIONS -lAhF'
+alias l='gls $LS_OPTIONS -lhF'
+
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; update_dotfiles_submodules'
 alias cloud="cd $HOME/Library/Mobile\ Documents/com~apple~CloudDocs"
+alias notes="cd $HOME/Dropbox/dev/current/notes"
 # Alias for datomic
 alias sdatomic='$HOME/opt/datomic-pro-1.0.6269/bin/transactor config/dev-transactor-template.properties'
 # Alias for closh
