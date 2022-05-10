@@ -145,7 +145,7 @@
 
 [user]
   name = Daniel Blancas
-  email = edblancas@gmail.com
+	email = edblancas@gmail.com
   signingkey = 7CC41AD13FF90E67
 
 [credential]
@@ -153,3 +153,8 @@
 
 [includeIf "gitdir:~/dev/nu/"]
   path = ~/dev/nu/.gitconfig_include
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
