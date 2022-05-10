@@ -25,6 +25,3 @@
 [submodule "home/.config/dracula_zsh-syntax-highlighting"]
 	path = home/.config/dracula_zsh-syntax-highlighting
 	url = https://github.com/dracula/zsh-syntax-highlighting.git
-[submodule "home/.emacs.d"]
-	path = home/.emacs.d
-	url = https://github.com/hlissner/doom-emacs
