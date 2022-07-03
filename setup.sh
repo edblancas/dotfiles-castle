@@ -19,3 +19,6 @@ nvim -c ':CocInstall coc-diagnostic | quit' < `tty` > `tty`
 nvim -c ':CocInstall coc-snippets | quit' < `tty` > `tty`
 
 echo "--> Done! Happy Vimming! :x" < `tty` > `tty`
+
+echo "--> Symlink corgi-emacs..." < `tty` > `tty`
+ln -s $HOME/.config/corgi-emacs/sample-config $HOME/.emacs.d < `tty` > `tty`
