@@ -105,7 +105,6 @@ alias gkdiff='git config diff.tool kaleidoscope; git difftool'
 alias gkmerge='git config merge.tool kaleidoscope; git mergetool'
 
 # Alias gls to ls for dircolors (brew install coreutils)
-eval `gdircolors $HOME/.dircolors/dircolors-solarized/dircolors.ansi-dark` 
 export LS_OPTIONS='--color=auto'
 alias ls='gls $LS_OPTIONS -FGH'
 alias la='gls $LS_OPTIONS -lAhF'
@@ -256,7 +255,6 @@ fi
 # PATH have duplicated entries
 # we only check if its nu macbook
 if [[ $USER == "daniel.blancas" ]];then
-  [ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && . "$(brew --prefix)/opt/nvm/nvm.sh"
   # zsh completition
   autoload -Uz compinit bashcompinit && compinit && bashcompinit
   source "$NU_HOME/nucli/nu.bashcompletion"
