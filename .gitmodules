@@ -16,12 +16,15 @@
 [submodule "home/.config/oh-my-zsh/custom/plugins/zsh-autosuggestions"]
 	path = home/.config/oh-my-zsh/custom/plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions.git
-[submodule "home/.config/oh-my-zsh/custom/themes/pure"]
-	path = home/.config/oh-my-zsh/custom/themes/pure
-	url = https://github.com/sindresorhus/pure.git
 [submodule "home/.config/dracula_zsh-syntax-highlighting"]
 	path = home/.config/dracula_zsh-syntax-highlighting
 	url = https://github.com/dracula/zsh-syntax-highlighting.git
 [submodule "home/.config/corgi-emacs"]
 	path = home/.config/corgi-emacs
 	url = https://github.com/corgi-emacs/corgi.git
+[submodule "home/.zsh/pure"]
+	path = home/.zsh/pure
+	url = https://github.com/sindresorhus/pure.git
+[submodule "home/.config/dracula-dircolors"]
+	path = home/.config/dracula-dircolors
+	url = https://github.com/dracula/dircolors.git

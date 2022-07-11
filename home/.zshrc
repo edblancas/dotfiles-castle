@@ -16,6 +16,8 @@ source $ZSH/oh-my-zsh.sh
 RPROMPT="[%D{%a %f %b} %D{%T}]"
 
 ### START PURE PROMPT ###
+fpath+=($HOME/.zsh/pure)
+
 autoload -U promptinit; promptinit
 
 # Options
