@@ -107,10 +107,13 @@ alias gkdiff='git config diff.tool kaleidoscope; git difftool'
 alias gkmerge='git config merge.tool kaleidoscope; git mergetool'
 
 # Alias gls to ls for dircolors (brew install coreutils)
+eval $(/opt/homebrew/bin/gdircolors $HOME/.dircolors)
 export LS_OPTIONS='--color=auto'
 alias ls='gls $LS_OPTIONS -FGH'
 alias la='gls $LS_OPTIONS -lAhF'
 alias l='gls $LS_OPTIONS -lhF'
+# Zsh to use the same colors as ls
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; update_dotfiles_submodules'
 alias cloud="cd $HOME/Library/Mobile\ Documents/com~apple~CloudDocs"
