@@ -188,8 +188,8 @@ function removeFromPath() {
 ### Completitions ###
 # This is cause it was in the .path_macOS but when starting a tmux session the functions 
 # where not available inside
-[[ -s /usr/local/share/autojump/autojump.zsh ]] && source /usr/local/share/autojump/autojump.zsh
-fpath=(/usr/local/share/zsh-completions $fpath)
+[[ -s /opt/homebrew/share/autojump/autojump.zsh ]] && source /opt/homebrew/share/autojump/autojump.zsh
+fpath=(/opt/homebrew/share/zsh-completions $fpath)
 
 ### Node Settings ###
 # Enable persistent REPL history for `node`.
