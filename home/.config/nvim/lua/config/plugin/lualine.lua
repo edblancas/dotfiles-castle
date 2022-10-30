@@ -17,13 +17,13 @@ _2amodule_locals_2a["lsp"] = lsp
 _2amodule_locals_2a["lualine"] = lualine
 local function lsp_connection()
   if vim.tbl_isempty(vim.lsp.buf_get_clients(0)) then
-    return "\226\140\167"
+    return "\239\130\150"
   else
-    return "\226\156\148"
+    return "\239\131\136"
   end
 end
 _2amodule_2a["lsp_connection"] = lsp_connection
 local github_lua_theme = core.assoc(require("lualine.themes.auto"), "inactive", {a = {bg = "#19181e", fg = "#a4a3a6"}, b = {bg = "#19181e", fg = "#a4a3a6"}, c = {bg = "#19181e", fg = "#a4a3a6"}}, "normal", {a = {bg = "#131217", fg = "#24292e"}, b = {bg = "#131217", fg = "#3b8eea"}, c = {bg = "#19181e", fg = "#d1d5da"}}, "command", {a = {bg = "#131217", fg = "#24292e"}, b = {bg = "#131217", fg = "#ccbed8"}, c = {bg = "#19181e", fg = "#d1d5da"}}, "visual", {a = {bg = "#131217", fg = "#24292e"}, b = {bg = "#131217", fg = "#ced4b1"}, c = {bg = "#19181e", fg = "#d1d5da"}}, "replace", {a = {bg = "#131217", fg = "#24292e"}, b = {bg = "#131217", fg = "#d1b6bd"}, c = {bg = "#19181e", fg = "#d1d5da"}}, "insert", {a = {bg = "#131217", fg = "#24292e"}, b = {bg = "#131217", fg = "#a8d1c9"}, c = {bg = "#19181e", fg = "#d1d5da"}})
 do end (_2amodule_2a)["github-lua-theme"] = github_lua_theme
-lualine.setup({options = {theme = github_lua_theme, icons_enabled = false, section_separators = {"", ""}, component_separators = {"|", "|"}}, sections = {lualine_a = {}, lualine_b = {{"mode", {upper = true}}}, lualine_c = {{"FugitiveHead"}, {file_status = true, path = 1, shorting_target = 40, "filename"}}, lualine_x = {{sections = {"error", "warn", "info", "hint"}, sources = {"nvim_lsp"}, "diagnostics"}, {lsp_connection}, "location", "filetype"}, lualine_y = {"encoding"}, lualine_z = {}}, inactive_sections = {lualine_a = {}, lualine_b = {}, lualine_c = {{file_status = true, path = 1, "filename"}}, lualine_x = {}, lualine_y = {}, lualine_z = {}}})
+lualine.setup({options = {theme = github_lua_theme, icons_enabled = true, section_separators = {"", ""}, component_separators = {"\239\145\138", "\239\144\184"}}, sections = {lualine_a = {}, lualine_b = {{"mode", {upper = true}}}, lualine_c = {{"FugitiveHead"}, {file_status = true, path = 1, shorting_target = 40, "filename"}}, lualine_x = {{sections = {"error", "warn", "info", "hint"}, sources = {"nvim_lsp"}, "diagnostics"}, {lsp_connection}, "location", "filetype"}, lualine_y = {"encoding"}, lualine_z = {}}, inactive_sections = {lualine_a = {}, lualine_b = {}, lualine_c = {{file_status = true, path = 1, "filename"}}, lualine_x = {}, lualine_y = {}, lualine_z = {}}})
 return _2amodule_2a

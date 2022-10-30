@@ -10,21 +10,7 @@ do
   _2amodule_2a["aniseed/locals"] = {}
   _2amodule_locals_2a = (_2amodule_2a)["aniseed/locals"]
 end
-local autoload = (require("aniseed.autoload")).autoload
-local core, nvim, str, util = autoload("aniseed.core"), autoload("aniseed.nvim"), autoload("aniseed.string"), autoload("config.util")
-do end (_2amodule_locals_2a)["core"] = core
-_2amodule_locals_2a["nvim"] = nvim
-_2amodule_locals_2a["str"] = str
-_2amodule_locals_2a["util"] = util
-nvim.set_keymap("n", "<space>", "<nop>", {noremap = true})
-nvim.g.mapleader = " "
-nvim.g.maplocalleader = ","
-nvim.ex.set("nowrap")
-do
-  local options = {completeopt = "menuone,noselect", ignorecase = true, smartcase = true, clipboard = "unnamedplus"}
-  for option, value in pairs(options) do
-    core.assoc(nvim.o, option, value)
-  end
-end
+require("config.core")
+require("config.mapping")
 require("config.plugin")
 return _2amodule_2a

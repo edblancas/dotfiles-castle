@@ -34,38 +34,59 @@
 
   ;; theme
   :projekt0n/github-nvim-theme {:mod :theme}
+  :ryanoasis/vim-devicons {}
+  :kyazdani42/nvim-web-devicons {}
 
   ;; status line
   :nvim-lualine/lualine.nvim {:mod :lualine}
+
+  ; file exploration
+  :nvim-tree/nvim-tree.lua {:mod :nvim-tree}
 
   ;; file searching
   :nvim-telescope/telescope.nvim {:requires [:nvim-telescope/telescope-ui-select.nvim
                                              :nvim-lua/popup.nvim
                                              :nvim-lua/plenary.nvim]
                                   :mod :telescope}
+  ; commeting code
+  :preservim/nerdcommenter {}
 
   ;; repl tools
   :Olical/conjure {:branch :master :mod :conjure}
 
+  ; multicursor selector
+  :mg979/vim-visual-multi {}
+
+  ; text alignment
+  :junegunn/vim-easy-align {:mod :easy-align}
+
+  ; git helper
+  :tpope/vim-fugitive {}
+
   ;; sexp
   :guns/vim-sexp {:mod :sexp}
   :tpope/vim-sexp-mappings-for-regular-people {}
-  :tpope/vim-repeat {}
   :tpope/vim-surround {}
+
+  ; tmux
+  :christoomey/vim-tmux-navigator {:mod :tmux-navigator}
+  :melonmanchan/vim-tmux-resizer {}
 
   ;; parsing system
   :nvim-treesitter/nvim-treesitter {:run ":TSUpdate"
                                     :mod :treesitter}
+  ; snippets
+  :L3MON4D3/LuaSnip {:requires [:saadparwaiz1/cmp_luasnip]}
 
   ;; lsp
   :neovim/nvim-lspconfig {:mod :lspconfig}
 
-  ; snippets
-  :L3MON4D3/LuaSnip {:requires [:saadparwaiz1/cmp_luasnip]}
-
-  ;; autocomplete
+  ; autocomplete
   :hrsh7th/nvim-cmp {:requires [:hrsh7th/cmp-buffer
+                                :hrsh7th/cmp-path
+                                :hrsh7th/cmp-calc
                                 :hrsh7th/cmp-nvim-lsp
+                                :hrsh7th/cmp-nvim-lua
                                 :hrsh7th/cmp-vsnip
                                 :PaterJason/cmp-conjure]
                      :mod :cmp})

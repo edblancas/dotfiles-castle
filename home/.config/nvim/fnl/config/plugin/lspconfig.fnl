@@ -1,6 +1,7 @@
-(module config.plugin.lspconfig
+(module config.plugin.lspconfiglsp
   {autoload {nvim aniseed.nvim
              lsp lspconfig
+             util lspconfig.util
              cmplsp cmp_nvim_lsp}})
 
 ;symbols to show for lsp diagnostics
@@ -10,23 +11,23 @@
         warn  (.. prefix "SignWarn")
         info  (.. prefix "SignInfo")
         hint  (.. prefix "SignHint")]
-  (vim.fn.sign_define error {:text "x" :texthl error})
-  (vim.fn.sign_define warn  {:text "!" :texthl warn})
-  (vim.fn.sign_define info  {:text "i" :texthl info})
-  (vim.fn.sign_define hint  {:text "?" :texthl hint})))
+  (vim.fn.sign_define error {:text "" :texthl error})
+  (vim.fn.sign_define warn  {:text "" :texthl warn})
+  (vim.fn.sign_define info  {:text "" :texthl info})
+  (vim.fn.sign_define hint  {:text "" :texthl hint})))
 
 (if (= (nvim.fn.has "nvim-0.6") 1)
   (define-signs "Diagnostic")
   (define-signs "LspDiagnostics"))
 
-;server features
 (let [handlers {"textDocument/publishDiagnostics"
                 (vim.lsp.with
                   vim.lsp.diagnostic.on_publish_diagnostics
-                  {:severity_sort true
-                   :update_in_insert false
+                  {:virtual_text false
+                   :signs true
                    :underline true
-                   :virtual_text false})
+                   :update_in_insert false
+                   :severity_sort false})
                 "textDocument/hover"
                 (vim.lsp.with
                   vim.lsp.handlers.hover
@@ -56,10 +57,29 @@
                     (nvim.buf_set_keymap bufnr :n :<leader>lr ":lua require('telescope.builtin').lsp_references()<cr>" {:noremap true})
                     (nvim.buf_set_keymap bufnr :n :<leader>li ":lua require('telescope.builtin').lsp_implementations()<cr>" {:noremap true})))]
 
-  ;; To add support to more language servers check:
-  ;; https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-
   ;; Clojure
   (lsp.clojure_lsp.setup {:on_attach on_attach
                           :handlers handlers
-                          :capabilities capabilities}))
+                          :capabilities capabilities})
+
+  ;; JavaScript and TypeScript
+  (lsp.tsserver.setup {:on_attach on_attach
+                       :handlers handlers
+                       :capabilities capabilities})
+
+  ;; html / css / json
+
+  (lsp.cssls.setup {:on_attach on_attach
+                    :handlers handlers
+                    :capabilities capabilities
+                    :cmd ["vscode-css-languageserver" "--stdio"]})
+
+  (lsp.html.setup {:on_attach on_attach
+                   :handlers handlers
+                   :capabilities capabilities
+                   :cmd ["vscode-html-languageserver" "--stdio"]})
+
+  (lsp.jsonls.setup {:on_attach on_attach
+                     :handlers handlers
+                     :capabilities capabilities
+                     :cmd ["vscode-json-languageserver" "--stdio"]}))

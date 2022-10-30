@@ -15,9 +15,9 @@ local cmp, luasnip, nvim = autoload("cmp"), autoload("luasnip"), autoload("anise
 do end (_2amodule_locals_2a)["cmp"] = cmp
 _2amodule_locals_2a["luasnip"] = luasnip
 _2amodule_locals_2a["nvim"] = nvim
-local cmp_src_menu_items = {buffer = "buff", conjure = "conj", nvim_lsp = "lsp", vsnip = "vsnp", luasnip = "lsnp"}
+local cmp_src_menu_items = {buffer = "buff", calc = "calc", conjure = "conj", nvim_lsp = "lsp", path = "path", vsnip = "vsnp", luasnip = "lsnp"}
 _2amodule_locals_2a["cmp-src-menu-items"] = cmp_src_menu_items
-local cmp_srcs = {{name = "nvim_lsp"}, {name = "conjure"}, {name = "buffer"}, {name = "vsnip"}, {name = "luasnip"}}
+local cmp_srcs = {{name = "nvim_lsp"}, {name = "conjure"}, {name = "luasnip"}, {name = "buffer"}, {name = "path"}, {name = "nvim_lua"}, {name = "vsnip"}, {name = "calc"}}
 _2amodule_locals_2a["cmp-srcs"] = cmp_srcs
 local function has_words_before()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -55,4 +55,5 @@ local function _6_(args)
   return luasnip.lsp_expand(args.body)
 end
 cmp.setup({formatting = {format = _1_}, mapping = {["<C-p>"] = cmp.mapping.select_prev_item(), ["<C-n>"] = cmp.mapping.select_next_item(), ["<C-b>"] = cmp.mapping.scroll_docs(( - 4)), ["<C-f>"] = cmp.mapping.scroll_docs(4), ["<C-Space>"] = cmp.mapping.complete(), ["<C-e>"] = cmp.mapping.close(), ["<CR>"] = cmp.mapping.confirm({behavior = cmp.ConfirmBehavior.Insert, select = true}), ["<Tab>"] = cmp.mapping(_2_, {"i", "s"}), ["<S-Tab>"] = cmp.mapping(_4_, {"i", "s"})}, snippet = {expand = _6_}, sources = cmp_srcs})
+nvim.ex.hi("CmpItemMenu ctermfg=7 guifg=#b1b1b1")
 return _2amodule_2a

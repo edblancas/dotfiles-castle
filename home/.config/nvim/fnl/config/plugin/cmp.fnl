@@ -5,20 +5,24 @@
 
 (def- cmp-src-menu-items
   {:buffer "buff"
+   :calc "calc"
    :conjure "conj"
    :nvim_lsp "lsp"
+   :path "path"
    :vsnip "vsnp"
    :luasnip "lsnp"})
 
 (def- cmp-srcs
   [{:name :nvim_lsp}
    {:name :conjure}
+   {:name :luasnip}
    {:name :buffer}
+   {:name :path}
+   {:name :nvim_lua}
    {:name :vsnip}
-   {:name :luasnip}])
+   {:name :calc}])
 
 ;; Setup cmp with desired settings
-
 (fn has-words-before []
   (let [(line col) (unpack (vim.api.nvim_win_get_cursor 0))]
     (and (not= col 0)
@@ -52,3 +56,5 @@
             :snippet {:expand (fn [args]
                                 (luasnip.lsp_expand args.body))}
             :sources cmp-srcs})
+
+(nvim.ex.hi "CmpItemMenu ctermfg=7 guifg=#b1b1b1")

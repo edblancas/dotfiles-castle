@@ -1,5 +1,5 @@
 local _2afile_2a = "/Users/daniel.blancas/.config/nvim/fnl/config/plugin/lspconfig.fnl"
-local _2amodule_name_2a = "config.plugin.lspconfig"
+local _2amodule_name_2a = "config.plugin.lspconfiglsp"
 local _2amodule_2a
 do
   package.loaded[_2amodule_name_2a] = {}
@@ -11,19 +11,20 @@ do
   _2amodule_locals_2a = (_2amodule_2a)["aniseed/locals"]
 end
 local autoload = (require("aniseed.autoload")).autoload
-local cmplsp, lsp, nvim = autoload("cmp_nvim_lsp"), autoload("lspconfig"), autoload("aniseed.nvim")
+local cmplsp, lsp, nvim, util = autoload("cmp_nvim_lsp"), autoload("lspconfig"), autoload("aniseed.nvim"), autoload("lspconfig.util")
 do end (_2amodule_locals_2a)["cmplsp"] = cmplsp
 _2amodule_locals_2a["lsp"] = lsp
 _2amodule_locals_2a["nvim"] = nvim
+_2amodule_locals_2a["util"] = util
 local function define_signs(prefix)
   local error = (prefix .. "SignError")
   local warn = (prefix .. "SignWarn")
   local info = (prefix .. "SignInfo")
   local hint = (prefix .. "SignHint")
-  vim.fn.sign_define(error, {text = "x", texthl = error})
-  vim.fn.sign_define(warn, {text = "!", texthl = warn})
-  vim.fn.sign_define(info, {text = "i", texthl = info})
-  return vim.fn.sign_define(hint, {text = "?", texthl = hint})
+  vim.fn.sign_define(error, {text = "\239\129\151", texthl = error})
+  vim.fn.sign_define(warn, {text = "\239\129\177", texthl = warn})
+  vim.fn.sign_define(info, {text = "\239\129\154", texthl = info})
+  return vim.fn.sign_define(hint, {text = "\239\129\153", texthl = hint})
 end
 _2amodule_2a["define-signs"] = define_signs
 if (nvim.fn.has("nvim-0.6") == 1) then
@@ -32,7 +33,7 @@ else
   define_signs("LspDiagnostics")
 end
 do
-  local handlers = {["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {severity_sort = true, update_in_insert = false, underline = true, virtual_text = false}), ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {border = "single"}), ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {border = "single"})}
+  local handlers = {["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {virtual_text = false, signs = true, underline = true, update_in_insert = false, severity_sort = false}), ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {border = "single"}), ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {border = "single"})}
   local capabilities = cmplsp.default_capabilities()
   local on_attach
   local function _2_(client, bufnr)
@@ -55,5 +56,9 @@ do
   end
   on_attach = _2_
   lsp.clojure_lsp.setup({on_attach = on_attach, handlers = handlers, capabilities = capabilities})
+  lsp.tsserver.setup({on_attach = on_attach, handlers = handlers, capabilities = capabilities})
+  lsp.cssls.setup({on_attach = on_attach, handlers = handlers, capabilities = capabilities, cmd = {"vscode-css-languageserver", "--stdio"}})
+  lsp.html.setup({on_attach = on_attach, handlers = handlers, capabilities = capabilities, cmd = {"vscode-html-languageserver", "--stdio"}})
+  lsp.jsonls.setup({on_attach = on_attach, handlers = handlers, capabilities = capabilities, cmd = {"vscode-json-languageserver", "--stdio"}})
 end
 return _2amodule_2a

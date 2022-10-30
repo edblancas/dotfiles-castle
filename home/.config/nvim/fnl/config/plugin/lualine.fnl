@@ -4,7 +4,8 @@
              lsp config.plugin.lspconfig}})
 
 (defn lsp_connection []
-  (if (vim.tbl_isempty (vim.lsp.buf_get_clients 0)) "⌧" "✔"))
+  (if (vim.tbl_isempty (vim.lsp.buf_get_clients 0)) "" ""))
+  ;(if (vim.tbl_isempty (vim.lsp.buf_get_clients 0)) "⌧" "✔"))
 
 (def github-lua-theme
   (core.assoc
@@ -30,9 +31,9 @@
 
 (lualine.setup
   {:options {:theme github-lua-theme
-             :icons_enabled false
+             :icons_enabled true
              :section_separators ["" ""]
-             :component_separators ["|" "|"]}
+             :component_separators ["" ""]}
    :sections {:lualine_a []
               :lualine_b [[:mode {:upper true}]]
               :lualine_c [["FugitiveHead"]
