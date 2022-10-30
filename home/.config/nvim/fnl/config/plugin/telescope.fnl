@@ -5,8 +5,7 @@
 
 (telescope.setup {:defaults {:file_ignore_patterns ["node_modules"]}
                   :extensions {:ui-select {1 (themes.get_dropdown {})}}
-                  :pickers {:find_files {:find_command ["rg" "--files" "--iglob" "!.git" "--hidden"]}
-                            :buffers    {:disable_devicons true}}})
+                  :pickers {:find_files {:find_command ["rg" "--files" "--iglob" "!.git" "--hidden"]}}})
 
 (telescope.load_extension "ui-select")
 
