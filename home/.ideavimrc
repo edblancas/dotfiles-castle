@@ -70,7 +70,7 @@ map <c-h> <c-w>h
 map <c-k> <c-w>k
 
 " Utils
-nnoremap <Leader><space> :nohlsearch<CR>
+nnoremap <CR> :nohlsearch<CR>
 
 " Smash escape
 inoremap jk <Esc>
