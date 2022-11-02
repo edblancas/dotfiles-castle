@@ -294,6 +294,17 @@ if [[ $USER == "daniel.blancas" ]];then
 fi
 ### END WORKAROUND ###
 
+### BABASHKA ###
+# tab-complete feature on ZSH.
+# https://book.babashka.org/#_terminal_tab_completion
+_bb_tasks() {
+    local matches=(`bb tasks |tail -n +3 |cut -f1 -d ' '`)
+    compadd -a matches
+    _files # autocomplete filenames as well
+}
+compdef _bb_tasks bb
+## END BABASHKA ###
+
 ### COMMON PATH SETTINGS ###
 export PATH=$PATH:~/.config/nvim/plugged/vim-iced/bin
 
