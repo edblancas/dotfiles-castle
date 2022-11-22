@@ -271,7 +271,10 @@ if [[ $USER == "daniel.blancas" ]];then
   function nurefresh() {
     if [[ $# -eq 0 ]] ; then
       echo "Refreshing okta and nu-mx staging!"
-      nu aws credentials refresh --okta && nu-mx auth get-refresh-token --env staging && nu-mx auth get-access-token --env staging
+      nu aws credentials refresh --okta && 
+        nu-mx auth get-refresh-token --env staging && 
+        nu-mx auth get-access-token --env staging &&
+        nu aws credentials refresh --maven-login
     else
       if [ $# -lt 2 ]; then
         echo "Zero or two args must passed, first mx|br, and second staging|prod."
@@ -285,7 +288,10 @@ if [[ $USER == "daniel.blancas" ]];then
             echo "Invalid environment $env! Must be staging or prod!"
           else
             echo "Refreshing okta and nu-$co $env!"
-            nu aws credentials refresh --okta && nu auth get-refresh-token --env $env --country $co && nu auth get-access-token --env $env --country $co
+            nu aws credentials refresh --okta &&
+              nu auth get-refresh-token --env $env --country $co && 
+              nu auth get-access-token --env $env --country $co &&
+              nu aws credentials refresh --maven-login
           fi
         fi
       fi
