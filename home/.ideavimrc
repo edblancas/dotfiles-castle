@@ -123,3 +123,8 @@ noremap <Leader>rr :action Refactorings.QuickListPopupAction<CR>
 nnoremap Q <Nop>
 "nnoremap j gj
 "nnoremap k gk
+
+" Deleted the keymap in idea settings, cuz not worked in insert mode
+" To work in insert and normal mode
+inoremap <C-]> :action GotoDeclaration<CR>
+nnoremap <C-]> :action GotoDeclaration<CR>
