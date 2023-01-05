@@ -158,7 +158,8 @@
       :map clojure-mode-map
       "M-C-," #'clojure-thread
       "M-C-." #'clojure-unwind
-      "C-S-O" #'lsp-ivy-workspace-symbol)
+      "C-S-O" #'lsp-ivy-workspace-symbol
+      "s-<f16>" #'portal.api/open)
 
 (map! :after java-mode
       :map java-mode-map

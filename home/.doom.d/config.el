@@ -333,4 +333,22 @@ If STRICT-P, return nil if no project was found, otherwise return
   (let ((bmark-path (expand-file-name (bookmark-location bmark))))
     (string-prefix-p (bmacs-project-root) bmark-path)))
 
+;; https://github.com/djblue/portal/blob/master/doc/editors/emacs.md#xwidget-webkit-embed
+;; Leverage an existing cider nrepl connection to evaluate portal.api functions
+;; and map them to convenient key bindings.
+
+;; def portal to the dev namespace to allow dereferencing via @dev/portal
+(defun portal.api/open ()
+  (interactive)
+  (cider-nrepl-sync-request:eval
+    "(do (ns dev) (def portal ((requiring-resolve 'portal.api/open))) (add-tap (requiring-resolve 'portal.api/submit)))"))
+
+(defun portal.api/clear ()
+  (interactive)
+  (cider-nrepl-sync-request:eval "(portal.api/clear)"))
+
+(defun portal.api/close ()
+  (interactive)
+  (cider-nrepl-sync-request:eval "(portal.api/close)"))
+
 (load! "+bindings")
