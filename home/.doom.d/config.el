@@ -352,3 +352,15 @@ If STRICT-P, return nil if no project was found, otherwise return
   (cider-nrepl-sync-request:eval "(portal.api/close)"))
 
 (load! "+bindings")
+
+(use-package! evil-cleverparens
+  :config
+  (setq evil-cleverparens-use-s-and-S nil)
+  (evil-define-key '(normal visual) evil-cleverparens-mode-map
+    "s" nil
+    "S" nil
+    "{" nil
+    "}" nil
+    "[" nil
+    "]" nil
+    (kbd "<tab>") 'evil-jump-item))

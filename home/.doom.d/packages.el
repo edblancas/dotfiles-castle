@@ -63,3 +63,5 @@
 (unpin! evil-multiedit)
 (unpin! evil)
 (unpin! cider)
+
+(package! evil-cleverparens)
