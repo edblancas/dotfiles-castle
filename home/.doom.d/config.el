@@ -351,9 +351,12 @@ If STRICT-P, return nil if no project was found, otherwise return
   (interactive)
   (cider-nrepl-sync-request:eval "(portal.api/close)"))
 
-(load! "+bindings")
-
 (use-package! evil-cleverparens
+  :commands evil-cleverparens-mode
+  :init
+  (add-hook! 'clojure-mode-hook #'evil-cleverparens-mode)
+  (add-hook! 'emacs-lisp-mode-hook #'evil-cleverparens-mode)
+  (setq evil-cleverparens-complete-parens-in-yanked-region t)
   :config
   (setq evil-cleverparens-use-s-and-S nil)
   (evil-define-key '(normal visual) evil-cleverparens-mode-map
@@ -364,3 +367,5 @@ If STRICT-P, return nil if no project was found, otherwise return
     "[" nil
     "]" nil
     (kbd "<tab>") 'evil-jump-item))
+
+(load! "+bindings")
