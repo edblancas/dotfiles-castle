@@ -67,6 +67,7 @@
 (after! paredit
   (define-key paredit-mode-map (kbd "C-<left>") nil)
   (define-key paredit-mode-map (kbd "C-<right>") nil)
+  (define-key paredit-mode-map (kbd "C-}") nil)
 
   (map! :nvi
         "C-s-l" #'paredit-forward-slurp-sexp
@@ -126,12 +127,11 @@
       "M-l" #'lsp
       "s-p" #'lsp-signature-activate
       "s-C-]" #'lsp-clojure-cycle-coll
-      "C-]" #'lsp-find-definition
-      "M-]" #'lsp-find-references
+      "C-]" #'lsp-ui-peek-find-references
+      "C-}" #'lsp-ui-peek-find-definitions
       "<f1>" #'lsp-describe-thing-at-point
       "C-M-o" #'lsp-clojure-clean-ns
       "M-s-l" #'lsp-format-buffer
-      ;"M-SPC" #'lsp-ui-peek-find-definitions
       "M-<return>" #'lsp-execute-code-action)
 
 (map! :after iedit-mode
