@@ -10,7 +10,8 @@
 (undefine-key! global-map "<f18>")
 (undefine-key! global-map "M-SPC")
 
-(global-set-key (kbd "s-e") #'counsel-recentf)
+;;(global-set-key (kbd "s-e") #'counsel-recentf)
+(global-set-key (kbd "s-e") #'counsult-recentf)
 (global-set-key (kbd "C-;") #'insert-open-close-paren)
 (global-set-key (kbd "M-S-<up>") #'drag-stuff-up)
 (global-set-key (kbd "M-S-<down>") #'drag-stuff-down)
@@ -19,7 +20,8 @@
 (global-set-key (kbd "<f3>") #'bookmark-set)
 (global-set-key (kbd "s-<f3>") #'counsel-projectile-bookmark)  ;; only bookmarks of the project
 (global-set-key (kbd "M-<f3>") #'counsel-bookmark)  ;; all bookmarks
-(global-set-key (kbd "M-A") #'counsel-M-x)
+;;(global-set-key (kbd "M-A") #'counsel-M-x)
+(global-set-key (kbd "M-A") #'execute-extended-command)
 ;(global-set-key (kbd "s-1") #'+treemacs/toggle)  ;; taken by switch workspace
 (global-set-key (kbd "s-g") #'evil-mc-make-and-goto-next-match)
 (global-set-key (kbd "s-G") #'evil-mc-make-and-goto-prev-match)
@@ -53,6 +55,13 @@
       :desc "decrease window height"
       "C-S-<up>" (lambda () (interactive) (enlarge-window 5)))
 
+;; cnflicts with o in normal mode
+;; (map! :nv
+;;       :prefix "C-w"
+;;       :desc "doom/window-maximize-buffer"
+;;       ;;"o" #'delete-other-windows
+;;       "o" #'doom/window-maximize-buffer)
+
 (map! :leader
 
       :desc "Project sidebar"
@@ -62,7 +71,22 @@
       "f T" #'open-dotfiles
 
       :desc "Find file in dotfiles"
-      "f t" #'find-in-dotfiles)
+      "f t" #'find-in-dotfiles
+
+      :desc "Find file other window"
+      "f o" #'find-file-other-window
+
+      :desc "List processes"
+      "l" #'list-processes
+
+      :desc "doom/window-enlargen"
+      "w e" #'doom/window-enlargen
+
+      :desc "doom/window-maximize-buffer"
+      "w o" #'doom/window-maximize-buffer
+
+      :desc "evil-ex-nohighlight"
+      "SPC" #'evil-ex-nohighlight)
 
 (after! paredit
   (define-key paredit-mode-map (kbd "C-<left>") nil)
@@ -127,8 +151,8 @@
       "M-l" #'lsp
       "s-p" #'lsp-signature-activate
       "s-C-]" #'lsp-clojure-cycle-coll
-      "C-]" #'lsp-ui-peek-find-references
-      "C-}" #'lsp-ui-peek-find-definitions
+      "C-}" #'lsp-ui-peek-find-references
+      "C-]" #'lsp-ui-peek-find-definitions
       "<f1>" #'lsp-describe-thing-at-point
       "C-M-o" #'lsp-clojure-clean-ns
       "M-s-l" #'lsp-format-buffer
@@ -158,8 +182,13 @@
       :map clojure-mode-map
       "M-C-," #'clojure-thread
       "M-C-." #'clojure-unwind
+      ;; non vertico impl
       "C-S-O" #'lsp-ivy-workspace-symbol
-      "s-<f16>" #'portal.api/open)
+      "s-<f16>" #'portal.api/open
+      :localleader
+      :prefix ("o" . "utils")
+      "r" #'edblancas/refresh-repl
+      "p" #'portal.api/open)
 
 (map! :after java-mode
       :map java-mode-map
@@ -173,19 +202,27 @@
 
 (map! :after projectile
       :map projectile-mode-map
-      "s-O" #'+ivy/projectile-find-file
-      "s-F" #'+ivy/project-search
+      ;; "s-O" #'+ivy/projectile-find-file
+      "s-O" #'projectile-find-file
+      ;; "s-F" #'+ivy/project-search
+      "s-F" #'+vertico/project-search
       "C-M-s-p" #'projectile-switch-project)
 
 (map! :after magit
       :map magit-map
       "C-x g" #'magit-status)
 
-(map! :after ivy
-      :map ivy-map
-      "C-s-e" #'counsel-recentf
-      "M-O" #'+ivy/projectile-find-file
-      "s-e" #'+ivy/switch-workspace-buffer)
+;; (map! :after ivy
+;;       :map ivy-map
+;;       "C-s-e" #'counsel-recentf
+;;       "M-O" #'+ivy/projectile-find-file
+;;       "s-e" #'+ivy/switch-workspace-buffer)
+
+(map! :after vertico
+      :map vertico-map
+      "C-s-e" #'counsult-recentf
+      "M-O" #'projectile-find-file
+      "s-e" #'+vertico/switch-workspace-buffer)
 
 (map! :after cider-mode
       :map cider-mode-map

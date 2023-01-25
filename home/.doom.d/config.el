@@ -77,9 +77,9 @@
 (setq-default evil-kill-on-visual-paste nil)
 
 (setq
-  fill-column 80
-  display-line-numbers-type 'relative
-  
+ fill-column 80
+ display-line-numbers-type t
+
  history-length 300
  indent-tabs-mode nil
  confirm-kill-emacs nil
@@ -101,7 +101,7 @@
  frame-title-format (setq icon-title-format  ;; set window title with "project"
                           '((:eval (projectile-project-name))))
 
- doom-font (font-spec :family "MonoLisa" :size 17)
+ doom-font (font-spec :family "MonoLisa" :size 16)
  doom-unicode-font (font-spec :family "Material Design Icons")
  doom-big-font-increment 2
 
@@ -351,6 +351,12 @@ If STRICT-P, return nil if no project was found, otherwise return
   (interactive)
   (cider-nrepl-sync-request:eval "(portal.api/close)"))
 
+;; same as cider-ns-refresh
+;; https://docs.cider.mx/cider/usage/misc_features.html#reloading-code
+(defun edblancas/refresh-repl ()
+  (interactive)
+  (cider-nrepl-sync-request:eval "(do (require '[clojure.tools.namespace.repl]) (clojure.tools.namespace.repl/refresh))"))
+
 (use-package! evil-cleverparens
   :commands evil-cleverparens-mode
   :init
@@ -371,7 +377,7 @@ If STRICT-P, return nil if no project was found, otherwise return
 (use-package! edwina
   :config
   (setq display-buffer-base-action '(display-buffer-below-selected))
-  (edwina-setup-dwm-keys)
+  (edwina-setup-dwm-keys 'super)
   (edwina-mode 1))
 
 (load! "+bindings")
