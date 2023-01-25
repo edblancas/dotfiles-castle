@@ -53,12 +53,7 @@
       :desc "decrease window height"
       "C-S-<up>" (lambda () (interactive) (enlarge-window 5)))
 
-;; cnflicts with o in normal mode
-;; (map! :nv
-;;       :prefix "C-w"
-;;       :desc "doom/window-maximize-buffer"
-;;       ;;"o" #'delete-other-windows
-;;       "o" #'doom/window-maximize-buffer)
+(map! "C-w o" #'doom/window-maximize-buffer)
 
 (map! :leader
 
