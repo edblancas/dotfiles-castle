@@ -53,7 +53,14 @@
       :desc "decrease window height"
       "C-S-<up>" (lambda () (interactive) (enlarge-window 5)))
 
-(map! "C-w o" #'doom/window-maximize-buffer)
+;; https://github.com/doomemacs/doomemacs/issues/890
+;; better than the below
+(map! :map evil-window-map
+      "o" #'doom/window-maximize-buffer
+      "O" #'doom/window-enlargen)
+;; (map! :prefix [C-w]
+;;       ;;"o" #'delete-other-windows
+;;       "o" #'doom/window-maximize-buffer)
 
 (map! :leader
 
@@ -73,7 +80,7 @@
       "l" #'list-processes
 
       :desc "doom/window-enlargen"
-      "w e" #'doom/window-enlargen
+      "w O" #'doom/window-enlargen
 
       :desc "doom/window-maximize-buffer"
       "w o" #'doom/window-maximize-buffer
