@@ -10,8 +10,7 @@
 (undefine-key! global-map "<f18>")
 (undefine-key! global-map "M-SPC")
 
-;;(global-set-key (kbd "s-e") #'counsel-recentf)
-(global-set-key (kbd "s-e") #'counsult-recentf)
+(global-set-key (kbd "s-e") #'counsel-recentf)
 (global-set-key (kbd "C-;") #'insert-open-close-paren)
 (global-set-key (kbd "M-S-<up>") #'drag-stuff-up)
 (global-set-key (kbd "M-S-<down>") #'drag-stuff-down)
@@ -20,8 +19,7 @@
 (global-set-key (kbd "<f3>") #'bookmark-set)
 (global-set-key (kbd "s-<f3>") #'counsel-projectile-bookmark)  ;; only bookmarks of the project
 (global-set-key (kbd "M-<f3>") #'counsel-bookmark)  ;; all bookmarks
-;;(global-set-key (kbd "M-A") #'counsel-M-x)
-(global-set-key (kbd "M-A") #'execute-extended-command)
+(global-set-key (kbd "M-A") #'counsel-M-x)
 ;(global-set-key (kbd "s-1") #'+treemacs/toggle)  ;; taken by switch workspace
 (global-set-key (kbd "s-g") #'evil-mc-make-and-goto-next-match)
 (global-set-key (kbd "s-G") #'evil-mc-make-and-goto-prev-match)
@@ -202,27 +200,19 @@
 
 (map! :after projectile
       :map projectile-mode-map
-      ;; "s-O" #'+ivy/projectile-find-file
-      "s-O" #'projectile-find-file
-      ;; "s-F" #'+ivy/project-search
-      "s-F" #'+vertico/project-search
+      "s-O" #'+ivy/projectile-find-file
+      "s-F" #'+ivy/project-search
       "C-M-s-p" #'projectile-switch-project)
 
 (map! :after magit
       :map magit-map
       "C-x g" #'magit-status)
 
-;; (map! :after ivy
-;;       :map ivy-map
-;;       "C-s-e" #'counsel-recentf
-;;       "M-O" #'+ivy/projectile-find-file
-;;       "s-e" #'+ivy/switch-workspace-buffer)
-
-(map! :after vertico
-      :map vertico-map
-      "C-s-e" #'counsult-recentf
-      "M-O" #'projectile-find-file
-      "s-e" #'+vertico/switch-workspace-buffer)
+(map! :after ivy
+      :map ivy-map
+      "C-s-e" #'counsel-recentf
+      "M-O" #'+ivy/projectile-find-file
+      "s-e" #'+ivy/switch-workspace-buffer)
 
 (map! :after cider-mode
       :map cider-mode-map
