@@ -9,6 +9,8 @@
 (undefine-key! global-map "<f16>")
 (undefine-key! global-map "<f18>")
 (undefine-key! global-map "M-SPC")
+(undefine-key! evil-normal-state-map "s-1")
+(undefine-key! global-map "<f2>")
 
 (global-set-key (kbd "s-e") #'counsel-recentf)
 (global-set-key (kbd "C-;") #'insert-open-close-paren)
@@ -20,18 +22,23 @@
 (global-set-key (kbd "s-<f3>") #'counsel-projectile-bookmark)  ;; only bookmarks of the project
 (global-set-key (kbd "M-<f3>") #'counsel-bookmark)  ;; all bookmarks
 (global-set-key (kbd "M-A") #'counsel-M-x)
-;(global-set-key (kbd "s-1") #'+treemacs/toggle)  ;; taken by switch workspace
+(global-set-key (kbd "s-1") #'+treemacs/toggle)
 (global-set-key (kbd "s-g") #'evil-mc-make-and-goto-next-match)
 (global-set-key (kbd "s-G") #'evil-mc-make-and-goto-prev-match)
 (global-set-key (kbd "M-s-g") #'evil-mc-make-all-cursors)
 (global-set-key (kbd "C-s-g") #'evil-mc-make-cursor-in-visual-selection-beg)
+(global-set-key (kbd "<f2>") #'flycheck-next-error)
+(global-set-key (kbd "S-<f2>") #'flycheck-previous-error)
+(global-set-key (kbd "s-<f2>") #'counsel-flycheck)
+(global-set-key (kbd "M-s-<f2>") #'lsp-ui-flycheck-list)
 
 (defun bmacs-project-root ()
-    "Get the path to the root of your project.
+  "Get the path to the root of your project.
   If STRICT-P, return nil if no project was found, otherwise return
   `default-directory'."
-    (let (projectile-require-project-root)
-          (projectile-project-root)))
+  (let (projectile-require-project-root)
+    (projectile-project-root)))
+
 ;;(global-set-key (kbd "<f16>") #')  ;; someting like run like idea
 ;;(global-set-key (kbd "<f17>") #')  ;; someting like focus editor like idea
 (global-set-key (kbd "<f18>") #'+vterm/toggle)
@@ -63,9 +70,6 @@
 ;;       "o" #'doom/window-maximize-buffer)
 
 (map! :leader
-
-      :desc "Project sidebar"
-      "1" #'+treemacs/toggle
 
       :desc "Open dotfiles"
       "f T" #'open-dotfiles
@@ -230,9 +234,10 @@
       :map cider-repl-mode-map
       "C-c M-o" #'cider-repl-clear-buffer)
 
-(map! :after company
-      :map global-map
-       "TAB" #'company-complete-common-or-cycle)
+;; caused open auto complete instead of ident line
+;; (map! :after company
+;;       :map global-map
+;;        "TAB" #'company-complete-common-or-cycle)
 
 (after! company
   (define-key company-active-map (kbd "<f1>") #'company-quickhelp-manual-begin))

@@ -357,6 +357,9 @@ If STRICT-P, return nil if no project was found, otherwise return
   (interactive)
   (cider-nrepl-sync-request:eval "(do (require '[clojure.tools.namespace.repl]) (clojure.tools.namespace.repl/refresh))"))
 
+;; see https://github.com/emacs-evil/evil-cleverparens#installation
+(setq evil-move-beyond-eol t)
+
 (use-package! evil-cleverparens
   :commands evil-cleverparens-mode
   :init
@@ -364,20 +367,27 @@ If STRICT-P, return nil if no project was found, otherwise return
   (add-hook! 'emacs-lisp-mode-hook #'evil-cleverparens-mode)
   (setq evil-cleverparens-complete-parens-in-yanked-region t)
   :config
-  (setq evil-cleverparens-use-s-and-S nil)
   (evil-define-key '(normal visual) evil-cleverparens-mode-map
-    "s" nil
-    "S" nil
     "{" nil
-    "}" nil
-    "[" nil
-    "]" nil
-    (kbd "<tab>") 'evil-jump-item))
+    "}" nil))
 
-(use-package! edwina
-  :config
-  (setq display-buffer-base-action '(display-buffer-below-selected))
-  (edwina-setup-dwm-keys 'super)
-  (edwina-mode 1))
+;; (use-package! edwina
+;;   :config
+;;   (setq display-buffer-base-action '(display-buffer-below-selected))
+;;   (edwina-setup-dwm-keys 'super)
+;;   (edwina-mode 1))
+
+;; is there a difference?
+;; https://github.com/abo-abo/swiper#counsel
+(use-package! counsel
+  :hook ((ivy-mode . counsel-mode)))
+
+;; fix treemacs opens in a window below
+(set-popup-rule! "\\*Treemacs-Scoped.*\\*" :side 'left :width 0.2)
 
 (load! "+bindings")
+
+'(("aaa" . bbb)
+  ("ccc" . ddd))
+
+'(foo-sym (bar baz) quux)

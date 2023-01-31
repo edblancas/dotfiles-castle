@@ -65,4 +65,4 @@
 (unpin! cider)
 
 (package! evil-cleverparens)
-(package! edwina)
+;; (package! edwina)
