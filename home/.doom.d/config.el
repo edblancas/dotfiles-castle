@@ -387,11 +387,11 @@ If STRICT-P, return nil if no project was found, otherwise return
 
 (evil-cp--enable-text-objects)
 
-;; (use-package! edwina
-;;   :config
-;;   (setq display-buffer-base-action '(display-buffer-below-selected))
-;;   (edwina-setup-dwm-keys 'super)
-;;   (edwina-mode 1))
+(use-package! edwina
+  :config
+  (setq display-buffer-base-action '(display-buffer-below-selected))
+  (edwina-setup-dwm-keys 'super)
+  (edwina-mode 1))
 
 ;; is there a difference?
 ;; https://github.com/abo-abo/swiper#counsel
@@ -402,8 +402,3 @@ If STRICT-P, return nil if no project was found, otherwise return
 (set-popup-rule! "\\*Treemacs-Scoped.*\\*" :side 'left :width 0.2)
 
 (load! "+bindings")
-
-'(("aaa" . bbb)
-  ("ccc" . ddd))
-
-'(foo-sym (bar baz) quux)

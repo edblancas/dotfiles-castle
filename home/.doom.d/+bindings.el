@@ -103,10 +103,11 @@
         "C-s-k" #'paredit-forward-barf-sexp
         "C-s-j" #'paredit-backward-barf-sexp
 
-        "s-<right>" #'paredit-forward
-        "s-<left>" #'paredit-backward
-        "M-<left>" #'paredit-backward-up
-        "M-<right>" #'paredit-forward-down
+        ;; no need to duplicate the below keymaps
+        ;; "s-<right>" #'paredit-forward
+        ;; "s-<left>" #'paredit-backward
+        ;; "M-<left>" #'paredit-backward-up
+        ;; "M-<right>" #'paredit-forward-down
 
         "C-S-l" #'paredit-forward
         "C-S-h" #'paredit-backward
@@ -160,11 +161,8 @@
       "<f1>" #'lsp-describe-thing-at-point
       "C-M-o" #'lsp-clojure-clean-ns
       "M-s-l" #'lsp-format-buffer
-      "M-<return>" #'lsp-execute-code-action)
-
-(map! :after iedit-mode
-      :ni
-      "C-M-s-g" #'lsp-edit-linked-ranges)
+      "M-<return>" #'lsp-execute-code-action
+      "C-M-s-g" #'lsp-iedit-linked-ranges)
 
 (map! :after dap-mode
       :map dap-mode-map
@@ -208,7 +206,8 @@
       :map projectile-mode-map
       "s-O" #'+ivy/projectile-find-file
       "s-F" #'+ivy/project-search
-      "C-M-s-p" #'projectile-switch-project)
+      ;; used by amethyst move focus to counter clockwise screen
+      "C-M-s-8" #'projectile-switch-project)
 
 (map! :after magit
       :map magit-map
