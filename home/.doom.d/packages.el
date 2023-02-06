@@ -66,3 +66,4 @@
 
 (package! evil-cleverparens)
 (package! edwina)
+(package! jet)
