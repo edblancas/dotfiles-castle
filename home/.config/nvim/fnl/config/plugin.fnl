@@ -89,4 +89,6 @@
                                 :hrsh7th/cmp-nvim-lua
                                 :hrsh7th/cmp-vsnip
                                 :PaterJason/cmp-conjure]
-                     :mod :cmp})
+                     :mod :cmp}
+  :github/copilot.vim {}
+  :ianding1/leetcode.vim {})

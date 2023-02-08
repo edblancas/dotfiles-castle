@@ -387,11 +387,12 @@ If STRICT-P, return nil if no project was found, otherwise return
 
 (evil-cp--enable-text-objects)
 
-(use-package! edwina
-  :config
-  (setq display-buffer-base-action '(display-buffer-below-selected))
-  (edwina-setup-dwm-keys 'super)
-  (edwina-mode 1))
+;; see how to blacklist minibuffer, treemacs, magit and jet transiet windows, etc.
+;; (use-package! edwina
+;;   :config
+;;   (setq display-buffer-base-action '(display-buffer-below-selected))
+;;   (edwina-setup-dwm-keys 'super)
+;;   (edwina-mode 1))
 
 ;; is there a difference?
 ;; https://github.com/abo-abo/swiper#counsel

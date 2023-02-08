@@ -9,6 +9,10 @@
 ;don't wrap lines
 (nvim.ex.set :nowrap)
 
+;leetcode.vim
+(util.set-global-variable :leetcode_browser "firefox")
+(util.set-global-variable :leetcode_solution_filetype "java")
+
 (let [options
       {:encoding "utf-8"
        :spelllang "en_us"
