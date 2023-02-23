@@ -113,6 +113,8 @@
         "C-S-h" #'paredit-backward
         "C-S-k" #'paredit-backward-up
         "C-S-j" #'paredit-forward-down
+        "C-S-i" #'paredit-forward-up
+        "C-S-u" #'paredit-backward-down
 
         "M-o" #'paredit-raise-sexp
 
@@ -121,14 +123,15 @@
         "M-k" #'paredit-splice-sexp-killing-backward
 
         "M-s" #'paredit-splice-sexp
-        "M-j" #'paredit-join-sexp
+        "M-S-s" #'paredit-split-sexp
+        "M-S-j" #'paredit-join-sexp
 
         "M-s-<down>" #'transpose-sexp
         "M-s-<up>" #'reverse-transpose-sexp
 
         "s-[" #'paredit-wrap-square
         "s-{" #'paredit-wrap-curly
-        "s-(" #'paredit-wrap-parenthesis
+        "s-(" #'paredit-wrap-round
         "s-\"" #'paredit-meta-doublequote
         "s-]" #'paredit-close-bracket-and-newline
         "s-}" #'paredit-close-curly-and-newline
