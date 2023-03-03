@@ -402,4 +402,7 @@ If STRICT-P, return nil if no project was found, otherwise return
 ;; fix treemacs opens in a window below
 (set-popup-rule! "\\*Treemacs-Scoped.*\\*" :side 'left :width 0.2)
 
+;; disable auto format on save only for json
+(add-hook! 'json-mode-hook (fomat-all-mode -1))
+
 (load! "+bindings")

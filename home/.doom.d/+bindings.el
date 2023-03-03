@@ -43,6 +43,8 @@
 ;;(global-set-key (kbd "<f17>") #')  ;; someting like focus editor like idea
 (global-set-key (kbd "<f18>") #'+vterm/toggle)
 
+(define-key evil-normal-state-map (kbd "-") #'dired-jump)
+
 (map! :nvi
 
       :desc "Toggle buffer full screen"
