@@ -11,7 +11,6 @@ plugins=(common-aliases zsh-syntax-highlighting history-substring-search web-sea
 # without this alacritty doesn't show the suggestions with dracula-pro
 # e.g. 
 # ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=cyan,bold,underline"
-#ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=0x9a9a9a"
 
 # Override custom dir, inside custom themes or plugins
 ZSH_CUSTOM=$HOME/.config/oh-my-zsh/custom
