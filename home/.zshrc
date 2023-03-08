@@ -6,6 +6,13 @@ export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME=""
 plugins=(common-aliases zsh-syntax-highlighting history-substring-search web-search docker git-flow docker-compose zsh-autosuggestions zsh-vi-mode)
 
+# zsh-autosuggest plugin settings
+# https://github.com/zsh-users/zsh-autosuggestions
+# without this alacritty doesn't show the suggestions with dracula-pro
+# e.g. 
+# ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=cyan,bold,underline"
+#ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=0x9a9a9a"
+
 # Override custom dir, inside custom themes or plugins
 ZSH_CUSTOM=$HOME/.config/oh-my-zsh/custom
 source $ZSH/oh-my-zsh.sh

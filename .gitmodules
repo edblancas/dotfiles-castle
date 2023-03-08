@@ -28,3 +28,6 @@
 [submodule "home/.emacs.d"]
 	path = home/.emacs.d
 	url = https://github.com/doomemacs/doomemacs
+[submodule "home/.config/alacritty/themes/dracula"]
+	path = home/.config/alacritty/themes/dracula
+	url = https://github.com/dracula/alacritty.git
