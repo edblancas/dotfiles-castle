@@ -90,8 +90,9 @@
 
  read-process-output-max (* 1024 1024)
 
- projectile-project-search-path '("~/dev/" "~/dev/nu/")
+ projectile-project-search-path '("~/dev/dan" "~/dev/nu/")
  projectile-enable-caching nil
+ projectile-auto-discover t
 
  evil-split-window-below t
  evil-vsplit-window-right t
