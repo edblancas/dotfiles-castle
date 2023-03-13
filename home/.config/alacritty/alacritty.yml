@@ -12,16 +12,16 @@ scrolling:
   multiplier: 3
 font:
   normal:
-    family: MonoLisa Custom
+    family: MonoLisa Slashed Zero
     style: Regular
   bold:
-    family: MonoLisa Custom
+    family: MonoLisa Slashed Zero
     style: Bold
   italic:
-    family: MonoLisa Custom
+    family: MonoLisa Slashed Zero
     style: Regular Italic
   bold_italic:
-    family: MonoLisa Custom
+    family: MonoLisa Slashed Zero
     style: Bold Italic
   size: 16.0
 # If `true`, bold text is drawn using the bright color variants.
@@ -47,8 +47,9 @@ selection:
 # Allow terminal applications to change Alacritty’s window title.
 window.dynamic_title: true
 cursor:
-  style: Block
-  unfocused_hollow: true
+  style:
+    shape: Block
+    blinking: Never
 # Live config reload (changes require restart)
 live_config_reload: true
 # Tell Alacritty that we’re using homebrew zsh here
