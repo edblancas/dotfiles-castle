@@ -250,61 +250,11 @@ export FZF_TMUX=1
 export FZF_TMUX_OPTS="-p 90%,80%"
 
 ### PERSONAL OR WORK ###
-# Conditional so we do not load the file again when we are inside tmux
-if [[ -z $TMUX ]]; then
-  if [[ $USER == "dan" ]]; then
-    source $HOME/.personalrc
-  else
-    source $HOME/.nurc
-  fi
+if [[ $USER == "dan" ]]; then
+  source $HOME/.personalrc
+else
+  source $HOME/.nurc
 fi
-
-### WORKAROND ###
-# when starting tmux the function and commands are not sourced, so in tmux session
-# are not found, e.g. nurefresh is not found, and was in .nurc.
-# if we remove the conditional `if [[-x $TMUX]];then` then the exports are run again and the
-# PATH have duplicated entries
-# we only check if its nu macbook
-if [[ $USER == "daniel.blancas" ]];then
-  # zsh completition
-  autoload -Uz compinit bashcompinit && compinit && bashcompinit
-  source "$NU_HOME/nucli/nu.bashcompletion"
-  # fzf for a command: not works in zsh
-  #complete -o bashdefault -o default -F _fzf_path_completion nu
-  #complete -o bashdefault -o default -F _fzf_path_completion nu-mx
-  #complete -o bashdefault -o default -F _fzf_path_completion nu-br
-
-  function nurefresh() {
-    if [[ $# -eq 0 ]] ; then
-      echo "Refreshing okta and nu-mx staging!"
-      nu aws credentials refresh --okta && 
-        nu-mx auth get-refresh-token --env staging && 
-        nu-mx auth get-access-token --env staging &&
-        nu-mx aws credentials refresh --maven-login
-    else
-      if [ $# -lt 2 ]; then
-        echo "Zero or two args must passed, first mx|br, and second staging|prod."
-      else
-        co="$1"
-        env="$2"
-        if [ $co != "mx" ] && [ $co != "br" ]; then
-          echo "Invalid country $co! Must be mx or br!"
-        else
-          if [ $env != "staging" ] && [ $env != "prod" ]; then
-            echo "Invalid environment $env! Must be staging or prod!"
-          else
-            echo "Refreshing okta and nu-$co $env!"
-            nu-mx aws credentials refresh --okta &&
-              nu auth get-refresh-token --env $env --country $co && 
-              nu auth get-access-token --env $env --country $co &&
-              nu aws credentials refresh --maven-login
-          fi
-        fi
-      fi
-    fi
-  }
-fi
-### END WORKAROUND ###
 
 # Fuzzy git checkout
 # https://polothy.github.io/post/2019-08-19-fzf-git-checkout/

@@ -406,4 +406,10 @@ If STRICT-P, return nil if no project was found, otherwise return
 ;; disable auto format on save only for json
 (add-hook! 'json-mode-hook (fomat-all-mode -1))
 
+;; I like treating - and _ as part of the word
+(modify-syntax-entry ?- "w" clojure-mode-syntax-table)
+(modify-syntax-entry ?_ "w" clojure-mode-syntax-table)
+(modify-syntax-entry ?- "w" emacs-lisp-mode-syntax-table)
+(modify-syntax-entry ?_ "w" emacs-lisp-mode-syntax-table)
+
 (load! "+bindings")
