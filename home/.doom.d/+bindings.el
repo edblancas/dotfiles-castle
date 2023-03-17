@@ -194,8 +194,9 @@
       "s-<f16>" #'portal.api/open
       :localleader
       :prefix ("o" . "utils")
-      "r" #'edblancas/refresh-repl
-      "p" #'portal.api/open)
+      "R" #'edblancas/refresh-repl
+      "p" #'portal.api/open
+      "r" #'hydra-cljr-help-menu/body)
 
 (map! :after java-mode
       :map java-mode-map
