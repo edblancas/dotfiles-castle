@@ -403,8 +403,9 @@ If STRICT-P, return nil if no project was found, otherwise return
 ;; fix treemacs opens in a window below
 (set-popup-rule! "\\*Treemacs-Scoped.*\\*" :side 'left :width 0.2)
 
-;; disable auto format on save only for json
-(add-hook! 'json-mode-hook (fomat-all-mode -1))
+;; disable auto format on save for json
+;; is disabled for all modes on init.el
+;(add-hook! 'json-mode-hook (fomat-all-mode -1))
 
 ;; I like treating - and _ as part of the word
 (modify-syntax-entry ?- "w" clojure-mode-syntax-table)
