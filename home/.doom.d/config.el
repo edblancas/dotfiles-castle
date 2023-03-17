@@ -405,7 +405,7 @@ If STRICT-P, return nil if no project was found, otherwise return
 
 ;; disable auto format on save for json
 ;; is disabled for all modes on init.el
-;(add-hook! 'json-mode-hook (fomat-all-mode -1))
+;(add-hook! 'json-mode-hook (format-all-mode -1))
 
 ;; I like treating - and _ as part of the word
 (modify-syntax-entry ?- "w" clojure-mode-syntax-table)
