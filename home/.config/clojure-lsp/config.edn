@@ -1,2 +1,5 @@
 {:log-path "/tmp/clojure-lsp.out"
- :use-metadata-for-privacy? true}
+ :use-metadata-for-privacy? true
+ :additional-snippets [{:name "comment"
+                        :detail "Rich Comment"
+                        :snippet "(comment\n  ${0:body}\n;; end rich-comment\n  )"}]}
