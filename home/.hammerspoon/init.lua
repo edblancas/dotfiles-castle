@@ -1,4 +1,4 @@
-hs.hotkey.bind({"command"}, "f12", function()
+hs.hotkey.bind({}, "f13", function()
   local alacritty = hs.application.get('Alacritty')
   if (alacritty ~= nil and alacritty:isFrontmost()) then
     alacritty:hide()

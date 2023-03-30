@@ -31,3 +31,6 @@
 [submodule "home/.config/alacritty/themes/dracula"]
 	path = home/.config/alacritty/themes/dracula
 	url = https://github.com/dracula/alacritty.git
+[submodule "home/.config/alacritty/themes/others"]
+	path = home/.config/alacritty/themes/others
+	url = https://github.com/alacritty/alacritty-theme
