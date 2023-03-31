@@ -56,4 +56,8 @@ shell:
   program: /opt/homebrew/bin/zsh
   args:
     - --login
+# more key_bindings with alt 
+# https://github.com/alacritty/alacritty/issues/93#issuecomment-1364783147
+key_bindings:
+  - { key: C,         mods: Alt,       chars: "\x1bc"                       }
 
