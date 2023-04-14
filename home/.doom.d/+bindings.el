@@ -123,6 +123,7 @@
         "M-s-k" #'paredit-kill
         "s-k" #'kill-sexp
         "M-k" #'paredit-splice-sexp-killing-backward
+        "M-j" #'paredit-splice-sexp-killing-forward
 
         "M-s" #'paredit-splice-sexp
         "M-S-s" #'paredit-split-sexp
