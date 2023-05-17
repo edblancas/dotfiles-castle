@@ -15,7 +15,7 @@ local core, nvim, theme = autoload("aniseed.core"), autoload("aniseed.nvim"), au
 do end (_2amodule_locals_2a)["core"] = core
 _2amodule_locals_2a["nvim"] = nvim
 _2amodule_locals_2a["theme"] = theme
-theme.setup({theme_style = "dark", comment_style = "italic", colors = {bg = "#1c1b22"}, hide_inactive_statusline = false})
+theme.setup({["options.styles.comments"] = "italic", specs = {bg = "#1c1b22"}, ["options.hide_nc_statusline"] = false})
 nvim.ex.hi("ColorColumn guibg=#19181e")
 nvim.ex.hi("NonText ctermfg=7 guifg=#323138")
 nvim.ex.hi("EndOfBuffer guifg=#19181e")

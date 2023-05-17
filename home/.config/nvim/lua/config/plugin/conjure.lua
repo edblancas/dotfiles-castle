@@ -16,4 +16,6 @@ do end (_2amodule_locals_2a)["nvim"] = nvim
 nvim.g["conjure#mapping#doc_word"] = "K"
 nvim.g["conjure#client#clojure#nrepl#eval#auto_require"] = false
 nvim.g["conjure#client#clojure#nrepl#connection#auto_repl#enabled"] = false
+nvim.g["conjure#client#clojure#nrepl#test#current_form_names"] = {"deftest", "defflow"}
+nvim.g["conjure#log#strip_ansi_escape_sequences_line_limit"] = 0
 return _2amodule_2a

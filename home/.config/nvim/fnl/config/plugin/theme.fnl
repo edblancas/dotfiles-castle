@@ -3,10 +3,9 @@
              nvim aniseed.nvim
              theme github-theme}})
 
-(theme.setup {:theme_style "dark"
-              :comment_style "italic"
-              :hide_inactive_statusline false
-              :colors {:bg "#1c1b22"}})
+(theme.setup {:options.styles.comments "italic"
+              :options.hide_nc_statusline false
+              :specs {:bg "#1c1b22"}})
 
 (nvim.ex.hi "ColorColumn guibg=#19181e")
 (nvim.ex.hi "NonText ctermfg=7 guifg=#323138")

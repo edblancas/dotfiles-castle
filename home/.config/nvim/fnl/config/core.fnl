@@ -8,6 +8,7 @@
 
 ;don't wrap lines
 (nvim.ex.set :nowrap)
+(nvim.ex.colorscheme :github_dark_dimmed)
 
 ;leetcode.vim
 (util.set-global-variable :leetcode_browser "firefox")
