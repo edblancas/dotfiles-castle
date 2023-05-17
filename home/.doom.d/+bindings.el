@@ -11,6 +11,8 @@
 (undefine-key! global-map "M-SPC")
 (undefine-key! evil-normal-state-map "s-1")
 (undefine-key! global-map "<f2>")
+(undefine-key! global-map "M-e")
+(undefine-key! global-map "s-x")
 
 (global-set-key (kbd "s-e") #'counsel-recentf)
 (global-set-key (kbd "C-;") #'insert-open-close-paren)

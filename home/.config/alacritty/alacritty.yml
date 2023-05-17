@@ -6,16 +6,16 @@ scrolling:
   multiplier: 3
 font:
   normal:
-    family: MonoLisaSlashedZero Nerd Font
+    family: MonoLisa Nerd Font
     style: Regular
   bold:
-    family: MonoLisaSlashedZero Nerd Font
+    family: MonoLisa Nerd Font
     style: Bold
   italic:
-    family: MonoLisaSlashedZero Nerd Font
+    family: MonoLisa Nerd Font
     style: Regular Italic
   bold_italic:
-    family: MonoLisaSlashedZero Nerd Font
+    family: MonoLisa Nerd Font
     style: Bold Italic
   size: 17.0
 # If `true`, bold text is drawn using the bright color variants.
@@ -23,7 +23,7 @@ draw_bold_text_with_bright_colors: true
 
 # Colors (Dracula)
 import:
-  - ~/.config/alacritty/themes/dracula/dracula.yml
+  - ~/.config/alacritty/themes/catppuccin/catppuccin-mocha.yml
 
 # Specifying a `duration` of `0` will disable the visual bell.
 bell:
@@ -60,4 +60,5 @@ shell:
 # https://github.com/alacritty/alacritty/issues/93#issuecomment-1364783147
 key_bindings:
   - { key: C,         mods: Alt,       chars: "\x1bc"                       }
-
+env:
+  TERM: xterm-256color

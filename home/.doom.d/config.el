@@ -102,7 +102,7 @@
  frame-title-format (setq icon-title-format  ;; set window title with "project"
                           '((:eval (projectile-project-name))))
 
- doom-font (font-spec :family "MonoLisa Slashed Zero" :size 16)
+ doom-font (font-spec :family "MonoLisa Nerd Font" :size 16)
  doom-unicode-font (font-spec :family "Material Design Icons")
  doom-big-font-increment 2
 

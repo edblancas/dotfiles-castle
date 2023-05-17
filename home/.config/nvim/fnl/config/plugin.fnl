@@ -51,8 +51,11 @@
   ; commeting code
   :preservim/nerdcommenter {}
 
-  ;; repl tools
+  ;; clojure
   :Olical/conjure {:branch :master :mod :conjure}
+  :clojure-vim/clojure.vim {:mod :clojure-vim}
+  :clojure-vim/vim-jack-in {}
+  :m00qek/baleia.nvim      {:mod :baleia}
 
   ; multicursor selector
   :mg979/vim-visual-multi {}
