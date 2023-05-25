@@ -1,20 +1,10 @@
 # Simple hotkey daemon for macOS
 # https://github.com/koekeishiya/skhd
 
-# swap managed window
-ctrl + alt + cmd - h : yabai -m window --swap west
-ctrl + alt + cmd - j : yabai -m window --swap south
-ctrl + alt + cmd - k : yabai -m window --swap north
-ctrl + alt + cmd - l : yabai -m window --swap east
-
-# focus window
-shift + alt + ctrl - h : yabai -m window --focus west
-shift + alt + ctrl - j : yabai -m window --focus south
-shift + alt + ctrl - k : yabai -m window --focus north
-shift + alt + ctrl - l : yabai -m window --focus east
-
-# rotate tree
-ctrl + alt + cmd - r : yabai -m space --rotate 90
+ctrl + alt + cmd - h : yabai -m window --swap prev
+ctrl + alt + cmd - j : yabai -m window --focus next
+ctrl + alt + cmd - k : yabai -m window --focus prev
+ctrl + alt + cmd - l : yabai -m window --swap next
 
 # toggle window fullscreen zoom
 ctrl + alt + cmd - space : yabai -m window --toggle zoom-fullscreen
@@ -29,12 +19,29 @@ ctrl + alt + cmd - t : yabai -m window --toggle float;\
 # toggle window split type
 ctrl + alt + cmd - e : yabai -m window --toggle split
 
-# toggle window split type
-ctrl + alt + cmd - m : yabai -m space --toggle mission-control
-
 # balance size of windows
 ctrl + alt + cmd - 0 : yabai -m space --balance
 
 # send window to monitor and follow focus
 ctrl + alt + cmd - right : yabai -m window --display next; yabai -m display --focus next
 ctrl + alt + cmd - left : yabai -m window --display prev; yabai -m display --focus prev
+
+ctrl + alt + cmd - up : yabai -m display --focus prev
+ctrl + alt + cmd - down : yabai -m display --focus next
+
+# grow window by 100 to the right, shrink by 200 at the bottom: bottom_right:100:-200
+#   (options: top, left, bottom, right, top_left, top_right, bottom_right, bottom_left)
+#shift + alt + ctrl - up : yabai -m window --resize top:0:-50
+#shift + alt + ctrl - down : yabai -m window --resize top:0:50
+
+# increase window size
+cmd + alt - left : yabai -m window --resize left:-20:0
+cmd + alt - down : yabai -m window --resize bottom:0:20
+cmd + alt - up : yabai -m window --resize top:0:-20
+cmd + alt - right : yabai -m window --resize right:20:0
+
+# decrease window size
+ctrl + alt - left : yabai -m window --resize left:20:0
+ctrl + alt - down : yabai -m window --resize bottom:0:-20
+ctrl + alt - up : yabai -m window --resize top:0:20
+ctrl + alt - right : yabai -m window --resize right:-20:0
