@@ -33,3 +33,7 @@ projectile-bookmarks.eld
 cider-history
 backups
 .recentf
+
+# fnl->lua nvim
+home/.config/nvim/lua/
+plugin/packer_compiled.lua

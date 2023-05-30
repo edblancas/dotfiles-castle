@@ -8,11 +8,15 @@
 
 ;don't wrap lines
 (nvim.ex.set :nowrap)
+;(nvim.ex.colorscheme :catppuccin-mocha)
 (nvim.ex.colorscheme :github_dark_dimmed)
 
 ;leetcode.vim
 (util.set-global-variable :leetcode_browser "firefox")
 (util.set-global-variable :leetcode_solution_filetype "java")
+
+(set nvim.o.termguicolors true)
+(set nvim.o.mouse "a")
 
 (let [options
       {:encoding "utf-8"
