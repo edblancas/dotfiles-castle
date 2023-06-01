@@ -90,9 +90,9 @@
 
  read-process-output-max (* 1024 1024)
 
- projectile-project-search-path '("~/dev/dan" "~/dev/nu/")
+;; projectile-project-search-path '("~/dev/dan" "~/dev/nu/")
  projectile-enable-caching nil
- projectile-auto-discover t
+;; projectile-auto-discover t
 
  evil-split-window-below t
  evil-vsplit-window-right t
@@ -113,12 +113,23 @@
  evil-collection-setup-minibuffer t
  org-directory "~/Dropbox/org")
 
+(after! projectile
+  (add-to-list 'projectile-project-root-files-bottom-up "project.clj"))
+
+(add-hook! 'projectile-after-switch-project-hook :append
+  (treemacs-add-and-display-current-project-exclusively)
+  (when (eq (treemacs-current-visibility) 'visible) (treemacs)))
+
+(use-package! clojure-mode
+  :config
+  (setq clojure-indent-style 'align-arguments))
+
 (use-package! cider
   :after clojure-mode
   :config
   (setq cider-ns-refresh-show-log-buffer t
-        cider-show-error-buffer t ;'only-in-repl
-        cider-font-lock-dynamically nil ; use lsp semantic tokens
+        cider-show-error-buffer t                   ;'only-in-repl
+        cider-font-lock-dynamically nil             ; use lsp semantic tokens
         cider-eldoc-display-for-symbol-at-point nil ; use lsp
         cider-prompt-for-symbol nil)
   (set-popup-rule! "*cider-test-report*" :side 'right :width 0.4)
@@ -159,13 +170,12 @@
   (setq company-tooltip-align-annotations t
         company-frontends '(company-pseudo-tooltip-frontend)))
 
-(use-package! company-quickhelp
-  :init
-  (company-quickhelp-mode)
-  :config
-  (setq company-quickhelp-delay nil
-        company-quickhelp-use-propertized-text t
-        company-quickhelp-max-lines 10))
+;(use-package! company-fuzzy
+;  :hook (company-mode . company-fuzzy-mode)
+;  :init
+;  (setq company-fuzzy-sorting-backend 'flx
+;        company-fuzzy-prefix-on-top nil
+;        company-fuzzy-trigger-symbols '("." "->" "<" "\"" "'" "@")))
 
 (use-package! lsp-java
   :after lsp
@@ -293,31 +303,31 @@
     (backward-sexp (1+ arg))
     (forward-sexp 1))
 
-(defun counsel-projectile-bookmark ()
-    "Forward to `bookmark-jump' or `bookmark-set' if bookmark doesn't exist."
-    (interactive)
-    (require 'bookmark)
-    (let ((projectile-bookmarks (projectile-bookmarks)))
-      (ivy-read "Create or jump to bookmark: "
-                projectile-bookmarks
-                :action (lambda (x)
-                          (cond ((and counsel-bookmark-avoid-dired
-                                      (member x projectile-bookmarks)
-                                      (file-directory-p (bookmark-location x)))
-                                 (with-ivy-window
-                                   (let ((default-directory (bookmark-location x)))
-                                     (counsel-find-file))))
-                                ((member x projectile-bookmarks)
-                                 (with-ivy-window
-                                   (bookmark-jump x)))
-                                (t
-                                 (bookmark-set x))))
-                :caller 'counsel-projectile-bookmark)))
-
-(ivy-set-actions
- 'counsel-projectile-bookmark
- '(("d" bookmark-delete "delete")
-   ("e" bookmark-rename "edit")))
+;;(defun counsel-projectile-bookmark ()
+;;    "Forward to `bookmark-jump' or `bookmark-set' if bookmark doesn't exist."
+;;    (interactive)
+;;    (require 'bookmark)
+;;    (let ((projectile-bookmarks (projectile-bookmarks)))
+;;      (ivy-read "Create or jump to bookmark: "
+;;                projectile-bookmarks
+;;                :action (lambda (x)
+;;                          (cond ((and counsel-bookmark-avoid-dired
+;;                                      (member x projectile-bookmarks)
+;;                                      (file-directory-p (bookmark-location x)))
+;;                                 (with-ivy-window
+;;                                   (let ((default-directory (bookmark-location x)))
+;;                                     (counsel-find-file))))
+;;                                ((member x projectile-bookmarks)
+;;                                 (with-ivy-window
+;;                                   (bookmark-jump x)))
+;;                                (t
+;;                                 (bookmark-set x))))
+;;                :caller 'counsel-projectile-bookmark)))
+;;
+;;(ivy-set-actions
+;; 'counsel-projectile-bookmark
+;; '(("d" bookmark-delete "delete")
+;;   ("e" bookmark-rename "edit")))
 
 (defun projectile-bookmarks ()
   (let ((bmarks (bookmark-all-names)))
@@ -397,8 +407,8 @@ If STRICT-P, return nil if no project was found, otherwise return
 
 ;; is there a difference?
 ;; https://github.com/abo-abo/swiper#counsel
-(use-package! counsel
-  :hook ((ivy-mode . counsel-mode)))
+;;(use-package! counsel
+;;  :hook ((ivy-mode . counsel-mode)))
 
 ;; fix treemacs opens in a window below
 (set-popup-rule! "\\*Treemacs-Scoped.*\\*" :side 'left :width 0.2)

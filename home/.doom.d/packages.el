@@ -51,19 +51,19 @@
 
 (package! treemacs-all-the-icons)
 (package! paredit)
-(package! git-gutter)
-(package! company-quickhelp)
+(package! consult-lsp)
+(package! evil-cleverparens)
+(package! jet)
+(package! company-fuzzy)
+(package! flx)
 
 (unpin! treemacs)
 (unpin! lsp-treemacs)
 (unpin! lsp-mode)
 (unpin! lsp-ui)
-
+(unpin! hover)
 (unpin! iedit)
 (unpin! evil-multiedit)
 (unpin! evil)
 (unpin! cider)
 
-(package! evil-cleverparens)
-(package! edwina)
-(package! jet)
