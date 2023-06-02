@@ -237,8 +237,7 @@
   :config
   (consult-customize
    consult--source-bookmark consult--source-file-register
-   consult--source-recent-file consult--source-project-recent-file
-   :preview-key "M-."))
+   consult--source-recent-file consult--source-project-recent-file))
 
 ;;(defun counsel-projectile-bookmark ()
 ;;    "Forward to `bookmark-jump' or `bookmark-set' if bookmark doesn't exist."
