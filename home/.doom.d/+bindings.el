@@ -13,8 +13,9 @@
 (undefine-key! global-map "<f2>")
 (undefine-key! global-map "M-e")
 (undefine-key! global-map "s-x")
+(undefine-key! global-map "s-o")
 
-;;(global-set-key (kbd "s-e") #'counsel-recentf)
+(global-set-key (kbd "s-e") #'recentf-open-files)
 (global-set-key (kbd "C-;") #'insert-open-close-paren)
 (global-set-key (kbd "M-S-<up>") #'drag-stuff-up)
 (global-set-key (kbd "M-S-<down>") #'drag-stuff-down)
@@ -22,8 +23,8 @@
 (global-set-key (kbd "M-<down>") (lambda () (interactive) (er/expand-region -1)))
 (global-set-key (kbd "<f3>") #'bookmark-set)
 ;;(global-set-key (kbd "s-<f3>") #'counsel-projectile-bookmark)  ;; only bookmarks of the project
-;;(global-set-key (kbd "M-<f3>") #'counsel-bookmark)  ;; all bookmarks
-;;(global-set-key (kbd "M-A") #'counsel-M-x)
+(global-set-key (kbd "M-<f3>") #'consult-bookmark)  ;; all bookmarks
+(global-set-key (kbd "M-A") #'execute-extended-command)
 (global-set-key (kbd "s-1") #'+treemacs/toggle)
 (global-set-key (kbd "s-g") #'evil-mc-make-and-goto-next-match)
 (global-set-key (kbd "s-G") #'evil-mc-make-and-goto-prev-match)
@@ -31,8 +32,9 @@
 (global-set-key (kbd "C-s-g") #'evil-mc-make-cursor-in-visual-selection-beg)
 (global-set-key (kbd "<f2>") #'flycheck-next-error)
 (global-set-key (kbd "S-<f2>") #'flycheck-previous-error)
-;;(global-set-key (kbd "s-<f2>") #'counsel-flycheck)
-(global-set-key (kbd "M-s-<f2>") #'lsp-ui-flycheck-list)
+(global-set-key (kbd "s-<f2>") #'flycheck-consult)
+(global-set-key (kbd "M-s-<f2>") #'consult-lsp-diagnostics)
+(global-set-key (kbd "M-O") #'find-file)
 
 (defun bmacs-project-root ()
   "Get the path to the root of your project.
@@ -65,13 +67,9 @@
       "C-S-<up>" (lambda () (interactive) (enlarge-window 5)))
 
 ;; https://github.com/doomemacs/doomemacs/issues/890
-;; better than the below
 (map! :map evil-window-map
       "o" #'doom/window-maximize-buffer
       "O" #'doom/window-enlargen)
-;; (map! :prefix [C-w]
-;;       ;;"o" #'delete-other-windows
-;;       "o" #'doom/window-maximize-buffer)
 
 (map! :leader
 
@@ -103,12 +101,6 @@
         "C-s-h" #'paredit-backward-slurp-sexp
         "C-s-k" #'paredit-forward-barf-sexp
         "C-s-j" #'paredit-backward-barf-sexp
-
-        ;; no need to duplicate the below keymaps
-        ;; "s-<right>" #'paredit-forward
-        ;; "s-<left>" #'paredit-backward
-        ;; "M-<left>" #'paredit-backward-up
-        ;; "M-<right>" #'paredit-forward-down
 
         "C-S-l" #'paredit-forward
         "C-S-h" #'paredit-backward
@@ -189,8 +181,8 @@
       :map clojure-mode-map
       "M-C-," #'clojure-thread
       "M-C-." #'clojure-unwind
-      ;; non vertico impl
-      ;;"C-S-O" #'lsp-ivy-workspace-symbol
+      "C-S-O" #'consult-lsp-symbols
+      "s-o" #'consult-lsp-file-symbols
       "s-<f16>" #'portal.api/open
       :localleader
       :prefix ("o" . "utils")
@@ -210,20 +202,14 @@
 
 (map! :after projectile
       :map projectile-mode-map
-      ;;"s-O" #'+ivy/projectile-find-file
-      ;;"s-F" #'+ivy/project-search
-      ;; used by amethyst move focus to counter clockwise screen
-      "C-M-s-8" #'projectile-switch-project)
+      "s-O" #'projectile-find-file
+      "s-F" #'+default/search-project
+      "s-e" #'projectile-switch-to-buffer
+      "C-M-s-p" #'projectile-switch-project)
 
 (map! :after magit
       :map magit-map
       "C-x g" #'magit-status)
-
-;;(map! :after ivy
-;;      :map ivy-map
-;;      "C-s-e" #'counsel-recentf
-;;      "M-O" #'+ivy/projectile-find-file
-;;      "s-e" #'+ivy/switch-workspace-buffer)
 
 (map! :after cider-mode
       :map cider-mode-map
@@ -233,16 +219,9 @@
       "s-P" #'cider-eval-defun-at-point
       "C-S-p" #'cider-eval-last-sexp
       "C-P" #'cider-eval-sexp-at-point
-      ;; cider changes the namespace automatically for the curr buffer
-      ;; SO, NOT NEEDED
       "s-N" #'cider-repl-set-ns
       :map cider-repl-mode-map
       "C-c M-o" #'cider-repl-clear-buffer)
-
-;; caused open auto complete instead of ident line
-;; (map! :after company
-;;       :map global-map
-;;        "TAB" #'company-complete-common-or-cycle)
 
 (after! company
   (define-key company-active-map (kbd "<f1>") #'company-quickhelp-manual-begin))
