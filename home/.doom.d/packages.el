@@ -50,20 +50,23 @@
 ;(unpin! t)
 
 (package! treemacs-all-the-icons)
-(package! paredit)
-(package! consult-lsp)
-(package! evil-cleverparens)
-(package! jet)
-(package! company-fuzzy)
-(package! flx)
 
 (unpin! treemacs)
-(unpin! lsp-treemacs)
-(unpin! lsp-mode)
 (unpin! lsp-ui)
-(unpin! hover)
+(unpin! lsp-mode)
+(unpin! lsp-treemacs)
+
+(package! paredit)
+(package! posframe)
+
+(package! copilot
+   :recipe (:host github :repo "zerolfx/copilot.el" :files ("*.el" "dist")))
+
+;; me
+(package! consult-lsp)
+(package! evil-cleverparens)
+
 (unpin! iedit)
 (unpin! evil-multiedit)
 (unpin! evil)
 (unpin! cider)
-

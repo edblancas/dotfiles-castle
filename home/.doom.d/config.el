@@ -120,6 +120,38 @@
   (treemacs-add-and-display-current-project-exclusively)
   (when (eq (treemacs-current-visibility) 'visible) (treemacs)))
 
+(use-package! treemacs-all-the-icons
+  :after treemacs)
+
+(use-package! lsp-mode
+  :commands lsp
+  :config
+  (setq lsp-headerline-breadcrumb-enable   t
+        lsp-lens-enable                    t
+        lsp-signature-render-documentation nil
+        lsp-idle-delay                     0.1
+        lsp-ui-sideline-enable             nil
+        lsp-completion-use-last-result     nil
+        lsp-semantic-tokens-enable         t
+        ;; if t then conflicts with company + orderless
+        ;; lsp-completion-no-cache         nil
+        lsp-headerline-breadcrumb-enable   nil)
+  (advice-add #'lsp-rename
+              :after (lambda (&rest _) (projectile-save-project-buffers)))
+  (add-hook 'lsp-after-open-hook (lambda () (when (lsp-find-workspace 'rust-analyzer nil)
+                                         (lsp-rust-analyzer-inlay-hints-mode)))))
+
+(use-package! lsp-ui
+  :after lsp-mode
+  :commands lsp-ui-mode
+  :config
+  (setq lsp-ui-doc-enable  nil
+        lsp-ui-peek-enable nil))
+
+(use-package! lsp-treemacs
+  :config
+  (setq lsp-treemacs-error-list-current-project-only t))
+
 (use-package! clojure-mode
   :config
   (setq clojure-indent-style 'align-arguments))
@@ -127,109 +159,31 @@
 (use-package! cider
   :after clojure-mode
   :config
-  (setq cider-ns-refresh-show-log-buffer t
-        cider-show-error-buffer t                   ;'only-in-repl
-        cider-font-lock-dynamically nil             ; use lsp semantic tokens
-        cider-eldoc-display-for-symbol-at-point nil ; use lsp
-        cider-prompt-for-symbol nil)
-  (set-popup-rule! "*cider-test-report*" :side 'right :width 0.4)
-  (set-popup-rule! "^\\*cider-repl" :side 'bottom :quit nil)
-  (set-lookup-handlers! 'cider-mode nil) ; use lsp
-  (add-hook 'cider-mode-hook (lambda () (remove-hook 'completion-at-point-functions #'cider-complete-at-point))) ; use lsp
-  )
+  (setq cider-show-error-buffer                 t   ;; to keep errors only at the REPL
+        cider-font-lock-dynamically             nil
+        cider-eldoc-display-for-symbol-at-point nil
+        cider-prompt-for-symbol                 nil
+        cider-use-xref                          nil)
+  (set-lookup-handlers! '(cider-mode cider-repl-mode) nil)
+  (add-hook 'cider-mode-hook (lambda () (remove-hook 'completion-at-point-functions #'cider-complete-at-point))))
 
 (use-package! clj-refactor
   :after clojure-mode
   :config
   (set-lookup-handlers! 'clj-refactor-mode nil)
   (setq cljr-warn-on-eval nil
-        cljr-eagerly-build-asts-on-startup nil
-        cljr-add-ns-to-blank-clj-files nil ; use lsp
-        cljr-magic-require-namespaces
-        '(("s"   . "schema.core")
-          ("gen" . "common-test.generators")
-          ("d-pro" . "common-datomic.protocols.datomic")
-          ("ex" . "common-core.exceptions.core")
-          ("dth" . "common-datomic.test-helpers")
-          ("t-money" . "common-core.types.money")
-          ("t-time" . "common-core.types.time")
-          ("d" . "datomic.api")
-          ("m" . "matcher-combinators.matchers")
-          ("pp" . "clojure.pprint"))))
-
-(use-package! clojure-mode
-  :config
-  (setq clojure-indent-style 'align-arguments
-        clojure-thread-all-but-last t
-        clojure-align-forms-automatically t
-        clojure-toplevel-inside-comment-form t)
-  (cljr-add-keybindings-with-prefix "C-c C-c"))
-
-(use-package! company
-  :config
-  (setq company-tooltip-align-annotations t
-        company-frontends '(company-pseudo-tooltip-frontend)))
-
-;(use-package! company-fuzzy
-;  :hook (company-mode . company-fuzzy-mode)
-;  :init
-;  (setq company-fuzzy-sorting-backend 'flx
-;        company-fuzzy-prefix-on-top nil
-;        company-fuzzy-trigger-symbols '("." "->" "<" "\"" "'" "@")))
+        cljr-magic-require-namespaces '(("s" . "schema.core")
+                                        ("st" . "schema.test")
+                                        ("m" . "matcher-combinators.matchers")
+                                        ("pp" . "clojure.pprint"))))
 
 (use-package! lsp-java
-  :after lsp
+  :after java-mode
   :config
-  (setq lsp-java-references-code-lens-enabled t
-        lsp-java-implementations-code-lens-enabled t
-        lsp-file-watch-ignored-directories
-        '(".idea" ".ensime_cache" ".eunit" "node_modules"
-          ".git" ".hg" ".fslckout" "_FOSSIL_"
-          ".bzr" "_darcs" ".tox" ".svn" ".stack-work"
-          "build")))
-
-(use-package! lsp-mode
-  :commands lsp
-  :hook ((clojure-mode . lsp)
-         (java-mode . lsp))
-  :config
-  (setq lsp-headerline-breadcrumb-enable nil
-        lsp-lens-enable t
-        lsp-enable-file-watchers t
-        lsp-signature-auto-activate t
-        lsp-signature-render-documentation nil
-        ;lsp-signature-function 'lsp-signature-posframe
-        lsp-semantic-tokens-enable t
-        lsp-idle-delay 0.3
-        lsp-use-plists nil
-        lsp-completion-sort-initial-results t ; check if should keep as t
-        lsp-completion-no-cache t
-        lsp-completion-use-last-result nil
-        lsp-enable-on-type-formatting t
-        lsp-enable-indentation t
-        lsp-enable-snippet t
-        lsp-enable-symbol-highlighting t
-        lsp-modeline-diagnostics-enable t
-        lsp-headerline-breadcrumb-enable nil
-        lsp-completion-show-detail t
-        lsp-completion-show-kind t)
-  (advice-add #'lsp-rename :after (lambda (&rest _) (projectile-save-project-buffers)))
-  (add-hook 'lsp-mode-hook (lambda () (setq-local company-format-margin-function #'company-vscode-dark-icons-margin))))
-
-(use-package! lsp-treemacs
-  :config
-  (setq lsp-treemacs-error-list-current-project-only t))
-
-(use-package! lsp-ui
-  :after lsp-mode
-  :commands lsp-ui-mode
-  :config
-  (setq ;lsp-ui-peek-enable t
-        lsp-ui-peek-list-width 60
-        lsp-ui-doc-max-width 60
-        lsp-ui-doc-enable nil
-        lsp-ui-peek-fontify 'always
-        lsp-ui-sideline-show-code-actions nil))
+  (setq lsp-java-references-code-lens-enabled      t
+        lsp-java-implementations-code-lens-enabled t))(use-package! paredit
+  :hook ((clojure-mode . paredit-mode)
+         (emacs-lisp-mode . paredit-mode)))
 
 (defun org-mode-hide-all-stars ()
   (font-lock-add-keywords
@@ -240,32 +194,18 @@
          (put-text-property (match-beginning 0) (match-end 0)
                             'face 'org-hide)))))))
 
-(use-package! org-tree-slide
-  :config
-  (setq +org-present-text-scale 2
-        org-tree-slide-skip-outline-level 2
-        org-tree-slide-modeline-display 'outside
-        org-tree-slide-fold-subtrees-skipped nil)
-  (add-hook! 'org-tree-slide-play-hook
-             #'org-display-inline-images
-             #'doom-disable-line-numbers-h
-             #'spell-fu-mode-disable
-             #'hl-line-unload-function
-             #'org-mode-hide-all-stars)
-  (add-hook! 'org-tree-slide-stop-hook
-             #'spell-fu-mode-enable
-             #'hl-line-mode)
-  ;; (add-hook! 'org-tree-slide-after-narrow-hook
-  ;;            #'outline-show-all)
-  )
-
 (use-package! paredit
   :hook ((clojure-mode . paredit-mode)
-         (emacs-lisp-mode . paredit-mode))
-  :config (setq paredit-splice-sexp-killing-backward nil))
+         (emacs-lisp-mode . paredit-mode)))
 
-(use-package! treemacs-all-the-icons
-  :after treemacs)
+(use-package! org-tree-slide
+  :after org-mode
+  :config
+  (setq +org-present-text-scale              2
+        org-tree-slide-skip-outline-level    2
+        org-tree-slide-slide-in-effect       t
+        org-tree-slide-modeline-display      'outside
+        org-tree-slide-fold-subtrees-skipped nil))
 
 (use-package! json-mode
   :init
