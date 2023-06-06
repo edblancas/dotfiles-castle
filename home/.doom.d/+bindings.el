@@ -226,3 +226,10 @@
 (map! :after cape
       :i
       "C-c p f" #'cape-file)
+
+(map! :after consult
+      "M-h" #'consult-history)
+
+(map! :after embark
+      "C-c e a" #'embark-act
+      "C-c e e" #'embark-export)
