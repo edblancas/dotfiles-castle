@@ -223,5 +223,6 @@
       :map cider-repl-mode-map
       "C-c M-o" #'cider-repl-clear-buffer)
 
-(after! company
-  (define-key company-active-map (kbd "<f1>") #'company-quickhelp-manual-begin))
+(map! :after cape
+      :i
+      "C-c p f" #'cape-file)
