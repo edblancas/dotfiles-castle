@@ -35,6 +35,7 @@
 (global-set-key (kbd "s-<f2>") #'flycheck-consult)
 (global-set-key (kbd "M-s-<f2>") #'consult-lsp-diagnostics)
 (global-set-key (kbd "M-O") #'find-file)
+(global-set-key (kbd "M-.") #'embark-act)
 
 (defun bmacs-project-root ()
   "Get the path to the root of your project.
@@ -230,5 +231,3 @@
 (map! :after consult
       "M-h" #'consult-history)
 
-(map! :after embark
-      "M-." #'embark-act)
