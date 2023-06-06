@@ -231,5 +231,4 @@
       "M-h" #'consult-history)
 
 (map! :after embark
-      "C-c e a" #'embark-act
-      "C-c e e" #'embark-export)
+      "M-." #'embark-act)
