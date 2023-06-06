@@ -360,4 +360,14 @@ If STRICT-P, return nil if no project was found, otherwise return
 (modify-syntax-entry ?- "w" emacs-lisp-mode-syntax-table)
 (modify-syntax-entry ?_ "w" emacs-lisp-mode-syntax-table)
 
+;; https://github.com/minad/corfu#completing-in-the-minibuffer
+(defun corfu-enable-in-minibuffer ()
+  "Enable Corfu in the minibuffer if `completion-at-point' is bound."
+  (when (where-is-internal #'completion-at-point (list (current-local-map)))
+    ;; (setq-local corfu-auto nil) ;; Enable/disable auto completion
+    (setq-local corfu-echo-delay nil ;; Disable automatic echo and popup
+                corfu-popupinfo-delay nil)
+    (corfu-mode 1)))
+(add-hook 'minibuffer-setup-hook #'corfu-enable-in-minibuffer)
+
 (load! "+bindings")
