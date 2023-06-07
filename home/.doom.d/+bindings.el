@@ -154,7 +154,8 @@
       "s-p" #'lsp-signature-activate
       "s-C-]" #'lsp-clojure-cycle-coll
       "C-}" #'lsp-ui-peek-find-references
-      "C-]" #'lsp-ui-peek-find-definitions
+      "C-]" #'lsp-find-definition
+      "s-y" #'lsp-ui-peek-find-definitions
       "<f1>" #'lsp-describe-thing-at-point
       "C-M-o" #'lsp-clojure-clean-ns
       "M-s-l" #'lsp-format-buffer
