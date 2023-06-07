@@ -59,6 +59,8 @@ shell:
 # more key_bindings with alt 
 # https://github.com/alacritty/alacritty/issues/93#issuecomment-1364783147
 key_bindings:
-  - { key: C,         mods: Alt,       chars: "\x1bc"                       }
+  - { key: C, mods: Alt, chars: "\x1bc" }
+  - { key: K, mods: Alt, chars: "\x1bk" }
+  #- { key: K, mods: Command, chars: "\x0b" }
 env:
   TERM: xterm-256color
