@@ -78,7 +78,7 @@
 
 (setq
  fill-column 80
- display-line-numbers-type t
+ display-line-numbers-type nil
 
  history-length 300
  indent-tabs-mode nil
@@ -97,8 +97,6 @@
  evil-split-window-below t
  evil-vsplit-window-right t
 
- ;counsel-rg-base-command "rg -i -M 1000 --no-heading --line-number --color never %s ."
-
  frame-title-format (setq icon-title-format  ;; set window title with "project"
                           '((:eval (projectile-project-name))))
 
@@ -106,7 +104,7 @@
  doom-unicode-font (font-spec :family "Material Design Icons")
  doom-big-font-increment 2
 
- doom-theme 'doom-dracula
+ doom-theme 'catppuccin
  doom-themes-treemacs-theme "all-the-icons"
  doom-localleader-key ","
 
