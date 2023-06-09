@@ -89,7 +89,10 @@
       "w O" #'doom/window-enlargen
 
       :desc "evil-ex-nohighlight"
-      "SPC" #'evil-ex-nohighlight)
+      "SPC" #'evil-ex-nohighlight
+
+      :desc "Toggle truncate lines"
+      "t t" #'toggle-truncate-lines)
 
 (after! paredit
   (define-key paredit-mode-map (kbd "C-<left>") nil)

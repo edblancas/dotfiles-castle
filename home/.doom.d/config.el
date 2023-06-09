@@ -369,6 +369,15 @@ If STRICT-P, return nil if no project was found, otherwise return
     (setq-local corfu-echo-delay nil ;; Disable automatic echo and popup
                 corfu-popupinfo-delay nil)
     (corfu-mode 1)))
+
 (add-hook 'minibuffer-setup-hook #'corfu-enable-in-minibuffer)
+
+(after! doom-themes
+  (setq doom-themes-enable-bold t
+        doom-themes-enable-italic t))
+
+(custom-set-faces!
+  '(font-lock-comment-face :slant italic)
+  '(font-lock-keyword-face :slant italic ))
 
 (load! "+bindings")

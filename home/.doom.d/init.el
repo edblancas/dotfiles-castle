@@ -21,7 +21,7 @@
 
        :completion
        ;;(company +childframe)          ; the ultimate code completion backend
-       (corfu +icons)
+       (corfu +icons +tng)
        ;;helm              ; the *other* search engine for love and life
        ;;ido               ; the other *other* search engine...
        ;;(ivy +prescient +icons)               ; a search engine for love and life
