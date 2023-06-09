@@ -300,6 +300,11 @@ If STRICT-P, return nil if no project was found, otherwise return
   (interactive)
   (cider-nrepl-sync-request:eval "(portal.api/close)"))
 
+;; NOTE: You do need to have portal on the class path and the easiest way I know
+;; how is via a clj user or project alias.
+(setq cider-clojure-cli-aliases ":portal")
+(setq cider-lein-parameters "with-profile +portal repl :headless :host localhost")
+
 ;; same as cider-ns-refresh
 ;; https://docs.cider.mx/cider/usage/misc_features.html#reloading-code
 (defun edblancas/refresh-repl ()

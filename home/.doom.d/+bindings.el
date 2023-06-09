@@ -192,6 +192,7 @@
       :prefix ("o" . "utils")
       "R" #'edblancas/refresh-repl
       "p" #'portal.api/open
+      "c" #'portal.api/clear
       "r" #'hydra-cljr-help-menu/body)
 
 (map! :after java-mode
