@@ -382,4 +382,8 @@ If STRICT-P, return nil if no project was found, otherwise return
   (interactive)
   (consult-ripgrep "~/Dropbox/dev/current/notes" ""))
 
+(setq highlight-indent-guides-auto-enabled nil
+      highlight-indent-guides-odd-face 'lavender
+      highlight-indent-guides-even-face 'lavender)
+
 (load! "+bindings")
