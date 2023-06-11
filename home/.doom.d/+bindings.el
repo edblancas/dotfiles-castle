@@ -33,7 +33,7 @@
 (global-set-key (kbd "C-s-g") #'evil-mc-make-cursor-in-visual-selection-beg)
 (global-set-key (kbd "<f2>") #'flycheck-next-error)
 (global-set-key (kbd "S-<f2>") #'flycheck-previous-error)
-(global-set-key (kbd "s-<f2>") #'flycheck-consult)
+(global-set-key (kbd "s-<f2>") #'consult-flycheck)
 (global-set-key (kbd "M-s-<f2>") #'consult-lsp-diagnostics)
 (global-set-key (kbd "M-O") #'find-file)
 
@@ -80,7 +80,7 @@
       "l" #'list-processes
 
       :desc "doom/window-enlargen"
-      "w O" #'doom/window-enlargen
+      "w z" #'doom/window-enlargen
 
       :desc "Clear search highlight"
       "s c" #'evil-ex-nohighlight
@@ -129,7 +129,7 @@
         "s-)" #'paredit-close-parenthesis-and-newline
         "s-'" #'paredit-meta-doublequote-and-newline
 
-        "M-?" #'paredit-convolute-sexp))
+        "M-%" #'paredit-convolute-sexp))
 
 (map! :after clojure-mode
       :leader
@@ -229,5 +229,17 @@
 (map! :after consult
       "M-h" #'consult-history)
 
-(map! :after embark
-      "M-." #'embark-act)
+(after! flycheck
+  (map! :leader
+        (:prefix-map ("c" . "code")
+         "x" flycheck-command-map)))
+
+(map!
+ (:when (modulep! :editor multiple-cursors)
+   :prefix "g"
+   :nv "z" #'my/mc-hydra/body)
+ (:prefix "gs"
+    :nv "p" #'my/sp-hydra/body))
+
+(map! :leader
+      :desc "window hydra" "W" #'my/window-hydra/body)
