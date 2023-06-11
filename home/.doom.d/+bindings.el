@@ -36,6 +36,7 @@
 (global-set-key (kbd "s-<f2>") #'consult-flycheck)
 (global-set-key (kbd "M-s-<f2>") #'consult-lsp-diagnostics)
 (global-set-key (kbd "M-O") #'find-file)
+(global-set-key (kbd "C-M-s-p") #'edblancas/search-notes-files)
 
 ;;(global-set-key (kbd "<f16>") #')  ;; someting like run like idea
 ;;(global-set-key (kbd "<f17>") #')  ;; someting like focus editor like idea
