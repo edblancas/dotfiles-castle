@@ -232,39 +232,63 @@
     (backward-sexp (1+ arg))
     (forward-sexp 1))
 
+;; disable live-preview
+;; https://github.com/minad/consult#live-previews
 (use-package! consult
   :config
   (consult-customize
    consult--source-bookmark consult--source-file-register
    consult--source-recent-file consult--source-project-recent-file))
 
-;;(defun counsel-projectile-bookmark ()
-;;    "Forward to `bookmark-jump' or `bookmark-set' if bookmark doesn't exist."
-;;    (interactive)
-;;    (require 'bookmark)
-;;    (let ((projectile-bookmarks (projectile-bookmarks)))
-;;      (ivy-read "Create or jump to bookmark: "
-;;                projectile-bookmarks
-;;                :action (lambda (x)
-;;                          (cond ((and counsel-bookmark-avoid-dired
-;;                                      (member x projectile-bookmarks)
-;;                                      (file-directory-p (bookmark-location x)))
-;;                                 (with-ivy-window
-;;                                   (let ((default-directory (bookmark-location x)))
-;;                                     (counsel-find-file))))
-;;                                ((member x projectile-bookmarks)
-;;                                 (with-ivy-window
-;;                                   (bookmark-jump x)))
-;;                                (t
-;;                                 (bookmark-set x))))
-;;                :caller 'counsel-projectile-bookmark)))
-;;
-;;(ivy-set-actions
-;; 'counsel-projectile-bookmark
-;; '(("d" bookmark-delete "delete")
-;;   ("e" bookmark-rename "edit")))
+(defun counsel-projectile-bookmark ()
+    "Forward to `bookmark-jump' or `bookmark-set' if bookmark doesn't exist."
+    (interactive)
+    (require 'bookmark)
+    (let ((projectile-bookmarks (projectile-bookmarks)))
+      (ivy-read "Create or jump to bookmark: "
+                projectile-bookmarks
+                :action (lambda (x)
+                          (cond ((and counsel-bookmark-avoid-dired
+                                      (member x projectile-bookmarks)
+                                      (file-directory-p (bookmark-location x)))
+                                 (with-ivy-window
+                                   (let ((default-directory (bookmark-location x)))
+                                     (counsel-find-file))))
+                                ((member x projectile-bookmarks)
+                                 (with-ivy-window
+                                   (bookmark-jump x)))
+                                (t
+                                 (bookmark-set x))))
+                :caller 'counsel-projectile-bookmark)))
 
-;; use this fn to create a prompt with consult similar to ivy, but just to jumpt to bookmark
+(ivy-set-actions
+ 'counsel-projectile-bookmark
+ '(("d" bookmark-delete "delete")
+   ("e" bookmark-rename "edit")))
+
+;; --- Project Bookmars --- ;;
+;; fn modified from the consult.el
+;; https://github.com/minad/consult/blob/4e7f8c6e1840dbacdaa25c67d23a6bbd451ba2c5/consult.el#L3958
+(defun consult-project-bookmark (name)
+  "Same as consult-bookmark but for the current projectile project."
+  (interactive
+   (list
+    (let ((narrow (mapcar (pcase-lambda (`(,x ,y ,_)) (cons x y))
+                          consult-bookmark-narrow)))
+      (consult--read
+       (projectile-bookmarks)
+       :prompt "Project Bookmark: "
+       :state (consult--bookmark-preview)
+       :category 'bookmark
+       :history 'bookmark-history
+       :add-history (ignore-errors (bookmark-prop-get (bookmark-make-record) 'defaults))
+       :group (consult--type-group narrow)
+       :narrow (consult--type-narrow narrow)))))
+  (bookmark-maybe-load-default-file)
+  (if (assoc name bookmark-alist)
+      (bookmark-jump name)
+    (bookmark-set name)))
+
 (defun projectile-bookmarks ()
   (let ((bmarks (bookmark-all-names)))
     (cl-remove-if-not #'workspace-bookmark-p bmarks)))
@@ -280,6 +304,7 @@ If STRICT-P, return nil if no project was found, otherwise return
   (let ((bmark-path (expand-file-name (bookmark-location bmark))))
     (string-prefix-p (bmacs-project-root) bmark-path)))
 
+;; --- djblue/portal --- ;;
 ;; https://github.com/djblue/portal/blob/master/doc/editors/emacs.md#xwidget-webkit-embed
 ;; Leverage an existing cider nrepl connection to evaluate portal.api functions
 ;; and map them to convenient key bindings.
@@ -288,7 +313,7 @@ If STRICT-P, return nil if no project was found, otherwise return
 (defun portal.api/open ()
   (interactive)
   (cider-nrepl-sync-request:eval
-    "(do (ns dev) (def portal ((requiring-resolve 'portal.api/open))) (add-tap (requiring-resolve 'portal.api/submit)))"))
+   "(do (ns dev) (def portal ((requiring-resolve 'portal.api/open))) (add-tap (requiring-resolve 'portal.api/submit)))"))
 
 (defun portal.api/clear ()
   (interactive)
@@ -382,5 +407,10 @@ If STRICT-P, return nil if no project was found, otherwise return
 (custom-set-faces!
   '(font-lock-comment-face :slant italic)
   '(font-lock-keyword-face :slant italic ))
+
+(defun edblancas/search-notes-files ()
+  "Grep for a string in `notes' using `rg'."
+  (interactive)
+  (consult-ripgrep "~/Dropbox/dev/current/notes" ""))
 
 (load! "+bindings")

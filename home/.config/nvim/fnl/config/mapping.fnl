@@ -7,7 +7,7 @@
 (set nvim.g.maplocalleader ",")
 
 ;clear highlighting on enter in normal mode
-(nvim.set_keymap :n :<CR> ":noh<CR><CR>" {:noremap true})
+(nvim.set_keymap :n :<leader>sc ":noh<CR><CR>" {:noremap true})
 
 ;duplicate currents panel in a new tab
 (nvim.set_keymap :n :<C-w>T ":tab split<CR>" {:noremap true :silent true})

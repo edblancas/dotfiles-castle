@@ -49,6 +49,10 @@
                                              :nvim-lua/popup.nvim
                                              :nvim-lua/plenary.nvim]
                                   :mod :telescope}
+
+  ;; unix commands helpers
+  :tpope/vim-eunuch {}
+
   ; commeting code
   :preservim/nerdcommenter {}
 

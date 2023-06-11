@@ -22,8 +22,9 @@
 (global-set-key (kbd "M-<up>") #'er/expand-region)
 (global-set-key (kbd "M-<down>") (lambda () (interactive) (er/expand-region -1)))
 (global-set-key (kbd "<f3>") #'bookmark-set)
-;;(global-set-key (kbd "s-<f3>") #'counsel-projectile-bookmark)  ;; only bookmarks of the project
-(global-set-key (kbd "M-<f3>") #'consult-bookmark)  ;; all bookmarks
+(global-set-key (kbd "s-<f3>") #'edblancas/projectile-bookmarks)  ;; only bookmarks of the project
+(global-set-key (kbd "M-s-<f3>") #'consult-bookmark)  ;; all bookmarks
+(global-set-key (kbd "M-<f3>") #'bookmark-delete)  ;; all bookmarks
 (global-set-key (kbd "M-A") #'execute-extended-command)
 (global-set-key (kbd "s-1") #'+treemacs/toggle)
 (global-set-key (kbd "s-g") #'evil-mc-make-and-goto-next-match)
@@ -35,13 +36,6 @@
 (global-set-key (kbd "s-<f2>") #'flycheck-consult)
 (global-set-key (kbd "M-s-<f2>") #'consult-lsp-diagnostics)
 (global-set-key (kbd "M-O") #'find-file)
-
-(defun bmacs-project-root ()
-  "Get the path to the root of your project.
-  If STRICT-P, return nil if no project was found, otherwise return
-  `default-directory'."
-  (let (projectile-require-project-root)
-    (projectile-project-root)))
 
 ;;(global-set-key (kbd "<f16>") #')  ;; someting like run like idea
 ;;(global-set-key (kbd "<f17>") #')  ;; someting like focus editor like idea
@@ -88,8 +82,8 @@
       :desc "doom/window-enlargen"
       "w O" #'doom/window-enlargen
 
-      :desc "evil-ex-nohighlight"
-      "SPC" #'evil-ex-nohighlight
+      :desc "Clear search highlight"
+      "s c" #'evil-ex-nohighlight
 
       :desc "Toggle truncate lines"
       "t t" #'toggle-truncate-lines)
