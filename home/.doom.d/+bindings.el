@@ -22,7 +22,7 @@
 (global-set-key (kbd "M-<up>") #'er/expand-region)
 (global-set-key (kbd "M-<down>") (lambda () (interactive) (er/expand-region -1)))
 (global-set-key (kbd "<f3>") #'bookmark-set)
-(global-set-key (kbd "s-<f3>") #'edblancas/projectile-bookmarks)  ;; only bookmarks of the project
+(global-set-key (kbd "s-<f3>") #'edblancas/consult-project-bookmark)  ;; only bookmarks of the project
 (global-set-key (kbd "M-s-<f3>") #'consult-bookmark)  ;; all bookmarks
 (global-set-key (kbd "M-<f3>") #'bookmark-delete)  ;; all bookmarks
 (global-set-key (kbd "M-A") #'execute-extended-command)

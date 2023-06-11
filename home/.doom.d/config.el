@@ -240,36 +240,10 @@
    consult--source-bookmark consult--source-file-register
    consult--source-recent-file consult--source-project-recent-file))
 
-(defun counsel-projectile-bookmark ()
-    "Forward to `bookmark-jump' or `bookmark-set' if bookmark doesn't exist."
-    (interactive)
-    (require 'bookmark)
-    (let ((projectile-bookmarks (projectile-bookmarks)))
-      (ivy-read "Create or jump to bookmark: "
-                projectile-bookmarks
-                :action (lambda (x)
-                          (cond ((and counsel-bookmark-avoid-dired
-                                      (member x projectile-bookmarks)
-                                      (file-directory-p (bookmark-location x)))
-                                 (with-ivy-window
-                                   (let ((default-directory (bookmark-location x)))
-                                     (counsel-find-file))))
-                                ((member x projectile-bookmarks)
-                                 (with-ivy-window
-                                   (bookmark-jump x)))
-                                (t
-                                 (bookmark-set x))))
-                :caller 'counsel-projectile-bookmark)))
-
-(ivy-set-actions
- 'counsel-projectile-bookmark
- '(("d" bookmark-delete "delete")
-   ("e" bookmark-rename "edit")))
-
 ;; --- Project Bookmars --- ;;
 ;; fn modified from the consult.el
 ;; https://github.com/minad/consult/blob/4e7f8c6e1840dbacdaa25c67d23a6bbd451ba2c5/consult.el#L3958
-(defun consult-project-bookmark (name)
+(defun edblancas/consult-project-bookmark (name)
   "Same as consult-bookmark but for the current projectile project."
   (interactive
    (list
@@ -370,11 +344,6 @@ If STRICT-P, return nil if no project was found, otherwise return
 ;;   (setq display-buffer-base-action '(display-buffer-below-selected))
 ;;   (edwina-setup-dwm-keys 'super)
 ;;   (edwina-mode 1))
-
-;; is there a difference?
-;; https://github.com/abo-abo/swiper#counsel
-;;(use-package! counsel
-;;  :hook ((ivy-mode . counsel-mode)))
 
 ;; fix treemacs opens in a window below
 (set-popup-rule! "\\*Treemacs-Scoped.*\\*" :side 'left :width 0.2)
