@@ -450,7 +450,7 @@ _E_: sexp end         _V_: clear selection    _c_: comment          _>_: barf fo
 _B_: sexp beginning   _y_: yank selection     _p_: paste after      ^ ^                 ^^^^^^^^^^  _=_: clone
 _RET_: down sexp      _Y_: yank sexp          _P_: paste before     _{__[__(__)__]__}_: wrap        _%_: convolute
 
-_u_: undo  _C-r_: redo  _C-SPC_: set mark  _s_: toggle strict"
+_u_: undo  _C-r_: redo  _C-SPC_: set mark  _s_: toggle strict  "
   ("0" #'evil-beginning-of-line)
   ("$" #'evil-end-of-line)
   ("^" #'evil-first-non-blank)
