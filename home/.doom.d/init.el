@@ -154,10 +154,11 @@
        ;;nix               ; I hereby declare "nix geht mehr!"
        ;;ocaml             ; an objective camel
        (org              ; organize your plain life in plain text
-        ;+roam
+        +roam2
         +dragndrop       ; file drag & drop support
         +pandoc          ; pandoc integration into org's exporter
         +present
+        +pomodoro
         )        ; using Emacs for presentations
        ;;php               ; perl's insecure younger brother
        ;;plantuml          ; diagrams for confusing people more

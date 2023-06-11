@@ -241,3 +241,7 @@
    :nv "z" #'my/mc-hydra/body)
  (:prefix "gs"
     :nv "p" #'my/sp-hydra/body))
+
+(after! org-roam
+  :map org-mode-map
+  "C-M-i" #'completion-at-point)
