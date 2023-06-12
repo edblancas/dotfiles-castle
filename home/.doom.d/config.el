@@ -512,4 +512,7 @@ _u_: undo  _C-r_: redo  _C-SPC_: set mark  _s_: toggle strict  "
   (setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:10}" 'face 'org-tag)))
   (org-roam-db-autosync-mode))
 
+(add-hook 'cider-clojure-interaction-mode-hook
+          (lambda () (add-to-list 'completion-at-point-functions #'cider-complete-at-point)))
+
 (load! "+bindings")

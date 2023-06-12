@@ -225,7 +225,7 @@
 
 (map! :after cape
       :i
-      "C-c p f" #'cape-file)
+      "C-c f" #'cape-file)
 
 (map! :after consult
       "M-h" #'consult-history)
