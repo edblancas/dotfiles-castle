@@ -543,10 +543,19 @@ _u_: undo  _C-r_: redo  _C-SPC_: set mark  _s_: toggle strict  "
 (add-hook 'org-agenda-finalize-hook #'org-modern-agenda)
 
 ;; --- jinx --- ;;
-(dolist (hook '(text-mode-hook conf-mode-hook org-mode-hook markdown-mode-hook))
+(dolist (hook '(text-mode-hook prog-mode-hook conf-mode-hook))
   (add-hook hook #'jinx-mode))
-(setq vertico-multiform-categories
-             '(jinx grid (vertico-grid-annotate . 20)))
-(vertico-multiform-mode 1)
+
+(after! vertico
+  :config
+  (vertico-multiform-mode 1)
+  (setq vertico-multiform-categories
+        '((jinx grid (vertico-grid-annotate . 20)))))
+
+;; this option in the vertico-multiform-categories
+;; don't display the whole buffer in the right
+;; like docs, is something in my config for errors or
+;; cider
+;; (consult-grep buffer)
 
 (load! "+bindings")

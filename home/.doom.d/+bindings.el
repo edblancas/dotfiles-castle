@@ -209,7 +209,7 @@
 (map! :after projectile
       :map projectile-mode-map
       "s-O" #'projectile-find-file
-      "s-F" #'+default/search-project
+      "s-F" #'consult-grep
       "s-e" #'projectile-switch-to-buffer
       "C-M-s-p" #'projectile-switch-project)
 
