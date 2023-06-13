@@ -65,6 +65,10 @@
 ;; me
 (package! consult-lsp)
 (package! evil-cleverparens)
+(package! org-modern)
+(package! tempel)
+(package! tempel-collection)
+(package! jinx)
 
 (unpin! iedit)
 (unpin! evil-multiedit)

@@ -515,4 +515,44 @@ _u_: undo  _C-r_: redo  _C-SPC_: set mark  _s_: toggle strict  "
 (add-hook 'cider-clojure-interaction-mode-hook
           (lambda () (add-to-list 'completion-at-point-functions #'cider-complete-at-point)))
 
+;; --- org-modern suggestion settings --- ;;
+(setq
+ ;; Edit settings
+ org-auto-align-tags nil
+ org-tags-column 0
+ org-fold-catch-invisible-edits 'show-and-error
+ org-special-ctrl-a/e t
+ org-insert-heading-respect-content t
+
+ ;; Org styling, hide markup etc.
+ org-hide-emphasis-markers t
+ org-pretty-entities t
+ org-ellipsis "…"
+
+ ;; Agenda styling
+ org-agenda-tags-column 0
+ org-agenda-block-separator ?─
+ org-agenda-time-grid
+ '((daily today require-timed)
+   (800 1000 1200 1400 1600 1800 2000)
+   " ┄┄┄┄┄ " "┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄")
+ org-agenda-current-time-string
+ "⭠ now ─────────────────────────────────────────────────")
+
+(add-hook 'org-mode-hook #'org-modern-mode)
+(add-hook 'org-agenda-finalize-hook #'org-modern-agenda)
+
+;; --- jinx --- ;;
+(dolist (hook '(text-mode-hook conf-mode-hook org-mode-hook markdown-mode-hook))
+  (add-hook hook #'jinx-mode))
+(setq vertico-multiform-categories
+             '(jinx grid (vertico-grid-annotate . 20)))
+(vertico-multiform-mode 1)
+
+;; --- tempel --- ;;
+;; for some reason don't works
+;; (use-package! tempel
+;;   :init
+;;   (setq tempel-trigger-prefix "<"))
+
 (load! "+bindings")

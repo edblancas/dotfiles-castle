@@ -16,7 +16,6 @@
 (undefine-key! global-map "s-o")
 
 (global-set-key (kbd "s-e") #'recentf-open-files)
-(global-set-key (kbd "C-;") #'insert-open-close-paren)
 (global-set-key (kbd "M-S-<up>") #'drag-stuff-up)
 (global-set-key (kbd "M-S-<down>") #'drag-stuff-down)
 (global-set-key (kbd "M-<up>") #'er/expand-region)
@@ -59,12 +58,15 @@
       "C-S-<down>" (lambda () (interactive) (enlarge-window -5))
 
       :desc "decrease window height"
-      "C-S-<up>" (lambda () (interactive) (enlarge-window 5)))
+      "C-S-<up>" (lambda () (interactive) (enlarge-window 5))
+
+      :i
+      :des "Insert pair of partenthesis"
+      "C-;" #'insert-open-close-paren)
 
 ;; https://github.com/doomemacs/doomemacs/issues/890
 (map! :map evil-window-map
-      "o" #'doom/window-maximize-buffer
-      "O" #'doom/window-enlargen)
+      "o" #'doom/window-maximize-buffer)
 
 (map! :leader
 
@@ -245,3 +247,15 @@
 (after! org-roam
   :map org-mode-map
   "C-M-i" #'completion-at-point)
+
+;; the right alt is for inserting special chars
+(map! :after jinx
+      ;; use left alt + shift + 4
+      "M-$" #'jinx-correct
+      ;; use left ctrl + alt + shift + 4
+      "C-M-$" #'jinx-languages)
+
+(map! :after tempel
+      ;; Alternative tempel-expand
+      "M-+" #'tempel-complete
+      "M-*" #'tempel-insert)
