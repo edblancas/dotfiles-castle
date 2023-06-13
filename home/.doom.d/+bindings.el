@@ -58,11 +58,15 @@
       "C-S-<down>" (lambda () (interactive) (enlarge-window -5))
 
       :desc "decrease window height"
-      "C-S-<up>" (lambda () (interactive) (enlarge-window 5))
+      "C-S-<up>" (lambda () (interactive) (enlarge-window 5)))
 
-      :i
+(map! :i
+
       :des "Insert pair of partenthesis"
-      "C-;" #'insert-open-close-paren)
+      "C-;" #'insert-open-close-paren
+      ;; Alternative tempel-expand
+      "M-+" #'tempel-complete
+      "M-*" #'tempel-insert)
 
 ;; https://github.com/doomemacs/doomemacs/issues/890
 (map! :map evil-window-map
@@ -254,8 +258,3 @@
       "M-$" #'jinx-correct
       ;; use left ctrl + alt + shift + 4
       "C-M-$" #'jinx-languages)
-
-(map! :after tempel
-      ;; Alternative tempel-expand
-      "M-+" #'tempel-complete
-      "M-*" #'tempel-insert)

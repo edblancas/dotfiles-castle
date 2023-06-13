@@ -549,10 +549,4 @@ _u_: undo  _C-r_: redo  _C-SPC_: set mark  _s_: toggle strict  "
              '(jinx grid (vertico-grid-annotate . 20)))
 (vertico-multiform-mode 1)
 
-;; --- tempel --- ;;
-;; for some reason don't works
-;; (use-package! tempel
-;;   :init
-;;   (setq tempel-trigger-prefix "<"))
-
 (load! "+bindings")
