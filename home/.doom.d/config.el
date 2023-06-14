@@ -125,7 +125,8 @@
   :commands lsp
   :config
   (setq lsp-headerline-breadcrumb-enable   nil
-        lsp-lens-enable                    t
+        ;; conflicts with current emacs lsp-mode
+        lsp-lens-enable                    nil
         lsp-signature-render-documentation nil
         lsp-idle-delay                     0.1
         lsp-ui-sideline-enable             nil
@@ -358,6 +359,10 @@ If STRICT-P, return nil if no project was found, otherwise return
 (modify-syntax-entry ?- "w" emacs-lisp-mode-syntax-table)
 (modify-syntax-entry ?_ "w" emacs-lisp-mode-syntax-table)
 
+(use-package! corfu
+  :init
+  (global-corfu-mode))
+
 ;; https://github.com/minad/corfu#completing-in-the-minibuffer
 (defun corfu-enable-in-minibuffer ()
   "Enable Corfu in the minibuffer if `completion-at-point' is bound."
@@ -549,7 +554,7 @@ _u_: undo  _C-r_: redo  _C-SPC_: set mark  _s_: toggle strict  "
 (after! vertico
   :config
   (vertico-multiform-mode 1)
-  (setq vertico-multiform-categories
+  (setq! vertico-multiform-categories
         '((jinx grid (vertico-grid-annotate . 20)))))
 
 ;; this option in the vertico-multiform-categories
@@ -557,5 +562,24 @@ _u_: undo  _C-r_: redo  _C-SPC_: set mark  _s_: toggle strict  "
 ;; like docs, is something in my config for errors or
 ;; cider
 ;; (consult-grep buffer)
+
+;; --- tempel --- ;;
+;; https://github.com/minad/tempel#configuration
+(use-package! tempel
+  :config
+  (setq! tempel-trigger-prefix "<")
+  (defun tempel-setup-capf ()
+    (setq-local completion-at-point-functions
+                (cons #'tempel-complete
+                      completion-at-point-functions)))
+  (add-hook 'conf-mode-hook 'tempel-setup-capf)
+  (add-hook 'prog-mode-hook 'tempel-setup-capf)
+  (add-hook 'text-mode-hook 'tempel-setup-capf))
+
+;;(setq lsp-enable-snippet nil)
+
+;; Only want yassnippets for expand the clojure-lsp snippets.
+;; That's why :snippets and :template-files doom modules are disabled.
+(add-hook 'prog-mode-hook #'yas-minor-mode)
 
 (load! "+bindings")
