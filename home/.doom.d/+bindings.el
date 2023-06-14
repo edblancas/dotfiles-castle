@@ -14,6 +14,8 @@
 (undefine-key! global-map "M-e")
 (undefine-key! global-map "s-x")
 (undefine-key! global-map "s-o")
+(undefine-key! global-map "C-j")
+(undefine-key! global-map "C-k")
 
 (global-set-key (kbd "s-e") #'recentf-open-files)
 (global-set-key (kbd "M-S-<up>") #'drag-stuff-up)
@@ -258,3 +260,16 @@
       "M-$" #'jinx-correct
       ;; use left ctrl + alt + shift + 4
       "C-M-$" #'jinx-languages)
+
+;; https://joaotavora.github.io/yasnippet/faq.html#org5f4a84d
+(define-key yas-minor-mode-map (kbd "<tab>") nil)
+(define-key yas-minor-mode-map (kbd "TAB") nil)
+;;(define-key yas-minor-mode-map (kbd "<the new key>") yas-maybe-expand)
+
+;;keys for navigation
+(define-key yas-keymap [(tab)]       nil)
+(define-key yas-keymap (kbd "TAB")   nil)
+(define-key yas-keymap [(shift tab)] nil)
+(define-key yas-keymap [backtab]     nil)
+(define-key yas-keymap (kbd "M-<down>") 'yas-next-field)
+(define-key yas-keymap (kbd "M-<up>") 'yas-prev-field)
