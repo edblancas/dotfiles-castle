@@ -211,7 +211,7 @@
 (map! :after projectile
       :map projectile-mode-map
       "s-O" #'projectile-find-file
-      "s-F" #'consult-grep
+      "s-F" #'consult-ripgrep
       "s-e" #'projectile-switch-to-buffer
       "C-M-s-p" #'projectile-switch-project)
 

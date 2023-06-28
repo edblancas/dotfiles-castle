@@ -591,4 +591,11 @@ _u_: undo  _C-r_: redo  _C-SPC_: set mark  _s_: toggle strict  "
 ;;     "{" nil
 ;;     "}" nil))
 
+(after! grep
+  (progn
+    (add-to-list 'grep-find-ignored-files ".transit*")
+    (add-to-list 'grep-find-ignored-directories ".cache")
+    (add-to-list 'grep-find-ignored-directories ".cpcache")
+    (add-to-list 'grep-find-ignored-directories ".clj-kondo")))
+
 (load! "+bindings")
