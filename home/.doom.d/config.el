@@ -309,36 +309,6 @@ If STRICT-P, return nil if no project was found, otherwise return
   (interactive)
   (cider-nrepl-sync-request:eval "(do (require '[clojure.tools.namespace.repl]) (clojure.tools.namespace.repl/refresh))"))
 
-;; see https://github.com/emacs-evil/evil-cleverparens#installation
-(setq evil-move-beyond-eol t)
-
-;; (use-package! evil-cleverparens
-;;   :commands evil-cleverparens-mode
-;;   :init
-;;   (add-hook! 'clojure-mode-hook #'evil-cleverparens-mode)
-;;   (add-hook! 'emacs-lisp-mode-hook #'evil-cleverparens-mode)
-;;   (setq evil-cleverparens-complete-parens-in-yanked-region t)
-;;   :config
-;;   (evil-define-key '(normal visual) evil-cleverparens-mode-map
-;;     "{" nil
-;;     "}" nil))
-
-(require 'evil-cleverparens-text-objects)
-
-;; this is taken from the evil-cleverparens-mode.el
-;; we require only the objects so the above file is not loaded
-;; hence we cannot use the fn and we copy-pasted here
-(defun evil-cp--enable-text-objects ()
-  "Enables text-objects defined in evil-cleverparens."
-  (define-key evil-outer-text-objects-map "f" #'evil-cp-a-form)
-  (define-key evil-inner-text-objects-map "f" #'evil-cp-inner-form)
-  (define-key evil-outer-text-objects-map "c" #'evil-cp-a-comment)
-  (define-key evil-inner-text-objects-map "c" #'evil-cp-inner-comment)
-  (define-key evil-outer-text-objects-map "d" #'evil-cp-a-defun)
-  (define-key evil-inner-text-objects-map "d" #'evil-cp-inner-defun))
-
-(evil-cp--enable-text-objects)
-
 ;; see how to blacklist minibuffer, treemacs, magit and jet transiet windows, etc.
 ;; (use-package! edwina
 ;;   :config
@@ -581,5 +551,37 @@ _u_: undo  _C-r_: redo  _C-SPC_: set mark  _s_: toggle strict  "
 ;; Only want yassnippets for expand the clojure-lsp snippets.
 ;; That's why :snippets and :template-files doom modules are disabled.
 (add-hook 'prog-mode-hook #'yas-minor-mode)
+
+(setq! doom-themes-treemacs-theme "doom-colors")
+
+;; see https://github.com/emacs-evil/evil-cleverparens#installation
+(setq evil-move-beyond-eol t)
+
+(require 'evil-cleverparens-text-objects)
+
+;; this is taken from the evil-cleverparens-mode.el
+;; we require only the objects so the above file is not loaded
+;; hence we cannot use the fn and we copy-pasted here
+(defun evil-cp--enable-text-objects ()
+  "Enables text-objects defined in evil-cleverparens."
+  (define-key evil-outer-text-objects-map "f" #'evil-cp-a-form)
+  (define-key evil-inner-text-objects-map "f" #'evil-cp-inner-form)
+  (define-key evil-outer-text-objects-map "c" #'evil-cp-a-comment)
+  (define-key evil-inner-text-objects-map "c" #'evil-cp-inner-comment)
+  (define-key evil-outer-text-objects-map "d" #'evil-cp-a-defun)
+  (define-key evil-inner-text-objects-map "d" #'evil-cp-inner-defun))
+
+(evil-cp--enable-text-objects)
+
+;; (use-package! evil-cleverparens
+;;   :commands evil-cleverparens-mode
+;;   :init
+;;   (add-hook! 'clojure-mode-hook #'evil-cleverparens-mode)
+;;   (add-hook! 'emacs-lisp-mode-hook #'evil-cleverparens-mode)
+;;   (setq evil-cleverparens-complete-parens-in-yanked-region t)
+;;   :config
+;;   (evil-define-key '(normal visual) evil-cleverparens-mode-map
+;;     "{" nil
+;;     "}" nil))
 
 (load! "+bindings")

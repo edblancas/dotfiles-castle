@@ -69,6 +69,7 @@
 (package! tempel)
 (package! tempel-collection)
 (package! jinx)
+(package! highlight-parentheses)
 
 (unpin! iedit)
 (unpin! evil-multiedit)
