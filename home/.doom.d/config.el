@@ -563,8 +563,8 @@ _u_: undo  _C-r_: redo  _C-SPC_: set mark  _s_: toggle strict  "
 (defun evil-cp-enable-text-objects ()
   "Enables text-objects defined in evil-cleverparens."
   ;; f is not working
-  (define-key evil-outer-text-objects-map "s" #'evil-cp-a-form)
-  (define-key evil-inner-text-objects-map "s" #'evil-cp-inner-form)
+  (define-key evil-outer-text-objects-map "x" #'evil-cp-a-form)
+  (define-key evil-inner-text-objects-map "x" #'evil-cp-inner-form)
   (define-key evil-outer-text-objects-map "c" #'evil-cp-a-comment)
   (define-key evil-inner-text-objects-map "c" #'evil-cp-inner-comment)
   (define-key evil-outer-text-objects-map "d" #'evil-cp-a-defun)
