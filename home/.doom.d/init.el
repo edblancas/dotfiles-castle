@@ -109,7 +109,7 @@
        ;;terraform         ; infrastructure as code
        tmux              ; an API for interacting with tmux
        ;;upload            ; map local to remote projects via ssh/ftp
-       tree-sitter
+       ;;tree-sitter
 
        :os
        (:if IS-MAC macos)  ; improve compatibility with macOS
@@ -120,8 +120,7 @@
        ;;beancount         ; mind the GAAP
        ;;cc                ; C > C++ == 1
        (clojure
-        +lsp
-        +tree-sitter)          ; java with a lisp
+        +lsp)          ; java with a lisp
        ;;common-lisp       ; if you've seen one lisp, you've seen them all
        ;;coq               ; proofs-as-programs
        ;;crystal           ; ruby at the speed of c
