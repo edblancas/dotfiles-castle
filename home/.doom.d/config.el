@@ -591,11 +591,16 @@ _u_: undo  _C-r_: redo  _C-SPC_: set mark  _s_: toggle strict  "
 ;;     "{" nil
 ;;     "}" nil))
 
+;; for both grep and ripgrep
 (after! grep
   (progn
     (add-to-list 'grep-find-ignored-files ".transit*")
     (add-to-list 'grep-find-ignored-directories ".cache")
     (add-to-list 'grep-find-ignored-directories ".cpcache")
     (add-to-list 'grep-find-ignored-directories ".clj-kondo")))
+
+(use-package! consult-notes
+  :config
+  (add-hook! 'org-mode-hook #'consult-notes-org-roam-mode))
 
 (load! "+bindings")
