@@ -557,21 +557,28 @@ _u_: undo  _C-r_: redo  _C-SPC_: set mark  _s_: toggle strict  "
 ;; see https://github.com/emacs-evil/evil-cleverparens#installation
 (setq evil-move-beyond-eol t)
 
-(require 'evil-cleverparens-text-objects)
-
-;; this is taken from the evil-cleverparens-mode.el
-;; we require only the objects so the above file is not loaded
-;; hence we cannot use the fn and we copy-pasted here
-(defun evil-cp--enable-text-objects ()
+;; (require 'evil-cleverparens-text-objects)
+;; from evil-cleverparens.el
+;; evil-cp--enable-text-objects
+(defun evil-cp-enable-text-objects ()
   "Enables text-objects defined in evil-cleverparens."
-  (define-key evil-outer-text-objects-map "f" #'evil-cp-a-form)
-  (define-key evil-inner-text-objects-map "f" #'evil-cp-inner-form)
+  ;; f is not working
+  (define-key evil-outer-text-objects-map "s" #'evil-cp-a-form)
+  (define-key evil-inner-text-objects-map "s" #'evil-cp-inner-form)
   (define-key evil-outer-text-objects-map "c" #'evil-cp-a-comment)
   (define-key evil-inner-text-objects-map "c" #'evil-cp-inner-comment)
   (define-key evil-outer-text-objects-map "d" #'evil-cp-a-defun)
-  (define-key evil-inner-text-objects-map "d" #'evil-cp-inner-defun))
+  (define-key evil-inner-text-objects-map "d" #'evil-cp-inner-defun)
+  (define-key evil-outer-text-objects-map "W" #'evil-cp-a-WORD)
+  (define-key evil-inner-text-objects-map "W" #'evil-cp-inner-WORD))
+(evil-cp-enable-text-objects)
 
-(evil-cp--enable-text-objects)
+(after! clojure-mode
+  (remove-hook 'clojure-mode-hook #'rainbow-delimiters-mode))
+(after! elisp-mode
+  (remove-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode))
+
+(add-hook 'prog-mode-hook #'highlight-parentheses-mode)
 
 ;; (use-package! evil-cleverparens
 ;;   :commands evil-cleverparens-mode
