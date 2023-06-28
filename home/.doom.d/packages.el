@@ -70,7 +70,6 @@
 (package! tempel-collection)
 (package! jinx)
 (package! highlight-parentheses)
-(package! consult-notes)
 
 (unpin! iedit)
 (unpin! evil-multiedit)

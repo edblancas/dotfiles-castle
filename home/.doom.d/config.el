@@ -580,17 +580,6 @@ _u_: undo  _C-r_: redo  _C-SPC_: set mark  _s_: toggle strict  "
 
 (add-hook 'prog-mode-hook #'highlight-parentheses-mode)
 
-;; (use-package! evil-cleverparens
-;;   :commands evil-cleverparens-mode
-;;   :init
-;;   (add-hook! 'clojure-mode-hook #'evil-cleverparens-mode)
-;;   (add-hook! 'emacs-lisp-mode-hook #'evil-cleverparens-mode)
-;;   (setq evil-cleverparens-complete-parens-in-yanked-region t)
-;;   :config
-;;   (evil-define-key '(normal visual) evil-cleverparens-mode-map
-;;     "{" nil
-;;     "}" nil))
-
 ;; for both grep and ripgrep
 (after! grep
   (progn
@@ -598,9 +587,5 @@ _u_: undo  _C-r_: redo  _C-SPC_: set mark  _s_: toggle strict  "
     (add-to-list 'grep-find-ignored-directories ".cache")
     (add-to-list 'grep-find-ignored-directories ".cpcache")
     (add-to-list 'grep-find-ignored-directories ".clj-kondo")))
-
-(use-package! consult-notes
-  :config
-  (add-hook! 'org-mode-hook #'consult-notes-org-roam-mode))
 
 (load! "+bindings")
