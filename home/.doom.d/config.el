@@ -562,7 +562,7 @@ _u_: undo  _C-r_: redo  _C-SPC_: set mark  _s_: toggle strict  "
 ;; evil-cp--enable-text-objects
 (defun evil-cp-enable-text-objects ()
   "Enables text-objects defined in evil-cleverparens."
-  ;; f is not working
+  ;; f is not working with tree-sitter
   (define-key evil-outer-text-objects-map "f" #'evil-cp-a-form)
   (define-key evil-inner-text-objects-map "f" #'evil-cp-inner-form)
   (define-key evil-outer-text-objects-map "c" #'evil-cp-a-comment)
