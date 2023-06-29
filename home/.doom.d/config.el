@@ -588,4 +588,7 @@ _u_: undo  _C-r_: redo  _C-SPC_: set mark  _s_: toggle strict  "
     (add-to-list 'grep-find-ignored-directories ".cpcache")
     (add-to-list 'grep-find-ignored-directories ".clj-kondo")))
 
+;; set vterm always in insert mode
+(add-hook 'vterm-mode-hook 'evil-emacs-state)
+
 (load! "+bindings")
