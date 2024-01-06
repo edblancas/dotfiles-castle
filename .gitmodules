@@ -37,3 +37,6 @@
 [submodule "home/.doom.d/themes"]
 	path = home/.doom.d/themes
 	url = https://github.com/catppuccin/emacs.git
+[submodule "home/.config/emacs"]
+	path = home/.config/emacs
+	url = https://github.com/doomemacs/doomemacs
