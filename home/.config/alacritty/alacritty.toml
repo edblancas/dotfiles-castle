@@ -36,28 +36,33 @@ style = "Italic"
 family = "MonoLisa Nerd Font"
 style = "Regular"
 
+# using shift+command+c to send alt+c to the terminal
 [[keyboard.bindings]]
-chars = "\u001Bc"
+chars = "\u001bc"
 key = "C"
-mods = "Alt"
+mods = "Shift|Command"
+# mods = "Alt" # not working wtf!
 
+# using shift+command+k to send alt+k to the terminal
 [[keyboard.bindings]]
-chars = "\u001Bk"
+chars = "\u001bk"
 key = "K"
-mods = "Alt"
+mods = "Shift|Command"
+# mods = "Alt" # not working wtf!
 
-[[keyboard.bindings]]
-chars = "\u000B"
-key = "K"
-mods = "Command"
+# tab key, not used
+#[[keyboard.bindings]]
+#chars = "\u000b"
+#key = "K"
+#mods = "Command"
 
 [[keyboard.bindings]]
 key = "Comma"
 mods = "Command"
 
-[keyboard.bindings.command]
-args = ["-c", "open ~/.config/alacritty/alacritty.yml"]
-program = "sh"
+  [keyboard.bindings.command]
+  args = ["-c", "open ~/.config/alacritty/alacritty.toml"]
+  program = "sh"
 
 [scrolling]
 history = 100000
