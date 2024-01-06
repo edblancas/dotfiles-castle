@@ -237,8 +237,8 @@ alias pscpu10=' ps aux | sort -nr -k 3 | head -10 '
 unsetopt MULTIOS
 
 ### fzf ###
-alias fzfnv='nvim $(fzf)'
-alias fzfv='vim $(fzf)'
+alias fzfnv='nvim $(fzf-tmux)'
+alias fzfv='vim $(fzf-tmux)'
 # use the silver searcher instead of `find`
 export FZF_DEFAULT_COMMAND='ag --hidden --follow --ignore .git -g ""'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
@@ -248,7 +248,8 @@ export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap 
 export FZF_ALT_C_OPTS="--select-1 --exit-0"
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 export FZF_TMUX=1
-export FZF_TMUX_OPTS="-p 90%,80%"
+# Key bindings (CTRL-T, CTRL-R, ALT-C) will use these options
+export FZF_TMUX_OPTS="-p100%,80%"
 
 ### PERSONAL OR WORK ###
 if [[ $USER == "dan" ]]; then
