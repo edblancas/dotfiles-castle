@@ -131,9 +131,16 @@
 (use-package! lsp-mode
   :commands lsp
   :init
+  ;; https://github.com/minad/corfu/wiki#advanced-example-configuration-with-orderless
+  (defun my/orderless-dispatch-flex-first (_pattern index _total)
+    (and (eq index 0) 'orderless-flex))
+
   (defun my/lsp-mode-setup-completion ()
     (setf (alist-get 'styles (alist-get 'lsp-capf completion-category-defaults))
           '(orderless))
+    ;; Optionally configure the first word as flex filtered.
+    (add-hook 'orderless-style-dispatchers #'my/orderless-dispatch-flex-first nil 'local)
+    ;; Optionally configure the cape-capf-buster.
     (setq-local completion-at-point-functions (list (cape-capf-buster #'lsp-completion-at-point))))
 
   :hook
@@ -351,23 +358,21 @@ If STRICT-P, return nil if no project was found, otherwise return
   (corfu-quit-no-match 'separator) ; Don't quit if there is `corfu-separator' inserted
   :bind
   (:map corfu-map ("C-'" . corfu-insert-separator))
-  :config
-  (general-add-advice '(corfu--setup corfu--teardown) :after 'evil-normalize-keymaps)
-  (evil-make-overriding-map corfu-map)
   :init
   (setq corfu-preselect 'first)
   (global-corfu-mode))
 
 ;; https://github.com/minad/corfu#completing-in-the-minibuffer
-(defun corfu-enable-in-minibuffer ()
-  "Enable Corfu in the minibuffer if `completion-at-point' is bound."
-  (when (where-is-internal #'completion-at-point (list (current-local-map)))
+(defun corfu-enable-always-in-minibuffer ()
+  "Enable Corfu in the minibuffer if Vertico/Mct are not active."
+  (unless (or (bound-and-true-p mct--active)
+              (bound-and-true-p vertico--input)
+              (eq (current-local-map) read-passwd-map))
     ;; (setq-local corfu-auto nil) ;; Enable/disable auto completion
     (setq-local corfu-echo-delay nil ;; Disable automatic echo and popup
                 corfu-popupinfo-delay nil)
     (corfu-mode 1)))
-
-(add-hook 'minibuffer-setup-hook #'corfu-enable-in-minibuffer)
+(add-hook 'minibuffer-setup-hook #'corfu-enable-always-in-minibuffer 1)
 
 (after! doom-themes
   (setq doom-themes-enable-bold t
