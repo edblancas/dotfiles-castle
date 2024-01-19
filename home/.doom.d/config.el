@@ -123,6 +123,13 @@
 
 (use-package! lsp-mode
   :commands lsp
+  :init
+  (defun my/lsp-mode-setup-completion ()
+    (setf (alist-get 'styles (alist-get 'lsp-capf completion-category-defaults))
+          '(orderless))) ;; Configure orderless
+
+  :hook
+  (lsp-completion-mode . my/lsp-mode-setup-completion)
   :config
   (setq lsp-headerline-breadcrumb-enable   nil
         ;; conflicts with current emacs lsp-mode
@@ -330,6 +337,10 @@ If STRICT-P, return nil if no project was found, otherwise return
 (modify-syntax-entry ?_ "w" emacs-lisp-mode-syntax-table)
 
 (use-package! corfu
+  :custom
+  (corfu-separator ?\s)
+  :bind
+  (:map corfu-map ("C-'" . corfu-insert-separator))
   :init
   (global-corfu-mode))
 
