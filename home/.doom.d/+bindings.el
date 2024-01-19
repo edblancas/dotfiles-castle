@@ -16,6 +16,7 @@
 (undefine-key! global-map "s-o")
 (undefine-key! global-map "C-j")
 (undefine-key! global-map "C-k")
+(undefine-key! global-map "C-SPC")
 
 (global-set-key (kbd "s-e") #'recentf-open-files)
 (global-set-key (kbd "M-S-<up>") #'drag-stuff-up)

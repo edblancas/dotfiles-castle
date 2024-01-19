@@ -139,7 +139,7 @@
     (setf (alist-get 'styles (alist-get 'lsp-capf completion-category-defaults))
           '(orderless))
     ;; Optionally configure the first word as flex filtered.
-    (add-hook 'orderless-style-dispatchers #'my/orderless-dispatch-flex-first nil 'local)
+    ;; (add-hook 'orderless-style-dispatchers #'my/orderless-dispatch-flex-first nil 'local)
     ;; Optionally configure the cape-capf-buster.
     (setq-local completion-at-point-functions (list (cape-capf-buster #'lsp-completion-at-point))))
 
@@ -354,12 +354,13 @@ If STRICT-P, return nil if no project was found, otherwise return
 (use-package! corfu
   :custom
   (corfu-separator ?\s)
-  (corfu-quit-at-boundary 'separator)     ; a non-nil value is necessary
+  (corfu-quit-at-boundary 'separator) ; a non-nil value is necessary
   (corfu-quit-no-match 'separator) ; Don't quit if there is `corfu-separator' inserted
   :bind
-  (:map corfu-map ("C-'" . corfu-insert-separator))
-  :init
+  (:map corfu-map ("C-SPC" . corfu-insert-separator))
+  :config
   (setq corfu-preselect 'first)
+  :init
   (global-corfu-mode))
 
 ;; https://github.com/minad/corfu#completing-in-the-minibuffer
