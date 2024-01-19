@@ -234,7 +234,10 @@
 
 (map! :after cape
       :i
-      "C-c f" #'cape-file)
+      "C-c p f" #'cape-file
+      "C-c p :" #'cape-emoji
+      "C-c p h" #'cape-history
+      "C-c p d" #'cape-dabbrev)
 
 (map! :after consult
       "M-h" #'consult-history)
