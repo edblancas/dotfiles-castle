@@ -347,9 +347,15 @@ If STRICT-P, return nil if no project was found, otherwise return
 (use-package! corfu
   :custom
   (corfu-separator ?\s)
+  (corfu-quit-at-boundary 'separator)     ; a non-nil value is necessary
+  (corfu-quit-no-match 'separator) ; Don't quit if there is `corfu-separator' inserted
   :bind
   (:map corfu-map ("C-'" . corfu-insert-separator))
+  :config
+  (general-add-advice '(corfu--setup corfu--teardown) :after 'evil-normalize-keymaps)
+  (evil-make-overriding-map corfu-map)
   :init
+  (setq corfu-preselect 'first)
   (global-corfu-mode))
 
 ;; https://github.com/minad/corfu#completing-in-the-minibuffer
