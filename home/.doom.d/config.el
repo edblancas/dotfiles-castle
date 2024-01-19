@@ -121,12 +121,20 @@
 (use-package! treemacs-all-the-icons
   :after treemacs)
 
+(use-package orderless
+  :init
+  ;; This affects the minibuffer and non-lsp completion at point.
+  (setq completion-styles '(orderless partial-completion basic)
+        completion-category-defaults nil
+        completion-category-overrides '((file (styles partial-completion)))))
+
 (use-package! lsp-mode
   :commands lsp
   :init
   (defun my/lsp-mode-setup-completion ()
     (setf (alist-get 'styles (alist-get 'lsp-capf completion-category-defaults))
-          '(orderless))) ;; Configure orderless
+          '(orderless))
+    (setq-local completion-at-point-functions (list (cape-capf-buster #'lsp-completion-at-point))))
 
   :hook
   (lsp-completion-mode . my/lsp-mode-setup-completion)
