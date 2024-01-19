@@ -630,4 +630,4 @@ _u_: undo  _C-r_: redo  _C-SPC_: set mark  _s_: toggle strict  "
   :config
   (add-to-list 'corfu-margin-formatters #'kind-icon-margin-formatter))
 
--(load! "+bindings")
+(load! "+bindings")
