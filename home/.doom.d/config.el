@@ -622,4 +622,12 @@ _u_: undo  _C-r_: redo  _C-SPC_: set mark  _s_: toggle strict  "
 ;; set vterm always in insert mode
 (add-hook 'vterm-mode-hook 'evil-emacs-state)
 
-(load! "+bindings")
+(use-package! kind-icon
+  :after corfu
+  :custom
+  (kind-icon-blend-background t)
+  (kind-icon-default-face 'corfu-default) ; only needed with blend-background
+  :config
+  (add-to-list 'corfu-margin-formatters #'kind-icon-margin-formatter))
+
+-(load! "+bindings")

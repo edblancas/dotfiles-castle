@@ -75,3 +75,7 @@
 (unpin! evil-multiedit)
 (unpin! evil)
 (unpin! cider)
+
+;; using kind-icon instead of nerd-icons-corfu
+(package! nerd-icons-corfu :disable t)
+(package! kind-icon)
