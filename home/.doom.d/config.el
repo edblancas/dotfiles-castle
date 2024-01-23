@@ -111,6 +111,8 @@
  evil-collection-setup-minibuffer t
  org-directory "~/Dropbox/org")
 
+(setq catppuccin-flavor 'macchiato) ;; 'frappe, 'latte, 'macchiato, or 'mocha
+
 (after! projectile
   (add-to-list 'projectile-project-root-files-bottom-up "project.clj"))
 
