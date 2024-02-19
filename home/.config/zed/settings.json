@@ -7,12 +7,14 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "theme": "Ultimate Dark Neo",
   "vim_mode": true,
-  "ui_font_size": 16,
+  "ui_font_size": 15,
   "buffer_font_size": 16,
   "base_keymap": "JetBrains",
   "buffer_font_family": "MonoLisa Nerd Font",
   "cursor_blink": false,
   "tab_size": 2,
-  "theme": "Catppuccin Macchiato"
+  "relative_line_numbers": true,
+  "wrap_guides": [80]
 }
