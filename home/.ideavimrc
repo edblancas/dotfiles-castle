@@ -73,7 +73,7 @@ map <c-k> <c-w>k
 nnoremap <CR> :nohlsearch<CR>
 
 " Smash escape
-inoremap jk <Esc>
+"inoremap jk <Esc>
 inoremap kj <Esc>
 inoremap JK <Esc>
 inoremap KJ <Esc>

@@ -1,6 +1,6 @@
 # PATH
 # Java Home default to version 11
-export JAVA_HOME=`/usr/libexec/java_home -v 11`
+export JAVA_HOME=`/usr/libexec/java_home -v 22`
 
 # local apps installed like vim from github
 export HOME_LOCAL="$HOME/local"

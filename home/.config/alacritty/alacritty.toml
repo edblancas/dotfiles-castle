@@ -36,6 +36,7 @@ style = "Italic"
 family = "MonoLisa Nerd Font"
 style = "Regular"
 
+# https://github.com/alacritty/alacritty/wiki/Keyboard-mappings
 # using shift+command+c to send alt+c to the terminal
 [[keyboard.bindings]]
 chars = "\u001bc"
