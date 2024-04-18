@@ -5,10 +5,6 @@ export JAVA_HOME=`/usr/libexec/java_home -v 22`
 # local apps installed like vim from github
 export HOME_LOCAL="$HOME/local"
 
-# Homebrew binaries, the paths are not exclusive of homebrew!
-export HOMEBREW="/usr/local"
-export HOMEBREW_COREUTILS="/usr/local/opt/coreutils/libexec"
-
 export PATH="$JAVA_HOME/bin:$M2:$HOMEBREW_COREUTILS/gnubin:$HOMEBREW/bin:$HOMEBREW/sbin:/opt/local/bin:/opt/local/sbin:$PATH"
 
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:/opt/local/share/man:$MANPATH"
@@ -18,3 +14,6 @@ export PATH="$HOME/bin:$PATH"
 
 # Add user base binary directory for python (pipenv, pep8, ...)
 export PATH="$HOME/Library/Python/3.9/bin:$PATH"
+
+# use ruby from hombrew and not the outdated ruby from os
+export PATH="/usr/local/opt/ruby/bin:$PATH"

@@ -40,3 +40,9 @@
 [submodule "home/.config/emacs"]
 	path = home/.config/emacs
 	url = https://github.com/doomemacs/doomemacs
+[submodule "home/.config/oh-my-zsh/custom/plugins/zsh-autocomplete"]
+	path = home/.config/oh-my-zsh/custom/plugins/zsh-autocomplete
+	url = https://github.com/marlonrichert/zsh-autocomplete.git
+[submodule "home/.utils/z"]
+	path = home/.utils/z
+	url = https://github.com/rupa/z.git

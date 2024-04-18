@@ -1,15 +1,23 @@
 # dracula zsh syntax highlighting before activating the plugin oh-my-zsh
 source $HOME/.config/dracula_zsh-syntax-highlighting/zsh-syntax-highlighting.sh
 
+# Homebrew installation
+# Homebrew binaries, the paths are not exclusive of homebrew!
+export HOMEBREW=$(brew --prefix)
+export HOMEBREW_COREUTILS="$HOMBREW/opt/coreutils/libexec"
+
+### Hombrew completions ###
+FPATH="$HOMEBREW/share/zsh/site-functions:${FPATH}"
+
 ### START OH-MY-ZSH ###
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME=""
-plugins=(common-aliases zsh-syntax-highlighting history-substring-search web-search docker git-flow docker-compose zsh-autosuggestions zsh-vi-mode)
+plugins=(zsh-autocomplete git common-aliases zsh-syntax-highlighting history-substring-search web-search docker git-flow docker-compose zsh-autosuggestions zsh-vi-mode)
 
 # zsh-autosuggest plugin settings
 # https://github.com/zsh-users/zsh-autosuggestions
 # without this alacritty doesn't show the suggestions with dracula-pro
-# e.g. 
+# e.g.
 # ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=cyan,bold,underline"
 
 # Override custom dir, inside custom themes or plugins
@@ -41,8 +49,8 @@ bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
 # fix history-substring-search for zsh-vi-mode overwriting bindings
-# without this, if you start writing e.g. `ls ` up and down only 
-# goes forward and backwards command history, and the correct behavior 
+# without this, if you start writing e.g. `ls ` up and down only
+# goes forward and backwards command history, and the correct behavior
 # must be that search with the first chars entered.
 # https://github.com/jeffreytse/zsh-vi-mode#execute-extra-commands
 # The plugin will auto execute this zvm_after_lazy_keybindings function
@@ -180,12 +188,6 @@ function removeFromPath() {
   export PATH=$(echo $PATH | sed -E -e "s;:$1;;" -e "s;$1:?;;")
 }
 
-### Completitions ###
-# This is cause it was in the .path_macOS but when starting a tmux session the functions 
-# where not available inside
-[[ -s /opt/homebrew/share/autojump/autojump.zsh ]] && source /opt/homebrew/share/autojump/autojump.zsh
-fpath=(/opt/homebrew/share/zsh-completions $fpath)
-
 ### Node Settings ###
 # Enable persistent REPL history for `node`.
 export NODE_REPL_HISTORY=~/.node_history;
@@ -227,17 +229,16 @@ unsetopt MULTIOS
 ### fzf ###
 alias fzfnv='nvim $(fzf-tmux)'
 alias fzfv='vim $(fzf-tmux)'
+export FZF_TMUX=1
+# not working
+export FZF_TMUX_OPTS='-p80%,60%'
+export FZF_DEFAULT_OPTS='--no-height'
 # use the silver searcher instead of `find`
 export FZF_DEFAULT_COMMAND='ag --hidden --follow --ignore .git -g ""'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_CTRL_T_OPTS='--preview "bat --style=numbers --color=always --line-range :500 {}"'
-export FZF_CTRL_T_OPTS="--select-1 --exit-0"
 export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
-export FZF_ALT_C_OPTS="--select-1 --exit-0"
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
-export FZF_TMUX=1
-# Key bindings (CTRL-T, CTRL-R, ALT-C) will use these options
-export FZF_TMUX_OPTS="-p100%,80%"
 
 ### PERSONAL OR WORK ###
 if [[ $USER == "dan" ]]; then
@@ -293,6 +294,8 @@ _bb_tasks() {
 compdef _bb_tasks bb
 ## END BABASHKA ###
 
+# jump around
+. $HOME/.homesick/repos/dotfiles-castle/home/.utils/z/z.sh
+
 ### COMMON PATH SETTINGS ###
 export PATH=$PATH:~/.config/nvim/plugged/vim-iced/bin
-
