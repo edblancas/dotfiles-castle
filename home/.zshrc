@@ -299,3 +299,14 @@ compdef _bb_tasks bb
 
 ### COMMON PATH SETTINGS ###
 export PATH=$PATH:~/.config/nvim/plugged/vim-iced/bin
+
+# Created by `pipx` on 2024-05-02 19:24:48
+export PATH="$PATH:$HOME/.local/bin"
+
+eval "$(register-python-argcomplete pipx)"
+
+# Seems this path env is only for linux, meh replicating here
+export XDG_CONFIG_HOME="$HOME/.config"
+
+### PTPYTHON ###
+export PTPYTHON_CONFIG_HOME="$XDG_CONFIG_HOME/ptpython"
