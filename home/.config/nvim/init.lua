@@ -17,22 +17,9 @@ if not vim.loop.fs_stat(lazypath) then
 end
 
 vim.opt.runtimepath:prepend(lazypath)
+vim.loader.enable()
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 
-require("lazy").setup({
-    {
-      "folke/lazy.nvim",
-      version = "*"
-    },
-    {
-      "Olical/nfnl",
-      ft = "fennel",
-      dependencies = { "norcalli/nvim.lua" },
-      init = function()
-        require("config")
-      end
-    }
-  })
-
+require("lazy").setup("plugins")
