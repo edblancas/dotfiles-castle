@@ -28,6 +28,9 @@ ZSH_CUSTOM=$HOME/.config/oh-my-zsh/custom
 source $ZSH/oh-my-zsh.sh
 ### END OH-MY-ZSH ###
 
+## Load completions
+autoload -Uz compinit && compinit
+
 # https://gist.github.com/zulhfreelancer/9c410cad5efa9c5f7c74cd0849765865
 # man strftime
 RPROMPT="[%D{%a %f %b} %D{%T}]"
@@ -297,9 +300,6 @@ _bb_tasks() {
 compdef _bb_tasks bb
 ## END BABASHKA ###
 
-# jump around
-. $HOME/.homesick/repos/dotfiles-castle/home/.utils/z/z.sh
-
 ### COMMON PATH SETTINGS ###
 export PATH=$PATH:~/.config/nvim/plugged/vim-iced/bin
 
@@ -317,4 +317,8 @@ export PTPYTHON_CONFIG_HOME="$XDG_CONFIG_HOME/ptpython"
 ### fzf-tab ###
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'gls --color -A $realpath'
+
+### zoxide ###
+zstyle ':fzf-tab:complete:z:*' fzf-preview 'gls --color -A $realpath'
+eval "$(zoxide init zsh)"
 
