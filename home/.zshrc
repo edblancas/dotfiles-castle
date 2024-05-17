@@ -6,13 +6,16 @@ source $HOME/.config/dracula_zsh-syntax-highlighting/zsh-syntax-highlighting.sh
 export HOMEBREW=$(brew --prefix)
 export HOMEBREW_COREUTILS="$HOMBREW/opt/coreutils/libexec"
 
+### zsh-completions ###
+fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
+
 ### Hombrew completions ###
 FPATH="$HOMEBREW/share/zsh/site-functions:${FPATH}"
 
 ### START OH-MY-ZSH ###
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME=""
-plugins=(zsh-autocomplete git common-aliases zsh-syntax-highlighting history-substring-search web-search docker git-flow docker-compose zsh-autosuggestions zsh-vi-mode)
+plugins=(git common-aliases zsh-syntax-highlighting history-substring-search web-search docker git-flow docker-compose zsh-autosuggestions zsh-vi-mode fzf-tab sudo command-not-found)
 
 # zsh-autosuggest plugin settings
 # https://github.com/zsh-users/zsh-autosuggestions
@@ -310,3 +313,8 @@ export XDG_CONFIG_HOME="$HOME/.config"
 
 ### PTPYTHON ###
 export PTPYTHON_CONFIG_HOME="$XDG_CONFIG_HOME/ptpython"
+
+### fzf-tab ###
+zstyle ':completion:*' menu no
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'gls --color -A $realpath'
+

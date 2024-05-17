@@ -46,3 +46,9 @@
 [submodule "home/.utils/z"]
 	path = home/.utils/z
 	url = https://github.com/rupa/z.git
+[submodule "home/.config/oh-my-zsh/custom/plugins/zsh-completions"]
+	path = home/.config/oh-my-zsh/custom/plugins/zsh-completions
+	url = https://github.com/zsh-users/zsh-completions
+[submodule "home/.config/oh-my-zsh/custom/plugins/fzf-tab"]
+	path = home/.config/oh-my-zsh/custom/plugins/fzf-tab
+	url = https://github.com/Aloxaf/fzf-tab
