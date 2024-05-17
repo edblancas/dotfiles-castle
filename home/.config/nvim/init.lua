@@ -25,10 +25,14 @@ vim.g.maplocalleader = ","
 require("lazy").setup({
     {
       "Olical/nfnl",
+      lazy = false,
       ft = "fennel",
       dependencies = { "norcalli/nvim.lua" },
       init = function()
+        local nfnl = require("nfnl.api")
+        nfnl["compile-all-files"]()
         require("config")
       end
     }
   })
+
