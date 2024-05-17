@@ -1,3 +1,5 @@
+-- based on https://github.com/rafaeldelboni/cajus-nfnl
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
 if not vim.loop.fs_stat(lazypath) then
@@ -15,22 +17,20 @@ if not vim.loop.fs_stat(lazypath) then
 end
 
 vim.opt.runtimepath:prepend(lazypath)
-vim.loader.enable()
 
--- Make sure to set `mapleader` before lazy so your mappings are correct
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 
--- loosely based on https://github.com/rafaeldelboni/cajus-nfnl
 require("lazy").setup({
     {
+      "folke/lazy.nvim",
+      version = "*"
+    },
+    {
       "Olical/nfnl",
-      lazy = false,
       ft = "fennel",
       dependencies = { "norcalli/nvim.lua" },
       init = function()
-        local nfnl = require("nfnl.api")
-        nfnl["compile-all-files"]()
         require("config")
       end
     }
