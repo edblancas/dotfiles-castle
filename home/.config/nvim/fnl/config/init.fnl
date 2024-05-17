@@ -10,9 +10,9 @@
       {;tabs is space
        :expandtab true
        ;tab/indent size
-       :tabstop 2
-       :shiftwidth 2
-       :softtabstop 2
+       :tabstop 4
+       :shiftwidth 4
+       :softtabstop 4
        ;settings needed for compe autocompletion
        :completeopt "menuone,noselect"
        ;case insensitive search

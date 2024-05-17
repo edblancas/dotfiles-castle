@@ -35,10 +35,6 @@ backups
 .recentf
 custom.el
 
-# fnl->lua nvim
-home/.config/nvim/lua/
-plugin/packer_compiled.lua
-
 home/.config/zed/embeddings/
 home/.config/zed/.tmp*
 
