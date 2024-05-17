@@ -21,4 +21,8 @@ vim.loader.enable()
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 
+-- Set up core plugins, Lazy and nfnl
+-- https://github.com/folke/lazy.nvim?tab=readme-ov-file#-structuring-your-plugins
+-- Any lua file in ~/.config/nvim/lua/plugins/*.lua will be automatically 
+--   merged in the main plugin spec
 require("lazy").setup("plugins")
