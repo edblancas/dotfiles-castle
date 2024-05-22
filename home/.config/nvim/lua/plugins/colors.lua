@@ -7,8 +7,6 @@ local function color_my_pencils(_3fcolor)
 end
 local function _1_()
   local rose_pine = require("rose-pine")
-  rose_pine.setup({disable_background = true})
-  vim.cmd("colorscheme rose-pine")
-  return color_my_pencils()
+  return vim.cmd("colorscheme rose-pine")
 end
 return {{"rose-pine/neovim", name = "rose-pine", config = _1_}}
