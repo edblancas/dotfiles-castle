@@ -85,8 +85,8 @@ ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
 
 ### START CONFIGURATIONS ###
 ### Envs ###
-export EDITOR='vim';
-export VISUAL='vim';
+export EDITOR='nvim';
+export VISUAL='nvim';
 # For good colors in tmux, TRUE COLOUR
 export TERM='xterm-256color-italic'
 # 1ms for key sequences, for zsh and vim, not zhs-vim-plugin
@@ -105,8 +105,8 @@ export LESS_TERMCAP_md="${yellow}";
 export MANPAGER='less -X';
 
 ### Alias ###
-alias zshconfig="vim $HOME/.zshrc"
-alias ohmyzsh="vim ~/.oh-my-zsh"
+alias zshconfig="nvim $HOME/.zshrc"
+alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias stmux="tmux attach -t dev || tmux new -s dev"
 alias c="clear"
 alias e="exit"
@@ -117,7 +117,7 @@ alias d="docker"
 alias reload="exec $SHELL -l"
 alias update_dotfiles_submodules="cd ~/.homesick/repos/dotfiles-castle && git submodule update --init --recursive"
 # Override system vi
-alias vi='vim'
+alias vi='nvim'
 alias ssh='TERM=xterm-256color ssh'
 # MVN alias
 alias mvnis='mvn clean install -DskipTests -Djacoco.skip=true -Dcheckstyle.skip -DskipITs -Dfindbugs.skip=true'
