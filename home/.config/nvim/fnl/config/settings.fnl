@@ -62,7 +62,8 @@
        :hlsearch true
        :statusline (str.join " " ["[%n]" "%f" "%m%y%r%h%w%=%-35.(%{&fenc==\"\"?&enc:&fenc}" "[%{&ff}]" "[%L,%p%%]" "[%l,%c%V]" "%)%P"])
        ;makes signcolumn always one column with signs and linenumber
-       :signcolumn "number"}]
+       :signcolumn "number"
+       :relativenumber true}]
   (each [option value (pairs options)]
     (core.assoc nvim.o option value)))
 

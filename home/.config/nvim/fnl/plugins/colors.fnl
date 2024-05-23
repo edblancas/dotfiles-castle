@@ -9,7 +9,7 @@
     :config (fn []
               (let [rose-pine (require :rose-pine)]
                 ;;(rose-pine.setup {:disable_background true})
-                (vim.cmd "colorscheme rose-pine")
+                (vim.cmd "colorscheme rose-pine-moon")
                 ;;(color-my-pencils)
                 ))}]
 
