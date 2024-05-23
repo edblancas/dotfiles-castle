@@ -10,8 +10,4 @@
 
  {1 :benmills/vimux}
  {1 :christoomey/vim-tmux-navigator}
- {1 :tmux-plugins/vim-tmux}
-
- {1 :bakpakin/fennel.vim
-  :lazy true
-  :ft [:fennel]}]
+ {1 :tmux-plugins/vim-tmux}]

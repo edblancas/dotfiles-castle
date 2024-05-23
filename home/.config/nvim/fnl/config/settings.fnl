@@ -18,6 +18,9 @@
 ;don't wrap lines
 (nvim.ex.set :nowrap)
 
+(set nvim.o.termguicolors true)
+(set nvim.o.mouse "a")
+
 ;sets a nvim global options
 (let [options
       {:encoding "utf-8"
@@ -60,9 +63,9 @@
        :splitright true
        ;enable highlighting search
        :hlsearch true
-       :statusline (str.join " " ["[%n]" "%f" "%m%y%r%h%w%=%-35.(%{&fenc==\"\"?&enc:&fenc}" "[%{&ff}]" "[%L,%p%%]" "[%l,%c%V]" "%)%P"])
        ;makes signcolumn always one column with signs and linenumber
        :signcolumn "number"
+       :statusline (str.join " " ["[%n]" "%f" "%m%y%r%h%w%=%-35.(%{&fenc==\"\"?&enc:&fenc}" "[%{&ff}]" "[%L,%p%%]" "[%l,%c%V]" "%)%P"])
        :relativenumber true}]
   (each [option value (pairs options)]
     (core.assoc nvim.o option value)))
