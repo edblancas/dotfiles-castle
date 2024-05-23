@@ -4,7 +4,7 @@ local autoload = _local_1_["autoload"]
 local nvim = autoload("nvim")
 local function _2_()
   local tree = require("neo-tree")
-  return tree.setup({filesystem = {cwd_target = {current = "none"}}})
+  return tree.setup({})
 end
 local function _3_()
   nvim.ex.hi("NvimTreeSpecialFile ctermfg=7 guifg=#c6c6c6")

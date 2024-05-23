@@ -8,8 +8,7 @@
                    :MunifTanjim/nui.nvim]
     :config (fn []
               (let [tree (require :neo-tree)]
-                (tree.setup {:filesystem {;; Don't change the CWD if I open netrw style windows. 
-                                          :cwd_target {:current :none}}})))
+                (tree.setup {})))
     :init (fn []
             (nvim.ex.hi "NvimTreeSpecialFile ctermfg=7 guifg=#c6c6c6")
             (nvim.set_keymap :n :<leader>tt ":Neotree toggle<CR>" {:noremap true})
