@@ -2,11 +2,13 @@
 local function _1_()
   local telescope = require("telescope")
   local builtin = require("telescope.builtin")
-  telescope.setup({})
+  local themes = require("telescope.themes")
+  telescope.setup({defaults = {file_ignore_patterns = {"node_modules"}, vimgrep_arguments = {"rg", "--color=never", "--no-heading", "--with-filename", "--line-number", "--column", "--smart-case", "--iglob", "!.git", "--hidden"}}, extensions = {["ui-select"] = {themes.get_dropdown({})}}, pickers = {find_files = {find_command = {"rg", "--files", "--iglob", "!.git", "--hidden"}}}})
+  telescope.load_extension("ui-select")
   vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
-  vim.keymap.set("n", "<leader>pf", builtin.git_files, {})
-  vim.keymap.set("n", "<leader>hh", builtin.help_tags, {})
-  vim.keymap.set("n", "<leader>pb", builtin.buffers, {})
-  return vim.keymap.set("n", "<leader>ps", builtin.live_grep, {})
+  vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
+  vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
+  vim.keymap.set("n", "<leader>f.", builtin.git_files, {})
+  return vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
 end
-return {{"nvim-telescope/telescope.nvim", dependencies = {"nvim-lua/plenary.nvim"}, config = _1_}}
+return {{"nvim-telescope/telescope.nvim", dependencies = {"nvim-telescope/telescope-ui-select.nvim", "nvim-lua/plenary.nvim"}, config = _1_}}
