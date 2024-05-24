@@ -634,4 +634,11 @@ _u_: undo  _C-r_: redo  _C-SPC_: set mark  _s_: toggle strict  "
 
 (setq python-shell-completion-native-enable nil)
 
+(add-to-list 'lsp-language-id-configuration '(fennel-mode . "fennel"))
+(add-hook! 'fennel-mode-local-vars-hook 'lsp! 'append)
+(lsp-register-client (make-lsp-client
+                      :new-connection (lsp-stdio-connection "fennel-ls")
+                      :activation-fn (lsp-activate-on "fennel")
+                      :server-id 'fennel-ls))
+
 (load! "+bindings")

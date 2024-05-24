@@ -277,3 +277,9 @@
 (define-key yas-keymap [backtab]     nil)
 (define-key yas-keymap (kbd "M-<down>") 'yas-next-field)
 (define-key yas-keymap (kbd "M-<up>") 'yas-prev-field)
+
+(map! :map fennel-mode-map
+      :localleader
+      "'" #'fennel-format
+      "z" #'fennel-repl
+      "o" #'fennel-repl-clear-buffer)
