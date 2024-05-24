@@ -12,3 +12,4 @@
 
 ;escape from terminal normal mode
 (nvim.set_keymap :t :<esc><esc> "<c-\\><c-n>" {:noremap true})
+

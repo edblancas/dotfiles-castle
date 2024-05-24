@@ -15,6 +15,8 @@
 ;clojure tabsize
 (nvim.ex.autocmd "FileType" "clojure" "setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab")
 
+(nvim.ex.autocmd "BufRead,BufNewFile" "*.log" "set filetype=text")
+
 ;don't wrap lines
 (nvim.ex.set :nowrap)
 
@@ -25,26 +27,22 @@
 (let [options
       {:encoding "utf-8"
        :spelllang "en_us"
-       :backspace "2"
        :colorcolumn "80"
        :errorbells true
        :backup false
        :swapfile false
-       :showmode false
-       ;show line numbers
-       :number true
-       ;show line and column number
-       :ruler true
+       :showmode true
        ;settings needed for compe autocompletion
-       :completeopt "menuone,noselect"
-       ;turn on the wild menu, auto complete for commands in command line
-       :wildmenu true
+       ;ME: but select first option e.x. :set i<tab>
+       ;autocomplete the first option, not what I want
+       ;:completeopt "menuone,noselect"
+       :wildmode "list:longest,full"
        :wildignore "*/tmp/*,*.so,*.swp,*.zip"
        ;case insensitive search
        :ignorecase true
        ;smart search case
        :smartcase true
-       ;shared clipboard with linux
+       ;shared clipboard with os
        :clipboard "unnamedplus"
        ;show invisible characters
        :list true
@@ -65,9 +63,17 @@
        :hlsearch true
        ;makes signcolumn always one column with signs and linenumber
        :signcolumn "number"
+       :foldmethod "syntax"
+       :shell "zsh"
+       ;when using wrap
+       :showbreak "↳"
+       :breakindent true
+       :breakindentopt "shift:4,sbr"
        :statusline (str.join " " ["[%n]" "%f" "%m%y%r%h%w%=%-35.(%{&fenc==\"\"?&enc:&fenc}" "[%{&ff}]" "[%L,%p%%]" "[%l,%c%V]" "%)%P"])
        :relativenumber true}]
   (each [option value (pairs options)]
     (core.assoc nvim.o option value)))
 
 {}
+
+

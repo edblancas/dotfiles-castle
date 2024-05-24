@@ -46,27 +46,22 @@ call plug#end()
 " Config {{{1
 " Personal preferences not set by sensible.vim
 set showmode
-set hidden
 set foldmethod=syntax
 set tabstop=4 expandtab shiftwidth=4
-" No autowrap long lines
-set formatoptions-=t    
-set wildmode=list:longest,full
+set completeopt=menuone,noselect
 set ignorecase
 set smartcase
-set number
+set relativenumber
 set hlsearch
-set wrap
 set nobackup
-set nowritebackup
 set noswapfile
 set mouse=a
 set showmatch
-set colorcolumn=100
+set colorcolumn=80
 set vb t_vb=
-set scrolloff=3
 set clipboard=unnamed
 set clipboard+=unnamedplus
+set nowrap
 set pastetoggle=<F2>
 nnoremap <silent> <F2> :set invpaste paste?<CR>
 " fix cursor shape change when insert mode when in tmux, only for vim, nvim
@@ -85,12 +80,8 @@ let &showbreak="↳"
 set breakindent
 set breakindentopt=shift:4,sbr
 set listchars=tab:▸–,trail:·,nbsp:¬,eol:<
-set showtabline=2
-set guioptions-=e
-set laststatus=2
 set statusline=[%n]\ %f\ %m%y%r%h%w%=%-35.(%{&fenc==\"\"?&enc:&fenc}\ [%{&ff}]\ [%L,%p%%]\ [%l,%c%V]\ %)%P
 let mapleader = " "
-nnoremap Q <Nop>
 nnoremap <Leader>w :w<Enter>
 " For display spechial chars, when using with :set list
 let g:solarized_visibility="low"
