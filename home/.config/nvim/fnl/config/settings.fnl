@@ -17,6 +17,8 @@
 
 (nvim.ex.autocmd "BufRead,BufNewFile" "*.log" "set filetype=text")
 
+(nvim.ex.autocmd "BufRead,BufNewFile" "README" "set filetype=markdown")
+
 ;don't wrap lines
 (nvim.ex.set :nowrap)
 
