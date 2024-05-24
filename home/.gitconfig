@@ -63,7 +63,7 @@
   whitespace = fix
 
 [core]
-  editor = vim
+  editor = nvim
   quotepath = false
 
   # Use custom `.gitignore` and `.gitattributes`
