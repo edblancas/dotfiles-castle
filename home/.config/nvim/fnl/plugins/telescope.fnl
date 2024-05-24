@@ -23,9 +23,9 @@
                                                                       "!.git"
                                                                       "--hidden"]}}})
               (telescope.load_extension "ui-select")
-              (vim.keymap.set :n "<leader>ff" builtin.find_files {})
-              (vim.keymap.set :n "<leader>fg" builtin.live_grep {})
-              (vim.keymap.set :n "<leader>fb" builtin.buffers {})
-              (vim.keymap.set :n "<leader>f." builtin.git_files {})
-              (vim.keymap.set :n "<leader>fh" builtin.help_tags {})))}]
+              (vim.keymap.set :n "<leader>pf" builtin.find_files {})
+              (vim.keymap.set :n "<leader>ps" builtin.live_grep {})
+              (vim.keymap.set :n "<leader>pb" builtin.buffers {})
+              (vim.keymap.set :n "<leader>pg" builtin.git_files {})
+              (vim.keymap.set :n "<leader>hh" builtin.help_tags {})))}]
 
