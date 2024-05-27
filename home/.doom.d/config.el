@@ -641,4 +641,7 @@ _u_: undo  _C-r_: redo  _C-SPC_: set mark  _s_: toggle strict  "
                       :activation-fn (lsp-activate-on "fennel")
                       :server-id 'fennel-ls))
 
+;; https://camdez.com/blog/2020/07/03/interactively-evaluating-clojure-code-in-comments-in-emacs/
+(setq clojure-toplevel-inside-comment-form t)
+
 (load! "+bindings")
