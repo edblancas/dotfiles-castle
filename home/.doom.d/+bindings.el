@@ -197,7 +197,9 @@
       "R" #'edblancas/refresh-repl
       "p" #'portal.api/open
       "c" #'portal.api/clear
-      "r" #'hydra-cljr-help-menu/body)
+      "r" #'hydra-cljr-help-menu/body
+      :prefix "e"
+      "c" #'cider-eval-defun-to-comment)
 
 (map! :after java-mode
       :map java-mode-map
