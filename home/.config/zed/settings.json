@@ -16,5 +16,10 @@
   "cursor_blink": false,
   "tab_size": 2,
   "relative_line_numbers": true,
-  "wrap_guides": [80]
+  "wrap_guides": [80],
+  "languages": {
+    "TypeScript": {
+      "tab_size": 4
+    }
+  }
 }
