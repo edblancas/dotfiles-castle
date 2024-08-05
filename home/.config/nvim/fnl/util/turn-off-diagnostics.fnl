@@ -25,12 +25,14 @@
   (print (. conf :settings)) 
   (vim.diagnostic.get_namespaces)
   (vim.diagnostic.show 34 1 nil conf.settings)
-  (vim.diagnostic.hide 34 1) ;; this is the one
   (vim.notify "hello!!!" vim.log.levels.INFO)
 
   ; display fn not exists
   (let [lsp-diagnostic (require :vim.lsp.diagnostic)]
     (lsp-diagnostic.display nil 1 1 conf.settings))
+
+  (print (vim.inspect vim))
+  (vim.diagnostic.hide 34 1) ;; this is the one
   )
 
 {: turn-off-diagnostics-buffer

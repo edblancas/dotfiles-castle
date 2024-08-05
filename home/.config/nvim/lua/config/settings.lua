@@ -14,7 +14,7 @@ nvim.ex.set("nowrap")
 nvim.o.termguicolors = true
 nvim.o.mouse = "a"
 do
-  local options = {encoding = "utf-8", spelllang = "en_us", colorcolumn = "80", errorbells = true, showmode = true, wildmode = "list:longest,full", wildignore = "*/tmp/*,*.so,*.swp,*.zip", ignorecase = true, smartcase = true, clipboard = "unnamedplus", list = true, listchars = str.join(",", {"tab:\226\150\182-", "trail:\226\128\162", "extends:\194\187", "precedes:\194\171", "eol:\194\172"}), expandtab = true, tabstop = 4, shiftwidth = 4, softtabstop = 4, undofile = true, splitbelow = true, splitright = true, hlsearch = true, signcolumn = "number", foldmethod = "syntax", shell = "zsh", showbreak = "\226\134\179", breakindent = true, breakindentopt = "shift:4,sbr", statusline = str.join(" ", {"[%n]", "%f", "%m%y%r%h%w%=%-35.(%{&fenc==\"\"?&enc:&fenc}", "[%{&ff}]", "[%L,%p%%]", "[%l,%c%V]", "%)%P"}), backup = false, swapfile = false}
+  local options = {encoding = "utf-8", spelllang = "en_us", colorcolumn = "80", errorbells = true, showmode = true, wildmode = "list:longest,full", wildignore = "*/tmp/*,*.so,*.swp,*.zip", ignorecase = true, smartcase = true, clipboard = "unnamedplus", list = true, listchars = str.join(",", {"tab:\226\150\182-", "trail:\226\128\162", "extends:\194\187", "precedes:\194\171", "eol:\194\172"}), expandtab = true, tabstop = 4, shiftwidth = 4, softtabstop = 4, undofile = true, splitbelow = true, splitright = true, hlsearch = true, signcolumn = "number", foldmethod = "syntax", shell = "zsh", showbreak = "\226\134\179", breakindent = true, breakindentopt = "shift:4,sbr", nu = true, relativenumber = true, backup = false, swapfile = false}
   for option, value in pairs(options) do
     core.assoc(nvim.o, option, value)
   end

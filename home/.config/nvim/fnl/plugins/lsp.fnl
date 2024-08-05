@@ -20,17 +20,20 @@
                     fidget (require :fidget)
                     mason (require :mason)
                     mason-lspconfig (require :mason-lspconfig)
-                    cmp_select {:behavior cmp.SelectBehavior.Select}]
+                    cmp_select {:behavior cmp.SelectBehavior.Select}
+                    lspconfig (require :lspconfig)
+                    lspconfig-util (require :lspconfig.util)]
 
                 (fidget.setup {})
 
                 (mason.setup {})
-
                 (mason-lspconfig.setup {:ensure_installed [:pylsp]
                                         :handlers [(fn [server_name]
-                                                     (let [lspconfig (require :lspconfig)
-                                                           lspconfig-server (. lspconfig server_name)]
+                                                     (let [lspconfig-server (. (require :lspconfig) server_name)]
                                                        (lspconfig-server.setup {:capabilities capabilities})))]})
+
+                ;; manually intalled as the one from mason is outdated
+                (lspconfig.fennel_ls.setup {:root_dir (lspconfig-util.root_pattern "flsproject.fnl")})
 
                 (cmp.setup {:snippet {:expand (fn [args]
                                                 (let [luasnip (requiere :luasnip)]

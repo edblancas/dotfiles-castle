@@ -7,14 +7,16 @@ local function _1_()
   local mason = require("mason")
   local mason_lspconfig = require("mason-lspconfig")
   local cmp_select = {behavior = cmp.SelectBehavior.Select}
+  local lspconfig = require("lspconfig")
+  local lspconfig_util = require("lspconfig.util")
   fidget.setup({})
   mason.setup({})
   local function _2_(server_name)
-    local lspconfig = require("lspconfig")
-    local lspconfig_server = lspconfig[server_name]
+    local lspconfig_server = require("lspconfig")[server_name]
     return lspconfig_server.setup({capabilities = capabilities})
   end
   mason_lspconfig.setup({ensure_installed = {"pylsp"}, handlers = {_2_}})
+  lspconfig.fennel_ls.setup({root_dir = lspconfig_util.root_pattern("flsproject.fnl")})
   local function _3_(args)
     local luasnip = requiere("luasnip")
     return luasnip.lsp_expand(args.body)

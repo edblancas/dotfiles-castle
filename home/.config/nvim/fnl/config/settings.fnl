@@ -66,14 +66,15 @@
        ;enable highlighting search
        :hlsearch true
        ;makes signcolumn always one column with signs and linenumber
-       :signcolumn "number"
+       :signcolumn "number" ;"yes"
        :foldmethod "syntax"
        :shell "zsh"
        ;when using wrap
        :showbreak "↳"
        :breakindent true
        :breakindentopt "shift:4,sbr"
-       :statusline (str.join " " ["[%n]" "%f" "%m%y%r%h%w%=%-35.(%{&fenc==\"\"?&enc:&fenc}" "[%{&ff}]" "[%L,%p%%]" "[%l,%c%V]" "%)%P"])}]
+       :nu true
+       :relativenumber true }]
   (each [option value (pairs options)]
     (core.assoc nvim.o option value)))
 

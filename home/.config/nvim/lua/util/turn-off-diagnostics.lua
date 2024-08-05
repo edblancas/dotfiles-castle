@@ -19,7 +19,7 @@ local function turn_off_diagnostics_buffer()
   end
   return nil
 end
---[[ (vim.lsp.get_active_clients) (each [_ buffer_id (ipairs (vim.lsp.get_buffers_by_client_id 1))] (print buffer_id conf.settings)) (print conf.settings) (print (. conf "settings")) (vim.diagnostic.get_namespaces) (vim.diagnostic.show 34 1 nil conf.settings) (vim.diagnostic.hide 34 1) (vim.notify "hello!!!" vim.log.levels.INFO) (let [lsp-diagnostic (require "vim.lsp.diagnostic")] (lsp-diagnostic.display nil 1 1 conf.settings)) ]]
+--[[ (vim.lsp.get_active_clients) (each [_ buffer_id (ipairs (vim.lsp.get_buffers_by_client_id 1))] (print buffer_id conf.settings)) (print conf.settings) (print (. conf "settings")) (vim.diagnostic.get_namespaces) (vim.diagnostic.show 34 1 nil conf.settings) (vim.notify "hello!!!" vim.log.levels.INFO) (let [lsp-diagnostic (require "vim.lsp.diagnostic")] (lsp-diagnostic.display nil 1 1 conf.settings)) (print (vim.inspect vim)) (vim.diagnostic.hide 34 1) ]]
 local function _2_()
   return print("works!!!")
 end
