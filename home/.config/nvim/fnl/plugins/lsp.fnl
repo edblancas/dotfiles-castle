@@ -21,24 +21,24 @@
                     mason (require :mason)
                     mason-lspconfig (require :mason-lspconfig)
                     cmp_select {:behavior cmp.SelectBehavior.Select}]
+
                 (fidget.setup {})
+
                 (mason.setup {})
-                (mason-lspconfig.setup {:ensure_installed [:pyright]
+
+                (mason-lspconfig.setup {:ensure_installed [:pylsp]
                                         :handlers [(fn [server_name]
                                                      (let [lspconfig (require :lspconfig)
                                                            lspconfig-server (. lspconfig server_name)]
                                                        (lspconfig-server.setup {:capabilities capabilities})))]})
+
                 (cmp.setup {:snippet {:expand (fn [args]
                                                 (let [luasnip (requiere :luasnip)]
                                                   (luasnip.lsp_expand args.body)))}
                             :mapping (cmp.mapping.preset.insert {"<C-p>" (cmp.mapping.select_prev_item cmp_select)
+                                                                 "<S-Tab>" (cmp.mapping.select_prev_item cmp_select)
                                                                  "<C-n>" (cmp.mapping.select_next_item cmp_select)
+                                                                 "<Tab>" (cmp.mapping.select_next_item cmp_select)
                                                                  "<CR>" (cmp.mapping.confirm {:select true})
                                                                  "<C-Space>" (cmp.mapping.complete)})
-                            :sources (cmp.config.sources [{:name :nvim_lsp} {:name :luasnip}] [{:name :buffer}])})
-                (vim.diagnostic.config {:float {:focusable false
-                                                :style :minimal
-                                                :border :rounded
-                                                :source :always
-                                                :header ""
-                                                :prefix ""}})))}]
+                            :sources (cmp.config.sources [{:name :nvim_lsp} {:name :luasnip}] [{:name :buffer}])})))}]

@@ -19,6 +19,8 @@
 
 (nvim.ex.autocmd "BufRead,BufNewFile" "README" "set filetype=markdown")
 
+;(nvim.ex.autocmd "BufRead,BufEnter" "conjure-log-*" ":lua require 'util.turn-off-diagnostics'.turn-off-diagnostics-buffer()")
+
 ;don't wrap lines
 (nvim.ex.set :nowrap)
 
