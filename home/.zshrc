@@ -116,8 +116,9 @@ alias d="docker"
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec $SHELL -l"
 alias update_dotfiles_submodules="cd ~/.homesick/repos/dotfiles-castle && git submodule update --init --recursive"
-# Override system vi
+# Override system vi and vim
 alias vi='nvim'
+alias vim='nvim'
 alias ssh='TERM=xterm-256color ssh'
 # MVN alias
 alias mvnis='mvn clean install -DskipTests -Djacoco.skip=true -Dcheckstyle.skip -DskipITs -Dfindbugs.skip=true'

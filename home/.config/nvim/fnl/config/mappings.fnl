@@ -19,4 +19,17 @@
 ;;   https://stackoverflow.com/a/23546206
 (vim.keymap.set :i "<C-l>" "()<Left>" {:noremap true})
 
-{}
+(vim.keymap.set :i :<D-l> "Cmd + l" {:noremap true})
+(vim.keymap.set :i :<M-C-l> "Option + Control  + l" {:noremap true})
+(vim.keymap.set :i :¬ "Option  + l" {:noremap true})
+
+; Meta only works with cmd
+; <D-l> Cmd+l
+; <D-L> Cmd+Shift+l
+; <M-D-l> Opt+Cmd+l
+; <M-D-L> Opt+Cmd+Shift+l
+; <C-D-L> Ctrl+Cmd+l
+; <C-S-D-L> Ctrl+Cmd+Shift+L
+; <M-C-D-;> Opt+Ctrl+Cmd+;
+; <M-C-S-D-L> Opt+Ctrl+Cmd+Shift;
+; in mac <M-l> outputs ¬
