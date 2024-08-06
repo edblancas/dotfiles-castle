@@ -9,6 +9,6 @@ local function _1_()
   vim.keymap.set("n", "<leader>fs", builtin.live_grep, {})
   vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
   vim.keymap.set("n", "<leader>fg", builtin.git_files, {})
-  return vim.keymap.set("n", "<leader>hh", builtin.help_tags, {})
+  return vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
 end
 return {{"nvim-telescope/telescope.nvim", dependencies = {"nvim-telescope/telescope-ui-select.nvim", "nvim-lua/plenary.nvim"}, config = _1_}}

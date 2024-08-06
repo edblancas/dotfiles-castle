@@ -17,7 +17,6 @@
 ;;   https://www.reddit.com/r/neovim/comments/uuh8xw/noob_vimkeymapset_vs_vimapinvim_set_keymap_key/
 ;; we don't use C-; cuz vim can't capture, see link:
 ;;   https://stackoverflow.com/a/23546206
-(vim.keymap.set :i :<C-l> "()<Left>" {:noremap true})
+(vim.keymap.set :i "<C-l>" "()<Left>" {:noremap true})
 
 {}
-

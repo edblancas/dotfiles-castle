@@ -36,34 +36,15 @@ style = "Italic"
 family = "MonoLisa Nerd Font"
 style = "Regular"
 
-# https://github.com/alacritty/alacritty/wiki/Keyboard-mappings
-# using shift+command+c to send alt+c to the terminal
-[[keyboard.bindings]]
-chars = "\u001bc"
-key = "C"
-mods = "Shift|Command"
-# mods = "Alt" # not working wtf!
-
-# using shift+command+k to send alt+k to the terminal
-[[keyboard.bindings]]
-chars = "\u001bk"
-key = "K"
-mods = "Shift|Command"
-# mods = "Alt" # not working wtf!
-
-# tab key, not used
-#[[keyboard.bindings]]
-#chars = "\u000b"
-#key = "K"
-#mods = "Command"
-
-[[keyboard.bindings]]
-key = "Comma"
-mods = "Command"
-
-  [keyboard.bindings.command]
-  args = ["-c", "open ~/.config/alacritty/alacritty.toml"]
-  program = "sh"
+## https://github.com/alacritty/alacritty/wiki/Keyboard-mappings
+[keyboard]
+bindings = [
+  { key = "c", mods = "Alt", chars = "\u001bc" },
+    # this works but didn't find the chars for send to the term
+    #{ key = "l", mods = "Control|Shift", chars = "" },
+    #{ key = "l", mods = "Control|Command", chars = "" },
+  { key = "Comma", mods = "Command", command = { args = ["-c", "open ~/.config/alacritty/alacritty.toml"], program = "sh"}}
+]
 
 [scrolling]
 history = 100000
