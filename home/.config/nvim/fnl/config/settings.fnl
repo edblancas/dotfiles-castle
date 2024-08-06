@@ -31,16 +31,21 @@
 (let [options
       {:encoding "utf-8"
        :spelllang "en_us"
+       :backspace "2"
        :colorcolumn "80"
        :errorbells true
        :backup false
        :swapfile false
-       :showmode true
+       :showmode false
+       ;both settings to show current line number
+       :number true
+       :relativenumber true
+       ;show line and column number
+       :ruler true
        ;settings needed for compe autocompletion
-       ;ME: but select first option e.x. :set i<tab>
-       ;autocomplete the first option, not what I want
-       ;:completeopt "menuone,noselect"
-       :wildmode "list:longest,full"
+       :completeopt "menuone,noselect"
+       ;turn on the wild menu, auto complete for commands in command line
+       :wildmenu true
        :wildignore "*/tmp/*,*.so,*.swp,*.zip"
        ;case insensitive search
        :ignorecase true
@@ -65,16 +70,16 @@
        :splitright true
        ;enable highlighting search
        :hlsearch true
-       ;makes signcolumn always one column with signs and linenumber
-       :signcolumn "number" ;"yes"
+       ;"number" makes signcolumn always one column with signs and linenumber
+       ;"yes" makes signcolumn for both signs and linenumber
+       :signcolumn "yes"
        :foldmethod "syntax"
        :shell "zsh"
        ;when using wrap
        :showbreak "↳"
        :breakindent true
        :breakindentopt "shift:4,sbr"
-       :nu true
-       :relativenumber true }]
+       :cursorline true}]
   (each [option value (pairs options)]
     (core.assoc nvim.o option value)))
 

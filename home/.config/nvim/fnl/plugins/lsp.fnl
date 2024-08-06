@@ -90,6 +90,11 @@
 
                 (fidget.setup {})
 
+                (lspconfig.clojure_lsp.setup {:on_attach on_attach
+                                              :handlers handlers
+                                              :before_init before_init
+                                              :capabilities capabilities})
+
                 (lspconfig.pylsp.setup {:capabilities capabilities
                                         :before_init before_init
                                         :on_attach on_attach

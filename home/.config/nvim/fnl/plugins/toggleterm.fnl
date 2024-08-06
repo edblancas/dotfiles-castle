@@ -11,6 +11,7 @@
                  :terminal_mappings false})))
   :init (fn []
           (vim.keymap.set :n :<leader>tl ":TermSelect<CR>" {:noremap true})
+          (vim.keymap.set :n :<leader>tg "<cmd>lua require 'config.toggleterm'._lazygit_toggle()<CR>" {:noremap true :silent true})
           (vim.keymap.set :t :<esc> :<c-\><c-n>)
           (vim.keymap.set :t :<c-h> :<c-\><c-n><c-w>h)
           (vim.keymap.set :t :<c-j> :<c-\><c-n><c-w>j)
