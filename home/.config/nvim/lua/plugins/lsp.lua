@@ -55,7 +55,7 @@ local function _1_()
   fidget.setup({})
   lspconfig.clojure_lsp.setup({on_attach = on_attach, handlers = handlers, before_init = before_init, capabilities = capabilities})
   lspconfig.pylsp.setup({capabilities = capabilities, before_init = before_init, on_attach = on_attach, handlers = handlers})
-  lspconfig.fennel_ls.setup({root_dir = lspconfig_util.root_pattern("flsproject.fnl"), capabilities = capabilities, before_init = before_init, on_attach = on_attach, handlers = handlers})
+  lspconfig.fennel_ls.setup({capabilities = capabilities, before_init = before_init, on_attach = on_attach, handlers = handlers})
   local function _4_(args)
     return luasnip.lsp_expand(args.body)
   end

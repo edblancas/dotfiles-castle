@@ -100,8 +100,8 @@
                                         :on_attach on_attach
                                         :handlers handlers})
 
-                (lspconfig.fennel_ls.setup {:root_dir (lspconfig-util.root_pattern "flsproject.fnl")
-                                            :capabilities capabilities
+                (lspconfig.fennel_ls.setup {:capabilities capabilities
+                                            ;:root_dir (lspconfig-util.root_pattern "flsproject.fnl")
                                             :before_init before_init
                                             :on_attach on_attach
                                             :handlers handlers})
