@@ -2,12 +2,6 @@
   :dependencies [:nvim-telescope/telescope-ui-select.nvim
                  :nvim-lua/popup.nvim
                  :nvim-lua/plenary.nvim]
-  :init (fn []
-          (vim.keymap.set :n "<leader>ff" builtin.find_files {})
-          (vim.keymap.set :n "<leader>fs" builtin.live_grep {})
-          (vim.keymap.set :n "<leader>fb" builtin.buffers {})
-          (vim.keymap.set :n "<leader>fg" builtin.git_files {})
-          (vim.keymap.set :n "<leader>fh" builtin.help_tags {}))
   :config (fn []
             (let [telescope (require :telescope)
                   builtin   (require :telescope.builtin)
@@ -29,5 +23,10 @@
                                                                       "--iglob"
                                                                       "!.git"
                                                                       "--hidden"]}}})
-              (telescope.load_extension "ui-select")))}]
+              (telescope.load_extension "ui-select")
+              (vim.keymap.set :n "<leader>ff" builtin.find_files {})
+              (vim.keymap.set :n "<leader>fs" builtin.live_grep {})
+              (vim.keymap.set :n "<leader>fb" builtin.buffers {})
+              (vim.keymap.set :n "<leader>fg" builtin.git_files {})
+              (vim.keymap.set :n "<leader>fh" builtin.help_tags {})))}]
 
