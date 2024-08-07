@@ -5,7 +5,11 @@
   :config (fn []
             (let [telescope (require :telescope)
                   builtin   (require :telescope.builtin)
-                  themes    (require :telescope.themes)]
+                  themes    (require :telescope.themes)
+                  grep-w    (fn [mode]
+                              (fn []
+                                (builtin.grep_string {:search
+                                                      (vim.fn.expand (.. "<c" mode ">"))})))]
               (telescope.setup {:defaults {:file_ignore_patterns ["node_modules"]
                                            :vimgrep_arguments ["rg"
                                                                "--color=never"
@@ -24,9 +28,10 @@
                                                                       "!.git"
                                                                       "--hidden"]}}})
               (telescope.load_extension "ui-select")
+              (vim.keymap.set :n "<leader>fws" (grep-w "word") {})
+              (vim.keymap.set :n "<leader>fWs" (grep-w "WORD") {})
               (vim.keymap.set :n "<leader>ff" builtin.find_files {})
               (vim.keymap.set :n "<leader>fs" builtin.live_grep {})
               (vim.keymap.set :n "<leader>fb" builtin.buffers {})
               (vim.keymap.set :n "<leader>fg" builtin.git_files {})
               (vim.keymap.set :n "<leader>fh" builtin.help_tags {})))}]
-

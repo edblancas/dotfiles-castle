@@ -34,28 +34,13 @@
 ;the text with the text in the register and
 ;mantain this text in the register
 ;previously the text replaced will be in the register
-(vim.keymap.set "x" "<leader>p" [["_dP]])
-
-;have the system and vim clipboard separated
-;this copy to system, Y is linewise
-(vim.keymap.set ["n" "v"] "<leader>y" "\"+y")
-(vim.keymap.set "n" "<leader>Y" "\"+Y)
+(vim.keymap.set "x" "<leader>p" "\"_dP")
 
 ;delete and text discarded
 (vim.keymap.set [:n :v] "<leader>d" "\"_d")
-
-;this will open fzf with dirs, at CR will create a new
-;tmux session the can return with previous session tmux
-;FIND SOMETHING FOR KITTY
-;vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 
 (vim.keymap.set "n" "<C-k>" "<cmd>cnext<CR>zz")
 (vim.keymap.set "n" "<C-j>" "<cmd>cprev<CR>zz")
 (vim.keymap.set "n" "<leader>k" "<cmd>lnext<CR>zz")
 (vim.keymap.set "n" "<leader>j" "<cmd>lprev<CR>zz")
-
-;replacing the word i currently are
-(vim.keymap.set "n" "<leader>s" ":%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>")
-;make file executable
-(vim.keymap.set "n" "<leader>x" "<cmd>!chmod +x %<CR>" { :silent true })
 
