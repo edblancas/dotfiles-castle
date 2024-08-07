@@ -105,13 +105,14 @@ export LESS_TERMCAP_md="${yellow}";
 export MANPAGER='less -X';
 
 ### Alias ###
-alias zshconfig="nvim $HOME/.zshrc"
+alias zshconf="nvim $HOME/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
-alias stmux="tmux attach -t dev || tmux new -s dev"
+alias nvimconf="cd ~/.config/nvim && nvim ."
 alias c="clear"
 alias e="exit"
 alias ssh="ssh -X"
 alias g="git"
+alias lg="lazygit"
 alias d="docker"
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec $SHELL -l"
