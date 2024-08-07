@@ -56,6 +56,7 @@ local function _1_()
   lspconfig.clojure_lsp.setup({on_attach = on_attach, handlers = handlers, before_init = before_init, capabilities = capabilities})
   lspconfig.pylsp.setup({capabilities = capabilities, before_init = before_init, on_attach = on_attach, handlers = handlers})
   lspconfig.fennel_ls.setup({capabilities = capabilities, before_init = before_init, on_attach = on_attach, handlers = handlers})
+  lspconfig.lua_ls.setup({capabilities = capabilities, before_init = before_init, on_attach = on_attach, handlers = handlers})
   local function _4_(args)
     return luasnip.lsp_expand(args.body)
   end

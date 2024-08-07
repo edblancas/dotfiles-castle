@@ -6,9 +6,7 @@
     :dependencies [:nvim-lua/plenary.nvim
                    :nvim-tree/nvim-web-devicons
                    :MunifTanjim/nui.nvim]
-    :config (fn []
-              (let [tree (require :neo-tree)]
-                (tree.setup {})))
+    :config true
     :init (fn []
             (nvim.ex.hi "NvimTreeSpecialFile ctermfg=7 guifg=#c6c6c6")
             (nvim.set_keymap :n :<leader>tt ":Neotree toggle<CR>" {:noremap true})

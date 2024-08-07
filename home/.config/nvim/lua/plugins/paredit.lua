@@ -15,8 +15,4 @@ local function _1_()
   end
   return paredit.setup({keys = {["<localleader>I"] = {_2_, "Wrap form insert tail"}, ["<localleader>W"] = {_3_, "Wrap element insert tail"}, ["<localleader>i"] = {_4_, "Wrap form insert head"}, ["<localleader>w"] = {_5_, "Wrap element insert head"}}})
 end
-local function _6_()
-  local paredit_fnl = require("nvim-paredit-fennel")
-  return paredit_fnl.setup()
-end
-return {{"julienvincent/nvim-paredit", lazy = true, ft = {"clojure", "fennel"}, config = _1_}, {"julienvincent/nvim-paredit-fennel", dependencies = {"julienvincent/nvim-paredit"}, lazy = true, ft = {"fennel"}, config = _6_}}
+return {{"julienvincent/nvim-paredit", lazy = true, ft = {"clojure", "fennel"}, config = _1_}, {"julienvincent/nvim-paredit-fennel", dependencies = {"julienvincent/nvim-paredit"}, lazy = true, ft = {"fennel"}, config = true}}

@@ -106,6 +106,11 @@
                                             :on_attach on_attach
                                             :handlers handlers})
 
+                (lspconfig.lua_ls.setup {:capabilities capabilities
+                                            :before_init before_init
+                                            :on_attach on_attach
+                                            :handlers handlers})
+
                 (cmp.setup {:snippet {:expand (fn [args]
                                                 (luasnip.lsp_expand args.body))}
                             :mapping (cmp.mapping.preset.insert {"<C-p>" (cmp.mapping.select_prev_item cmp_select)

@@ -8,4 +8,4 @@ local function _1_()
   vim.g["conjure#client#clojure#nrepl#test#current_form_names"] = {"deftest", "defflow", "defspec", "describe"}
   return nil
 end
-return {{"Olical/conjure", ft = {"clojure", "fennel", "python"}, lazy = true, branch = "master", init = _1_}}
+return {{"Olical/conjure", ft = {"clojure", "fennel", "python", "lua"}, lazy = true, branch = "master", init = _1_}}

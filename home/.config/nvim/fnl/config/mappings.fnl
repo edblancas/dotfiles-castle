@@ -17,11 +17,11 @@
 ;;   https://www.reddit.com/r/neovim/comments/uuh8xw/noob_vimkeymapset_vs_vimapinvim_set_keymap_key/
 ;; we don't use C-; cuz vim can't capture, see link:
 ;;   https://stackoverflow.com/a/23546206
-(vim.keymap.set :i "<C-l>" "()<Left>" {:noremap true})
-
-(vim.keymap.set :i :<D-l> "Cmd + l" {:noremap true})
-(vim.keymap.set :i :<M-C-l> "Option + Control  + l" {:noremap true})
-(vim.keymap.set :i :¬ "Option  + l" {:noremap true})
+; (vim.keymap.set :i "<C-l>" "()<Left>" {:noremap true})
+;
+; (vim.keymap.set :i :<D-l> "Cmd + l" {:noremap true})
+; (vim.keymap.set :i :<M-C-l> "Option + Control  + l" {:noremap true})
+; (vim.keymap.set :i :¬ "Option  + l" {:noremap true})
 
 ; Meta only works with cmd
 ; <D-l> Cmd+l
@@ -33,3 +33,4 @@
 ; <M-C-D-;> Opt+Ctrl+Cmd+;
 ; <M-C-S-D-L> Opt+Ctrl+Cmd+Shift;
 ; in mac <M-l> outputs ¬
+

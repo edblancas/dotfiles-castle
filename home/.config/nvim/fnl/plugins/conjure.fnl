@@ -1,5 +1,5 @@
 [{1 :Olical/conjure
-    :ft [:clojure :fennel :python]
+    :ft [:clojure :fennel :python :lua]
     :lazy true
     :branch "master"
     :init (fn []
