@@ -1,16 +1,4 @@
 -- [nfnl] Compiled from fnl/plugins/lsp.fnl by https://github.com/Olical/nfnl, do not edit.
-local function define_signs(prefix)
-  local error = (prefix .. "SignError")
-  local warn = (prefix .. "SignWarn")
-  local info = (prefix .. "SignInfo")
-  local hint = (prefix .. "SignHint")
-  vim.fn.sign_define(error, {text = "\238\170\135", texthl = error})
-  vim.fn.sign_define(warn, {text = "\238\169\172", texthl = warn})
-  vim.fn.sign_define(info, {text = "\238\169\180", texthl = info})
-  return vim.fn.sign_define(hint, {text = "\238\172\178", texthl = hint})
-end
-define_signs("Diagnostic")
-local cmp_src_menu_items = {buffer = "buff", conjure = "conj", nvim_lsp = "lsp", luasnip = "lsnp"}
 local cmp_srcs = {{name = "nvim_lsp"}, {name = "conjure"}, {name = "buffer"}, {name = "luasnip"}}
 local function has_words_before()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -24,7 +12,6 @@ local function _1_()
   local fidget = require("fidget")
   local cmp_select = {behavior = cmp.SelectBehavior.Select}
   local lspconfig = require("lspconfig")
-  local lspconfig_util = require("lspconfig.util")
   local luasnip = require("luasnip")
   local handlers = {["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {severity_sort = true, update_in_insert = true, underline = true, virtual_text = false}), ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {border = "single"}), ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {border = "single"})}
   local before_init
@@ -34,7 +21,7 @@ local function _1_()
   end
   before_init = _2_
   local on_attach
-  local function _3_(client, bufnr)
+  local function _3_(_, bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", {noremap = true})
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ld", "<Cmd>lua vim.lsp.buf.declaration()<CR>", {noremap = true})
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>lt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", {noremap = true})

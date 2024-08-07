@@ -1,23 +1,3 @@
-;symbols to show for lsp diagnostics
-(fn define-signs
-  [prefix]
-  (let [error (.. prefix "SignError")
-        warn  (.. prefix "SignWarn")
-        info  (.. prefix "SignInfo")
-        hint  (.. prefix "SignHint")]
-    (vim.fn.sign_define error {:text "" :texthl error})
-    (vim.fn.sign_define warn  {:text "" :texthl warn})
-    (vim.fn.sign_define info  {:text "" :texthl info})
-    (vim.fn.sign_define hint  {:text "" :texthl hint})))
-
-(define-signs "Diagnostic")
-
-(local cmp-src-menu-items
-  {:buffer "buff"
-   :conjure "conj"
-   :nvim_lsp "lsp"
-   :luasnip "lsnp"})
-
 (local cmp-srcs
   [{:name :nvim_lsp}
    {:name :conjure}
@@ -50,7 +30,6 @@
                     fidget (require :fidget)
                     cmp_select {:behavior cmp.SelectBehavior.Select}
                     lspconfig (require :lspconfig)
-                    lspconfig-util (require :lspconfig.util)
                     luasnip (require :luasnip)
                     handlers {"textDocument/publishDiagnostics"
                            (vim.lsp.with
@@ -69,7 +48,7 @@
                              {:border "single"})}
                     before_init (fn [params]
                                 (set params.workDoneToken :1))
-                    on_attach (fn [client bufnr]
+                    on_attach (fn [_ bufnr]
                              (do
                                (vim.api.nvim_buf_set_keymap bufnr :n :gd "<Cmd>lua vim.lsp.buf.definition()<CR>" {:noremap true})
                                (vim.api.nvim_buf_set_keymap bufnr :n :<leader>ld "<Cmd>lua vim.lsp.buf.declaration()<CR>" {:noremap true})
