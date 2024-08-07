@@ -1,4 +1,8 @@
-[{1 :jghauser/kitty-runner.nvim}
+[{1 :jghauser/kitty-runner.nvim
+    :config (fn []
+              (let [kr (require :kitty-runner)
+                    krc (require :kitty-runner.config)]
+                (kr.setup krc.window_config)))}
  {1 :MunsMan/kitty-navigator.nvim
     :config (fn []
               (let [kn (require :kitty-navigator)]

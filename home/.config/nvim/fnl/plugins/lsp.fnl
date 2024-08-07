@@ -5,10 +5,10 @@
         warn  (.. prefix "SignWarn")
         info  (.. prefix "SignInfo")
         hint  (.. prefix "SignHint")]
-    (vim.fn.sign_define error {:text "" :texthl error})
-    (vim.fn.sign_define warn  {:text "" :texthl warn})
-    (vim.fn.sign_define info  {:text "" :texthl info})
-    (vim.fn.sign_define hint  {:text "" :texthl hint})))
+    (vim.fn.sign_define error {:text "" :texthl error})
+    (vim.fn.sign_define warn  {:text "" :texthl warn})
+    (vim.fn.sign_define info  {:text "" :texthl info})
+    (vim.fn.sign_define hint  {:text "" :texthl hint})))
 
 (define-signs "Diagnostic")
 
@@ -42,6 +42,7 @@
     :config (fn []
               (let [cmp (require :cmp)
                     cmp_lsp (require :cmp_nvim_lsp)
+                    cmp-ap (require :nvim-autopairs.completion.cmp)
                     capabilities (vim.tbl_deep_extend :force
                                                       {}
                                                       (vim.lsp.protocol.make_client_capabilities)
@@ -105,9 +106,11 @@
                                             :handlers handlers})
 
                 (lspconfig.lua_ls.setup {:capabilities capabilities
-                                            :before_init before_init
-                                            :on_attach on_attach
-                                            :handlers handlers})
+                                         :before_init before_init
+                                         :on_attach on_attach
+                                         :handlers handlers})
+
+                (cmp.event:on "confirm_done" (cmp-ap.on_confirm_done))
 
                 (cmp.setup {:snippet {:expand (fn [args]
                                                 (luasnip.lsp_expand args.body))}
