@@ -24,14 +24,12 @@
 ;don't wrap lines
 (nvim.ex.set :nowrap)
 
-(set nvim.o.termguicolors true)
 (set nvim.o.mouse "a")
 
 ;sets a nvim global options
 (let [options
       {:encoding "utf-8"
        :spelllang "en_us"
-       :backspace "2"
        :colorcolumn "80"
        :errorbells true
        :backup false
