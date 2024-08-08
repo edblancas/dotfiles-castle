@@ -1,7 +1,7 @@
 [
  (s "fun"
-   (fmt "def {}({}){}:\n    {}end"
-      [(i 1) (i 2) (i 3 "return type") (i 0)]))
+   (fmt "def {}({}){}:\n    {}\nend"
+        [(i 1) (i 2) (i 3) (i 0)]))
 
  (s "todo"
    (fmt "# {}: {}"
