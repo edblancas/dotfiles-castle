@@ -15,4 +15,4 @@ end
 local function _3_()
   return os.date("%D - %H:%M")
 end
-return {s("currtime", f(_3_)), s("print-same", fmt("example: {}, function: {}", {i(1), same(1)})), s("rep-impl", fmt("example: {}, function: {}", {i(1), rep_impl(1)}))}
+return {s("todo", fmt("{}: {}", {c(1, {t("TODO"), t("NOTE"), t("FIXME"), t("BUG")}), i(0)})), s("currtime", f(_3_)), s("print-same", fmt("example: {}, function: {}", {i(1), same(1)})), s("rep-impl", fmt("example: {}, function: {}", {i(1), rep_impl(1)}))}

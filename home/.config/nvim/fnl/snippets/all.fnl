@@ -12,6 +12,11 @@
         [index]))
 
 [
+  (s "todo"
+   (fmt "{}: {}"
+      [(c 1 [(t "TODO") (t "NOTE") (t "FIXME") (t "BUG")])
+       (i 0)]))
+
  (s "currtime"
     (f (fn []
         (os.date "%D - %H:%M"))))
