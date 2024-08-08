@@ -50,8 +50,6 @@ local function _1_()
   local function _5_(fallback)
     if cmp.visible() then
       return cmp.select_next_item()
-    elseif luasnip.expand_or_jumpable() then
-      return luasnip.expand_or_jump()
     elseif has_words_before() then
       return cmp.complete()
     elseif "else" then
@@ -63,8 +61,6 @@ local function _1_()
   local function _7_(fallback)
     if cmp.visible() then
       return cmp.select_prev_item()
-    elseif luasnip.jumpable(-1) then
-      return luasnip.jump(-1)
     elseif "else" then
       return fallback()
     else

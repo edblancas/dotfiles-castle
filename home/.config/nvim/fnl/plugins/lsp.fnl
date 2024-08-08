@@ -104,14 +104,12 @@
                                                                  :<Tab> (cmp.mapping (fn [fallback]
                                                                                        (if
                                                                                          (cmp.visible) (cmp.select_next_item)
-                                                                                         (luasnip.expand_or_jumpable) (luasnip.expand_or_jump)
                                                                                          (has-words-before) (cmp.complete)
                                                                                          :else (fallback)))
                                                                                      {1 :i 2 :s})
                                                                  :<S-Tab> (cmp.mapping (fn [fallback]
                                                                                          (if
                                                                                            (cmp.visible) (cmp.select_prev_item)
-                                                                                           (luasnip.jumpable -1) (luasnip.jump -1)
                                                                                            :else (fallback)))
                                                                                        {1 :i 2 :s})})
                             :sources (cmp.config.sources  cmp-srcs)})))}]
