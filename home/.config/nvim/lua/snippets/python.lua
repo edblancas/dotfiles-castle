@@ -1,2 +1,2 @@
 -- [nfnl] Compiled from fnl/snippets/python.fnl by https://github.com/Olical/nfnl, do not edit.
-return {s("def", fmt("def {}({}){}:\n    {}end", {i(1), i(2), i(3, "return type")}))}
+return {s("fun", fmt("def {}({}){}:\n    {}end", {i(1), i(2), i(3, "return type"), i(0)})), s("todo", fmt("# {}: {}", {c(1, {t("TODO"), t("NOTE"), t("FIXME"), t("BUG")}), i(0)}))}

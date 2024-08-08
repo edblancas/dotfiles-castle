@@ -12,12 +12,12 @@
                                        :updateevents "TextChanged,TextChangedI"
                                        :ext_opts {types.choiceNode {:active 
                                                                     {:virt_text [["<-" "Error"]]}}}})
-                (vim.keymap.set [:i :s]
+                (vim.keymap.set [:i :s :n]
                                 :<M-D-k> 
                                 (fn []
                                   (if (ls.expand_or_jumpable) (ls.expand_or_jump)))
                                 {:silent true})
-                (vim.keymap.set [:i :s] 
+                (vim.keymap.set [:i :s :n] 
                                 :<M-D-j> 
                                 (fn []
                                   (if (ls.jumpable -1) (ls.jump -1)))

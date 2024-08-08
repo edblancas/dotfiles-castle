@@ -11,7 +11,7 @@ local function _1_()
       return nil
     end
   end
-  vim.keymap.set({"i", "s"}, "<M-D-k>", _2_, {silent = true})
+  vim.keymap.set({"i", "s", "n"}, "<M-D-k>", _2_, {silent = true})
   local function _4_()
     if ls.jumpable(-1) then
       return ls.jump(-1)
@@ -19,7 +19,7 @@ local function _1_()
       return nil
     end
   end
-  vim.keymap.set({"i", "s"}, "<M-D-j>", _4_, {silent = true})
+  vim.keymap.set({"i", "s", "n"}, "<M-D-j>", _4_, {silent = true})
   local function _6_()
     if ls.choice_active() then
       return ls.change_choice(1)
