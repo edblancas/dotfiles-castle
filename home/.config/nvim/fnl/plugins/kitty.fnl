@@ -1,4 +1,12 @@
-[{1 :jghauser/kitty-runner.nvim
+[ {1 :mikesmithgh/kitty-scrollback.nvim
+    :enabled true
+    :lazy true
+    :cmd { "KittyScrollbackGenerateKittens" "KittyScrollbackCheckHealth" }
+    :event [ "User KittyScrollbackLaunch" ]
+    :version :* ; latest stable version, may have breaking changes if major version changed
+    :config (fn [] (-> (require :kitty-scrollback) (setup)))
+  }
+ {1 :jghauser/kitty-runner.nvim
     :config (fn []
               (let [kr (require :kitty-runner)
                     krc (require :kitty-runner.config)]
