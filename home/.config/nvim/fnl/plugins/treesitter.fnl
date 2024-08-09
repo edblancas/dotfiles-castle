@@ -1,4 +1,6 @@
-[{1 :nvim-treesitter/nvim-treesitter
+[{1 :nvim-treesitter/nvim-treesitter-context}
+
+ {1 :nvim-treesitter/nvim-treesitter
   :build ":TSUpdate"
   :config (fn []
             (let [treesitter (require :nvim-treesitter.configs)]
