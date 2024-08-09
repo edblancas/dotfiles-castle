@@ -39,3 +39,5 @@ home/.config/zed/embeddings/
 home/.config/zed/.tmp*
 
 home/.config/raycast/extensions/node_modules
+
+.cpcache
