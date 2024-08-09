@@ -108,6 +108,7 @@ export MANPAGER='less -X';
 alias zshconf="nvim $HOME/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias nvimconf="cd ~/.config/nvim && nvim ."
+alias kittyconf="cd ~/.config/kitty && nvim kitty.conf"
 alias c="clear"
 alias e="exit"
 alias ssh="ssh -X"
