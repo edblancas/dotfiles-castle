@@ -47,4 +47,4 @@
 (vim.keymap.set [:n :v :i] "<D-s>" "<cmd>W<CR>")
 
 (vim.keymap.set [:n :i] :<F2> ":lua vim.diagnostic.goto_next()<CR>")
-(vim.keymap.set [:n :i] :<S-F2> ":lua vim.diagnostic.goto_prev()<CR>")
+(vim.keymap.set [:n :i] :<F14> ":lua vim.diagnostic.goto_prev()<CR>")

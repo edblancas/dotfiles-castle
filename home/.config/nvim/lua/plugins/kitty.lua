@@ -1,6 +1,7 @@
 -- [nfnl] Compiled from fnl/plugins/kitty.fnl by https://github.com/Olical/nfnl, do not edit.
 local function _1_()
-  return setup(require("kitty-scrollback"))
+  local ks = require("kitty-scrollback")
+  return ks.setup()
 end
 local function _2_()
   local kr = require("kitty-runner")
@@ -14,4 +15,4 @@ local function _3_()
   vim.keymap.set("n", "<C-l>", kn.navigateRight, {silent = false})
   return vim.keymap.set("n", "<C-h>", kn.navigateLeft, {silent = false})
 end
-return {{"mikesmithgh/kitty-scrollback.nvim", enabled = true, lazy = true, cmd = {KittyScrollbackGenerateKittens = "KittyScrollbackCheckHealth"}, event = {"User KittyScrollbackLaunch"}, version = "*", config = _1_}, {"jghauser/kitty-runner.nvim", config = _2_}, {"MunsMan/kitty-navigator.nvim", config = _3_, build = {"cp navigate_kitty.py ~/.config/kitty", "cp pass_keys.py ~/.config/kitty"}}}
+return {{"mikesmithgh/kitty-scrollback.nvim", enabled = true, lazy = true, cmd = {"KittyScrollbackGenerateKittens", "KittyScrollbackCheckHealth"}, event = {"User KittyScrollbackLaunch"}, version = "*", config = _1_}, {"jghauser/kitty-runner.nvim", config = _2_}, {"MunsMan/kitty-navigator.nvim", config = _3_, build = {"cp navigate_kitty.py ~/.config/kitty", "cp pass_keys.py ~/.config/kitty"}}}
