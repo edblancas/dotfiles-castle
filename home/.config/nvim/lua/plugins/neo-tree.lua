@@ -11,7 +11,7 @@ end
 local function _3_()
   nvim.ex.hi("NvimTreeSpecialFile ctermfg=7 guifg=#c6c6c6")
   nvim.set_keymap("n", "<leader>tt", ":Neotree toggle<CR>", {noremap = true})
-  vim.keymap.set({"n", "v", "i"}, "<D-1>", ":Neotree toggle<CR>", {noremap = true})
+  vim.keymap.set({"n", "v", "i"}, "<D-1>", "<cmd>Neotree toggle<CR>", {noremap = true})
   nvim.set_keymap("n", "<leader>tf", ":Neotree action=focus<CR>", {noremap = true})
   return nvim.set_keymap("n", "<leader>tr", ":Neotree reveal<CR>", {noremap = true})
 end

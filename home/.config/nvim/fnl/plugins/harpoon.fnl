@@ -6,7 +6,7 @@
           lst (h:list)]
       (h:setup)
       (vim.keymap.set "n" "<leader>ba" (fn [] (lst:add)))
-      (vim.keymap.set "n" "<D-e>" (fn [] (h.ui:toggle_quick_menu (h:list))))
+      (vim.keymap.set "n" "<C-e>" (fn [] (h.ui:toggle_quick_menu (h:list))))
 
       (vim.keymap.set "n" "<M-D-1>" (fn [] (lst:select 1)))
       (vim.keymap.set "n" "<M-D-2>" (fn [] (lst:select 2)))

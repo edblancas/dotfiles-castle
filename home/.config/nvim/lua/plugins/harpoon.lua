@@ -10,7 +10,7 @@ local function _1_()
   local function _3_()
     return h.ui:toggle_quick_menu(h:list())
   end
-  vim.keymap.set("n", "<D-e>", _3_)
+  vim.keymap.set("n", "<C-e>", _3_)
   local function _4_()
     return lst:select(1)
   end
