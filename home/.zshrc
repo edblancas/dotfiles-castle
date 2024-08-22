@@ -87,8 +87,6 @@ ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
 ### Envs ###
 export EDITOR='nvim';
 export VISUAL='nvim';
-# For good colors in tmux, TRUE COLOUR
-export TERM='xterm-256color-italic'
 # 1ms for key sequences, for zsh and vim, not zhs-vim-plugin
 export KEYTIMEOUT=1
 # Increase Bash history size. Allow 32³ entries; the default is 500.
@@ -236,11 +234,7 @@ alias pscpu10=' ps aux | sort -nr -k 3 | head -10 '
 unsetopt MULTIOS
 
 ### fzf ###
-alias fzfnv='nvim $(fzf-tmux)'
-alias fzfv='vim $(fzf-tmux)'
-export FZF_TMUX=1
-# not working, I think cuz fzf-tmux script doesn't support preview
-export FZF_TMUX_OPTS='-p80%,60%'
+alias fzfv='nvim $(fzf)'
 export FZF_DEFAULT_OPTS='--no-height'
 # use the silver searcher instead of `find`
 export FZF_DEFAULT_COMMAND='ag --hidden --follow --ignore .git -g ""'
