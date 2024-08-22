@@ -6,7 +6,7 @@ local function _1_()
   local function _2_()
     return lst:add()
   end
-  vim.keymap.set("n", "<leader>ba", _2_)
+  vim.keymap.set("n", "<leader>ha", _2_)
   local function _3_()
     return h.ui:toggle_quick_menu(h:list())
   end
@@ -30,10 +30,10 @@ local function _1_()
   local function _8_()
     return lst:prev()
   end
-  vim.keymap.set("n", "<leader>bp", _8_)
+  vim.keymap.set("n", "<leader>hp", _8_)
   local function _9_()
     return lst:next()
   end
-  return vim.keymap.set("n", "<leader>bn", _9_)
+  return vim.keymap.set("n", "<leader>hn", _9_)
 end
 return {{"ThePrimeagen/harpoon", branch = "harpoon2", dependencies = {"nvim-lua/plenary.nvim"}, config = _1_}}
