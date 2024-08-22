@@ -13,6 +13,11 @@
       (vim.keymap.set "n" "<M-D-3>" (fn [] (lst:select 3)))
       (vim.keymap.set "n" "<M-D-4>" (fn [] (lst:select 4)))
 
+      (vim.keymap.set "n" "<leader><M-D-1>" (fn [] (lst:replace_at 1)))
+      (vim.keymap.set "n" "<leader><M-D-2>" (fn [] (lst:replace_at 2)))
+      (vim.keymap.set "n" "<leader><M-D-3>" (fn [] (lst:replace_at 3)))
+      (vim.keymap.set "n" "<leader><M-D-4>" (fn [] (lst:replace_at 4)))
+
       ;Toggle previous & next buffers stored within Harpoon list
       (vim.keymap.set "n" "<leader>hp" (fn [] (lst:prev)) {:desc "Harpoon previous"})
       (vim.keymap.set "n" "<leader>hn" (fn [] (lst:next)) {:desc "Harpoon next"})))}]

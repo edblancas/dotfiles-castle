@@ -2,6 +2,7 @@
     :ft [:clojure :fennel :python :lua]
     :lazy true
     :branch "master"
+    :keys [{1 "<F18>" 2 "<cmd>ConjureLogToggle<cr>" :desc "Toggle Conjure Log"}]
     :init (fn []
             ; Alias for ConjureShadowSelect -> Csc
             (vim.cmd {:cmd "command" :args ["-nargs=1" "Cjc" "ConjureConnect" "<args>"] :bang true})

@@ -29,12 +29,28 @@ local function _1_()
   end
   vim.keymap.set("n", "<M-D-4>", _7_)
   local function _8_()
+    return lst:replace_at(1)
+  end
+  vim.keymap.set("n", "<leader><M-D-1>", _8_)
+  local function _9_()
+    return lst:replace_at(2)
+  end
+  vim.keymap.set("n", "<leader><M-D-2>", _9_)
+  local function _10_()
+    return lst:replace_at(3)
+  end
+  vim.keymap.set("n", "<leader><M-D-3>", _10_)
+  local function _11_()
+    return lst:replace_at(4)
+  end
+  vim.keymap.set("n", "<leader><M-D-4>", _11_)
+  local function _12_()
     return lst:prev()
   end
-  vim.keymap.set("n", "<leader>hp", _8_, {desc = "Harpoon previous"})
-  local function _9_()
+  vim.keymap.set("n", "<leader>hp", _12_, {desc = "Harpoon previous"})
+  local function _13_()
     return lst:next()
   end
-  return vim.keymap.set("n", "<leader>hn", _9_, {desc = "Harpoon next"})
+  return vim.keymap.set("n", "<leader>hn", _13_, {desc = "Harpoon next"})
 end
 return {{"ThePrimeagen/harpoon", branch = "harpoon2", dependencies = {"nvim-lua/plenary.nvim"}, config = _1_}}

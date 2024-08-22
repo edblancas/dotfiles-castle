@@ -51,3 +51,5 @@
 
 (vim.keymap.set [:n] "<F10>" "<C-w>|")
 (vim.keymap.set [:n] "<D-F10>" "<C-w>|")
+
+(vim.keymap.set [:n :i] "<F16>" "<cmd>lua require('config.utils')['toggle-test-file']()<cr>")
