@@ -6,7 +6,8 @@
     :version :* ; latest stable version, may have breaking changes if major version changed
     :config (fn [] (let [ks (require :kitty-scrollback)] (ks.setup)))}
 
- {1 :jghauser/kitty-runner.nvim
+ {1 :edblancas/kitty-runner.nvim
+    :branch :fix
     :config (fn []
               (let [kr (require :kitty-runner)
                     krc (require :kitty-runner.config)]
