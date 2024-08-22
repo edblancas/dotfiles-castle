@@ -4,7 +4,8 @@ local function _1_()
   local lst = h:list()
   h:setup()
   local function _2_()
-    return lst:add()
+    lst:add()
+    return {desc = "Harpoon add"}
   end
   vim.keymap.set("n", "<leader>ha", _2_)
   local function _3_()
@@ -30,10 +31,10 @@ local function _1_()
   local function _8_()
     return lst:prev()
   end
-  vim.keymap.set("n", "<leader>hp", _8_)
+  vim.keymap.set("n", "<leader>hp", _8_, {desc = "Harpoon previous"})
   local function _9_()
     return lst:next()
   end
-  return vim.keymap.set("n", "<leader>hn", _9_)
+  return vim.keymap.set("n", "<leader>hn", _9_, {desc = "Harpoon next"})
 end
 return {{"ThePrimeagen/harpoon", branch = "harpoon2", dependencies = {"nvim-lua/plenary.nvim"}, config = _1_}}
