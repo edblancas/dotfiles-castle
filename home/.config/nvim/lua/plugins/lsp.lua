@@ -52,8 +52,6 @@ local function _1_()
   local function _5_(fallback)
     if cmp.visible() then
       return cmp.select_next_item()
-    elseif has_words_before() then
-      return cmp.complete()
     elseif "else" then
       return fallback()
     else

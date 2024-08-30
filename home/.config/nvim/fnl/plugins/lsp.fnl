@@ -110,7 +110,6 @@
                                                                  :<Tab> (cmp.mapping (fn [fallback]
                                                                                        (if
                                                                                          (cmp.visible) (cmp.select_next_item)
-                                                                                         (has-words-before) (cmp.complete)
                                                                                          :else (fallback)))
                                                                                      {1 :i 2 :s})
                                                                  :<S-Tab> (cmp.mapping (fn [fallback]
