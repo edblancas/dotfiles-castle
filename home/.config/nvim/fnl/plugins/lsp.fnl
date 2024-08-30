@@ -4,10 +4,20 @@
    {:name :buffer}
    {:name :luasnip}])
 
-(fn has-words-before []
-  (let [(line col) (unpack (vim.api.nvim_win_get_cursor 0))]
-    (and (not= col 0)
-         (= (: (: (. (vim.api.nvim_buf_get_lines 0 (- line 1) line true) 1) :sub col col) :match "%s") nil))))
+(fn kind->icon [kind]
+  ;https://github.com/mortepau/codicons.nvim/blob/master/lua/codicons/table.lua
+  (let [icons {:Variable ""
+               :Function ""
+               :Class ""
+               :Text ""
+               :Keyword ""
+               :Snippet ""
+               :Module ""
+               :Reference ""}
+        icon (?. icons kind)]
+    (if (= icon nil)
+        ""
+        icon)))
 
 [{1 :neovim/nvim-lspconfig
     :dependencies [
@@ -106,7 +116,10 @@
                                         :sources (cmp.config.sources [{:name "path"}] [{:name "cmdline"}]) 
                                         :matching {:disallow_symbol_nonprefix_matching false}})
 
-                (cmp.setup {:snippet {:expand (fn [args]
+                (cmp.setup {:formatting {:format (fn [_ vim_item] 
+                                                   (tset vim_item :kind (.. (kind->icon vim_item.kind) " " vim_item.kind)) 
+                                                   vim_item)}
+                            :snippet {:expand (fn [args]
                                                 (luasnip.lsp_expand args.body))}
                             :mapping (cmp.mapping.preset.insert {:<C-b> (cmp.mapping.scroll_docs (- 4))
                                                                  :<C-f> (cmp.mapping.scroll_docs 4)
