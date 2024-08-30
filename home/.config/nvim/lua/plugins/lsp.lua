@@ -53,7 +53,7 @@ local function _1_()
   end
   local function _5_(fallback)
     if cmp.visible() then
-      return cmp.select_next_item()
+      return cmp.select_next_item(cmp_select)
     elseif "else" then
       return fallback()
     else
@@ -62,13 +62,13 @@ local function _1_()
   end
   local function _7_(fallback)
     if cmp.visible() then
-      return cmp.select_prev_item()
+      return cmp.select_prev_item(cmp_select)
     elseif "else" then
       return fallback()
     else
       return nil
     end
   end
-  return cmp.setup({snippet = {expand = _4_}, mapping = cmp.mapping.preset.insert({["<C-p>"] = cmp.mapping.select_prev_item(cmp_select), ["<C-n>"] = cmp.mapping.select_next_item(cmp_select), ["<C-b>"] = cmp.mapping.scroll_docs(( - 4)), ["<C-f>"] = cmp.mapping.scroll_docs(4), ["<C-Space>"] = cmp.mapping.complete(), ["<CR>"] = cmp.mapping.confirm(), ["<Tab>"] = cmp.mapping(_5_, {"i", "s"}), ["<S-Tab>"] = cmp.mapping(_7_, {"i", "s"})}), sources = cmp.config.sources(cmp_srcs)})
+  return cmp.setup({snippet = {expand = _4_}, mapping = cmp.mapping.preset.insert({["<C-b>"] = cmp.mapping.scroll_docs(( - 4)), ["<C-f>"] = cmp.mapping.scroll_docs(4), ["<C-Space>"] = cmp.mapping.complete(), ["<CR>"] = cmp.mapping.confirm(), ["<Tab>"] = cmp.mapping(_5_, {"i", "s"}), ["<S-Tab>"] = cmp.mapping(_7_, {"i", "s"})}), sources = cmp.config.sources(cmp_srcs)})
 end
 return {{"neovim/nvim-lspconfig", dependencies = {"hrsh7th/cmp-nvim-lsp", "hrsh7th/cmp-buffer", "hrsh7th/cmp-path", "hrsh7th/cmp-cmdline", "hrsh7th/nvim-cmp", "L3MON4D3/LuaSnip", "saadparwaiz1/cmp_luasnip", "j-hui/fidget.nvim"}, config = _1_}}

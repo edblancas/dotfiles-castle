@@ -108,20 +108,18 @@
 
                 (cmp.setup {:snippet {:expand (fn [args]
                                                 (luasnip.lsp_expand args.body))}
-                            :mapping (cmp.mapping.preset.insert {"<C-p>" (cmp.mapping.select_prev_item cmp_select)
-                                                                 "<C-n>" (cmp.mapping.select_next_item cmp_select)
-                                                                 :<C-b> (cmp.mapping.scroll_docs (- 4))
+                            :mapping (cmp.mapping.preset.insert {:<C-b> (cmp.mapping.scroll_docs (- 4))
                                                                  :<C-f> (cmp.mapping.scroll_docs 4)
                                                                  "<C-Space>" (cmp.mapping.complete)
                                                                  :<CR> (cmp.mapping.confirm)
                                                                  :<Tab> (cmp.mapping (fn [fallback]
                                                                                        (if
-                                                                                         (cmp.visible) (cmp.select_next_item)
+                                                                                         (cmp.visible) (cmp.select_next_item cmp_select)
                                                                                          :else (fallback)))
                                                                                      {1 :i 2 :s})
                                                                  :<S-Tab> (cmp.mapping (fn [fallback]
                                                                                          (if
-                                                                                           (cmp.visible) (cmp.select_prev_item)
+                                                                                           (cmp.visible) (cmp.select_prev_item cmp_select)
                                                                                            :else (fallback)))
                                                                                        {1 :i 2 :s})})
                             :sources (cmp.config.sources  cmp-srcs)})))}]
