@@ -98,6 +98,14 @@
 
                 (cmp.event:on "confirm_done" (cmp-ap.on_confirm_done))
 
+                ;Use buffer source for `/` and `?`
+                (cmp.setup.cmdline ["/" "?"] {:mapping (cmp.mapping.preset.cmdline) 
+                                              :sources [{:name "buffer"}]})
+                ;Use cmdline & path source for ':'
+                (cmp.setup.cmdline ":" {:mapping (cmp.mapping.preset.cmdline) 
+                                        :sources (cmp.config.sources [{:name "path"}] [{:name "cmdline"}]) 
+                                        :matching {:disallow_symbol_nonprefix_matching false}})
+
                 (cmp.setup {:snippet {:expand (fn [args]
                                                 (luasnip.lsp_expand args.body))}
                             :mapping (cmp.mapping.preset.insert {"<C-p>" (cmp.mapping.select_prev_item cmp_select)
@@ -105,8 +113,7 @@
                                                                  :<C-b> (cmp.mapping.scroll_docs (- 4))
                                                                  :<C-f> (cmp.mapping.scroll_docs 4)
                                                                  "<C-Space>" (cmp.mapping.complete)
-                                                                 :<CR> (cmp.mapping.confirm {:behavior cmp.ConfirmBehavior.Insert
-                                                                                             :select false})
+                                                                 :<CR> (cmp.mapping.confirm)
                                                                  :<Tab> (cmp.mapping (fn [fallback]
                                                                                        (if
                                                                                          (cmp.visible) (cmp.select_next_item)
