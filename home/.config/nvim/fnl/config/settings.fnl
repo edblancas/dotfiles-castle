@@ -77,8 +77,7 @@
        :showbreak "↳"
        :breakindent true
        :breakindentopt "shift:4,sbr"
-       :cursorline true
-       :scrolloff 8}]
+       :cursorline true}]
   (each [option value (pairs options)]
     (core.assoc nvim.o option value)))
 
