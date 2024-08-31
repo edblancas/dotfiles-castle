@@ -37,7 +37,6 @@
        :showmode false
        ;both settings to show current line number
        :number true
-       :relativenumber true
        ;show line and column number
        :ruler true
        ;settings needed for compe autocompletion

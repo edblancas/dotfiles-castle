@@ -86,6 +86,6 @@ local function _4_()
       return nil
     end
   end
-  return cmp.setup({formatting = {format = _7_}, snippet = {expand = _8_}, mapping = cmp.mapping.preset.insert({["<C-b>"] = cmp.mapping.scroll_docs(( - 4)), ["<C-f>"] = cmp.mapping.scroll_docs(4), ["<C-Space>"] = cmp.mapping.complete(), ["<CR>"] = cmp.mapping.confirm({select = true}), ["<Tab>"] = cmp.mapping(_9_, {"i", "s"}), ["<S-Tab>"] = cmp.mapping(_11_, {"i", "s"})}), sources = cmp.config.sources(cmp_srcs)})
+  return cmp.setup({formatting = {format = _7_}, snippet = {expand = _8_}, mapping = cmp.mapping.preset.insert({["<C-b>"] = cmp.mapping.scroll_docs(( - 4)), ["<C-f>"] = cmp.mapping.scroll_docs(4), ["<C-Space>"] = cmp.mapping.complete(), ["<CR>"] = cmp.mapping.confirm(), ["<Tab>"] = cmp.mapping(_9_, {"i", "s"}), ["<S-Tab>"] = cmp.mapping(_11_, {"i", "s"})}), sources = cmp.config.sources(cmp_srcs)})
 end
 return {{"neovim/nvim-lspconfig", dependencies = {"hrsh7th/cmp-nvim-lsp", "hrsh7th/cmp-buffer", "hrsh7th/cmp-path", "hrsh7th/cmp-cmdline", "hrsh7th/nvim-cmp", "L3MON4D3/LuaSnip", "saadparwaiz1/cmp_luasnip", "j-hui/fidget.nvim"}, config = _4_}}
