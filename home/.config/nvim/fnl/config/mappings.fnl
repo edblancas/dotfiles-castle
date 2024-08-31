@@ -44,7 +44,7 @@
 (vim.keymap.set "n" "<leader>k" "<cmd>lnext<CR>zz")
 (vim.keymap.set "n" "<leader>j" "<cmd>lprev<CR>zz")
 
-(vim.keymap.set [:n :v :i] "<D-s>" "<cmd>W<CR>")
+(vim.keymap.set [:n :v :i] "<D-s>" "<cmd>wall<CR>")
 
 (vim.keymap.set [:n] "<leader>]" ":bn")
 (vim.keymap.set [:n] "<leader>[" ":bp")
