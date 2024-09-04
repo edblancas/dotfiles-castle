@@ -8,6 +8,8 @@
                                    "--show-error-codes"
                                    "--no-error-summary"
                                    "--no-pretty"
+                                   ;PEP 695 generics are not yet supported
+                                   "--enable-incomplete-feature=NewGenericSyntax"
                                    params.temp_path])
                           :on_output (fn [line params]
                                        (-> (line:gsub (params.temp_path:gsub "([^%w])" "%%%1") params.bufname)

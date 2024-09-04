@@ -1,7 +1,7 @@
 -- [nfnl] Compiled from fnl/plugins/lsp.fnl by https://github.com/Olical/nfnl, do not edit.
 local cmp_srcs = {{name = "nvim_lsp"}, {name = "conjure"}, {name = "buffer"}, {name = "luasnip"}}
 local function kind__3eicon(kind)
-  local icons = {Variable = "\238\170\136", Function = "\238\170\140", Class = "\238\173\155", Text = "\238\170\145", Keyword = "\238\173\162", Snippet = "\238\173\166", Module = "\238\170\139", Reference = "\238\170\148"}
+  local icons = {Variable = "\238\170\136", Function = "\238\170\140", Class = "\238\173\155", Text = "\238\170\145", Keyword = "\238\173\162", Snippet = "\238\173\166", Module = "\238\170\139", Reference = "\238\170\148", Method = "\238\170\140"}
   local icon
   do
     local t_1_ = icons

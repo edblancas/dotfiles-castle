@@ -13,7 +13,8 @@
                :Keyword ""
                :Snippet ""
                :Module ""
-               :Reference ""}
+               :Reference ""
+               :Method ""}
         icon (?. icons kind)]
     (if (= icon nil)
         ""
