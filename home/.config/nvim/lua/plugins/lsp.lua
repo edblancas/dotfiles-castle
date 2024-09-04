@@ -55,7 +55,7 @@ local function _4_()
   on_attach = _6_
   fidget.setup({})
   lspconfig.clojure_lsp.setup({on_attach = on_attach, handlers = handlers, before_init = before_init, capabilities = capabilities})
-  lspconfig.pylsp.setup({capabilities = capabilities, before_init = before_init, on_attach = on_attach, handlers = handlers})
+  lspconfig.pyright.setup({capabilities = capabilities, before_init = before_init, on_attach = on_attach, handlers = handlers})
   lspconfig.fennel_ls.setup({capabilities = capabilities, before_init = before_init, on_attach = on_attach, handlers = handlers})
   lspconfig.lua_ls.setup({capabilities = capabilities, before_init = before_init, on_attach = on_attach, handlers = handlers})
   cmp.event:on("confirm_done", cmp_ap.on_confirm_done())

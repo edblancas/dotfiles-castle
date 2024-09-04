@@ -90,10 +90,10 @@
                                               :before_init before_init
                                               :capabilities capabilities})
 
-                (lspconfig.pylsp.setup {:capabilities capabilities
-                                        :before_init before_init
-                                        :on_attach on_attach
-                                        :handlers handlers})
+                (lspconfig.pyright.setup {:capabilities capabilities
+                                          :before_init before_init
+                                          :on_attach on_attach
+                                          :handlers handlers})
 
                 (lspconfig.fennel_ls.setup {:capabilities capabilities
                                             ;:root_dir (lspconfig-util.root_pattern "flsproject.fnl")
