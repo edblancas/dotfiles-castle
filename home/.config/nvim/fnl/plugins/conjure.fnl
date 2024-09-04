@@ -1,5 +1,5 @@
 [{1 :Olical/conjure
-    :ft [:clojure :fennel :python :lua]
+    :ft [:clojure :fennel :lua]
     :lazy true
     :branch "master"
     :keys [{1 "<F18>" 2 "<cmd>ConjureLogToggle<cr>" :desc "Toggle Conjure Log"}]

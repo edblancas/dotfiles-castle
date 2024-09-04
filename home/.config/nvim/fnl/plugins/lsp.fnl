@@ -28,7 +28,11 @@
         :hrsh7th/nvim-cmp
         :L3MON4D3/LuaSnip
         :saadparwaiz1/cmp_luasnip
-        :j-hui/fidget.nvim]
+        :j-hui/fidget.nvim
+
+        :williamboman/mason.nvim
+        :williamboman/mason-lspconfig.nvim
+        :williamboman/mason.nvim]
     :config (fn []
               (let [cmp (require :cmp)
                     cmp_lsp (require :cmp_nvim_lsp)
