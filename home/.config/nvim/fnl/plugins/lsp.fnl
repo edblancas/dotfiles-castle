@@ -15,7 +15,8 @@
                :Module ""
                :Reference ""
                :Method ""
-               :Constant ""}
+               :Constant ""
+               :Property ""}
         icon (?. icons kind)]
     (if (= icon nil)
         ""
