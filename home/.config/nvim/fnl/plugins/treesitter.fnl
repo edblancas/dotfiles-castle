@@ -20,6 +20,7 @@
                                                     :fennel
                                                     :java
                                                     :javascript
+                                                    :typescript
                                                     :json
                                                     :lua
                                                     :markdown

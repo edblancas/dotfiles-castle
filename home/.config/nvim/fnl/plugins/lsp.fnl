@@ -74,10 +74,8 @@
                                (vim.api.nvim_buf_set_keymap bufnr :n :<leader>lh "<cmd>lua vim.lsp.buf.signature_help()<CR>" {:noremap true})
                                (vim.api.nvim_buf_set_keymap bufnr :n :<leader>ln "<cmd>lua vim.lsp.buf.rename()<CR>" {:noremap true})
                                (vim.api.nvim_buf_set_keymap bufnr :n :<leader>lq "<cmd>lua vim.diagnostic.setloclist()<CR>" {:noremap true})
+                               (vim.api.nvim_buf_set_keymap bufnr :n :<leader>le "<cmd>lua vim.diagnostic.open_float()<CR>" {:noremap true})
                                (vim.api.nvim_buf_set_keymap bufnr :n :<leader>lf "<cmd>lua vim.lsp.buf.format()<CR>" {:noremap true})
-
-                               (vim.api.nvim_buf_set_keymap bufnr :n :<leader>lj "<cmd>lua vim.diagnostic.goto_next()<CR>" {:noremap true})
-                               (vim.api.nvim_buf_set_keymap bufnr :n :<leader>lk "<cmd>lua vim.diagnostic.goto_prev()<CR>" {:noremap true})
 
                                ;like idea
                                (vim.api.nvim_buf_set_keymap bufnr :n :<F2> "<cmd>lua vim.diagnostic.goto_next()<CR>" {:noremap true})
@@ -112,6 +110,11 @@
                                          :before_init before_init
                                          :on_attach on_attach
                                          :handlers handlers})
+
+                (lspconfig.tsserver.setup {:capabilities capabilities
+                                           :before_init before_init
+                                           :on_attach on_attach
+                                           :handlers handlers})
 
                 (cmp.event:on "confirm_done" (cmp-ap.on_confirm_done))
 
