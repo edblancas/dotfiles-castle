@@ -8,5 +8,5 @@
 ;pyright: lsp autocomplete python
  {1 :williamboman/mason-lspconfig.nvim
   :config true
-  :opts {:ensure_installed [:pyright]}
+  :opts {:ensure_installed [:pyright :tsserver]}
   :dependencies [:williamboman/mason.nvim]}]

@@ -56,3 +56,7 @@
 
 ;unmap F1 help
 (vim.keymap.set [:n :i] "<F1>" "<nop>")
+
+;mimic vim-vinegar
+;https://github.com/stevearc/oil.nvim?tab=readme-ov-file#quick-start
+(vim.keymap.set [:n] "-" "<CMD>Oil<CR>" { :desc "Open parent directory"})

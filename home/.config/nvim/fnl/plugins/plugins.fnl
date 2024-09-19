@@ -8,5 +8,9 @@
     :config true}
  {1 :windwp/nvim-autopairs
     :event "InsertEnter"
-    :opts {:enable_check_bracket_line false}}]
+    :opts {:enable_check_bracket_line false}}
+
+ {1 :stevearc/oil.nvim
+    :config true
+    :dependencies [:nvim-tree/nvim-web-devicons]}]
 
