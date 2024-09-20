@@ -24,7 +24,39 @@
 
 [{1 :SmiteshP/nvim-navic
     :config true
+    :opts {:lsp {:auto_attach true
+                 :preference [:pyright :null-ls]}
+           :highlight true
+           :separator "  "
+           :click true
+           :icons {:File " "
+                   :Module " "
+                   :Namespace " "
+                   :Package " "
+                   :Class " "
+                   :Method " "
+                   :Property " "
+                   :Field " "
+                   :Constructor " "
+                   :Enum " "
+                   :Interface " "
+                   :Function " "
+                   :Variable " "
+                   :Constant " "
+                   :String " "
+                   :Number " "
+                   :Boolean " "
+                   :Array " "
+                   :Object " "
+                   :Key " "
+                   :Null " "
+                   :EnumMember " "
+                   :Struct " "
+                   :Event " "
+                   :Operator " "
+                   :TypeParameter " "}}
     :dependencies [:neovim/nvim-lspconfig]}
+
  {1 :neovim/nvim-lspconfig
     :dependencies [
         :hrsh7th/cmp-nvim-lsp
@@ -70,7 +102,6 @@
                     before_init (fn [params]
                                 (set params.workDoneToken :1))
                     on_attach (fn [_ bufnr]
-                             (do
                                (vim.api.nvim_buf_set_keymap bufnr :n :gd "<Cmd>lua vim.lsp.buf.definition()<CR>" {:noremap true})
                                (vim.api.nvim_buf_set_keymap bufnr :n :<leader>ld "<Cmd>lua vim.lsp.buf.declaration()<CR>" {:noremap true})
                                (vim.api.nvim_buf_set_keymap bufnr :n :<leader>lt "<cmd>lua vim.lsp.buf.type_definition()<CR>" {:noremap true})
@@ -91,7 +122,7 @@
                                ;telescope
                                (vim.api.nvim_buf_set_keymap bufnr :n :<leader>lw ":lua require('telescope.builtin').diagnostics()<cr>" {:noremap true})
                                (vim.api.nvim_buf_set_keymap bufnr :n :<leader>lr ":lua require('telescope.builtin').lsp_references()<cr>" {:noremap true})
-                               (vim.api.nvim_buf_set_keymap bufnr :n :<leader>li ":lua require('telescope.builtin').lsp_implementations()<cr>" {:noremap true})))]
+                               (vim.api.nvim_buf_set_keymap bufnr :n :<leader>li ":lua require('telescope.builtin').lsp_implementations()<cr>" {:noremap true}))]
 
                 (fidget.setup {})
 

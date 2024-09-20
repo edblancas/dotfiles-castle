@@ -29,6 +29,7 @@
                            :icons_enabled true
                            :section_separators ["" ""]
                            :component_separators ["" ""]}
+                 :winbar {:lualine_c [:navic]}
                  :sections {:lualine_a []
                             :lualine_b [[:mode {:upper true}]]
                             :lualine_c [["FugitiveHead"]
