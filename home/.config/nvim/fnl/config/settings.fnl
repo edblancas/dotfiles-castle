@@ -15,6 +15,9 @@
 ;clojure tabsize
 (nvim.ex.autocmd "FileType" "clojure" "setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab")
 
+;typescript tabsize
+(nvim.ex.autocmd "FileType" "typescript" "setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab")
+
 (nvim.ex.autocmd "BufRead,BufNewFile" "*.log" "set filetype=text")
 
 (nvim.ex.autocmd "BufRead,BufNewFile" "README" "set filetype=markdown")

@@ -18,5 +18,11 @@
  {1 :lukas-reineke/indent-blankline.nvim
     :main :ibl
     :opts {:indent {:char "▏"}
-           :scope {:show_start false}}}]
+           :scope {:show_start false
+                   :show_end false}}}
+
+ {1 :stevearc/conform.nvim
+    :config true
+    :opts {:formatters_by_ft {:typescript {1 "prettierd" 2 "prettier" :stop_after_first true}
+                              :javascript {1 "prettierd" 2 "prettier" :stop_after_first true}}}}]
 
