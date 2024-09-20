@@ -39,5 +39,5 @@ local function _2_(args)
   return conform.format({async = true, lsp_format = "fallback", range = range})
 end
 vim.api.nvim_create_user_command("Format", _2_, {range = true})
-vim.keymap.set({"n", "i"}, "<M-D-l>", "<CMD>Format<CR>", {desc = "Format with comform"})
+vim.keymap.set({"n"}, "<M-D-l>", "<CMD>Format<CR>", {desc = "Format with comform"})
 return {}

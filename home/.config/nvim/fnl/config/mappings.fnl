@@ -76,6 +76,6 @@
                            :range range})))
   {:range true})
 
-(vim.keymap.set [:n :i] "<M-D-l>" "<CMD>Format<CR>" {:desc "Format with comform"})
+(vim.keymap.set [:n] "<M-D-l>" "<CMD>Format<CR>" {:desc "Format with comform"})
 
 {}
