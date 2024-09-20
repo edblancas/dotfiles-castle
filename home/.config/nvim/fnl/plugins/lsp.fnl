@@ -27,7 +27,7 @@
     :opts {:lsp {:auto_attach true
                  :preference [:pyright :null-ls]}
            :highlight true
-           :separator "  "
+           :separator " "
            :click true
            :icons {:File " "
                    :Module " "
