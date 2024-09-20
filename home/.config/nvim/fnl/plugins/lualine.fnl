@@ -32,8 +32,7 @@
                  :winbar {:lualine_c [:navic]}
                  :sections {:lualine_a []
                             :lualine_b [[:mode {:upper true}]]
-                            :lualine_c [["FugitiveHead"]
-                                        {1 :filename
+                            :lualine_c [{1 :filename
                                          :file_status true
                                          :path 1
                                          :shorting_target 40}]
@@ -42,9 +41,9 @@
                                          :sources [:nvim_lsp]}
                                         [lsp_connection]
                                         :location
-                                        :filetype]
-                            :lualine_y [:encoding]
-                            :lualine_z []}
+                                        :progress]
+                            :lualine_y [:filetype]
+                            :lualine_z [:branch]}
                  :inactive_sections {:lualine_a []
                                      :lualine_b []
                                      :lualine_c [{1 :filename
