@@ -49,3 +49,6 @@
 [submodule "home/.config/oh-my-zsh/custom/plugins/fzf-tab"]
 	path = home/.config/oh-my-zsh/custom/plugins/fzf-tab
 	url = https://github.com/Aloxaf/fzf-tab
+[submodule "home/.config/kitty/meow"]
+	path = home/.config/kitty/meow
+	url = https://github.com/edblancas/kitty-meow.git
