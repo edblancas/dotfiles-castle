@@ -51,4 +51,5 @@
                                                   :path 1}]
                                      :lualine_x []
                                      :lualine_y []
-                                     :lualine_z []}})))}]
+                                     :lualine_z []}
+                 :extensions [:neo-tree :oil :nvim-dap-ui]})))}]
