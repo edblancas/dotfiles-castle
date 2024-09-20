@@ -22,7 +22,10 @@
         ""
         icon)))
 
-[{1 :neovim/nvim-lspconfig
+[{1 :SmiteshP/nvim-navic
+    :config true
+    :dependencies [:neovim/nvim-lspconfig]}
+ {1 :neovim/nvim-lspconfig
     :dependencies [
         :hrsh7th/cmp-nvim-lsp
         :hrsh7th/cmp-buffer

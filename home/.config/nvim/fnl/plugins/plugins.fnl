@@ -13,5 +13,9 @@
  {1 :stevearc/oil.nvim
     :config true
     :opts {:default_file_explorer false}
-    :dependencies [:nvim-tree/nvim-web-devicons]}]
+    :dependencies [:nvim-tree/nvim-web-devicons]}
+
+ {1 :lukas-reineke/indent-blankline.nvim
+    :main :ibl
+    :opts {:indent {:char "▏"}}}]
 
