@@ -78,4 +78,14 @@
 
 (vim.keymap.set [:n] "<M-D-l>" "<CMD>Format<CR>" {:desc "Format with comform"})
 
+;get the current file from the cwd
+(vim.api.nvim_create_user_command 
+  "CopyFilePath"
+  (fn [_]
+    (let [cwd (vim.fn.getcwd)
+          folder_name (vim.fn.fnamemodify cwd ":t")
+          file-path (vim.fn.expand "%")]
+      (vim.fn.setreg "+" (.. folder_name "/" file-path))))
+  {})
+
 {}
