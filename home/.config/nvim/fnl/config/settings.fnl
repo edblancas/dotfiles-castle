@@ -38,11 +38,8 @@
        :backup false
        :swapfile false
        :showmode false
-       ;both settings to show current line number
-       :number true
-       ;show line and column number
-       :ruler true
-       ;settings needed for compe autocompletion
+       :relativenumber true
+       ;settings needed for cmp autocompletion
        :completeopt "menuone,noselect"
        ;turn on the wild menu, auto complete for commands in command line
        :wildmenu true
