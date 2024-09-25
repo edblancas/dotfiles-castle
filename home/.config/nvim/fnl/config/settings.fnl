@@ -33,7 +33,6 @@
 (let [options
       {:encoding "utf-8"
        :spelllang "en_us"
-       :colorcolumn "80"
        :errorbells true
        :backup false
        :swapfile false

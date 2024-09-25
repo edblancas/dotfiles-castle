@@ -25,8 +25,7 @@ set clipboard=unnamed
 set hlsearch
 set ignorecase
 set incsearch
-set nonumber
-"set relativenumber
+set relativenumber
 set scrolloff=3
 set showmode
 set showcmd
@@ -128,3 +127,6 @@ nnoremap Q <Nop>
 " To work in insert and normal mode
 inoremap <C-]> :action GotoDeclaration<CR>
 nnoremap <C-]> :action GotoDeclaration<CR>
+
+# Idea only options
+set clipboard^=ideaput
