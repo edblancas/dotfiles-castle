@@ -39,7 +39,7 @@ local function _2_(args)
   return conform.format({async = true, lsp_format = "fallback", range = range})
 end
 vim.api.nvim_create_user_command("Format", _2_, {range = true})
-vim.keymap.set({"n"}, "<M-D-l>", "<CMD>Format<CR>", {desc = "Format with comform"})
+vim.keymap.set({"n", "v"}, "<M-D-l>", "<CMD>Format<CR>", {desc = "Format with comform"})
 local function _4_(_)
   local cwd = vim.fn.getcwd()
   local folder_name = vim.fn.fnamemodify(cwd, ":t")
@@ -47,4 +47,12 @@ local function _4_(_)
   return vim.fn.setreg("+", (folder_name .. "/" .. file_path))
 end
 vim.api.nvim_create_user_command("CopyFilePath", _4_, {})
+local function _5_()
+  return vim.keymap.set("n", "<C-M-o>", "<cmd>OptimizeImports<cr>", {noremap = true})
+end
+vim.api.nvim_create_autocmd("FileType", {pattern = "typescript", callback = _5_})
+local function _6_()
+  return vim.keymap.set("n", "<C-M-o>", "<cmd>PyrightOrganizeImports<cr>", {noremap = true})
+end
+vim.api.nvim_create_autocmd("FileType", {pattern = "python", callback = _6_})
 return {}

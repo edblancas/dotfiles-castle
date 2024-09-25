@@ -16,10 +16,13 @@
                                            (null_ls.builtins.diagnostics.mypy._opts.on_output params)))})
 
 [{1 :nvimtools/none-ls.nvim
-  :dependencies [:williamboman/mason.nvim]
-  :ft [:python]
+  :dependencies [:williamboman/mason.nvim :nvimtools/none-ls-extras.nvim]
+  :ft [:python :typescript]
   :config (fn []
             (let [null_ls (require :null-ls)]
               (null_ls.setup {:sources [(null_ls.builtins.diagnostics.mypy.with (mypy-opts null_ls))
-                                        null_ls.builtins.formatting.black]})))}]
+                                        null_ls.builtins.formatting.black
+                                        (require :none-ls.diagnostics.eslint_d)
+                                        (require :none-ls.formatting.eslint_d)
+                                        (require :none-ls.code_actions.eslint_d)]})))}]
 

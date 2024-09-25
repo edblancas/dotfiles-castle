@@ -4,23 +4,50 @@
    {:name :buffer}
    {:name :luasnip}])
 
+(local icons
+       {:File " "
+        :Module " "
+        :Namespace " "
+        :Package " "
+        :Class " "
+        :Method " "
+        :Property " "
+        :Field " "
+        :Constructor " "
+        :Enum " "
+        :Interface " "
+        :Function " "
+        :Variable " "
+        :Constant " "
+        :String " "
+        :Number " "
+        :Boolean " "
+        :Array " "
+        :Object " "
+        :Key " "
+        :Null " "
+        :EnumMember " "
+        :Struct " "
+        :Event " "
+        :Operator " "
+        :Text ""
+        :Snippet ""
+        :Keyword ""
+        :Reference ""
+        :TypeParameter " "})
+
 (fn kind->icon [kind]
   ;https://github.com/mortepau/codicons.nvim/blob/master/lua/codicons/table.lua
-  (let [icons {:Variable ""
-               :Function ""
-               :Class ""
-               :Text ""
-               :Keyword ""
-               :Snippet ""
-               :Module ""
-               :Reference ""
-               :Method ""
-               :Constant ""
-               :Property ""}
-        icon (?. icons kind)]
+  (let [ icon (?. icons kind)]
     (if (= icon nil)
         ""
         icon)))
+
+(fn optimize-imports []
+  (let [params {:command "_typescript.organizeImports"
+                :arguments [(vim.api.nvim_buf_get_name 0)]
+                :title ""}]
+    (vim.lsp.buf.execute_command params)))
 
 [{1 :SmiteshP/nvim-navic
     :config true
@@ -29,32 +56,7 @@
            :highlight true
            :separator " "
            :click true
-           :icons {:File " "
-                   :Module " "
-                   :Namespace " "
-                   :Package " "
-                   :Class " "
-                   :Method " "
-                   :Property " "
-                   :Field " "
-                   :Constructor " "
-                   :Enum " "
-                   :Interface " "
-                   :Function " "
-                   :Variable " "
-                   :Constant " "
-                   :String " "
-                   :Number " "
-                   :Boolean " "
-                   :Array " "
-                   :Object " "
-                   :Key " "
-                   :Null " "
-                   :EnumMember " "
-                   :Struct " "
-                   :Event " "
-                   :Operator " "
-                   :TypeParameter " "}}
+           :icons icons}
     :dependencies [:neovim/nvim-lspconfig]}
 
  {1 :neovim/nvim-lspconfig
@@ -116,9 +118,12 @@
                                (vim.api.nvim_buf_set_keymap bufnr :n :<S-F2> "<cmd>lua vim.diagnostic.goto_prev()<CR>" {:noremap true})
                                (vim.api.nvim_buf_set_keymap bufnr :n :<M-D-o> ":lua require('telescope.builtin').lsp_document_symbols()<cr>" {:noremap true})
                                (vim.api.nvim_buf_set_keymap bufnr :n :<C-M-D-o> ":lua require('telescope.builtin').lsp_workspace_symbols()<cr>" {:noremap true})
+                               ;DON'T WORK!!!
+                               ;(vim.api.nvim_create_autocmd "FileType" ...
 
                                (vim.api.nvim_buf_set_keymap bufnr :n :<leader>la "<cmd>lua vim.lsp.buf.code_action()<CR>" {:noremap true})
                                (vim.api.nvim_buf_set_keymap bufnr :v :<leader>la "<cmd>lua vim.lsp.buf.range_code_action()<CR>" {:noremap true})
+
                                ;telescope
                                (vim.api.nvim_buf_set_keymap bufnr :n :<leader>lw ":lua require('telescope.builtin').diagnostics()<cr>" {:noremap true})
                                (vim.api.nvim_buf_set_keymap bufnr :n :<leader>lr ":lua require('telescope.builtin').lsp_references()<cr>" {:noremap true})
@@ -150,7 +155,8 @@
                 (lspconfig.tsserver.setup {:capabilities capabilities
                                            :before_init before_init
                                            :on_attach on_attach
-                                           :handlers handlers})
+                                           :handlers handlers
+                                           :commands {:OptimizeImports {1 optimize-imports :description "Optimize Imports"}}})
 
                 (cmp.event:on "confirm_done" (cmp-ap.on_confirm_done))
 
