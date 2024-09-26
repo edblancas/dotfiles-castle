@@ -242,6 +242,11 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_CTRL_T_OPTS='--preview "bat --style=numbers --color=always --line-range :500 {}"'
 export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
+# cuz the current definition in
+# ~/.fzf/shell/key-bindings.zsh
+# don't work, as kitty terminal is passing
+# that character instead of the actual alt-c
+bindkey 'ç' fzf-cd-widget
 
 ### PERSONAL OR WORK ###
 if [[ $USER == "dan" ]]; then
