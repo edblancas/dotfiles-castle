@@ -46,8 +46,8 @@
 
 (vim.keymap.set [:n :v :i] "<D-s>" "<cmd>wall<CR>")
 
-(vim.keymap.set [:n] "<leader>]" ":bn")
-(vim.keymap.set [:n] "<leader>[" ":bp")
+(vim.keymap.set [:n] "<leader>]" ":bn<cr>")
+(vim.keymap.set [:n] "<leader>[" ":bp<cr>")
 
 (vim.keymap.set [:n] "<F10>" "<C-w>|")
 (vim.keymap.set [:n] "<D-F10>" "<C-w>|")
