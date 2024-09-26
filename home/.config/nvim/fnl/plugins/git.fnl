@@ -10,4 +10,7 @@
     :dependencies ["nvim-lua/plenary.nvim"]
     ;setting the keybinding for LazyGit with 'keys' is recommended in
     ;order to load the plugin when the command is run for the first time
-    :keys [{1 "<leader>lg" 2 "<cmd>LazyGit<cr>" :desc "LazyGit"}]}]
+    :keys [{1 "<leader>lg" 2 "<cmd>LazyGit<cr>" :desc "LazyGit"}]}
+ {1 :tpope/vim-fugitive
+    :lazy true}]
+

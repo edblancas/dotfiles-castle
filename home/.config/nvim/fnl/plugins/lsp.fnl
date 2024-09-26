@@ -152,11 +152,11 @@
                                          :on_attach on_attach
                                          :handlers handlers})
 
-                (lspconfig.tsserver.setup {:capabilities capabilities
-                                           :before_init before_init
-                                           :on_attach on_attach
-                                           :handlers handlers
-                                           :commands {:OptimizeImports {1 optimize-imports :description "Optimize Imports"}}})
+                (lspconfig.ts_ls.setup {:capabilities capabilities
+                                        :before_init before_init
+                                        :on_attach on_attach
+                                        :handlers handlers
+                                        :commands {:OptimizeImports {1 optimize-imports :description "Optimize Imports"}}})
 
                 (cmp.event:on "confirm_done" (cmp-ap.on_confirm_done))
 
