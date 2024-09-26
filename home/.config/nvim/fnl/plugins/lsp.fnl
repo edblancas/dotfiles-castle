@@ -175,7 +175,8 @@
                                         :matching {:disallow_symbol_nonprefix_matching false}})
 
                 (cmp.setup {:formatting {:format (fn [_ vim_item] 
-                                                   (tset vim_item :kind (.. (kind->icon vim_item.kind) " " vim_item.kind)) 
+                                                   (when vim_item.kind
+                                                     (tset vim_item :kind (.. (kind->icon vim_item.kind) " " vim_item.kind)))
                                                    vim_item)}
                             :snippet {:expand (fn [args]
                                                 (luasnip.lsp_expand args.body))}
