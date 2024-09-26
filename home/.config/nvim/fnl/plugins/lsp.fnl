@@ -121,8 +121,8 @@
                                ;DON'T WORK!!!
                                ;(vim.api.nvim_create_autocmd "FileType" ...
 
-                               (vim.api.nvim_buf_set_keymap bufnr :n :<leader>la "<cmd>lua vim.lsp.buf.code_action()<CR>" {:noremap true})
-                               (vim.api.nvim_buf_set_keymap bufnr :v :<leader>la "<cmd>lua vim.lsp.buf.range_code_action()<CR>" {:noremap true})
+                               (vim.api.nvim_buf_set_keymap bufnr :n :<M-cr> "<cmd>lua vim.lsp.buf.code_action()<CR>" {:noremap true})
+                               (vim.api.nvim_buf_set_keymap bufnr :v :<M-cr> "<cmd>lua vim.lsp.buf.range_code_action()<CR>" {:noremap true})
 
                                ;telescope
                                (vim.api.nvim_buf_set_keymap bufnr :n :<leader>lw ":lua require('telescope.builtin').diagnostics()<cr>" {:noremap true})
