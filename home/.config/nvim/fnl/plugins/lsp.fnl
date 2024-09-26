@@ -110,6 +110,10 @@
                                (vim.api.nvim_buf_set_keymap bufnr :n :<leader>lh "<cmd>lua vim.lsp.buf.signature_help()<CR>" {:noremap true})
                                (vim.api.nvim_buf_set_keymap bufnr :n :<leader>ln "<cmd>lua vim.lsp.buf.rename()<CR>" {:noremap true})
                                (vim.api.nvim_buf_set_keymap bufnr :n :<leader>lq "<cmd>lua vim.diagnostic.setloclist()<CR>" {:noremap true})
+
+                               (vim.api.nvim_buf_set_keymap bufnr :n :<D-6> "<cmd>lua vim.diagnostic.setloclist()<CR>" {:noremap true})
+                               (vim.api.nvim_buf_set_keymap bufnr :i :<D-6> "<cmd>lua vim.diagnostic.setloclist()<CR>" {:noremap true})
+
                                (vim.api.nvim_buf_set_keymap bufnr :n :<leader>le "<cmd>lua vim.diagnostic.open_float()<CR>" {:noremap true})
                                (vim.api.nvim_buf_set_keymap bufnr :n :<leader>lf "<cmd>lua vim.lsp.buf.format()<CR>" {:noremap true})
 
@@ -126,8 +130,10 @@
 
                                ;telescope
                                (vim.api.nvim_buf_set_keymap bufnr :n :<leader>lw ":lua require('telescope.builtin').diagnostics()<cr>" {:noremap true})
-                               (vim.api.nvim_buf_set_keymap bufnr :n :<leader>lr ":lua require('telescope.builtin').lsp_references()<cr>" {:noremap true})
-                               (vim.api.nvim_buf_set_keymap bufnr :n :<leader>li ":lua require('telescope.builtin').lsp_implementations()<cr>" {:noremap true}))]
+                               (vim.api.nvim_buf_set_keymap bufnr :n "<D-b>" ":lua require('telescope.builtin').lsp_references()<cr>" {:noremap true})
+                               (vim.api.nvim_buf_set_keymap bufnr :i "<D-b>" ":lua require('telescope.builtin').lsp_references()<cr>" {:noremap true})
+                               (vim.api.nvim_buf_set_keymap bufnr :n "<M-D-b>" ":lua require('telescope.builtin').lsp_implementations()<cr>" {:noremap true})
+                               (vim.api.nvim_buf_set_keymap bufnr :i "<M-D-b>" ":lua require('telescope.builtin').lsp_implementations()<cr>" {:noremap true}))]
 
                 (fidget.setup {})
 
