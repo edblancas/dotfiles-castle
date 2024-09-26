@@ -139,7 +139,7 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 #alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; update_dotfiles_submodules'
 alias update='brew update; brew upgrade clojure-lsp/brew/clojure-lsp-native; brew cleanup; update_dotfiles_submodules; $HOME/.emacs.d/bin/doom upgrade'
 alias cloud="cd $HOME/Library/Mobile\ Documents/com~apple~CloudDocs"
-alias notes="cd $HOME/Dropbox/dev/current/notes"
+alias onest="cd $HOME/Documents/dev/onest"
 # Alias for datomic
 alias sdatomic='$HOME/opt/datomic-pro-1.0.6269/bin/transactor config/dev-transactor-template.properties'
 # Alias for closh
