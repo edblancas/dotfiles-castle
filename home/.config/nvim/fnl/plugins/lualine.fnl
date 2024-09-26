@@ -29,13 +29,14 @@
                            :icons_enabled true
                            :section_separators ["" ""]
                            :component_separators ["" ""]}
-                 :winbar {:lualine_c [:navic]}
-                 :sections {:lualine_a []
-                            :lualine_b [[:mode {:upper true}]]
-                            :lualine_c [{1 :filename
+                 :winbar {:lualine_a []}
+                 :inactive_winbar {:lualine_a []}
+                 :sections {:lualine_a [:mode]
+                            :lualine_b [{1 :filename
                                          :file_status true
                                          :path 1
                                          :shorting_target 40}]
+                            :lualine_c [:navic]
                             :lualine_x [{1 :diagnostics
                                          :sections [:error :warn :info :hint]
                                          :sources [:nvim_lsp]}
