@@ -15,7 +15,7 @@ FPATH="$HOMEBREW/share/zsh/site-functions:${FPATH}"
 ### START OH-MY-ZSH ###
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME=""
-plugins=(git common-aliases zsh-syntax-highlighting history-substring-search web-search docker git-flow docker-compose zsh-autosuggestions zsh-vi-mode fzf-tab sudo command-not-found)
+plugins=(git common-aliases zsh-syntax-highlighting history-substring-search web-search docker git-flow docker-compose zsh-autosuggestions zsh-vi-mode fzf-tab command-not-found)
 
 # zsh-autosuggest plugin settings
 # https://github.com/zsh-users/zsh-autosuggestions
