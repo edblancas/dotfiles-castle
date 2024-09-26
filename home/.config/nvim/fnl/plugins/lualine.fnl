@@ -53,4 +53,4 @@
                                      :lualine_x []
                                      :lualine_y []
                                      :lualine_z []}
-                 :extensions [:neo-tree :oil :nvim-dap-ui]})))}]
+                 :extensions [:neo-tree :oil :nvim-dap-ui :fugitive]})))}]

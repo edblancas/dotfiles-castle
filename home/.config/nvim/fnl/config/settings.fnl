@@ -70,6 +70,7 @@
        ;"yes" makes signcolumn for both signs and linenumber
        :signcolumn "yes"
        :foldmethod "syntax"
+       :foldlevel 1
        :shell "zsh"
        ;when using wrap
        :showbreak "↳"
