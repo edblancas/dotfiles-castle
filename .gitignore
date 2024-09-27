@@ -41,3 +41,4 @@ home/.config/zed/.tmp*
 home/.config/raycast/extensions/node_modules
 
 .cpcache
+home/.config/raycast
