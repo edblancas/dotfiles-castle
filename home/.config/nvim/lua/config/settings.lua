@@ -9,8 +9,8 @@ nvim.ex.autocmd("FileType", "lua", "setlocal tabstop=2 softtabstop=2 shiftwidth=
 nvim.ex.autocmd("FileType", "fennel", "setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab")
 nvim.ex.autocmd("FileType", "clojure", "setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab")
 nvim.ex.autocmd("FileType", "typescript", "setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab")
-nvim.ex.autocmd("BufRead,BufNewFile", "*.log", "set filetype=text")
 nvim.ex.autocmd("BufRead,BufNewFile", "README", "set filetype=markdown")
+nvim.ex.autocmd("FileType", "python", "setlocal formatoptions-=t")
 nvim.ex.set("nowrap")
 nvim.o.mouse = "a"
 do

@@ -1,6 +1,5 @@
 -- [nfnl] Compiled from fnl/config/utils.fnl by https://github.com/Olical/nfnl, do not edit.
 local function toggle_test_file()
-  local nt = require("neotest")
   local path = vim.fn.expand("%:h:t")
   local filename = vim.fn.expand("%:t")
   if (string.sub(filename, 1, 5) == "test_") then

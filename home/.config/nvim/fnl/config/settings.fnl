@@ -18,11 +18,10 @@
 ;typescript tabsize
 (nvim.ex.autocmd "FileType" "typescript" "setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab")
 
-(nvim.ex.autocmd "BufRead,BufNewFile" "*.log" "set filetype=text")
-
 (nvim.ex.autocmd "BufRead,BufNewFile" "README" "set filetype=markdown")
 
-;(nvim.ex.autocmd "BufRead,BufEnter" "conjure-log-*" ":lua require 'util.turn-off-diagnostics'.turn-off-diagnostics-buffer()")
+;disable aoutoformat at textwidth, remove t option
+(nvim.ex.autocmd "FileType" "python" "setlocal formatoptions-=t")
 
 ;don't wrap lines
 (nvim.ex.set :nowrap)
