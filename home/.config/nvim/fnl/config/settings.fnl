@@ -74,6 +74,7 @@
        :shell "zsh"
        ;when using wrap
        :showbreak "↳"
+       :textwidth "80"
        :breakindent true
        :breakindentopt "shift:4,sbr"
        :cursorline true}]
