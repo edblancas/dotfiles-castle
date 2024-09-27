@@ -31,9 +31,6 @@
 [submodule "home/.config/alacritty/themes/others"]
 	path = home/.config/alacritty/themes/others
 	url = https://github.com/alacritty/alacritty-theme
-[submodule "home/.config/alacritty/themes/catppuccin"]
-	path = home/.config/alacritty/themes/catppuccin
-	url = https://github.com/catppuccin/alacritty.git
 [submodule "home/.doom.d/themes"]
 	path = home/.doom.d/themes
 	url = https://github.com/catppuccin/emacs.git
