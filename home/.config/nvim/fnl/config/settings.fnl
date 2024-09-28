@@ -68,7 +68,6 @@
        ;"number" makes signcolumn always one column with signs and linenumber
        ;"yes" makes signcolumn for both signs and linenumber
        :signcolumn "yes"
-       :foldmethod "syntax"
        :foldlevel 1
        :shell "zsh"
        ;when using wrap
@@ -76,7 +75,11 @@
        :textwidth 80
        :breakindent true
        :breakindentopt "shift:4,sbr"
-       :cursorline true}]
+       :cursorline true
+       :foldenable false
+       :foldmethod "expr"
+       :foldexpr "v:lua.vim.treesitter.foldexpr()"
+       :foldtext ""}]
   (each [option value (pairs options)]
     (core.assoc nvim.o option value)))
 
