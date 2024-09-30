@@ -27,16 +27,19 @@
               (lualine.setup
                 {:options {:theme "tokyonight"
                            :icons_enabled true
+                           :globalstatus false
                            :section_separators ["" ""]
                            :component_separators ["" ""]}
                  :winbar {:lualine_a []}
                  :inactive_winbar {:lualine_a []}
+                 :disabled_filetypes {:statusline {}
+                                      :winbar []}
                  :sections {:lualine_a [:mode]
                             :lualine_b [{1 :filename
                                          :file_status true
                                          :path 1
                                          :shorting_target 40}]
-                            :lualine_c [:navic]
+                            :lualine_c []
                             :lualine_x [{1 :diagnostics
                                          :sections [:error :warn :info :hint]
                                          :sources [:nvim_lsp]}
