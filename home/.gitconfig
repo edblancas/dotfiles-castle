@@ -153,8 +153,8 @@
 [credential]
   helper = cache
 
-[includeIf "gitdir:~/dev/nu/"]
-  path = ~/dev/nu/.gitconfig_include
+[includeIf "gitdir:~/projects/onest"]
+  path = ~/projects/onest/.gitconfig_include
 [filter "lfs"]
 	smudge = git-lfs smudge --skip %f
 	process = git-lfs filter-process --skip
@@ -162,7 +162,5 @@
 	clean = git-lfs clean -- %f
 [url "git@github.com:"]
 	insteadOf = git://github.com/
-[includeIf "gitdir:/Users/daniel.blancas/dev/nu/"]
-	path = /Users/daniel.blancas/.nugitconfig
 [init]
 	defaultBranch = main
