@@ -26,5 +26,6 @@
  {1 :stevearc/conform.nvim
     :config true
     :opts {:formatters_by_ft {:typescript {1 "prettierd" 2 "prettier" :stop_after_first true}
+                              :typescriptreact {1 "prettierd" 2 "prettier" :stop_after_first true}
                               :javascript {1 "prettierd" 2 "prettier" :stop_after_first true}}}}]
 

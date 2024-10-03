@@ -17,7 +17,7 @@
 
 [{1 :nvimtools/none-ls.nvim
   :dependencies [:williamboman/mason.nvim :nvimtools/none-ls-extras.nvim]
-  :ft [:python :typescript]
+  :ft [:python :typescript :typescriptreact]
   :config (fn []
             (let [null_ls (require :null-ls)
                   eslint-diagnostics (require :none-ls.diagnostics.eslint_d)]

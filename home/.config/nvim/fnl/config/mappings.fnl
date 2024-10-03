@@ -4,8 +4,11 @@
 ;generic mapping leaders configuration
 (nvim.set_keymap :n :<space> :<nop> {:noremap true})
 
-;clear highlighting on enter in normal mode
-(nvim.set_keymap :n :<CR> ":noh<CR><CR>" {:noremap true})
+;from sensible.vim
+(nvim.set_keymap :n 
+                 :<leader><space> 
+                 ":nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>" 
+                 {:noremap true :desc "nohlsearch/diffupdate"})
 
 ;duplicate currents panel in a new tab
 (nvim.set_keymap :n :<C-w>T ":tab split<CR>" {:noremap true :silent true})
@@ -26,19 +29,24 @@
 ;move page down/up with cursos in middle
 (vim.keymap.set "n" "<C-d>" "<C-d>zz")
 (vim.keymap.set "n" "<C-u>" "<C-u>zz")
-; ?
+; move next/previous search occurrence and center
+; and opend folds
 (vim.keymap.set "n" "n" "nzzzv")
 (vim.keymap.set "n" "N" "Nzzzv")
 
-;when selected some text and exec then replace
+;when selected some text and exec, then replace
 ;the text with the text in the register and
 ;mantain this text in the register
 ;previously the text replaced will be in the register
+;x for only visual mode
+;s for only select mode
+;v for both visual and select mode
 (vim.keymap.set "x" "<leader>p" "\"_dP")
 
 ;delete and text discarded
 (vim.keymap.set [:n :v] "<leader>d" "\"_d")
 
+;quickfix/location list
 (vim.keymap.set "n" "<C-k>" "<cmd>cnext<CR>zz")
 (vim.keymap.set "n" "<C-j>" "<cmd>cprev<CR>zz")
 (vim.keymap.set "n" "<leader>k" "<cmd>lnext<CR>zz")
@@ -51,7 +59,7 @@
 (vim.keymap.set [:n] "<leader>[" ":bp<cr>")
 
 (vim.keymap.set [:n] "<F10>" "<C-w>|")
-(vim.keymap.set [:n] "<D-F10>" "<C-w>|")
+(vim.keymap.set [:n] "<D-F10>" "<C-w>_")
 
 (vim.keymap.set [:n :i] "<F16>" "<cmd>lua require('config.utils')['toggle-test-file']()<cr>")
 
@@ -90,7 +98,7 @@
   {})
 
 (vim.api.nvim_create_autocmd "FileType"
-  {:pattern "typescript"
+  {:pattern ["typescript" "typescriptreact"]
    :callback (fn []
                (vim.keymap.set :n :<C-M-o> "<cmd>OptimizeImports<cr>" {:noremap true}))})
 
