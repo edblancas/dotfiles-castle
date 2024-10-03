@@ -10,15 +10,9 @@
 (nvim.ex.autocmd "FileType" "lua" "setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab")
 
 ;fennel tabsize
-(nvim.ex.autocmd "FileType" "fennel" "setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab")
-
-;clojure tabsize
-(nvim.ex.autocmd "FileType" "clojure" "setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab")
-
-;typescript tabsize
-(nvim.ex.autocmd "FileType" "typescript" "setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab")
-
-(nvim.ex.autocmd "BufRead,BufNewFile" "README" "set filetype=markdown")
+(nvim.ex.autocmd "FileType" 
+                 "python,clojure,fennel,typescript,typescriptreact"
+                 "setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab")
 
 ;disable aoutoformat at textwidth, remove t option
 (nvim.ex.autocmd "FileType" "python" "setlocal formatoptions-=t")
