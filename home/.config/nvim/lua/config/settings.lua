@@ -6,7 +6,7 @@ local nvim = autoload("nvim")
 local core = autoload("nfnl.core")
 nvim.ex.autocmd("FocusGained,BufEnter", "*", ":checktime")
 nvim.ex.autocmd("FileType", "lua", "setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab")
-nvim.ex.autocmd("FileType", "python,clojure,fennel,typescript,typescriptreact", "setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab")
+nvim.ex.autocmd("FileType", "clojure,fennel,typescript,typescriptreact", "setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab")
 nvim.ex.autocmd("FileType", "python", "setlocal formatoptions-=t")
 nvim.ex.set("nowrap")
 nvim.o.mouse = "a"

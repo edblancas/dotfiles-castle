@@ -11,7 +11,7 @@
 
 ;fennel tabsize
 (nvim.ex.autocmd "FileType" 
-                 "python,clojure,fennel,typescript,typescriptreact"
+                 "clojure,fennel,typescript,typescriptreact"
                  "setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab")
 
 ;disable aoutoformat at textwidth, remove t option
