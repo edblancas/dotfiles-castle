@@ -6,6 +6,10 @@ ctrl + alt + cmd - j : yabai -m window --focus next
 ctrl + alt + cmd - k : yabai -m window --focus prev
 ctrl + alt + cmd - l : yabai -m window --swap next
 
+# window move to space
+ctrl + alt + cmd - p : yabai -m window --space prev --focus
+ctrl + alt + cmd - n : yabai -m window --space next --focus
+
 # toggle window fullscreen zoom
 ctrl + alt + cmd - space : yabai -m window --toggle zoom-fullscreen
 
