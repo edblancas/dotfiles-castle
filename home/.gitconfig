@@ -153,8 +153,6 @@
 [credential]
   helper = cache
 
-[includeIf "gitdir:~/projects/onest"]
-  path = ~/projects/onest/.gitconfig_include
 [filter "lfs"]
 	smudge = git-lfs smudge --skip %f
 	process = git-lfs filter-process --skip
@@ -164,3 +162,6 @@
 	insteadOf = git://github.com/
 [init]
 	defaultBranch = main
+
+[includeIf "gitdir:~/projects/onest/"]
+  path = .gitconfig-onest
