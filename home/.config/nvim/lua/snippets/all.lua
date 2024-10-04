@@ -4,11 +4,11 @@ local function same(index)
     print(vim.inspect(arg))
     return ""
   end
-  return f(_1_, {index, index})
+  return f(_1_, {index})
 end
 local function rep_impl(index)
   local function _2_(arg)
-    return arg[1][1]
+    return arg[1]
   end
   return f(_2_, {index})
 end

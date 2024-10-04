@@ -4,11 +4,11 @@
      (f (fn [arg]
           (print (vim.inspect arg))
           "")
-        [index index]))
+        [index]))
 
 (fn rep-impl [index]
      (f (fn [arg]
-          (. arg 1 1))
+          (. arg 1))
         [index]))
 
 [
@@ -21,14 +21,14 @@
     (f (fn []
         (os.date "%D - %H:%M"))))
 
+; example: adb, function: 
  (s "print-same"
    (fmt "example: {}, function: {}"
         [(i 1) (same 1)]))
 
+; example: daniel, function: daniel
  (s "rep-impl"
     (fmt "example: {}, function: {}"
       [(i 1) (rep-impl 1)]))
  ]
 
-; example: adb, function: 
-; example: daniel, function: daniel
