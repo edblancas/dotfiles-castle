@@ -28,7 +28,7 @@ vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left>
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", {silent = true})
 vim.keymap.set({"n"}, "<F10>", "<C-w>|")
 vim.keymap.set({"n"}, "<D-F10>", "<C-w>_")
-vim.keymap.set({"n", "i"}, "<F16>", "<cmd>lua require('config.utils')['toggle-test-file']()<cr>")
+vim.keymap.set({"n", "i"}, "<F18>", "<cmd>lua require('config.utils')['toggle-test-file']()<cr>")
 vim.keymap.set({"n", "i"}, "<F1>", "<nop>")
 vim.keymap.set({"n"}, "-", "<CMD>Oil<CR>", {desc = "Open parent directory"})
 local function _2_(args)

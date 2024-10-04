@@ -67,7 +67,7 @@
 (vim.keymap.set [:n] "<F10>" "<C-w>|")
 (vim.keymap.set [:n] "<D-F10>" "<C-w>_")
 
-(vim.keymap.set [:n :i] "<F16>" "<cmd>lua require('config.utils')['toggle-test-file']()<cr>")
+(vim.keymap.set [:n :i] "<F18>" "<cmd>lua require('config.utils')['toggle-test-file']()<cr>")
 
 ;unmap F1 help
 (vim.keymap.set [:n :i] "<F1>" "<nop>")
