@@ -15,7 +15,7 @@ FPATH="$HOMEBREW/share/zsh/site-functions:${FPATH}"
 ### START OH-MY-ZSH ###
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME=""
-plugins=(git common-aliases zsh-syntax-highlighting history-substring-search web-search docker git-flow docker-compose zsh-autosuggestions zsh-vi-mode fzf-tab command-not-found)
+plugins=(zsh-syntax-highlighting history-substring-search zsh-autosuggestions zsh-vi-mode fzf-tab)
 
 # zsh-autosuggest plugin settings
 # https://github.com/zsh-users/zsh-autosuggestions
@@ -109,7 +109,6 @@ alias nvimconf="cd ~/.config/nvim && nvim ."
 alias kittyconf="cd ~/.config/kitty && nvim kitty.conf"
 alias c="clear"
 alias e="exit"
-alias ssh="ssh -X"
 alias g="git"
 alias lg="lazygit"
 alias d="docker"
@@ -119,10 +118,6 @@ alias update_dotfiles_submodules="cd ~/.homesick/repos/dotfiles-castle && git su
 # Override system vi and vim
 alias vi='nvim'
 alias vim='nvim'
-alias ssh='TERM=xterm-256color ssh'
-# MVN alias
-alias mvnis='mvn clean install -DskipTests -Djacoco.skip=true -Dcheckstyle.skip -DskipITs -Dfindbugs.skip=true'
-alias mvnps='mvn clean package -DskipTests -Djacoco.skip=true -Dcheckstyle.skip -DskipITs -Dfindbugs.skip=true'
 # Aliases for vim and kaleidoscope merge diff tool
 alias gkdiff='git config diff.tool kaleidoscope; git difftool'
 alias gkmerge='git config merge.tool kaleidoscope; git mergetool'
@@ -140,10 +135,6 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 alias update='brew update; brew upgrade clojure-lsp/brew/clojure-lsp-native; brew cleanup; update_dotfiles_submodules; $HOME/.emacs.d/bin/doom upgrade'
 alias cloud="cd $HOME/Library/Mobile\ Documents/com~apple~CloudDocs"
 alias onest="cd $HOME/Documents/dev/onest"
-# Alias for datomic
-alias sdatomic='$HOME/opt/datomic-pro-1.0.6269/bin/transactor config/dev-transactor-template.properties'
-# Alias for closh
-alias closh="$HOME/Dropbox/bin/closh-zero.jar"
 
 ### Functions ###
 function nv() {
@@ -170,30 +161,8 @@ function fs() {
 		du $arg .[^.]* ./*;
 	fi;
 }
-# `tre` is a shorthand for `tree` with hidden files and color enabled, ignoring
-# the `.git` directory, listing directories first. The output gets piped into
-# `less` with options to preserve color and line numbers, unless the output is
-# small enough for one screen.
-function tre() {
-	tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
-}
 
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
-# Like switchjdk 1.6|1.7|1.8|9|12
-function switchjdk() {
-  if [ $# -ne 0 ]; then
-   removeFromPath '$JAVA_HOME/bin'
-   if [ -n "${JAVA_HOME+x}" ]; then
-    removeFromPath $JAVA_HOME
-   fi
-   export JAVA_HOME=`/usr/libexec/java_home -v $@`
-   export PATH=$JAVA_HOME/bin:$PATH
-  fi
-}
-
-function removeFromPath() {
-  export PATH=$(echo $PATH | sed -E -e "s;:$1;;" -e "s;$1:?;;")
-}
 
 ### Node Settings ###
 # Enable persistent REPL history for `node`.
@@ -221,7 +190,7 @@ alias whatismyipaddress='dig +short myip.opendns.com @resolver1.opendns.com'
 alias localip='ipconfig getifaddr en0'
 alias chrome='open -a "Google Chrome" --args --user-data-dir=/tmp/chrome-$((1 + RANDOM % 10))'
 # Utils
-alias uuid="python -c 'import sys,uuid; sys.stdout.write(str(uuid.uuid4()))' | pbcopy && pbpaste && echo"
+alias uuid="python3 -c 'import sys,uuid; sys.stdout.write(str(uuid.uuid4()))' | pbcopy && pbpaste && echo"
 ## get top process eating memory
 alias psmem='ps aux | sort -nr -k 4'
 alias psmem10='ps aux | sort -nr -k 4 | head -10'
@@ -234,7 +203,6 @@ alias pscpu10=' ps aux | sort -nr -k 3 | head -10 '
 unsetopt MULTIOS
 
 ### fzf ###
-alias fzfv='nvim $(fzf)'
 export FZF_DEFAULT_OPTS='--no-height'
 export FZF_DEFAULT_COMMAND='fd --hidden --strip-cwd-prefix --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
@@ -338,17 +306,6 @@ function zvm_after_lazy_keybindings() {
 }
 
 export BAT_THEME=tokyonight_night
-
-
-# look ugly, there is a web fzf theme generator
-#export FZF_DEFAULT_OPTS="--color=fg:${fg},bg:${bg},hl:${purple},fg+:${fg},bg+:${bg_highlight},hl+:${purple},info:${blue},prompt:${cyan},pointer:${cyan},marker:${cyan},spinner:${cyan},header:${cyan}"
-# --- setup fzf theme ---
-#fg="#CBE0F0"
-#bg="#011628"
-#bg_highlight="#143652"
-#purple="#B388FF"
-#blue="#06BCE4"
-#cyan="#2CF9ED"
 
 # ---- Eza (better ls) -----
 alias l="eza --color=always --long --git --icons=always --no-user --no-permissions"
