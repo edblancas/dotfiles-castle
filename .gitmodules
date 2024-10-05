@@ -49,3 +49,6 @@
 [submodule "home/.config/kitty/meow"]
 	path = home/.config/kitty/meow
 	url = https://github.com/edblancas/kitty-meow.git
+[submodule "home/.utils/fzf-git.sh"]
+	path = home/.utils/fzf-git.sh
+	url = https://github.com/junegunn/fzf-git.sh

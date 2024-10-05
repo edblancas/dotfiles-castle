@@ -2,7 +2,8 @@
   [{:name :nvim_lsp}
    {:name :conjure}
    {:name :buffer}
-   {:name :luasnip}])
+   {:name :luasnip}
+   {:name :path}])
 
 (local icons
        {:File " "
@@ -34,7 +35,8 @@
         :Snippet ""
         :Keyword ""
         :Reference ""
-        :TypeParameter " "})
+        :TypeParameter " "
+        :Folder ""})
 
 (fn kind->icon [kind]
   ;https://github.com/mortepau/codicons.nvim/blob/master/lua/codicons/table.lua

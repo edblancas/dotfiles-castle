@@ -67,7 +67,7 @@ function my_init() {
     # fzf: install useful key bindings and fuzzy completition
     # so it not conflicts with zsh-vim-mode and source it at
     # the end of all the zsh plugins
-    [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+    source <(fzf --zsh)
 }
 zvm_after_init_commands+=(my_init)
 # Disable the cursor style feature
@@ -237,16 +237,31 @@ unsetopt MULTIOS
 alias fzfv='nvim $(fzf)'
 export FZF_DEFAULT_OPTS='--no-height'
 # use the silver searcher instead of `find`
-export FZF_DEFAULT_COMMAND='ag --hidden --follow --ignore .git -g ""'
+export FZF_DEFAULT_COMMAND='fd --hidden --strip-cwd-prefix --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_DEFAULT_COMMAND='fd --type=d --hidden --strip-cwd-prefix --exclude .git'
 export FZF_CTRL_T_OPTS='--preview "bat --style=numbers --color=always --line-range :500 {}"'
 export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
+# Use fd for listing path candidates
+# - the first arg to the fn $1 is the bgase path to start traversal
+# - see cod completion.zsh for details
+# for ** files
+_fzf_compgen_path() {
+  fd --hidden --exclude .git . "$1"
+}
+# for dirs when cd **
+_fzf_compgen_dir() {
+  fd --type=d --hidden --exclude .git . "$1"
+}
+
 # cuz the current definition in
 # ~/.fzf/shell/key-bindings.zsh
 # don't work, as kitty terminal is passing
 # that character instead of the actual alt-c
-bindkey 'ç' fzf-cd-widget
+eval "zvm_bindkey viins 'ç' fzf-cd-widget"
+eval "zvm_bindkey visual 'ç' fzf-cd-widget"
+eval "zvm_bindkey vicmd 'ç' fzf-cd-widget"
 
 ### PERSONAL OR WORK ###
 if [[ $USER == "dan" ]]; then
@@ -341,4 +356,24 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'gls --color -A $realpath'
 ### zoxide ###
 zstyle ':fzf-tab:complete:z:*' fzf-preview 'gls --color -A $realpath'
 eval "$(zoxide init zsh)"
+
+### fzf-git.sh ###
+source ~/.utils/fzf-git.sh/fzf-git.sh
+# replace conflicting keybindings
+# https://github.com/junegunn/fzf-git.sh/issues/23
+# Set keybindings for zsh-vi-mode insert mode
+function zvm_after_init() {
+    zvm_bindkey viins "^P" up-line-or-beginning-search
+    zvm_bindkey viins "^N" down-line-or-beginning-search
+    for o in files branches tags remotes hashes stashes lreflogs each_ref; do
+        eval "zvm_bindkey viins '^g${o[1]}' fzf-git-$o-widget"
+    done
+}
+# Set keybindings for zsh-vi-mode normal and visual modes
+function zvm_after_lazy_keybindings() {
+    for o in files branches tags remotes hashes stashes lreflogs each_ref; do
+        eval "zvm_bindkey vicmd '^g${o[1]}' fzf-git-$o-widget"
+        eval "zvm_bindkey visual '^g${o[1]}' fzf-git-$o-widget"
+    done
+}
 
