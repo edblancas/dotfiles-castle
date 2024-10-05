@@ -103,7 +103,7 @@ export LESS_TERMCAP_md="${yellow}";
 export MANPAGER='less -X';
 
 ### Alias ###
-alias zshconf="nvim $HOME/.zshrc"
+alias zshrc="nvim $HOME/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias nvimconf="cd ~/.config/nvim && nvim ."
 alias kittyconf="cd ~/.config/kitty && nvim kitty.conf"
@@ -126,7 +126,7 @@ alias gkmerge='git config merge.tool kaleidoscope; git mergetool'
 eval $(gdircolors $HOME/.config/dracula-dircolors/.dircolors)
 export LS_OPTIONS='--color=auto'
 alias ls='gls $LS_OPTIONS -FGH'
-alias la='gls $LS_OPTIONS -lAhF'
+#alias la='gls $LS_OPTIONS -lAhF'
 #alias l='gls $LS_OPTIONS -lhF'
 # Zsh to use the same colors as ls
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
@@ -309,6 +309,7 @@ export BAT_THEME=tokyonight_night
 
 # ---- Eza (better ls) -----
 alias l="eza --color=always --long --git --icons=always --no-user --no-permissions"
+alias la="l -h"
 
 # thefuck alias to fuck
 eval $(thefuck --alias)
