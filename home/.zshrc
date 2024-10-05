@@ -132,7 +132,7 @@ eval $(gdircolors $HOME/.config/dracula-dircolors/.dircolors)
 export LS_OPTIONS='--color=auto'
 alias ls='gls $LS_OPTIONS -FGH'
 alias la='gls $LS_OPTIONS -lAhF'
-alias l='gls $LS_OPTIONS -lhF'
+#alias l='gls $LS_OPTIONS -lhF'
 # Zsh to use the same colors as ls
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
@@ -351,7 +351,7 @@ export BAT_THEME=tokyonight_night
 #cyan="#2CF9ED"
 
 # ---- Eza (better ls) -----
-alias ls="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions"
+alias l="eza --color=always --long --git --icons=always --no-user --no-permissions"
 
 # thefuck alias to fuck
 eval $(thefuck --alias)
