@@ -7,10 +7,12 @@
                    :nvim-tree/nvim-web-devicons
                    :MunifTanjim/nui.nvim]
     :config (fn []
-              (let [tree (require :neo-tree)
-                    defaults (require :neo-tree.defaults)]
-                (tset defaults :enable_diagnostics false)
-                (tree.setup defaults)))
+              (let [tree (require :neo-tree)]
+                (tree.setup {:enable_diagnostics false
+                             :window {:mappings 
+                                       {:P 
+                                         {1 :toggle_preview 
+                                           :config {:use_float false}}}}})))
     :init (fn []
             (nvim.ex.hi "NvimTreeSpecialFile ctermfg=7 guifg=#c6c6c6")
             (nvim.set_keymap :n :<leader>tt ":Neotree toggle<CR>" {:noremap true})

@@ -4,9 +4,7 @@ local autoload = _local_1_["autoload"]
 local nvim = autoload("nvim")
 local function _2_()
   local tree = require("neo-tree")
-  local defaults = require("neo-tree.defaults")
-  defaults["enable_diagnostics"] = false
-  return tree.setup(defaults)
+  return tree.setup({window = {mappings = {P = {"toggle_preview", config = {use_float = false}}}}, enable_diagnostics = false})
 end
 local function _3_()
   nvim.ex.hi("NvimTreeSpecialFile ctermfg=7 guifg=#c6c6c6")
