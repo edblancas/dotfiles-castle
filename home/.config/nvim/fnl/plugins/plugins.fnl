@@ -1,4 +1,5 @@
-[{1 :tpope/vim-sensible}
+[{1 :tpope/vim-sensible
+    :enabled false}
  {1 :tpope/vim-repeat}
  {1 :tpope/vim-eunuch}
  {1 :tpope/vim-unimpaired}

@@ -52,6 +52,8 @@
     (vim.lsp.buf.execute_command params)))
 
 [{1 :SmiteshP/nvim-navic
+    :enabled false
+    :lazy true
     :config true
     :opts {:lsp {:auto_attach true
                  :preference [:pyright :null-ls]}

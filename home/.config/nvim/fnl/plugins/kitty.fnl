@@ -7,6 +7,7 @@
     :config (fn [] (let [ks (require :kitty-scrollback)] (ks.setup)))}
 
  {1 :edblancas/kitty-runner.nvim
+    :enabled false
     :branch :fix
     :config (fn []
               (let [kr (require :kitty-runner)
