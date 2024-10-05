@@ -77,5 +77,11 @@
   (each [option value (pairs options)]
     (core.assoc nvim.o option value)))
 
+;Disable signs globally for diagnostics
+(vim.diagnostic.config {
+  :signs false 
+  :virtual_text false
+})
+
 {}
 

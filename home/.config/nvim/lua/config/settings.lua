@@ -16,4 +16,5 @@ do
     core.assoc(nvim.o, option, value)
   end
 end
+vim.diagnostic.config({signs = false, virtual_text = false})
 return {}

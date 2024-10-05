@@ -137,7 +137,7 @@
                                (vim.api.nvim_buf_set_keymap bufnr :n "<M-D-b>" ":lua require('telescope.builtin').lsp_implementations()<cr>" {:noremap true})
                                (vim.api.nvim_buf_set_keymap bufnr :i "<M-D-b>" ":lua require('telescope.builtin').lsp_implementations()<cr>" {:noremap true}))]
 
-                (fidget.setup {})
+                (fidget.setup {:notification {:window {:winblend 0}}})
 
                 (lspconfig.clojure_lsp.setup {:on_attach on_attach
                                               :handlers handlers

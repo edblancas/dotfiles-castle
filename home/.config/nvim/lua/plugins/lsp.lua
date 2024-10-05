@@ -62,7 +62,7 @@ local function _4_()
     return vim.api.nvim_buf_set_keymap(bufnr, "i", "<M-D-b>", ":lua require('telescope.builtin').lsp_implementations()<cr>", {noremap = true})
   end
   on_attach = _6_
-  fidget.setup({})
+  fidget.setup({notification = {window = {winblend = 0}}})
   lspconfig.clojure_lsp.setup({on_attach = on_attach, handlers = handlers, before_init = before_init, capabilities = capabilities})
   lspconfig.pyright.setup({capabilities = capabilities, before_init = before_init, on_attach = on_attach, handlers = handlers})
   lspconfig.fennel_ls.setup({capabilities = capabilities, before_init = before_init, on_attach = on_attach, handlers = handlers})

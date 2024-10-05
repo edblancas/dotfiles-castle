@@ -23,7 +23,7 @@
                   eslint-diagnostics (require :none-ls.diagnostics.eslint_d)]
               (null_ls.setup {:sources [(null_ls.builtins.diagnostics.mypy.with (mypy-opts null_ls))
                                         null_ls.builtins.formatting.black
-                                        (eslint-diagnostics.with {:diagnostic_config {:signs false}})
+                                        (eslint-diagnostics.with {:diagnostic_config {:signs false :virtual_text false}})
                                         (require :none-ls.formatting.eslint_d)
                                         (require :none-ls.code_actions.eslint_d)]})))}]
 
