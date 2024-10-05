@@ -1,0 +1,84 @@
+{
+  "editor.fontSize": 16,
+  "terminal.integrated.fontSize": 16,
+  "editor.lineHeight": 21,
+  "editor.fontFamily": "'MonoLisa', 'Operator Mono', 'Courier New', monospace",
+  "editor.fontLigatures": true,
+  "[javascript]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "nasc-touchbar.enableFuncGroup": true,
+  "nasc-touchbar.toggleSidebar": true,
+  "nasc-touchbar.togglePanel": true,
+  "nasc-touchbar.rename": true,
+  "nasc-touchbar.docs": true,
+  "nasc-touchbar.goToDefinition": false,
+  "nasc-touchbar.addCursorBelow": false,
+  "nasc-touchbar.showCommands": false,
+  
+  "code-runner.runInTerminal": false,
+  "code-runner.clearPreviousOutput": true,
+
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["k", "j"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "<space>"],
+      "commands": [":nohl"]
+    },
+    {
+      "before": ["<leader>", "w"],
+      "commands": ["workbench.action.files.save"]
+    }
+  ],
+  "vim.leader": ",",
+  "vim.handleKeys": {
+  },
+
+  "workbench.colorCustomizations": {
+    // The background is optional2
+    // "terminal.background": "#282a36",
+    "terminal.foreground": "#eff0eb",
+    "terminal.ansiBlack": "#282a36",
+    "terminal.ansiRed": "#ff5c57",
+    "terminal.ansiGreen": "#5af78e",
+    "terminal.ansiYellow": "#f3f99d",
+    "terminal.ansiBlue": "#57c7ff",
+    "terminal.ansiMagenta": "#ff6ac1",
+    "terminal.ansiCyan": "#9aedfe",
+    "terminal.ansiWhite": "#f1f1f0",
+    "terminal.ansiBrightBlack": "#686868",
+    "terminal.ansiBrightRed": "#ff5c57",
+    "terminal.ansiBrightGreen": "#5af78e",
+    "terminal.ansiBrightYellow": "#f3f99d",
+    "terminal.ansiBrightBlue": "#57c7ff",
+    "terminal.ansiBrightMagenta": "#ff6ac1",
+    "terminal.ansiBrightCyan": "#9aedfe",
+    "terminal.ansiBrightWhite": "#eff0eb"
+  },
+  "workbench.colorTheme": "GitHub Dark",
+  "workbench.iconTheme": "Monokai Pro Icons",
+  "editor.minimap.enabled": false,
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.renderWhitespace": "all",
+  "editor.tabSize": 2,
+  "yaml.schemas": {
+    "file:///Users/dan/.vscode/extensions/atlassian.atlascode-2.6.0/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+  },
+  "atlascode.jira.enabled": false
+}
