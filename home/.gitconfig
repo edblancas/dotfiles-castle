@@ -79,7 +79,33 @@
   # More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
   trustctime = false
   autocrlf = input
-	fsmonitor = True
+  fsmonitor = True
+  
+[core]
+  #looks ugly to me XD
+  #pager = delta
+
+[interactive]
+  diffFilter = delta --color-only
+
+[delta]
+  navigate = true  # use n and N to move between diff sections
+  #delta detects terminal colors automatically; set one of these to disable
+  #auto-detection
+  #dark= true
+  #light = true
+  #side-by-side = true
+
+[merge]
+  # Include summaries of merged commits in newly created merge commit messages
+  #log = true
+  conflictStyle = diff3
+
+[diff]
+  # Detect copies as well as renames
+  #renames = copies
+  colorMoved = default
+  #tool = Kaleidoscope
 
 [color]
   # Use colors in Git commands that are capable of colored output when
@@ -109,33 +135,9 @@
   # https://help.github.com/articles/signing-commits-using-gpg/
   gpgsign = false
 
-[diff]
-  # Detect copies as well as renames
-  renames = copies
-  tool = Kaleidoscope
-
-[difftool "Kaleidoscope"]
-  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
-
-[difftool]
-  prompt = false
-
-[mergetool "Kaleidoscope"]
-  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-  trustExitCode = true
-
-[mergetool]
-  prompt = false
-
 [help]
   # Automatically correct and execute mistyped commands
   autocorrect = 1
-
-[merge]
-  # Include summaries of merged commits in newly created merge commit messages
-  log = true
-  tool = Kaleidoscope
-  conflictStyle = diff3
 
 [push]
   # Use the Git 1.x.x default to avoid errors on machines with old Git

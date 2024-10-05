@@ -236,13 +236,13 @@ unsetopt MULTIOS
 ### fzf ###
 alias fzfv='nvim $(fzf)'
 export FZF_DEFAULT_OPTS='--no-height'
-# use the silver searcher instead of `find`
 export FZF_DEFAULT_COMMAND='fd --hidden --strip-cwd-prefix --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_COMMAND='fd --type=d --hidden --strip-cwd-prefix --exclude .git'
-export FZF_CTRL_T_OPTS='--preview "bat --style=numbers --color=always --line-range :500 {}"'
+show_file_or_dir_preview="if [ -d {} ]; then eza --tree --color=always {} | head -200; else bat -n --color=always --line-range :500 {}; fi"
+export FZF_CTRL_T_OPTS="--preview '$show_file_or_dir_preview'"
+export FZF_ALT_C_OPTS="--preview 'eza -tree -color=always {} | head -200'"
 export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
-export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 # Use fd for listing path candidates
 # - the first arg to the fn $1 is the bgase path to start traversal
 # - see cod completion.zsh for details
@@ -253,6 +253,20 @@ _fzf_compgen_path() {
 # for dirs when cd **
 _fzf_compgen_dir() {
   fd --type=d --hidden --exclude .git . "$1"
+}
+# Advanced customization of fzf options via _fzf_comprun function
+# - The first argument to the function is the name of the command.
+# - You should make sure to pass the rest of the arguments to fzf.
+_fzf_comprun() {
+  local command=$1
+  shift
+
+  case "$command" in
+    cd)           fzf --preview 'eza --tree --color=always {} | head -200' "$@" ;;
+    export|unset) fzf --preview "eval 'echo ${}'"         "$@" ;;
+    ssh)          fzf --preview 'dig {}'                   "$@" ;;
+    *)            fzf --preview "$show_file_or_dir_preview" "$@" ;;
+  esac
 }
 
 # cuz the current definition in
@@ -269,60 +283,6 @@ if [[ $USER == "dan" ]]; then
 else
   source $HOME/.nurc
 fi
-
-# Fuzzy git checkout
-# https://polothy.github.io/post/2019-08-19-fzf-git-checkout/
-fzf-git-branch() {
-  git rev-parse HEAD > /dev/null 2>&1 || return
-
-  git branch --color=always --all --sort=-committerdate |
-    grep -v HEAD |
-    fzf --height 50% --ansi --no-multi --preview-window right:65% \
-      --preview 'git log -n 50 --color=always --date=short --pretty="format:%C(auto)%cd %h%d %s" $(sed "s/.* //" <<< {})' |
-    sed "s/.* //"
-}
-
-fzf-git-checkout() {
-  git rev-parse HEAD > /dev/null 2>&1 || return
-
-  local branch
-
-  branch=$(fzf-git-branch)
-  if [[ "$branch" = "" ]]; then
-    echo "No branch selected."
-    return
-  fi
-
-  # If branch name starts with 'remotes/' then it is a remote branch. By
-  # using --track and a remote branch name, it is the same as:
-  # git checkout -b branchName --track origin/branchName
-  if [[ "$branch" = 'remotes/'* ]]; then
-    git checkout --track $branch
-  else
-    git checkout $branch;
-  fi
-}
-
-# Enter will view the commit
-# Ctrl-o will checkout the selected commit
-function fzf-git-log() {
-  git log --graph --color=always \
-      --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
-  fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort --preview \
-         'f() { set -- $(echo -- "$@" | grep -o "[a-f0-9]\{7\}"); [ $# -eq 0 ] || git show --color=always $1 ; }; f {}' \
-      --header "enter to view, ctrl-o to checkout" \
-      --bind "q:abort,ctrl-f:preview-page-down,ctrl-b:preview-page-up" \
-      --bind "ctrl-o:become:(echo {} | grep -o '[a-f0-9]\{7\}' | head -1 | xargs git checkout)" \
-      --bind "ctrl-m:execute:
-                (grep -o '[a-f0-9]\{7\}' | head -1 |
-                xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
-                {}
-FZF-EOF" --preview-window=right:60%
-}
-
-alias fgb='fzf-git-branch'
-alias fgc='fzf-git-checkout'
-alias fgl='fzf-git-log'
 
 ### BABASHKA ###
 # tab-complete feature on ZSH.
@@ -376,4 +336,25 @@ function zvm_after_lazy_keybindings() {
         eval "zvm_bindkey visual '^g${o[1]}' fzf-git-$o-widget"
     done
 }
+
+export BAT_THEME=tokyonight_night
+
+
+# look ugly, there is a web fzf theme generator
+#export FZF_DEFAULT_OPTS="--color=fg:${fg},bg:${bg},hl:${purple},fg+:${fg},bg+:${bg_highlight},hl+:${purple},info:${blue},prompt:${cyan},pointer:${cyan},marker:${cyan},spinner:${cyan},header:${cyan}"
+# --- setup fzf theme ---
+#fg="#CBE0F0"
+#bg="#011628"
+#bg_highlight="#143652"
+#purple="#B388FF"
+#blue="#06BCE4"
+#cyan="#2CF9ED"
+
+# ---- Eza (better ls) -----
+alias ls="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions"
+
+# thefuck alias to fuck
+eval $(thefuck --alias)
+eval $(thefuck --alias fk)
+alias cd="z"
 
