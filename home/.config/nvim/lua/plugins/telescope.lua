@@ -13,6 +13,7 @@ local function _1_()
   grep_w = _2_
   telescope.setup({defaults = {file_ignore_patterns = {"node_modules"}, vimgrep_arguments = {"rg", "--color=never", "--no-heading", "--with-filename", "--line-number", "--column", "--smart-case", "--iglob", "!.git", "--hidden"}}, extensions = {["ui-select"] = {themes.get_dropdown({})}}, pickers = {find_files = {find_command = {"rg", "--files", "--iglob", "!.git", "--hidden"}}}})
   telescope.load_extension("ui-select")
+  vim.api.nvim_set_hl(0, "TelescopeNormal", {bg = "none"})
   vim.keymap.set("n", "<leader>fws", grep_w("word"), {})
   vim.keymap.set("n", "<leader>fWs", grep_w("WORD"), {})
   vim.keymap.set("n", "<leader>ff", builtin.find_files, {})

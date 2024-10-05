@@ -1,6 +1,17 @@
 [
  {1 :nvim-treesitter/nvim-treesitter-context}
 
+ {1 :stevearc/aerial.nvim
+    :dependencies [:nvim-treesitter/nvim-treesitter :nvim-tree/nvim-web-devicons]
+    :config (fn []
+              (let [aerial (require :aerial)]
+                (vim.keymap.set [:n :i] "<D-7>" "<cmd>AerialToggle!<CR>")
+                (aerial.setup {:on_attach (fn [bufnr]
+                                            ;Jump forwards/backwards with '{' and '}'
+                                            (vim.keymap.set "n" "{" "<cmd>AerialPrev<CR>" {:buffer bufnr})
+                                            (vim.keymap.set "n" "}" "<cmd>AerialNext<CR>" {:buffer bufnr})
+                                            )})))}
+
  {1 :nvim-treesitter/nvim-treesitter
   :build ":TSUpdate"
   :config (fn []

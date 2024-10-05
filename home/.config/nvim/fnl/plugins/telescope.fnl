@@ -28,6 +28,8 @@
                                                                       "!.git"
                                                                       "--hidden"]}}})
               (telescope.load_extension "ui-select")
+              ;transparent background
+              (vim.api.nvim_set_hl 0 "TelescopeNormal" {:bg :none})
               (vim.keymap.set :n "<leader>fws" (grep-w "word") {})
               (vim.keymap.set :n "<leader>fWs" (grep-w "WORD") {})
               (vim.keymap.set :n "<leader>ff" builtin.find_files {})

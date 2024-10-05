@@ -19,7 +19,7 @@ local function _1_()
     highlight.NonText = {fg = theme_util.lighten(colors.bg, 0.9)}
     return nil
   end
-  theme.setup({style = "night", styles = {comments = {italic = true}, floats = "dark", functions = {}, keywords = {italic = true}, sidebars = "dark", variables = {}}, on_colors = _2_, on_highlights = _3_, terminal_colors = true})
+  theme.setup({style = "night", transparent = vim.g.transparent_enabled, styles = {comments = {italic = true}, floats = "dark", functions = {}, keywords = {italic = true}, sidebars = "dark", variables = {}}, on_colors = _2_, on_highlights = _3_, terminal_colors = true})
   return vim.cmd("colorscheme tokyonight")
 end
 return {{"rose-pine/neovim", name = "rose-pine"}, {"Mofiqul/dracula.nvim"}, {"folke/tokyonight.nvim", priority = 1000, dependencies = {"nvim-tree/nvim-web-devicons"}, config = _1_, lazy = false}}
