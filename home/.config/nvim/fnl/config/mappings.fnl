@@ -113,4 +113,6 @@
   :callback (fn []
                (vim.keymap.set :n :<C-M-o> "<cmd>PyrightOrganizeImports<cr>" {:noremap true}))})
 
+
+(vim.keymap.set [:n :v :i] "<C-C>" "<CMD>cclose<CR>" {:desc "Close quickfix"})
 {}

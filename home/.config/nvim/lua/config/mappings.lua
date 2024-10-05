@@ -58,4 +58,5 @@ local function _6_()
   return vim.keymap.set("n", "<C-M-o>", "<cmd>PyrightOrganizeImports<cr>", {noremap = true})
 end
 vim.api.nvim_create_autocmd("FileType", {pattern = "python", callback = _6_})
+vim.keymap.set({"n", "v", "i"}, "<C-C>", "<CMD>cclose<CR>", {desc = "Close quickfix"})
 return {}
