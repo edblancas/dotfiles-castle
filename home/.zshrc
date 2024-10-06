@@ -309,7 +309,7 @@ export BAT_THEME=tokyonight_night
 
 # ---- Eza (better ls) -----
 alias l="eza --color=always --long --git --icons=always --no-user --no-permissions"
-alias la="l -h"
+alias la="l --all"
 
 # thefuck alias to fuck
 eval $(thefuck --alias)
