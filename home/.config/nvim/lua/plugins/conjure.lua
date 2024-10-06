@@ -2,10 +2,9 @@
 local function _1_()
   vim.cmd({cmd = "command", args = {"-nargs=1", "Cjc", "ConjureConnect", "<args>"}, bang = true})
   vim.cmd({cmd = "command", args = {"-nargs=1", "Cjss", "ConjureShadowSelect", "<args>"}, bang = true})
-  vim.g["conjure#mapping#doc_word"] = "K"
   vim.g["conjure#client#clojure#nrepl#eval#auto_require"] = false
   vim.g["conjure#client#clojure#nrepl#connection#auto_repl#enabled"] = false
   vim.g["conjure#client#clojure#nrepl#test#current_form_names"] = {"deftest", "defflow", "defspec", "describe"}
   return nil
 end
-return {{"Olical/conjure", ft = {"clojure", "fennel", "lua"}, lazy = true, branch = "master", keys = {{"<F16>", "<cmd>ConjureLogToggle<cr>", desc = "Toggle Conjure Log"}, {"<C-F16>", "<cmd>ConjureLogResetHard<cr>", desc = "Conjure Log Hard Reset"}}, init = _1_}}
+return {{"Olical/conjure", ft = {"clojure", "fennel", "lua"}, lazy = true, branch = "master", keys = {{"<F16>", "<cmd>ConjureLogToggle<cr>", desc = "Toggle Conjure Log"}, {"<D-F16>", "<cmd>ConjureLogResetSoft<cr>", desc = "Conjure Log Reset"}, {"<M-F16>", "<cmd>ConjureLogResetHard<cr>", desc = "Conjure Log Hard Reset"}, {"<F1>", "<cmd>ConjureDocWord<cr>", mode = {"n", "i"}, desc = "Conjure Log Reset"}}, init = _1_}}

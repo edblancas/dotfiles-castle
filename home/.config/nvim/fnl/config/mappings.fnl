@@ -115,4 +115,7 @@
 
 
 (vim.keymap.set [:n :v :i] "<C-C>" "<CMD>cclose<CR>" {:desc "Close quickfix"})
+
+(vim.keymap.set [:n :i] "<D-F1>" ":lua vim.lsp.buf.hover()<CR>" {:desc "Hover doc"})
+
 {}
