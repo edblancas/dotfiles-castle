@@ -28,6 +28,6 @@
            (let [dap-python (require :dap-python)]
              (dap-python.setup "/Users/dan/.local/pipx/venvs/debugpy/bin/python")
              (vim.keymap.set [:n :i] "<C-M-d>" ":lua require('dap-python').test_method()<CR>" {:desc "Debug Python method" :noremap true})
-             (vim.keymap.set [:n :i] "<localleader>dc" ":lua require('dap-python').test_class()<CR>" {:desc "Debug Python class" :noremap true})
+             (vim.keymap.set [:n] "<localleader>dc" ":lua require('dap-python').test_class()<CR>" {:desc "Debug Python class" :noremap true})
              (vim.keymap.set [:v] "<C-M-d>" "<ESC>:lua require('dap-python').debug_selection()<CR>" {:desc "Debug Python selection" :noremap true})))}]
 
