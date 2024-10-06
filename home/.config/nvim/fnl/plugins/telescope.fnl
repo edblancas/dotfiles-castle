@@ -34,9 +34,9 @@
               (vim.keymap.set :n "<leader>fWs" (grep-w "WORD") {})
               (vim.keymap.set :n "<leader>ff" builtin.find_files {})
               (vim.keymap.set :n "<leader>fg" builtin.git_files {})
-              (vim.keymap.set :n "<D-O>" builtin.find_files {})
+              (vim.keymap.set [:n :i] "<D-O>" builtin.find_files {})
               (vim.keymap.set :n "<leader>fs" builtin.live_grep {})
-              (vim.keymap.set :n "<D-F>" builtin.live_grep {})
+              (vim.keymap.set [:n :i] "<D-F>" builtin.live_grep {})
               (vim.keymap.set :n "<leader>fb" builtin.buffers {})
-              (vim.keymap.set :n "<D-e>" builtin.buffers {})
+              (vim.keymap.set [:n :i] "<D-e>" builtin.buffers {})
               (vim.keymap.set :n "<leader>fh" builtin.help_tags {})))}]

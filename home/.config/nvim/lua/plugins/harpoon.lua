@@ -11,23 +11,23 @@ local function _1_()
   local function _3_()
     return h.ui:toggle_quick_menu(h:list())
   end
-  vim.keymap.set("n", "<C-e>", _3_)
+  vim.keymap.set({"n", "i"}, "<C-e>", _3_)
   local function _4_()
     return lst:select(1)
   end
-  vim.keymap.set("n", "<M-D-1>", _4_)
+  vim.keymap.set({"n", "i"}, "<M-D-1>", _4_)
   local function _5_()
     return lst:select(2)
   end
-  vim.keymap.set("n", "<M-D-2>", _5_)
+  vim.keymap.set({"n", "i"}, "<M-D-2>", _5_)
   local function _6_()
     return lst:select(3)
   end
-  vim.keymap.set("n", "<M-D-3>", _6_)
+  vim.keymap.set({"n", "i"}, "<M-D-3>", _6_)
   local function _7_()
     return lst:select(4)
   end
-  vim.keymap.set("n", "<M-D-4>", _7_)
+  vim.keymap.set({"n", "i"}, "<M-D-4>", _7_)
   local function _8_()
     return lst:replace_at(1)
   end

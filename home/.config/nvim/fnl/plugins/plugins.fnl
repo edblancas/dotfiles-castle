@@ -13,8 +13,9 @@
 
  {1 :stevearc/oil.nvim
     :config true
-    :opts {:default_file_explorer false
-           :view_options {:show_hidden true}}
+    :opts {:default_file_explorer true
+           :view_options {:show_hidden true}
+           :columns [:icon]}
     :dependencies [:nvim-tree/nvim-web-devicons]}
 
  {1 :lukas-reineke/indent-blankline.nvim
