@@ -314,5 +314,7 @@ alias la="l --all"
 # thefuck alias to fuck
 eval $(thefuck --alias)
 eval $(thefuck --alias fk)
-alias cd="z"
 
+alias cd="z"
+alias n="glow $HOME/Library/Mobile\ Documents/com~apple~CloudDocs/notes/"
+alias notes="nv $HOME/Library/Mobile\ Documents/com~apple~CloudDocs/notes/"
