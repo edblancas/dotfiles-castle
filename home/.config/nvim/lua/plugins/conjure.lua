@@ -7,4 +7,4 @@ local function _1_()
   vim.g["conjure#client#clojure#nrepl#test#current_form_names"] = {"deftest", "defflow", "defspec", "describe"}
   return nil
 end
-return {{"Olical/conjure", ft = {"clojure", "fennel", "lua"}, lazy = true, branch = "master", keys = {{"<F16>", "<cmd>ConjureLogToggle<cr>", desc = "Toggle Conjure Log"}, {"<D-F16>", "<cmd>ConjureLogResetSoft<cr>", desc = "Conjure Log Reset"}, {"<M-F16>", "<cmd>ConjureLogResetHard<cr>", desc = "Conjure Log Hard Reset"}, {"<F1>", "<cmd>ConjureDocWord<cr>", mode = {"n", "i"}, desc = "Conjure Log Reset"}}, init = _1_}}
+return {{"Olical/conjure", ft = {"clojure", "fennel", "lua"}, lazy = true, branch = "master", keys = {{"<F16>", "<cmd>ConjureLogToggle<cr>", desc = "Toggle Conjure Log"}, {"<D-F16>", "<cmd>ConjureLogResetSoft<cr>", desc = "Conjure Log Reset"}, {"<M-F16>", "<cmd>ConjureLogResetHard<cr>", desc = "Conjure Log Hard Reset"}, {"<D-F1>", "<cmd>ConjureDocWord<cr>", mode = {"n", "i"}, desc = "Conjure Log Reset"}}, init = _1_}}
