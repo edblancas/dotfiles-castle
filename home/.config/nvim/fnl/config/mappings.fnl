@@ -133,7 +133,23 @@
 })))
     {})
 
-(vim.keymap.set [:n :i] "<D-M-m>" "<cmd>OpenNotes<cr>" {:desc "Open notes"})
+(vim.keymap.set [:n :i] "<M-D-n>" "<cmd>OpenNotes<cr>" {:desc "Open notes"})
+
+(vim.api.nvim_create_user_command
+  "GrepNotes"
+    (fn  []
+      (let [get-notes-root
+            (fn []
+              (let [dot-git-path (vim.fn.finddir "~/Documents/notes/" ".;")]
+                (vim.fn.fnamemodify dot-git-path ":h")))
+            tel (require "telescope.builtin")]
+        (tel.live_grep {:cwd (get-notes-root)
+                        :prompt_title "Grep Notes"
+                        :find_command ["rg" "--files" "--glob" "*.md" 
+                                         "--glob" "*.markdown" "--glob" "*.txt" "--glob" "*.org"]})))
+    {})
+
+(vim.keymap.set [:n :i] "<S-D-n>" "<cmd>GrepNotes<cr>" {:desc "Grep notes"})
 
 (vim.api.nvim_create_user_command
   "CreateNote"
@@ -144,4 +160,5 @@
       (vim.cmd (.. "edit " full-path))
       (vim.cmd "write")))
   {})
+
 {}

@@ -71,13 +71,25 @@ local function _7_()
   return tel.find_files({cwd = get_notes_root(), prompt_title = "Search Notes", find_command = {"rg", "--files", "--glob", "*.md", "--glob", "*.markdown", "--glob", "*.txt", "--glob", "*.org"}})
 end
 vim.api.nvim_create_user_command("OpenNotes", _7_, {})
-vim.keymap.set({"n", "i"}, "<D-M-m>", "<cmd>OpenNotes<cr>", {desc = "Open notes"})
-local function _9_(_)
+vim.keymap.set({"n", "i"}, "<M-D-n>", "<cmd>OpenNotes<cr>", {desc = "Open notes"})
+local function _9_()
+  local get_notes_root
+  local function _10_()
+    local dot_git_path = vim.fn.finddir("~/Documents/notes/", ".;")
+    return vim.fn.fnamemodify(dot_git_path, ":h")
+  end
+  get_notes_root = _10_
+  local tel = require("telescope.builtin")
+  return tel.live_grep({cwd = get_notes_root(), prompt_title = "Grep Notes", find_command = {"rg", "--files", "--glob", "*.md", "--glob", "*.markdown", "--glob", "*.txt", "--glob", "*.org"}})
+end
+vim.api.nvim_create_user_command("GrepNotes", _9_, {})
+vim.keymap.set({"n", "i"}, "<S-D-n>", "<cmd>GrepNotes<cr>", {desc = "Grep notes"})
+local function _11_(_)
   local file_name = vim.fn.input("Enter the note name: ")
   local notes_dir = "~/Documents/notes/"
   local full_path = vim.fn.expand((notes_dir .. file_name))
   vim.cmd(("edit " .. full_path))
   return vim.cmd("write")
 end
-vim.api.nvim_create_user_command("CreateNote", _9_, {})
+vim.api.nvim_create_user_command("CreateNote", _11_, {})
 return {}

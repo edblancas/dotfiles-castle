@@ -8,11 +8,7 @@
                    :MunifTanjim/nui.nvim]
     :config (fn []
               (let [tree (require :neo-tree)]
-                (tree.setup {:enable_diagnostics false
-                             :window {:mappings 
-                                       {:P 
-                                         {1 :toggle_preview 
-                                           :config {:use_float false}}}}})))
+                (tree.setup {:enable_diagnostics false})))
     :keys [{1 "<D-1>" 2 "<cmd>Neotree toggle<cr>" :mode [:i :n]}
            {1 "<leader>tf" 2 "<cmd>Neotree action=focus<cr>" :mode [:n] :desc "Neotree focus"}
            {1 "<leader>tr" 2 "<cmd>Neotree reveal<cr>" :mode [:n] :desc "Todo's Neotree reveal"}]}]

@@ -32,6 +32,7 @@
                               :javascript {1 "prettierd" 2 "prettier" :stop_after_first true}}}}
 
   {1 :xiyaowong/transparent.nvim
+     :enabled false
      :config (fn []
                (let [t (require :transparent)]
                  (t.setup {:extra_groups []})
