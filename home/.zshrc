@@ -134,7 +134,6 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 #alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; update_dotfiles_submodules'
 alias update='brew update; brew upgrade clojure-lsp/brew/clojure-lsp-native; brew cleanup; update_dotfiles_submodules; $HOME/.emacs.d/bin/doom upgrade'
 alias cloud="cd $HOME/Library/Mobile\ Documents/com~apple~CloudDocs"
-alias onest="cd $HOME/Documents/dev/onest"
 
 ### Functions ###
 function nv() {
@@ -316,5 +315,6 @@ eval $(thefuck --alias)
 eval $(thefuck --alias fk)
 
 alias cd="z"
-alias n="glow $HOME/Library/Mobile\ Documents/com~apple~CloudDocs/notes/"
-alias notes="nv $HOME/Library/Mobile\ Documents/com~apple~CloudDocs/notes/"
+alias n="glow $HOME/Documents/notes/"
+alias notes="cd $HOME/Documents/notes/ && nv"
+alias onest="cd $HOME/Documents/onest/ && nv"
