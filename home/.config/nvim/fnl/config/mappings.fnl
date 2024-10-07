@@ -118,4 +118,30 @@
 
 (vim.keymap.set [:n :i] "<D-F1>" ":lua vim.lsp.buf.hover()<CR>" {:desc "Hover doc"})
 
+(vim.api.nvim_create_user_command
+  "OpenNotes"
+    (fn  []
+      (let [get-notes-root
+            (fn []
+              (let [dot-git-path (vim.fn.finddir "~/Documents/notes/" ".;")]
+                (vim.fn.fnamemodify dot-git-path ":h")))
+            tel (require "telescope.builtin")]
+        (tel.find_files {:cwd (get-notes-root)
+                        :prompt_title "Search Notes"
+                        :find_command ["rg" "--files" "--glob" "*.md" 
+                                         "--glob" "*.markdown" "--glob" "*.txt" "--glob" "*.org"]
+})))
+    {})
+
+(vim.keymap.set [:n :i] "<D-M-m>" "<cmd>OpenNotes<cr>" {:desc "Open notes"})
+
+(vim.api.nvim_create_user_command
+  "CreateNote"
+  (fn [_]
+    (let [file-name (vim.fn.input "Enter the note name: ")
+          notes-dir "~/Documents/notes/"
+          full-path (vim.fn.expand (.. notes-dir file-name))]
+      (vim.cmd (.. "edit " full-path))
+      (vim.cmd "write")))
+  {})
 {}
