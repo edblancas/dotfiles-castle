@@ -314,3 +314,15 @@ alias n="glow $HOME/Documents/dev/notes/"
 alias notes="cd $HOME/Documents/dev/notes/ && nv"
 alias onest="cd $HOME/Documents/onest/ && nv"
 alias icat="kitten icat"
+
+# yazi shell wrapper
+# press q to quit, you'll see the CWD changed
+# if you don't want to change, press Q to quit.
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
