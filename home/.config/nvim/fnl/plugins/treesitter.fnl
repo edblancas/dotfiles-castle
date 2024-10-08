@@ -34,8 +34,10 @@
                                                     :javascript
                                                     :typescript
                                                     :json
+                                                    :org
                                                     :lua
                                                     :markdown
+                                                    :markdown_inline
                                                     :yaml]})))}
   
  {1 :nvim-treesitter/nvim-treesitter-textobjects
