@@ -52,3 +52,6 @@
 [submodule "home/.utils/fzf-git.sh"]
 	path = home/.utils/fzf-git.sh
 	url = https://github.com/junegunn/fzf-git.sh
+[submodule "home/.config/yazi/flavors/tokyo-night.yazi"]
+	path = home/.config/yazi/flavors/tokyo-night.yazi
+	url = https://github.com/BennyOe/tokyo-night.yazi.git
