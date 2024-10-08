@@ -244,11 +244,11 @@ eval "zvm_bindkey viins 'ç' fzf-cd-widget"
 eval "zvm_bindkey visual 'ç' fzf-cd-widget"
 eval "zvm_bindkey vicmd 'ç' fzf-cd-widget"
 
-### PERSONAL OR WORK ###
+### PERSONAL OR WORK PATH settings ###
 if [[ $USER == "dan" ]]; then
   source $HOME/.personalrc
 else
-  source $HOME/.nurc
+  source $HOME/.jobrc-example
 fi
 
 ### BABASHKA ###
@@ -263,15 +263,9 @@ compdef _bb_tasks bb
 ## END BABASHKA ###
 
 ### COMMON PATH SETTINGS ###
-export PATH=$PATH:~/.config/nvim/plugged/vim-iced/bin
-
 # Created by `pipx` on 2024-05-02 19:24:48
 export PATH="$PATH:$HOME/.local/bin"
-
 eval "$(register-python-argcomplete pipx)"
-
-# Seems this path env is only for linux, meh replicating here
-export XDG_CONFIG_HOME="$HOME/.config"
 
 ### PTPYTHON ###
 export PTPYTHON_CONFIG_HOME="$XDG_CONFIG_HOME/ptpython"
@@ -309,12 +303,13 @@ export BAT_THEME=tokyonight_night
 # ---- Eza (better ls) -----
 alias l="eza --color=always --long --git --icons=always --no-user --no-permissions"
 alias la="l --all"
+alias tree="eza --tree"
 
 # thefuck alias to fuck
 eval $(thefuck --alias)
 eval $(thefuck --alias fk)
 
 alias cd="z"
-alias n="glow $HOME/Documents/notes/"
-alias notes="cd $HOME/Documents/notes/ && nv"
+alias n="glow $HOME/Documents/dev/notes/"
+alias notes="cd $HOME/Documents/dev/notes/ && nv"
 alias onest="cd $HOME/Documents/onest/ && nv"
