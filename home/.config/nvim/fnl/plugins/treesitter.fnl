@@ -36,6 +36,7 @@
                                                     :json
                                                     :org
                                                     :lua
+                                                    :xml
                                                     :markdown
                                                     :markdown_inline
                                                     :yaml]})))}
