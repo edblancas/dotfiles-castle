@@ -116,7 +116,7 @@
 
 (vim.keymap.set [:n :v :i] "<C-C>" "<CMD>cclose<CR>" {:desc "Close quickfix"})
 
-(vim.keymap.set [:n :i] "<D-F1>" ":lua vim.lsp.buf.hover()<CR>" {:desc "Hover doc"})
+(vim.keymap.set [:n :i] "<F1>" ":lua vim.lsp.buf.hover()<CR>" {:desc "Hover doc"})
 
 (vim.api.nvim_create_user_command
   "OpenNotes"

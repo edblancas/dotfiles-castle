@@ -59,7 +59,7 @@ local function _6_()
 end
 vim.api.nvim_create_autocmd("FileType", {pattern = "python", callback = _6_})
 vim.keymap.set({"n", "v", "i"}, "<C-C>", "<CMD>cclose<CR>", {desc = "Close quickfix"})
-vim.keymap.set({"n", "i"}, "<D-F1>", ":lua vim.lsp.buf.hover()<CR>", {desc = "Hover doc"})
+vim.keymap.set({"n", "i"}, "<F1>", ":lua vim.lsp.buf.hover()<CR>", {desc = "Hover doc"})
 local function _7_()
   local get_notes_root
   local function _8_()

@@ -5,7 +5,7 @@
     :keys [{1 "<F16>" 2 "<cmd>ConjureLogToggle<cr>" :desc "Toggle Conjure Log"}
            {1 "<D-F16>" 2 "<cmd>ConjureLogResetSoft<cr>" :desc "Conjure Log Reset"}
            {1 "<M-F16>" 2 "<cmd>ConjureLogResetHard<cr>" :desc "Conjure Log Hard Reset"}
-           {1 "<D-F1>" 2 "<cmd>ConjureDocWord<cr>" :mode [:n :i] :desc "Conjure Log Reset"}]
+           {1 "<localleader>ld" 2 "<cmd>ConjureDocWord<cr>" :mode [:n :i] :desc "Conjure Log Reset"}]
     :init (fn []
             ; Alias for ConjureShadowSelect -> Csc
             (vim.cmd {:cmd "command" :args ["-nargs=1" "Cjc" "ConjureConnect" "<args>"] :bang true})
