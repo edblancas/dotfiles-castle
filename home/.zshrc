@@ -206,9 +206,9 @@ export FZF_DEFAULT_OPTS='--no-height'
 export FZF_DEFAULT_COMMAND='fd --hidden --strip-cwd-prefix --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_COMMAND='fd --type=d --hidden --strip-cwd-prefix --exclude .git'
-show_file_or_dir_preview="if [ -d {} ]; then eza --tree --color=always {} | head -200; else bat -n --color=always --line-range :500 {}; fi"
-export FZF_CTRL_T_OPTS="--preview '$show_file_or_dir_preview'"
-export FZF_ALT_C_OPTS="--preview 'eza -tree -color=always {} | head -200'"
+show_file_or_dir_preview() { [[ -d "$1" ]] && eza --tree --color=always "$1" | head -200 || bat -n --color=always --line-range :500 "$1"}
+export FZF_CTRL_T_OPTS="--preview 'zsh -c $(functions show_file_or_dir_preview); show_file_or_dir_preview {}'"
+export FZF_ALT_C_OPTS="--preview 'eza --tree -color=always {} | head -200'"
 export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
 # Use fd for listing path candidates
 # - the first arg to the fn $1 is the bgase path to start traversal
@@ -310,9 +310,8 @@ eval $(thefuck --alias)
 eval $(thefuck --alias fk)
 
 alias cd="z"
-alias n="glow $HOME/Documents/dev/notes/"
-alias notes="cd $HOME/Documents/dev/notes/ && nv"
-alias onest="cd $HOME/Documents/onest/ && nv"
+alias n="cd $HOME/Documents/dev/notes/ && nv"
+alias notes="cd $HOME/Documents/dev/notes/"
 alias icat="kitten icat"
 
 # yazi shell wrapper
