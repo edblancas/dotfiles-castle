@@ -1,23 +1,22 @@
 -- [nfnl] Compiled from fnl/snippets/python.fnl by https://github.com/Olical/nfnl, do not edit.
 local _local_1_ = require("nfnl.module")
 local autoload = _local_1_["autoload"]
-local str = autoload("nfnl.string")
 local core = autoload("nfnl.core")
 local test_file = "import unittest\n\nclass Test{}(unittest.TestCase):\n    def test_{}(self):\n        self.assertEqual({}(), ...)\n\n\nif __name__ == '__main__':\n    unittest.main()"
 local fun = "def {}({}):\n    {}\n"
-local function camel_to_snake(str0)
+local function camel_to_snake(str)
   local function _2_(c)
     return ("_" .. string.lower(c))
   end
-  return string.gsub(str0, "%u", _2_)
+  return string.gsub(str, "%u", _2_)
 end
-local function snake_to_camel(str0)
+local function snake_to_camel(str)
   local str_without_underscore
   local function _3_(c)
-    return string.upper(string.sub(c, 2))
+    return string.upper(c)
   end
-  str_without_underscore = string.gsub(str0, "_%a", _3_)
-  return (string.lower(string.sub(str_without_underscore, 1, 1)) .. string.upper(string.sub(str_without_underscore, 1, 1)) .. string.sub(str_without_underscore, 2))
+  str_without_underscore = string.gsub(str, "_", _3_)
+  return (string.upper(string.sub(str_without_underscore, 1, 1)) .. string.sub(str_without_underscore, 2))
 end
 local function rep_snake(index)
   local function _4_(arg)

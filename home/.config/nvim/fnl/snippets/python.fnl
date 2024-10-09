@@ -1,5 +1,4 @@
 (local {: autoload} (require :nfnl.module))
-(local str (autoload :nfnl.string))
 (local core (autoload :nfnl.core))
 
 (local test-file  
@@ -22,9 +21,8 @@ if __name__ == '__main__':
   (string.gsub str "%u" (fn [c] (.. "_" (string.lower c)))))
 
 (fn snake-to-camel [str]
-  (let [str-without-underscore (string.gsub str "_%a" (fn [c] (string.upper (string.sub c 2))))]
+  (let [str-without-underscore (string.gsub str "_" (fn [c] (string.upper c)))]
     (.. 
-      (string.lower (string.sub str-without-underscore 1 1))
       (string.upper (string.sub str-without-underscore 1 1))  ;capitalize the 1st letter
         (string.sub str-without-underscore 2))))
 
