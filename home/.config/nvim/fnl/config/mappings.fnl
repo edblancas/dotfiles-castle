@@ -123,7 +123,7 @@
     (fn  []
       (let [get-notes-root
             (fn []
-              (let [dot-git-path (vim.fn.finddir "~/Documents/notes/" ".;")]
+              (let [dot-git-path (vim.fn.finddir "~/Documents/dev/notes/" ".;")]
                 (vim.fn.fnamemodify dot-git-path ":h")))
             tel (require "telescope.builtin")]
         (tel.find_files {:cwd (get-notes-root)
@@ -140,7 +140,7 @@
     (fn  []
       (let [get-notes-root
             (fn []
-              (let [dot-git-path (vim.fn.finddir "~/Documents/notes/" ".;")]
+              (let [dot-git-path (vim.fn.finddir "~/Documents/dev/notes/" ".;")]
                 (vim.fn.fnamemodify dot-git-path ":h")))
             tel (require "telescope.builtin")]
         (tel.live_grep {:cwd (get-notes-root)

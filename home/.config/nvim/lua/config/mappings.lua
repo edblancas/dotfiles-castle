@@ -63,7 +63,7 @@ vim.keymap.set({"n", "i"}, "<F1>", ":lua vim.lsp.buf.hover()<CR>", {desc = "Hove
 local function _7_()
   local get_notes_root
   local function _8_()
-    local dot_git_path = vim.fn.finddir("~/Documents/notes/", ".;")
+    local dot_git_path = vim.fn.finddir("~/Documents/dev/notes/", ".;")
     return vim.fn.fnamemodify(dot_git_path, ":h")
   end
   get_notes_root = _8_
@@ -75,7 +75,7 @@ vim.keymap.set({"n", "i"}, "<M-D-n>", "<cmd>OpenNotes<cr>", {desc = "Open notes"
 local function _9_()
   local get_notes_root
   local function _10_()
-    local dot_git_path = vim.fn.finddir("~/Documents/notes/", ".;")
+    local dot_git_path = vim.fn.finddir("~/Documents/dev/notes/", ".;")
     return vim.fn.fnamemodify(dot_git_path, ":h")
   end
   get_notes_root = _10_

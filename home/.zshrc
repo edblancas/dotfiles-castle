@@ -187,7 +187,7 @@ alias md5sum='md5 -r'
 alias running_services="sudo lsof -nPi -sTCP:LISTEN"
 alias whatismyipaddress='dig +short myip.opendns.com @resolver1.opendns.com'
 alias localip='ipconfig getifaddr en0'
-alias chrome='open -a "Google Chrome" --args --user-data-dir=/tmp/chrome-$((1 + RANDOM % 10))'
+alias chrome='open -a "Google Chrome" --args --disable-web-security --user-data-dir=/tmp/chrome-$((1 + RANDOM % 10))'
 # Utils
 alias uuid="python3 -c 'import sys,uuid; sys.stdout.write(str(uuid.uuid4()))' | pbcopy && pbpaste && echo"
 ## get top process eating memory
