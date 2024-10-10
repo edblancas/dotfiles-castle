@@ -2,8 +2,9 @@
 local _local_1_ = require("nfnl.module")
 local autoload = _local_1_["autoload"]
 local core = autoload("nfnl.core")
-local test_file = "import unittest\n\nclass Test{}(unittest.TestCase):\n    def test_{}(self):\n        self.assertEqual({}(), ...)\n\n\nif __name__ == '__main__':\n    unittest.main()"
-local fun = "def {}({}):\n    {}\n"
+local test_code = "def {}({}):\n    {}\n\n\nimport unittest\n\nclass Test{}(unittest.TestCase):\n    def test_{}(self):\n        self.assertEqual({}(), ...)\n"
+local test_file = "\nif __name__ == '__main__':\n    unittest.main()\n"
+local test_main = "\ndef main():\n    test = Test{}()\n    test.test_{}()\n"
 local function camel_to_snake(str)
   local function _2_(c)
     return ("_" .. string.lower(c))
@@ -32,4 +33,4 @@ local function rep_camel(index)
   end
   return f(_5_, {index})
 end
-return {s("test-file", fmt(test_file, {i(1), rep_snake(1), i(0)})), s("pattern-file", fmt((fun .. "\n\n" .. test_file), {i(1), i(2), i(0, "..."), rep_camel(1), rep(1), rep(1)}))}
+return {s("test-file", fmt((test_code .. test_file), {i(1), i(2), i(0, "..."), rep_camel(1), rep(1), rep(1)})), s("test-main", fmt((test_code .. test_main), {i(1), i(2), i(0, "..."), rep_camel(1), rep(1), rep(1), rep_camel(1), rep(1)}))}

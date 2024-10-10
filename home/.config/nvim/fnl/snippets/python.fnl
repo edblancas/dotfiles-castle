@@ -1,20 +1,29 @@
 (local {: autoload} (require :nfnl.module))
 (local core (autoload :nfnl.core))
 
-(local test-file  
-"import unittest
+(local test-code
+"def {}({}):
+    {}
+
+
+import unittest
 
 class Test{}(unittest.TestCase):
     def test_{}(self):
         self.assertEqual({}(), ...)
+")
 
-
+(local test-file  
+"
 if __name__ == '__main__':
-    unittest.main()")
+    unittest.main()
+")
 
-(local fun
-"def {}({}):
-    {}
+(local test-main
+"
+def main():
+    test = Test{}()
+    test.test_{}()
 ")
 
 (fn camel-to-snake [str]
@@ -40,12 +49,12 @@ if __name__ == '__main__':
 
 [
  (s "test-file"
-    (fmt test-file
-         [(i 1) (rep-snake 1) (i 0)]))
-
- (s "pattern-file"
-    (fmt (.. fun "\n\n" test-file)
+    (fmt (.. test-code test-file)
          [(i 1) (i 2) (i 0 "...") (rep-camel 1) (rep 1) (rep 1)]))
+
+ (s "test-main"
+    (fmt (.. test-code test-main)
+         [(i 1) (i 2) (i 0 "...") (rep-camel 1) (rep 1) (rep 1) (rep-camel 1) (rep 1)]))
  ]
 
 
