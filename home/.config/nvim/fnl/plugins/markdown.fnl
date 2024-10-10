@@ -4,7 +4,8 @@
 [{1 :MeanderingProgrammer/render-markdown.nvim
     :ft :markdown
     :config true
-    :dependencies [:nvim-treesitter/nvim-treesitter]}
+    :dependencies [:nvim-treesitter/nvim-treesitter]
+    :opts {:sign {:enabled false}}}
  {1 :3rd/image.nvim
     :ft :markdown
     :opts {:integrations {:markdown {:only_render_image_at_cursor true}}}
