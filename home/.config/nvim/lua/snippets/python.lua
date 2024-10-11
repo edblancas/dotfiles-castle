@@ -13,10 +13,10 @@ local function camel_to_snake(str)
 end
 local function snake_to_camel(str)
   local str_without_underscore
-  local function _3_(c)
-    return string.upper(c)
+  local function _3_(s)
+    return string.upper(string.sub(s, 2))
   end
-  str_without_underscore = string.gsub(str, "_", _3_)
+  str_without_underscore = string.gsub(str, "_%l", _3_)
   return (string.upper(string.sub(str_without_underscore, 1, 1)) .. string.sub(str_without_underscore, 2))
 end
 local function rep_snake(index)
@@ -33,4 +33,4 @@ local function rep_camel(index)
   end
   return f(_5_, {index})
 end
-return {s("test-file", fmt((test_code .. test_file), {i(1), i(2), i(0, "..."), rep_camel(1), rep(1), rep(1), rep(1)})), s("test-main", fmt((test_code .. test_main), {i(1), i(2), i(0, "..."), rep_camel(1), rep(1), rep(1), rep(1), rep_camel(1), rep(1)}))}
+return {s("test-file", fmt((test_code .. test_file), {i(1), i(2), i(0, "..."), rep_camel(1), rep(1), rep(1), rep(2)})), s("test-main", fmt((test_code .. test_main), {i(1), i(2), i(0, "..."), rep_camel(1), rep(1), rep(1), rep(2), rep_camel(1), rep(1)}))}

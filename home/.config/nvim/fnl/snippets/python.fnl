@@ -30,10 +30,11 @@ def main():
   (string.gsub str "%u" (fn [c] (.. "_" (string.lower c)))))
 
 (fn snake-to-camel [str]
-  (let [str-without-underscore (string.gsub str "_" (fn [c] (string.upper c)))]
+  (let [str-without-underscore
+        (string.gsub str "_%l" (fn [s] (string.upper (string.sub s 2))))] ; capitalize letter after underscore
     (.. 
-      (string.upper (string.sub str-without-underscore 1 1))  ;capitalize the 1st letter
-        (string.sub str-without-underscore 2))))
+      (string.upper (string.sub str-without-underscore 1 1)) ; capitalize the first letter
+      (string.sub str-without-underscore 2))))
 
 (fn rep-snake [index]
      (f (fn [arg]
@@ -50,11 +51,11 @@ def main():
 [
  (s "test-file"
     (fmt (.. test-code test-file)
-         [(i 1) (i 2) (i 0 "...") (rep-camel 1) (rep 1) (rep 1) (rep 1)]))
+         [(i 1) (i 2) (i 0 "...") (rep-camel 1) (rep 1) (rep 1) (rep 2)]))
 
  (s "test-main"
     (fmt (.. test-code test-main)
-         [(i 1) (i 2) (i 0 "...") (rep-camel 1) (rep 1) (rep 1) (rep 1) (rep-camel 1) (rep 1)]))
+         [(i 1) (i 2) (i 0 "...") (rep-camel 1) (rep 1) (rep 1) (rep 2) (rep-camel 1) (rep 1)]))
  ]
 
 
