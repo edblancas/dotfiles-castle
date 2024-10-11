@@ -10,7 +10,7 @@ import unittest
 
 class Test{}(unittest.TestCase):
     def test_{}(self):
-        self.assertEqual({}(), ...)
+        self.assertEqual({}({}), ...)
 ")
 
 (local test-file  
@@ -50,11 +50,11 @@ def main():
 [
  (s "test-file"
     (fmt (.. test-code test-file)
-         [(i 1) (i 2) (i 0 "...") (rep-camel 1) (rep 1) (rep 1)]))
+         [(i 1) (i 2) (i 0 "...") (rep-camel 1) (rep 1) (rep 1) (rep 1)]))
 
  (s "test-main"
     (fmt (.. test-code test-main)
-         [(i 1) (i 2) (i 0 "...") (rep-camel 1) (rep 1) (rep 1) (rep-camel 1) (rep 1)]))
+         [(i 1) (i 2) (i 0 "...") (rep-camel 1) (rep 1) (rep 1) (rep 1) (rep-camel 1) (rep 1)]))
  ]
 
 
