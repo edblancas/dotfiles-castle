@@ -4,7 +4,7 @@ local autoload = _local_1_["autoload"]
 local core = autoload("nfnl.core")
 local test_code = "def {}({}):\n    {}\n\n\nimport unittest\n\nclass Test{}(unittest.TestCase):\n    def test_{}(self):\n        self.assertEqual({}({}), ...)\n"
 local test_file = "\nif __name__ == '__main__':\n    unittest.main()\n"
-local test_main = "\ndef main():\n    test = Test{}()\n    test.test_{}()\n"
+local test_main = "\ndef main():\n    test = Test{}()\n    test.test_{}()\n\n\nmain()\n"
 local function camel_to_snake(str)
   local function _2_(c)
     return ("_" .. string.lower(c))

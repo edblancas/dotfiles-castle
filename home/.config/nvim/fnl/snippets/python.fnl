@@ -24,6 +24,9 @@ if __name__ == '__main__':
 def main():
     test = Test{}()
     test.test_{}()
+
+
+main()
 ")
 
 (fn camel-to-snake [str]
