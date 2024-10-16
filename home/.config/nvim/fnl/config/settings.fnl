@@ -31,6 +31,7 @@
        :swapfile false
        :showmode false
        :relativenumber true
+       :number true
        ;settings needed for cmp autocompletion
        :completeopt "menuone,noselect"
        ;turn on the wild menu, auto complete for commands in command line

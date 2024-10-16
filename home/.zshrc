@@ -325,3 +325,4 @@ function y() {
 	fi
 	rm -f -- "$tmp"
 }
+. "/Users/dan/.deno/env"
