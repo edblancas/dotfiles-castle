@@ -17,6 +17,27 @@
 ;disable aoutoformat at textwidth, remove t option
 (nvim.ex.autocmd "FileType" "python" "setlocal formatoptions-=t")
 
+;Automatic toggleing between line number modes
+;https://jeffkreeftmeijer.com/vim-number/
+;Both absolute and relative line numbers are enabled by default, 
+;which produces “hybrid” line numbers. When entering insert mode, 
+;relative line numbers are turned off, leaving absolute line numbers 
+;turned on. This also happens when the buffer loses focus.
+(local numbertoggle (vim.api.nvim_create_augroup :numbertoggle {:clear  true}))
+(vim.api.nvim_create_autocmd 
+  ["BufEnter" "FocusGained" "InsertLeave" "WinEnter"] 
+  {:desc "Set relativenumber if not in insert mode"
+   :pattern "*"
+	 :command "if &nu && mode() != 'i' | set rnu   | endif"
+	 :group numbertoggle})
+(vim.api.nvim_create_autocmd 
+  ["BufLeave" "FocusLost" "InsertEnter" "WinLeave"] 
+  {:desc "Set absolute numbers if in insert mode or lose focus"
+   :pattern "*"
+	 :command "if &nu                  | set nornu | endif"
+	 :group numbertoggle})
+
+
 ;don't wrap lines
 (nvim.ex.set :nowrap)
 
