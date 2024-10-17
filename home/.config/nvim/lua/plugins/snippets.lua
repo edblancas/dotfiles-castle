@@ -30,4 +30,4 @@ local function _1_()
   vim.keymap.set({"i"}, "<C-D-l>", _6_, {silent = true})
   return ls_loader.load({paths = "~/.config/nvim/lua/snippets"})
 end
-return {{"L3MON4D3/LuaSnip", version = "v2.*", build = "make install_jsregexp", config = _1_}}
+return {{"L3MON4D3/LuaSnip", name = "LuaSnip", version = "v2.*", build = "make install_jsregexp", config = _1_}}

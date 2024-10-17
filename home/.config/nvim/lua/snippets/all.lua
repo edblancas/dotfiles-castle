@@ -1,4 +1,5 @@
 -- [nfnl] Compiled from fnl/snippets/all.fnl by https://github.com/Olical/nfnl, do not edit.
+local ls = require("luasnip")
 local function same(index)
   local function _1_(arg)
     print(vim.inspect(arg))
@@ -15,4 +16,4 @@ end
 local function _3_()
   return os.date("%D - %H:%M")
 end
-return {s("todo", fmt("{}: {}", {c(1, {t("TODO"), t("NOTE"), t("FIXME"), t("BUG")}), i(0)})), s("currtime", f(_3_)), s("print-same", fmt("example: {}, function: {}", {i(1), same(1)})), s("rep-impl", fmt("example: {}, function: {}", {i(1), rep_impl(1)}))}
+return {s("todo", fmt("{}: {}", {c(1, {t("TODO"), t("NOTE"), t("FIXME"), t("BUG")}), i(0)})), s("currtime", f(_3_)), s("print-same", fmt("example: {}, function: {}", {i(1), same(1)})), s("rep-impl", fmt("example: {}, function: {}", {i(1), rep_impl(1)})), ls.parser.parse_snippet({trig = "filename"}, "${TM_FILENAME/(.*)\\..+$/$1/}")}
