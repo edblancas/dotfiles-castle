@@ -73,7 +73,7 @@ local function _4_()
   cmp.setup.cmdline(":", {mapping = cmp.mapping.preset.cmdline(), sources = cmp.config.sources({{name = "path"}}, {{name = "cmdline"}}), matching = {disallow_symbol_nonprefix_matching = false}})
   local function _7_(_, vim_item)
     if vim_item.kind then
-      vim_item["kind"] = (kind__3eicon(vim_item.kind) .. " " .. vim_item.kind)
+      vim_item["kind"] = (kind__3eicon(vim_item.kind) .. "" .. vim_item.kind)
     else
     end
     return vim_item
@@ -101,4 +101,4 @@ local function _4_()
   end
   return cmp.setup({formatting = {format = _7_}, snippet = {expand = _9_}, mapping = cmp.mapping.preset.insert({["<C-b>"] = cmp.mapping.scroll_docs(( - 4)), ["<C-f>"] = cmp.mapping.scroll_docs(4), ["<C-Space>"] = cmp.mapping.complete(), ["<CR>"] = cmp.mapping.confirm(), ["<Tab>"] = cmp.mapping(_10_, {"i", "s"}), ["<S-Tab>"] = cmp.mapping(_12_, {"i", "s"})}), sources = cmp.config.sources(cmp_srcs)})
 end
-return {{"SmiteshP/nvim-navic", lazy = true, config = true, opts = {lsp = {auto_attach = true, preference = {"pyright", "null-ls"}}, highlight = true, separator = "\239\145\160 ", click = true, icons = icons}, dependencies = {"neovim/nvim-lspconfig"}, enabled = false}, {"neovim/nvim-lspconfig", dependencies = {"hrsh7th/cmp-nvim-lsp", "hrsh7th/cmp-buffer", "hrsh7th/cmp-path", "hrsh7th/cmp-cmdline", "hrsh7th/nvim-cmp", "L3MON4D3/LuaSnip", "saadparwaiz1/cmp_luasnip", "j-hui/fidget.nvim", "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim", "williamboman/mason.nvim"}, config = _4_}}
+return {{"SmiteshP/nvim-navic", lazy = true, config = true, opts = {lsp = {auto_attach = true, preference = {"pyright", "null-ls"}}, highlight = true, separator = "\239\145\160 ", click = true, icons = icons}, dependencies = {"neovim/nvim-lspconfig"}, enabled = false}, {"neovim/nvim-lspconfig", dependencies = {"hrsh7th/cmp-nvim-lsp", "hrsh7th/cmp-buffer", "hrsh7th/cmp-path", "hrsh7th/cmp-cmdline", "hrsh7th/nvim-cmp", {"L3MON4D3/LuaSnip", version = "v2.*", build = "make install_jsregexp"}, "saadparwaiz1/cmp_luasnip", "j-hui/fidget.nvim", "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim", "williamboman/mason.nvim"}, config = _4_}}

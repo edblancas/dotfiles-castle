@@ -70,7 +70,9 @@
         :hrsh7th/cmp-path
         :hrsh7th/cmp-cmdline
         :hrsh7th/nvim-cmp
-        :L3MON4D3/LuaSnip
+        {1 :L3MON4D3/LuaSnip 
+         :version "v2.*" 
+         :build "make install_jsregexp"}
         :saadparwaiz1/cmp_luasnip
         :j-hui/fidget.nvim
 
@@ -180,7 +182,7 @@
 
                 (cmp.setup {:formatting {:format (fn [_ vim_item] 
                                                    (when vim_item.kind
-                                                     (tset vim_item :kind (.. (kind->icon vim_item.kind) " " vim_item.kind)))
+                                                     (tset vim_item :kind (.. (kind->icon vim_item.kind) "" vim_item.kind)))
                                                    vim_item)}
                             :snippet {:expand (fn [args]
                                                 (luasnip.lsp_expand args.body))}
