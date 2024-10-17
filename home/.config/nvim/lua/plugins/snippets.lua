@@ -11,7 +11,7 @@ local function _1_()
       return nil
     end
   end
-  vim.keymap.set({"i", "s", "n"}, "<M-D-k>", _2_, {silent = true})
+  vim.keymap.set({"i", "s", "n"}, "<C-D-k>", _2_, {silent = true})
   local function _4_()
     if ls.jumpable(-1) then
       return ls.jump(-1)
@@ -19,7 +19,7 @@ local function _1_()
       return nil
     end
   end
-  vim.keymap.set({"i", "s", "n"}, "<M-D-j>", _4_, {silent = true})
+  vim.keymap.set({"i", "s", "n"}, "<C-D-j>", _4_, {silent = true})
   local function _6_()
     if ls.choice_active() then
       return ls.change_choice(1)
@@ -27,7 +27,7 @@ local function _1_()
       return nil
     end
   end
-  vim.keymap.set({"i"}, "<M-D-l>", _6_, {silent = true})
+  vim.keymap.set({"i"}, "<C-D-l>", _6_, {silent = true})
   return ls_loader.load({paths = "~/.config/nvim/lua/snippets"})
 end
 return {{"L3MON4D3/LuaSnip", version = "v2.*", build = "make install_jsregexp", config = _1_}}

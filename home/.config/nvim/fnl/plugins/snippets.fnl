@@ -13,21 +13,20 @@
                                        :ext_opts {types.choiceNode {:active 
                                                                     {:virt_text [["<-" "Error"]]}}}})
                 (vim.keymap.set [:i :s :n]
-                                :<M-D-k> 
+                                :<C-D-k> 
                                 (fn []
                                   (if (ls.expand_or_jumpable) (ls.expand_or_jump)))
                                 {:silent true})
                 (vim.keymap.set [:i :s :n] 
-                                :<M-D-j> 
+                                :<C-D-j> 
                                 (fn []
                                   (if (ls.jumpable -1) (ls.jump -1)))
                                 {:silent true})
                 (vim.keymap.set [:i] 
-                                :<M-D-l> 
+                                :<C-D-l> 
                                 (fn []
                                   (if (ls.choice_active) (ls.change_choice 1)))
                                 {:silent true})
                 (ls-loader.load {:paths "~/.config/nvim/lua/snippets"})))}]
 
-;lua require 'luasnip.loaders.from_lua'.load({paths = "~/.config/nvim/lua/snippets"})
 

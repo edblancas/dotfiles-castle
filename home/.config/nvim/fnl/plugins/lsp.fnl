@@ -5,6 +5,7 @@
    {:name :luasnip}
    {:name :path}])
 
+;or https://github.com/onsails/lspkind.nvim
 (local icons
        {:File " "
         :Module " "
@@ -70,9 +71,7 @@
         :hrsh7th/cmp-path
         :hrsh7th/cmp-cmdline
         :hrsh7th/nvim-cmp
-        {1 :L3MON4D3/LuaSnip 
-         :version "v2.*" 
-         :build "make install_jsregexp"}
+        :L3MON4D3/LuaSnip 
         :saadparwaiz1/cmp_luasnip
         :j-hui/fidget.nvim
 
