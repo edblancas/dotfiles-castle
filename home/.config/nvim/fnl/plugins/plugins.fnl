@@ -15,7 +15,9 @@
     :config true
     :opts {:default_file_explorer true
            :view_options {:show_hidden true}
-           :columns [:icon]}
+           :columns [:icon]
+           :delete_to_trash true
+           :skip_confirm_for_simple_edits true}
     :dependencies [:nvim-tree/nvim-web-devicons]}
 
  {1 :lukas-reineke/indent-blankline.nvim

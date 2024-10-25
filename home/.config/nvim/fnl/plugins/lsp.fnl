@@ -5,47 +5,6 @@
    {:name :luasnip}
    {:name :path}])
 
-;or https://github.com/onsails/lspkind.nvim
-(local icons
-       {:File " "
-        :Module " "
-        :Namespace " "
-        :Package " "
-        :Class " "
-        :Method " "
-        :Property " "
-        :Field " "
-        :Constructor " "
-        :Enum " "
-        :Interface " "
-        :Function " "
-        :Variable " "
-        :Constant " "
-        :String " "
-        :Number " "
-        :Boolean " "
-        :Array " "
-        :Object " "
-        :Key " "
-        :Null " "
-        :EnumMember " "
-        :Struct " "
-        :Event " "
-        :Operator " "
-        :Text ""
-        :Snippet ""
-        :Keyword ""
-        :Reference ""
-        :TypeParameter " "
-        :Folder ""})
-
-(fn kind->icon [kind]
-  ;https://github.com/mortepau/codicons.nvim/blob/master/lua/codicons/table.lua
-  (let [ icon (?. icons kind)]
-    (if (= icon nil)
-        ""
-        icon)))
-
 (fn optimize-imports []
   (let [params {:command "_typescript.organizeImports"
                 :arguments [(vim.api.nvim_buf_get_name 0)]
@@ -60,8 +19,7 @@
                  :preference [:pyright :null-ls]}
            :highlight true
            :separator " "
-           :click true
-           :icons icons}
+           :click true}
     :dependencies [:neovim/nvim-lspconfig]}
 
  {1 :neovim/nvim-lspconfig
@@ -77,7 +35,9 @@
 
         :williamboman/mason.nvim
         :williamboman/mason-lspconfig.nvim
-        :williamboman/mason.nvim]
+        :williamboman/mason.nvim
+
+        :onsails/lspkind.nvim]
     :config (fn []
               (let [cmp (require :cmp)
                     cmp_lsp (require :cmp_nvim_lsp)
@@ -90,6 +50,7 @@
                     cmp_select {:behavior cmp.SelectBehavior.Select}
                     lspconfig (require :lspconfig)
                     luasnip (require :luasnip)
+                    lspkind (require :lspkind)
                     handlers {"textDocument/publishDiagnostics"
                            (vim.lsp.with
                              vim.lsp.diagnostic.on_publish_diagnostics
@@ -179,10 +140,11 @@
                                         :sources (cmp.config.sources [{:name "path"}] [{:name "cmdline"}]) 
                                         :matching {:disallow_symbol_nonprefix_matching false}})
 
-                (cmp.setup {:formatting {:format (fn [_ vim_item] 
-                                                   (when vim_item.kind
-                                                     (tset vim_item :kind (.. (kind->icon vim_item.kind) "" vim_item.kind)))
-                                                   vim_item)}
+                (cmp.setup {:formatting {:format (lspkind.cmp_format {:mode :symbol
+                                                                      :maxwidth {:menu 50
+                                                                                 :abbr 50}
+                                                                      :ellipsis_char "..."
+                                                                      :show_labelDetails true})}
                             :snippet {:expand (fn [args]
                                                 (luasnip.lsp_expand args.body))}
                             :mapping (cmp.mapping.preset.insert {:<C-b> (cmp.mapping.scroll_docs (- 4))
