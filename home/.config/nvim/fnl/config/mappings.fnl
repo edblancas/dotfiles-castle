@@ -53,7 +53,7 @@
 (vim.keymap.set "n" "<leader>j" "<cmd>lprev<CR>zz")
 
 (vim.keymap.set [:n :v :i] "<D-s>" "<cmd>w<CR>")
-(vim.keymap.set [:n :v :i] "<C-D-s>" "<cmd>wall<CR>")
+(vim.keymap.set [:n :v :i] "<M-D-s>" "<cmd>wall<CR>")
 
 (vim.keymap.set [:n] "<leader>]" ":bn<cr>")
 (vim.keymap.set [:n] "<leader>[" ":bp<cr>")
@@ -67,7 +67,7 @@
 (vim.keymap.set [:n] "<F10>" "<C-w>|")
 (vim.keymap.set [:n] "<D-F10>" "<C-w>_")
 
-(vim.keymap.set [:n :i] "<F18>" "<cmd>lua require('config.utils')['toggle-test-file']()<cr>")
+;(vim.keymap.set [:n :i] "<F18>" "<cmd>lua require('config.utils')['toggle-test-file']()<cr>")
 
 ;unmap F1 help
 (vim.keymap.set [:n :i] "<F1>" "<nop>")
@@ -91,7 +91,7 @@
                            :range range})))
   {:range true})
 
-(vim.keymap.set [:n :v] "<M-D-l>" "<CMD>Format<CR>" {:desc "Format with comform"})
+(vim.keymap.set [:n :v :i] "<M-D-l>" "<CMD>Format<CR>" {:desc "Format with comform"})
 
 ;get the current file from the cwd
 (vim.api.nvim_create_user_command 
