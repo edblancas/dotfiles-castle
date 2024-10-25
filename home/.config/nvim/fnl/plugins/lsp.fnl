@@ -140,7 +140,7 @@
                                         :sources (cmp.config.sources [{:name "path"}] [{:name "cmdline"}]) 
                                         :matching {:disallow_symbol_nonprefix_matching false}})
 
-                (cmp.setup {:formatting {:format (lspkind.cmp_format {:mode :symbol
+                (cmp.setup {:formatting {:format (lspkind.cmp_format {:mode :symbol_text
                                                                       :maxwidth {:menu 50
                                                                                  :abbr 50}
                                                                       :ellipsis_char "..."
