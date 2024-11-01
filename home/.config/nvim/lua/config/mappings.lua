@@ -48,47 +48,54 @@ local function _4_(_)
   local file_path = vim.fn.expand("%")
   return vim.fn.setreg("+", (folder_name .. "/" .. file_path))
 end
-vim.api.nvim_create_user_command("CopyFilePath", _4_, {})
-local function _5_()
+vim.api.nvim_create_user_command("CopyFilePathProject", _4_, {})
+local function _5_(_)
+  local cwd = vim.fn.getcwd()
+  local folder_name = vim.fn.fnamemodify(cwd, ":t")
+  local file_path = vim.fn.expand("%")
+  return vim.fn.setreg("+", (folder_name .. "/" .. file_path))
+end
+vim.api.nvim_create_user_command("CopyFilePath", _5_, {})
+local function _6_()
   return vim.keymap.set("n", "<C-M-o>", "<cmd>OptimizeImports<cr>", {noremap = true})
 end
-vim.api.nvim_create_autocmd("FileType", {pattern = {"typescript", "typescriptreact"}, callback = _5_})
-local function _6_()
+vim.api.nvim_create_autocmd("FileType", {pattern = {"typescript", "typescriptreact"}, callback = _6_})
+local function _7_()
   return vim.keymap.set("n", "<C-M-o>", "<cmd>PyrightOrganizeImports<cr>", {noremap = true})
 end
-vim.api.nvim_create_autocmd("FileType", {pattern = "python", callback = _6_})
+vim.api.nvim_create_autocmd("FileType", {pattern = "python", callback = _7_})
 vim.keymap.set({"n", "v", "i"}, "<C-C>", "<CMD>cclose<CR>", {desc = "Close quickfix"})
 vim.keymap.set({"n", "i"}, "<F1>", ":lua vim.lsp.buf.hover()<CR>", {desc = "Hover doc"})
-local function _7_()
+local function _8_()
   local get_notes_root
-  local function _8_()
+  local function _9_()
     local dot_git_path = vim.fn.finddir("~/Documents/dev/notes/", ".;")
     return vim.fn.fnamemodify(dot_git_path, ":h")
   end
-  get_notes_root = _8_
+  get_notes_root = _9_
   local tel = require("telescope.builtin")
   return tel.find_files({cwd = get_notes_root(), prompt_title = "Search Notes", find_command = {"rg", "--files", "--glob", "*.md", "--glob", "*.markdown", "--glob", "*.txt", "--glob", "*.org"}})
 end
-vim.api.nvim_create_user_command("OpenNotes", _7_, {})
+vim.api.nvim_create_user_command("OpenNotes", _8_, {})
 vim.keymap.set({"n", "i"}, "<M-D-n>", "<cmd>OpenNotes<cr>", {desc = "Open notes"})
-local function _9_()
+local function _10_()
   local get_notes_root
-  local function _10_()
+  local function _11_()
     local dot_git_path = vim.fn.finddir("~/Documents/dev/notes/", ".;")
     return vim.fn.fnamemodify(dot_git_path, ":h")
   end
-  get_notes_root = _10_
+  get_notes_root = _11_
   local tel = require("telescope.builtin")
   return tel.live_grep({cwd = get_notes_root(), prompt_title = "Grep Notes", find_command = {"rg", "--files", "--glob", "*.md", "--glob", "*.markdown", "--glob", "*.txt", "--glob", "*.org"}})
 end
-vim.api.nvim_create_user_command("GrepNotes", _9_, {})
+vim.api.nvim_create_user_command("GrepNotes", _10_, {})
 vim.keymap.set({"n", "i"}, "<S-D-n>", "<cmd>GrepNotes<cr>", {desc = "Grep notes"})
-local function _11_(_)
+local function _12_(_)
   local file_name = vim.fn.input("Enter the note name: ")
   local notes_dir = "~/Documents/notes/"
   local full_path = vim.fn.expand((notes_dir .. file_name))
   vim.cmd(("edit " .. full_path))
   return vim.cmd("write")
 end
-vim.api.nvim_create_user_command("CreateNote", _11_, {})
+vim.api.nvim_create_user_command("CreateNote", _12_, {})
 return {}

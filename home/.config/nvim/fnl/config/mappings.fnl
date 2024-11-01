@@ -93,7 +93,17 @@
 
 (vim.keymap.set [:n :v :i] "<M-D-l>" "<CMD>Format<CR>" {:desc "Format with comform"})
 
-;get the current file from the cwd
+;copy the path of the current file from the cwd to the + register
+(vim.api.nvim_create_user_command 
+  "CopyFilePathProject"
+  (fn [_]
+    (let [cwd (vim.fn.getcwd)
+          folder_name (vim.fn.fnamemodify cwd ":t")
+          file-path (vim.fn.expand "%")]
+      (vim.fn.setreg "+" (.. folder_name "/" file-path))))
+  {})
+
+;copy the absolut path of the current file to + register
 (vim.api.nvim_create_user_command 
   "CopyFilePath"
   (fn [_]
