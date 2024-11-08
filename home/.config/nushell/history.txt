@@ -52,3 +52,11 @@ $nu.config-path
 $env.EDITOR
 config nu
 nvim $nu.env-path
+homesick cd dotfiles-castle
+yazi
+ls
+z pat
+ls -l
+config nu
+l
+cd pat
