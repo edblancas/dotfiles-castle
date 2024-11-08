@@ -17,6 +17,9 @@
 ;disable aoutoformat at textwidth, remove t option
 (nvim.ex.autocmd "FileType" "python" "setlocal formatoptions-=t")
 
+;disable line numbers in terminal
+(nvim.ex.autocmd "TermOpen" "*" "setlocal nonumber norelativenumber")
+
 ;Automatic toggleing between line number modes
 ;https://jeffkreeftmeijer.com/vim-number/
 ;Both absolute and relative line numbers are enabled by default, 
