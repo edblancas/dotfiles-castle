@@ -60,3 +60,7 @@ ls -l
 config nu
 l
 cd pat
+homesick cd dotfiles-castle
+nv
+config nu
+cd pat

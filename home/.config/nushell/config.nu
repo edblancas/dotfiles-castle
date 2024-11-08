@@ -907,3 +907,4 @@ source ~/.cache/carapace/init.nu
 
 alias l = ls
 alias cd = z
+alias nv = nvim
