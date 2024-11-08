@@ -64,3 +64,10 @@ homesick cd dotfiles-castle
 nv
 config nu
 cd pat
+homesick cd dotfiles-castle
+nv
+g pull
+config nu
+cd pat
+g pull
+config nu
