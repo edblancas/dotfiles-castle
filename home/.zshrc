@@ -30,6 +30,7 @@ source $ZSH/oh-my-zsh.sh
 
 ## Load completions
 autoload -Uz compinit && compinit
+autoload bashcompinit && bashcompinit
 
 # https://gist.github.com/zulhfreelancer/9c410cad5efa9c5f7c74cd0849765865
 # man strftime
@@ -328,3 +329,5 @@ function y() {
 
 . "/Users/dan/.deno/env"
 
+# aws completion
+complete -C '/usr/local/bin/aws_completer' aws

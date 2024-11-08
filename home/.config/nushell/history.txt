@@ -17,3 +17,38 @@ la
 ls .config/
 nv .config/nushell/
 nvim .config/nushell/
+homesick cd dotfiles-castle
+l
+ls
+cd projects/current/coding-patterns/
+l
+ls
+nv
+brew install starship<\n>
+$nu.env-path
+nvim $nu.env-path
+ls
+nvim $nu.env-path
+z pat
+brew install carapace<\n>
+z pat
+nvim $nu.env-path
+aws 
+which aws_completer
+aws_completer 
+zshrc
+which nu
+sudo echo "/usr/local/bin/nu" >> /etc/shells
+cat /etc/shells
+sudo echo "/usr/local/bin/nu" >> /etc/shells
+cat /etc/shells
+sudo echo '/usr/local/bin/nu' >> /etc/shells
+cat /etc/shells
+nv /etc/shells
+nvim /etc/shells
+$nu.config-path
+nvim $nu.env-path
+$nu.config-path
+$env.EDITOR
+config nu
+nvim $nu.env-path
