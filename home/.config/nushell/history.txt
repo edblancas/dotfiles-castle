@@ -1,0 +1,19 @@
+ls
+l
+ls
+http get https://api.github.com/repos/nushell/nushell
+l
+ls
+l
+cd beca
+hurl loan-service-update-loan.hurl
+hurl --test loan-service-update-loan.hurl
+hurl loan-service-update-loan.hurl
+hurl -v loan-service-update-loan.hurl
+bat
+nv .config/kitty/kt.zsh
+nu config
+la
+ls .config/
+nv .config/nushell/
+nvim .config/nushell/
