@@ -7,7 +7,7 @@ kt() {
   # Use find and fzf to select a directory
   local selected_dir=$(fd . --max-depth 1 --min-depth 1 --type d "$path_proj" | \
     sed "s~$path_proj/~~" | \
-    fzf --cycle --layout=reverse --prompt 't> ' | \
+    /usr/local/bin/fzf --cycle --layout=reverse --prompt 't> ' | \
     sed "s~^~$path_proj/~")
 
   # If a directory was selected
