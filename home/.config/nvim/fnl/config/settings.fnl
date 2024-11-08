@@ -17,8 +17,17 @@
 ;disable aoutoformat at textwidth, remove t option
 (nvim.ex.autocmd "FileType" "python" "setlocal formatoptions-=t")
 
-;disable line numbers in terminal
-(nvim.ex.autocmd "TermOpen" "*" "setlocal nonumber norelativenumber")
+(local cusmtom-term-open (vim.api.nvim_create_augroup :cusmtom-term-open {}))
+(vim.api.nvim_create_autocmd 
+  ["TermOpen"] 
+  {:desc "Custom terminal config, no line numbers"
+   :pattern "*"
+   :callback (fn []
+               (core.assoc vim.opt_local :number false)
+               (core.assoc vim.opt_local :relativenumber false)
+               (core.assoc vim.opt_local :scrolloff 0)
+               (core.assoc vim.bo :filetype :terminal))
+	 :group cusmtom-term-open})
 
 ;Automatic toggleing between line number modes
 ;https://jeffkreeftmeijer.com/vim-number/
@@ -98,7 +107,8 @@
        :foldenable false
        :foldmethod "expr"
        :foldexpr "v:lua.vim.treesitter.foldexpr()"
-       :foldtext ""}]
+       :foldtext ""
+       :shell "nu"}]
   (each [option value (pairs options)]
     (core.assoc nvim.o option value)))
 

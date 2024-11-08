@@ -1,5 +1,6 @@
 (local {: autoload} (require :nfnl.module))
 (local nvim (autoload :nvim))
+(local core (autoload :nfnl.core))
 
 ;generic mapping leaders configuration
 (nvim.set_keymap :n :<space> :<nop> {:noremap true})
@@ -12,9 +13,6 @@
 
 ;duplicate currents panel in a new tab
 (nvim.set_keymap :n :<C-w>T ":tab split<CR>" {:noremap true :silent true})
-
-;escape from terminal normal mode
-(nvim.set_keymap :t :<esc><esc> "<c-\\><c-n>" {:noremap true})
 
 ;; this is better than the above, see link:
 ;;   https://www.reddit.com/r/neovim/comments/uuh8xw/noob_vimkeymapset_vs_vimapinvim_set_keymap_key/
@@ -170,5 +168,20 @@
       (vim.cmd (.. "edit " full-path))
       (vim.cmd "write")))
   {})
+
+;from tjdevires config
+;https://github.com/tjdevries/config.nvim/blob/master/plugin/terminal.lua
+;Easily hit escape in terminal mode.
+(vim.keymap.set [:t] "<esc><esc>" "<c-\\><c-n>")
+;Open a terminal at the bottom of the screen with a fixed height.
+(vim.keymap.set [:n] 
+                "<leader>tt" 
+                (fn []
+                  (vim.cmd.new)
+                  (vim.cmd.wincmd "J")
+                  (vim.api.nvim_win_set_height 0 12)
+                  (core.assoc vim.wo :winfixheight true)
+                  (vim.cmd.term))
+                {:desc "Toggle terminal"})
 
 {}

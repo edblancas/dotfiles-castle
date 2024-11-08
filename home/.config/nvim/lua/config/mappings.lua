@@ -2,10 +2,10 @@
 local _local_1_ = require("nfnl.module")
 local autoload = _local_1_["autoload"]
 local nvim = autoload("nvim")
+local core = autoload("nfnl.core")
 nvim.set_keymap("n", "<space>", "<nop>", {noremap = true})
 nvim.set_keymap("n", "<leader><space>", ":nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>", {noremap = true, desc = "nohlsearch/diffupdate"})
 nvim.set_keymap("n", "<C-w>T", ":tab split<CR>", {noremap = true, silent = true})
-nvim.set_keymap("t", "<esc><esc>", "<c-\\><c-n>", {noremap = true})
 vim.keymap.set("i", "<C-;>", "()<Left>", {noremap = true})
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -98,4 +98,13 @@ local function _12_(_)
   return vim.cmd("write")
 end
 vim.api.nvim_create_user_command("CreateNote", _12_, {})
+vim.keymap.set({"t"}, "<esc><esc>", "<c-\\><c-n>")
+local function _13_()
+  vim.cmd.new()
+  vim.cmd.wincmd("J")
+  vim.api.nvim_win_set_height(0, 12)
+  core.assoc(vim.wo, "winfixheight", true)
+  return vim.cmd.term()
+end
+vim.keymap.set({"n"}, "<leader>tt", _13_, {desc = "Toggle terminal"})
 return {}
