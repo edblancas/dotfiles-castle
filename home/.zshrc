@@ -69,6 +69,9 @@ function my_init() {
     # so it not conflicts with zsh-vim-mode and source it at
     # the end of all the zsh plugins
     source <(fzf --zsh)
+    # for some reason this not woks at the end of this file
+    bindkey -r '^F' 
+    bindkey '^F' forward-word
 }
 zvm_after_init_commands+=(my_init)
 # Disable the cursor style feature
@@ -332,3 +335,4 @@ function y() {
 
 # aws completion
 complete -C '/usr/local/bin/aws_completer' aws
+
