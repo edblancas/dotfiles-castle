@@ -241,9 +241,10 @@ _fzf_comprun() {
 # ~/.fzf/shell/key-bindings.zsh
 # don't work, as kitty terminal is passing
 # that character instead of the actual alt-c
-eval "zvm_bindkey viins 'ç' fzf-cd-widget"
-eval "zvm_bindkey visual 'ç' fzf-cd-widget"
-eval "zvm_bindkey vicmd 'ç' fzf-cd-widget"
+#eval "zvm_bindkey viins 'ç' fzf-cd-widget"
+#eval "zvm_bindkey visual 'ç' fzf-cd-widget"
+#eval "zvm_bindkey vicmd 'ç' fzf-cd-widget"
+### use in kitty: macos_option_as_alt left to avoid the above ###
 
 ### PERSONAL OR WORK PATH settings ###
 if [[ $USER == "dan" ]]; then
