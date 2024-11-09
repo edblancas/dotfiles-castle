@@ -905,8 +905,11 @@ source ~/.zoxide.nu
 
 source ~/.cache/carapace/init.nu
 
-alias l = ls
+alias l = eza --color=always --long --git --icons=always --no-user --no-permissions
+alias la = ls --all
+alias tree = eza --tree
 alias cd = z
 alias nv = nvim
+alias nvimconf = cd ~/.config/nvim
 alias g = git
-
+alias c = clear

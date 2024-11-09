@@ -108,7 +108,7 @@
        :foldmethod "expr"
        :foldexpr "v:lua.vim.treesitter.foldexpr()"
        :foldtext ""
-       :shell "nu"}]
+       :shell "zsh"}]
   (each [option value (pairs options)]
     (core.assoc nvim.o option value)))
 
