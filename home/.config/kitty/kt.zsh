@@ -2,10 +2,10 @@
 
 kt() {
   # Set the base directory path
-  local path_proj="$HOME/projects/onest"
+  local path_proj="/Users/dan/projects/onest"
   
   # Use find and fzf to select a directory
-  local selected_dir=$(fd . --max-depth 1 --min-depth 1 --type d "$path_proj" | \
+  local selected_dir=$(/usr/local/bin/fd . --max-depth 1 --min-depth 1 --type d "$path_proj" | \
     sed "s~$path_proj/~~" | \
     /usr/local/bin/fzf --cycle --layout=reverse --prompt 't> ' | \
     sed "s~^~$path_proj/~")
