@@ -166,4 +166,4 @@
 	defaultBranch = main
 
 [includeIf "gitdir:~/projects/onest/"]
-  path = .gitconfig-onest
+  path = ~/.gitconfig-onest

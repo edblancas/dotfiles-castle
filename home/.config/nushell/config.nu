@@ -910,6 +910,35 @@ alias la = ls --all
 alias tree = eza --tree
 alias cd = z
 alias nv = nvim
-alias nvimconf = cd ~/.config/nvim
+alias vim = nvim
+alias v = nvim
 alias g = git
 alias c = clear
+
+def nvimconf [] { cd ~/.config/nvim; nvim . }
+def nv [] {
+    if ($in.is_empty) {
+        nvim .
+    } else {
+        nvim $in
+    }
+}
+def y [] {
+    let tmp = (mktemp -t "yazi-cwd.XXXXXX" | str trim)
+    yazi $in --cwd-file=$tmp
+
+    let cwd = (open $tmp | str trim)
+    if ($cwd != $env.PWD and $cwd != "") {
+        cd $cwd
+    }
+
+    rm $tmp
+}
+def mkd [dir: string] {
+    mkdir $dir
+    cd $dir
+}
+def gi [args: string] {
+    let keywords = ($args | str join ",")
+    curl -L -s $"https://www.gitignore.io/api/($keywords)"
+}

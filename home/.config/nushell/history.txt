@@ -81,3 +81,59 @@ webstorm .
 echo "GET https://dev-hermes.onestfinancial.com/api/transaction/by-loan-id/106/completed-or-processed" | hurl
 vi ~/.config/kitty/kitty.conf 
 nvim ~/.config/kitty/kitty.conf 
+l
+ls
+nvimconfig
+nv .config/nushell/config.nu
+nvim .config/nushell/config.nu
+which mkdir
+which nvim
+cd tmp
+mkdir test/nested-dir/nushell
+cd test/nested-dir/nushell/
+nvim .config/nushell/config.nu
+cd
+nvim .config/nushell/config.nu
+y
+nvim .config/nushell/config.nu
+y
+nvim .config/nushell/config.nu
+nv
+nvim .config/nushell/config.nu
+gi python
+nvim .config/nushell/config.nu
+gi python
+nvim .config/nushell/config.nu
+gi python
+nvim .config/nushell/config.nu
+gi python
+nvim .config/nushell/config.nu
+gi python
+gi python,hello
+nvim .config/nushell/config.nu
+gi python,hello
+nvim .config/nushell/config.nu
+gi python,hello
+:q
+nvim .config/nushell/config.nu
+gi python,hello
+nvim .config/nushell/config.nu
+gi python,hello
+nvim .config/nushell/config.nu
+gi python,hello
+nvim .config/nushell/config.nu
+gi python,hello
+L
+gi python,hello
+nvim .config/nushell/config.nu
+gi python ruby
+nvim .config/nushell/config.nu
+gi python ruby
+gi pythonruby
+nvim .config/nushell/config.nu
+gi pythonruby
+gi python ruby
+zshrc
+nvim .config/nushell/config.nu
+gi python,ruby
+which curl

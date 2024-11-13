@@ -122,6 +122,7 @@ alias update_dotfiles_submodules="cd ~/.homesick/repos/dotfiles-castle && git su
 # Override system vi and vim
 alias vi='nvim'
 alias vim='nvim'
+alias v='nvim'
 # Aliases for vim and kaleidoscope merge diff tool
 alias gkdiff='git config diff.tool kaleidoscope; git difftool'
 alias gkmerge='git config merge.tool kaleidoscope; git mergetool'
