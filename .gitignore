@@ -40,3 +40,5 @@ home/.config/zed/.tmp*
 
 .cpcache
 home/.config/raycast
+
+home/.config/nushell/history.txt
