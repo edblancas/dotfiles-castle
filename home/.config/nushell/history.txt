@@ -74,3 +74,10 @@ config nu
 homesick cd dotfiles-castle
 lua init.lua 
 nv
+cd tran
+nv
+cd herm
+webstorm . 
+echo "GET https://dev-hermes.onestfinancial.com/api/transaction/by-loan-id/106/completed-or-processed" | hurl
+vi ~/.config/kitty/kitty.conf 
+nvim ~/.config/kitty/kitty.conf 

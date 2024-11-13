@@ -1,5 +1,5 @@
 -- [nfnl] Compiled from fnl/plugins/lsp.fnl by https://github.com/Olical/nfnl, do not edit.
-local cmp_srcs = {{name = "nvim_lsp"}, {name = "conjure"}, {name = "buffer"}, {name = "luasnip"}, {name = "path"}}
+local cmp_srcs = {{name = "supermaven"}, {name = "nvim_lsp"}, {name = "conjure"}, {name = "buffer"}, {name = "luasnip"}, {name = "path"}}
 local function optimize_imports()
   local params = {command = "_typescript.organizeImports", arguments = {vim.api.nvim_buf_get_name(0)}, title = ""}
   return vim.lsp.buf.execute_command(params)
@@ -56,6 +56,7 @@ local function _1_()
   cmp.event:on("confirm_done", cmp_ap.on_confirm_done())
   cmp.setup.cmdline({"/", "?"}, {mapping = cmp.mapping.preset.cmdline(), sources = {{name = "buffer"}}})
   cmp.setup.cmdline(":", {mapping = cmp.mapping.preset.cmdline(), sources = cmp.config.sources({{name = "path"}}, {{name = "cmdline"}}), matching = {disallow_symbol_nonprefix_matching = false}})
+  vim.api.nvim_set_hl(0, "CmpItemKindSupermaven", {fg = "#6CC644"})
   local function _4_(args)
     return luasnip.lsp_expand(args.body)
   end
@@ -77,6 +78,6 @@ local function _1_()
       return nil
     end
   end
-  return cmp.setup({formatting = {format = lspkind.cmp_format({mode = "symbol_text", maxwidth = {menu = 50, abbr = 50}, ellipsis_char = "...", show_labelDetails = true})}, snippet = {expand = _4_}, mapping = cmp.mapping.preset.insert({["<C-b>"] = cmp.mapping.scroll_docs(( - 4)), ["<C-f>"] = cmp.mapping.scroll_docs(4), ["<C-Space>"] = cmp.mapping.complete(), ["<CR>"] = cmp.mapping.confirm(), ["<Tab>"] = cmp.mapping(_5_, {"i", "s"}), ["<S-Tab>"] = cmp.mapping(_7_, {"i", "s"})}), sources = cmp.config.sources(cmp_srcs)})
+  return cmp.setup({formatting = {format = lspkind.cmp_format({mode = "symbol_text", maxwidth = {menu = 50, abbr = 50}, ellipsis_char = "...", show_labelDetails = true, symbol_map = {Supermaven = "\239\128\133"}})}, snippet = {expand = _4_}, mapping = cmp.mapping.preset.insert({["<C-b>"] = cmp.mapping.scroll_docs(( - 4)), ["<C-f>"] = cmp.mapping.scroll_docs(4), ["<C-Space>"] = cmp.mapping.complete(), ["<CR>"] = cmp.mapping.confirm(), ["<Tab>"] = cmp.mapping(_5_, {"i", "s"}), ["<S-Tab>"] = cmp.mapping(_7_, {"i", "s"})}), sources = cmp.config.sources(cmp_srcs)})
 end
 return {{"SmiteshP/nvim-navic", lazy = true, config = true, opts = {lsp = {auto_attach = true, preference = {"pyright", "null-ls"}}, highlight = true, separator = "\239\145\160 ", click = true}, dependencies = {"neovim/nvim-lspconfig"}, enabled = false}, {"neovim/nvim-lspconfig", dependencies = {"hrsh7th/cmp-nvim-lsp", "hrsh7th/cmp-buffer", "hrsh7th/cmp-path", "hrsh7th/cmp-cmdline", "hrsh7th/nvim-cmp", "LuaSnip", "saadparwaiz1/cmp_luasnip", "j-hui/fidget.nvim", "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim", "williamboman/mason.nvim", "onsails/lspkind.nvim"}, config = _1_}}

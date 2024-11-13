@@ -1,5 +1,6 @@
 (local cmp-srcs
-  [{:name :nvim_lsp}
+  [{:name :supermaven}
+   {:name :nvim_lsp}
    {:name :conjure}
    {:name :buffer}
    {:name :luasnip}
@@ -141,11 +142,14 @@
                                         :sources (cmp.config.sources [{:name "path"}] [{:name "cmdline"}]) 
                                         :matching {:disallow_symbol_nonprefix_matching false}})
 
+                (vim.api.nvim_set_hl 0 "CmpItemKindSupermaven" {:fg "#6CC644"})
+
                 (cmp.setup {:formatting {:format (lspkind.cmp_format {:mode :symbol_text
                                                                       :maxwidth {:menu 50
                                                                                  :abbr 50}
                                                                       :ellipsis_char "..."
-                                                                      :show_labelDetails true})}
+                                                                      :show_labelDetails true
+                                                                      :symbol_map {:Supermaven  ""}})}
                             :snippet {:expand (fn [args]
                                                 (luasnip.lsp_expand args.body))}
                             :mapping (cmp.mapping.preset.insert {:<C-b> (cmp.mapping.scroll_docs (- 4))
