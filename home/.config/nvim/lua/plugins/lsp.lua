@@ -1,5 +1,5 @@
 -- [nfnl] Compiled from fnl/plugins/lsp.fnl by https://github.com/Olical/nfnl, do not edit.
-local cmp_srcs = {{name = "supermaven"}, {name = "nvim_lsp"}, {name = "conjure"}, {name = "buffer"}, {name = "luasnip"}, {name = "path"}}
+local cmp_srcs = {{name = "nvim_lsp"}, {name = "conjure"}, {name = "buffer"}, {name = "luasnip"}, {name = "path"}}
 local function optimize_imports()
   local params = {command = "_typescript.organizeImports", arguments = {vim.api.nvim_buf_get_name(0)}, title = ""}
   return vim.lsp.buf.execute_command(params)

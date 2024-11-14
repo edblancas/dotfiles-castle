@@ -23,4 +23,8 @@ vim.loader.enable()
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 
+-- seting laststatus before load plugins
+-- see https://www.reddit.com/r/neovim/comments/1clx1cu
+vim.go.laststatus = 3
+
 require("lazy").setup("plugins")

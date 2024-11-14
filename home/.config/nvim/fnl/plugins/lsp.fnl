@@ -1,6 +1,5 @@
 (local cmp-srcs
-  [{:name :supermaven}
-   {:name :nvim_lsp}
+  [ {:name :nvim_lsp}
    {:name :conjure}
    {:name :buffer}
    {:name :luasnip}

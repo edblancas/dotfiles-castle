@@ -27,7 +27,7 @@
               (lualine.setup
                 {:options {:theme "tokyonight"
                            :icons_enabled true
-                           :globalstatus false
+                           :globalstatus true
                            :section_separators ["" ""]
                            :component_separators ["" ""]}
                  :winbar {:lualine_a []}
