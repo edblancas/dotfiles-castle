@@ -39,19 +39,7 @@
                                                      :fg c.fg-dark})
                                                (set hl.TelescopeResultsTitle
                                                     {:bg c.bg-dark
-                                                     :fg c.fg-dark})
-                                               ;Me
-                                               (set hl.FloatBorder 
-                                                    {:bg c.bg_dark
-                                                     :fg c.fg_dark})
-                                               (set hl.ColorColumn 
-                                                    {:bg c.bg_dark
-                                                     :fg c.fg_dark})
-                                               (set hl.Pmenu 
-                                                    {:bg c.bg_dark
-                                                     :fg c.fg_dark})
-                                               (set hl.NonText 
-                                                    {:fg (theme-util.lighten c.bg 0.9)}))
+                                                     :fg c.fg-dark}))
                               :terminal_colors true})
                 (vim.cmd "colorscheme tokyonight")))}]
 
