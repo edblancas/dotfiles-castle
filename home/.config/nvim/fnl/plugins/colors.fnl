@@ -18,25 +18,40 @@
                                        :variables {}}
                               :on_colors (fn [colors]
                                            (set colors.bg_statusline (theme-util.darken colors.bg_dark 0.5)))
-                              :on_highlights (fn [highlight colors]
-                                               (set highlight.String {:fg colors.green2})
-                                               (set highlight.TelescopeNormal {:bg colors.bg_statusline
-                                                                               :fg colors.fg_dark})
-                                               (set highlight.TelescopeBorder {:bg colors.bg_statusline
-                                                                               :fg colors.fg_dark})
-                                               (set highlight.NvimTreeNormal {:bg colors.bg_statusline
-                                                                              :fg colors.fg_dark})
-                                               (set highlight.NvimTreeNormalNC {:bg colors.bg_statusline
-                                                                                :fg colors.fg_dark})
-                                               (set highlight.NvimTreeWinSeparator {:bg colors.bg_statusline
-                                                                                    :fg colors.bg_dark})
-                                               (set highlight.FloatBorder {:bg colors.bg_statusline
-                                                                           :fg colors.fg_dark})
-                                               (set highlight.ColorColumn {:bg colors.bg_statusline
-                                                                           :fg colors.fg_dark})
-                                               (set highlight.Pmenu {:bg colors.bg_statusline
-                                                                     :fg colors.fg_dark})
-                                               (set highlight.NonText {:fg (theme-util.lighten colors.bg 0.9)}))
+                              :on_highlights (fn [hl c]
+                                               ;folke/tokyonight.nvim repo
+                                               (set hl.TelescopeNormal
+                                                    {:bg c.bg-dark
+                                                     :fg c.fg-dark})
+                                               (set hl.TelescopeBorder
+                                                    {:bg c.bg-dark
+                                                     :fg c.fg-dark})
+                                               (set hl.TelescopePromptNormal
+                                                    {:bg c.bg-dark})
+                                               (set hl.TelescopePromptBorder
+                                                    {:bg c.bg-dark
+                                                     :fg c.fg-dark})
+                                               (set hl.TelescopePromptTitle
+                                                    {:bg c.bg-dark
+                                                     :fg c.fg-dark})
+                                               (set hl.TelescopePreviewTitle
+                                                    {:bg c.bg-dark
+                                                     :fg c.fg-dark})
+                                               (set hl.TelescopeResultsTitle
+                                                    {:bg c.bg-dark
+                                                     :fg c.fg-dark})
+                                               ;Me
+                                               (set hl.FloatBorder 
+                                                    {:bg c.bg_dark
+                                                     :fg c.fg_dark})
+                                               (set hl.ColorColumn 
+                                                    {:bg c.bg_dark
+                                                     :fg c.fg_dark})
+                                               (set hl.Pmenu 
+                                                    {:bg c.bg_dark
+                                                     :fg c.fg_dark})
+                                               (set hl.NonText 
+                                                    {:fg (theme-util.lighten c.bg 0.9)}))
                               :terminal_colors true})
                 (vim.cmd "colorscheme tokyonight")))}]
 
