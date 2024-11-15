@@ -12,3 +12,4 @@ export PATH="/usr/local/opt/ruby/bin:$PATH"
 # Seems this path env is only for linux, meh replicating here
 export XDG_CONFIG_HOME="$HOME/.config"
 
+export EZA_CONFIG_DIR="$HOME/.config/eza/"

@@ -128,7 +128,8 @@ alias gkdiff='git config diff.tool kaleidoscope; git difftool'
 alias gkmerge='git config merge.tool kaleidoscope; git mergetool'
 
 # Alias gls to ls for dircolors (brew install coreutils)
-eval $(gdircolors $HOME/.config/dracula-dircolors/.dircolors)
+# commented out for tokyo-night-night colors in eza config
+#eval $(gdircolors $HOME/.config/dracula-dircolors/.dircolors)
 export LS_OPTIONS='--color=auto'
 alias ls='gls $LS_OPTIONS -FGH'
 #alias la='gls $LS_OPTIONS -lAhF'
