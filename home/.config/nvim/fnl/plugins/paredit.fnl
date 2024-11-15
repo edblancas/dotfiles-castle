@@ -34,10 +34,4 @@
                                              (paredit.wrap.wrap_element_under_cursor "( " ")")
                                              {:mode :insert
                                               :placement :inner_start}))
-                                         "Wrap element insert head"]}})))}
-
- {1 :julienvincent/nvim-paredit-fennel
-  :dependencies [:julienvincent/nvim-paredit]
-  :lazy true
-  :ft [:fennel]
-  :config true}]
+                                         "Wrap element insert head"]}})))}]

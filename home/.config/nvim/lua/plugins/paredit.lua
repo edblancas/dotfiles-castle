@@ -27,4 +27,4 @@ local function _1_()
   end
   return paredit.setup({keys = {["<M-D-l>"] = {_2_, "Slurp forwards"}, ["<M-D-h>"] = {_3_, "Slurp backwards"}, ["<M-D-k>"] = {_4_, "Barf forwards"}, ["<M-D-j>"] = {_5_, "Barf backwards"}, ["<localleader>I"] = {_6_, "Wrap form insert tail"}, ["<localleader>W"] = {_7_, "Wrap element insert tail"}, ["<localleader>i"] = {_8_, "Wrap form insert head"}, ["<localleader>w"] = {_9_, "Wrap element insert head"}}})
 end
-return {{"julienvincent/nvim-paredit", lazy = true, ft = {"clojure", "fennel"}, config = _1_}, {"julienvincent/nvim-paredit-fennel", dependencies = {"julienvincent/nvim-paredit"}, lazy = true, ft = {"fennel"}, config = true}}
+return {{"julienvincent/nvim-paredit", lazy = true, ft = {"clojure", "fennel"}, config = _1_}}
