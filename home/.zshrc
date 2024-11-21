@@ -12,6 +12,9 @@ fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 ### Hombrew completions ###
 FPATH="$HOMEBREW/share/zsh/site-functions:${FPATH}"
 
+export EDITOR='nvim'
+export VISUAL='nvim'
+
 ### START OH-MY-ZSH ###
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME=""
@@ -89,22 +92,20 @@ ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
 
 ### START CONFIGURATIONS ###
 ### Envs ###
-export EDITOR='nvim';
-export VISUAL='nvim';
 # 1ms for key sequences, for zsh and vim, not zhs-vim-plugin
 export KEYTIMEOUT=1
 # Increase Bash history size. Allow 32³ entries; the default is 500.
-export HISTSIZE='32768';
-export HISTFILESIZE="${HISTSIZE}";
+export HISTSIZE='32768'
+export HISTFILESIZE="${HISTSIZE}"
 # Omit duplicates and commands that begin with a space from history.
-export HISTCONTROL='ignoreboth';
+export HISTCONTROL='ignoreboth'
 # Prefer US English and use UTF-8.
-export LANG='en_US.UTF-8';
-export LC_ALL='en_US.UTF-8';
+export LANG='en_US.UTF-8'
+export LC_ALL='en_US.UTF-8'
 # Highlight section titles in manual pages.
-export LESS_TERMCAP_md="${yellow}";
+export LESS_TERMCAP_md="${yellow}"
 # Don’t clear the screen after quitting a manual page.
-export MANPAGER='less -X';
+export MANPAGER='less -X'
 
 ### Alias ###
 alias zshrc="nvim $HOME/.zshrc"

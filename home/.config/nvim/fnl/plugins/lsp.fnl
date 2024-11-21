@@ -151,8 +151,8 @@
                                                                       :symbol_map {:Supermaven  ""}})}
                             :snippet {:expand (fn [args]
                                                 (luasnip.lsp_expand args.body))}
-                            :mapping (cmp.mapping.preset.insert {:<C-b> (cmp.mapping.scroll_docs (- 4))
-                                                                 :<C-f> (cmp.mapping.scroll_docs 4)
+                            :mapping (cmp.mapping.preset.insert {:<C-S-j> (cmp.mapping.scroll_docs (- 4))
+                                                                 :<C-S-k> (cmp.mapping.scroll_docs 4)
                                                                  "<C-Space>" (cmp.mapping.complete)
                                                                  :<CR> (cmp.mapping.confirm)
                                                                  :<Tab> (cmp.mapping (fn [fallback]
