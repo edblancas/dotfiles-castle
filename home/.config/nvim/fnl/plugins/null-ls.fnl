@@ -20,10 +20,10 @@
   :ft [:python :typescript :typescriptreact]
   :config (fn []
             (let [null_ls (require :null-ls)
-                  eslint-diagnostics (require :none-ls.diagnostics.eslint_d)]
+                  eslint-diagnostics (require :none-ls.diagnostics.eslint)]
               (null_ls.setup {:sources [(null_ls.builtins.diagnostics.mypy.with (mypy-opts null_ls))
                                         null_ls.builtins.formatting.black
                                         (eslint-diagnostics.with {:diagnostic_config {:signs false :virtual_text false}})
-                                        (require :none-ls.formatting.eslint_d)
-                                        (require :none-ls.code_actions.eslint_d)]})))}]
+                                        (require :none-ls.formatting.eslint)
+                                        (require :none-ls.code_actions.eslint)]})))}]
 

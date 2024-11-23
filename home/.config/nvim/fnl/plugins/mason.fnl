@@ -4,7 +4,7 @@
 ;prettier: format typescript .prettierrc
 ;https://github.com/nvimtools/none-ls.nvim/tree/main/lua/null-ls/builtins
 [{1 :williamboman/mason.nvim
-  :opts {:ensure_installed [:mypy :black :prettierd :eslint_d]}
+  :opts {:ensure_installed [:mypy :black :prettierd]}
   :config true}
 ;my conif of the lsp is manual in lsp.fnl
 ;pyright: lsp autocomplete python
