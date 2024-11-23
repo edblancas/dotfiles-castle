@@ -28,26 +28,26 @@
                 {:options {:theme "tokyonight"
                            :icons_enabled true
                            :globalstatus true
-                           :section_separators ["" ""]
-                           :component_separators ["" ""]}
+                           :section_separators {:left "" :right ""}
+                           :component_separators {:left "|" :right "|"}}
                  :winbar {:lualine_a []}
                  :inactive_winbar {:lualine_a []}
                  :disabled_filetypes {:statusline {}
                                       :winbar []}
                  :sections {:lualine_a [:mode]
-                            :lualine_b [{1 :filename
+                            :lualine_b [:branch]
+                            :lualine_c [:diff
+                                        {1 :diagnostics
+                                         :sections [:error :warn :info :hint]
+                                         :sources [:nvim_lsp]}
+                                        {1 :filename
                                          :file_status true
                                          :path 1
                                          :shorting_target 40}]
-                            :lualine_c []
-                            :lualine_x [{1 :diagnostics
-                                         :sections [:error :warn :info :hint]
-                                         :sources [:nvim_lsp]}
-                                        [lsp_connection]
-                                        :location
-                                        :progress]
-                            :lualine_y [:filetype]
-                            :lualine_z [:branch]}
+                            :lualine_x [[lsp_connection]
+                                        :filetype]
+                            :lualine_y [:progress]
+                            :lualine_z [:location]}
                  :inactive_sections {:lualine_a []
                                      :lualine_b []
                                      :lualine_c [{1 :filename
@@ -61,4 +61,6 @@
                               :nvim-dap-ui 
                               :fugitive 
                               :aerial 
-                              :quickfix]})))}]
+                              :quickfix
+                              :lazy
+                              :mason]})))}]
