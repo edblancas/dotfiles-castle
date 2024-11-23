@@ -1,5 +1,6 @@
 (local {: autoload} (require :nfnl.module))
 (local lsp (autoload :config.lsp))
+(local core (autoload :nfnl.core))
 
 (fn lsp_connection []
   (let [message (lsp.get-progress-message)]
@@ -22,7 +23,7 @@
       "")))
 
 ;; Me ;;
-(local my-setup {:options {:theme "tokyonight"
+(local my_setup {:options {:theme "tokyonight"
                            :icons_enabled true
                            :globalstatus true
                            :section_separators {:left "" :right ""}
@@ -82,13 +83,13 @@
    :red "#ec5f67"})
 
 (local conditions
-  {:buffer-not-empty
+  {:buffer_not_empty
    (fn []
      (not= (vim.fn.empty (vim.fn.expand "%:t")) 1))
-   :hide-in-width
+   :hide_in_width
    (fn []
      (> (vim.fn.winwidth 0) 80))
-   :check-git-workspace
+   :check_git_workspace
    (fn []
      (let [filepath (vim.fn.expand "%:p:h")
            gitdir (vim.fn.finddir ".git" (.. filepath ";"))]
@@ -99,58 +100,70 @@
 ;; Config
 (local config
   {:options
+    ;Disable sections and component separators
    {:component_separators ""
     :section_separators ""
+    ;We are going to use lualine_c an lualine_x as left and
+    ;right section. Both are highlighted by c theme .  So we
+    ;are just setting default looks o statusline
     :theme {:normal {:c {:fg colors.fg :bg colors.bg}}
             :inactive {:c {:fg colors.fg :bg colors.bg}}}}
+              ;these are to remove the defaults
    :sections {:lualine_a [] :lualine_b [] :lualine_y [] :lualine_z []
+              ;These will be filled later
               :lualine_c [] :lualine_x []}
+                       ;these are to remove the defaults
    :inactive_sections {:lualine_a [] :lualine_b [] :lualine_y [] :lualine_z []
                        :lualine_c [] :lualine_x []}})
 
-;; Helper functions to insert components
-(fn ins-left [component]
+;Inserts a component in lualine_c at left section
+(fn ins_left [component]
   (table.insert config.sections.lualine_c component))
 
-(fn ins-right [component]
+;Inserts a component in lualine_x at right section
+(fn ins_right [component]
   (table.insert config.sections.lualine_x component))
 
-;; Add components to left
-(ins-left
+(ins_left
  {1 (fn [] "▊")
   :color {:fg colors.blue}
   :padding {:left 0 :right 1}})
 
-(ins-left
+(ins_left
+ ;mode component
  {1 (fn [] "")
   :color (fn []
-           (let [mode-color
-                 {:n colors.red :i colors.green :v colors.blue :V colors.blue
+           (let [mode_color
+                 {:n colors.red :i colors.green :v colors.blue "" colors.blue
                   :V colors.blue :c colors.magenta :no colors.red
-                  :s colors.orange :S colors.orange :S colors.orange
+                  :s colors.orange :S colors.orange "" colors.orange
                   :ic colors.yellow :R colors.violet :Rv colors.violet
                   :cv colors.red :ce colors.red :r colors.cyan :rm colors.cyan
                   :r? colors.cyan :! colors.red :t colors.red}]
-             {:fg (. mode-color (vim.fn.mode))}))
+             {:fg (. mode_color (vim.fn.mode))}))
   :padding {:right 1}})
 
-(ins-left {:component "filesize" :cond conditions.buffer-not-empty})
-(ins-left {:component "filename" :cond conditions.buffer-not-empty
+(ins_left {1 "filesize" :cond conditions.buffer_not_empty})
+(ins_left {1 "filename" :cond conditions.buffer_not_empty
            :color {:fg colors.magenta :gui "bold"}})
-(ins-left {:component "location"})
-(ins-left {:component "progress" :color {:fg colors.fg :gui "bold"}})
-(ins-left {:component "diagnostics"
+(ins_left {1 "location"})
+(ins_left {1 "progress" :color {:fg colors.fg :gui "bold"}})
+(ins_left {1 "diagnostics"
            :sources ["nvim_diagnostic"]
            :symbols {:error " " :warn " " :info " "}
-           :diagnostics-color {:error {:fg colors.red}
+           :diagnostics_color {:error {:fg colors.red}
                                :warn {:fg colors.yellow}
                                :info {:fg colors.cyan}}})
-(ins-left {:1 (fn [] "%=")})
-(ins-left
+
+;Insert mid section. You can make any number of sections in neovim :)
+;for lualine it's any number greater then 2
+(ins_left [(fn [] "%=")])
+(ins_left
+ ;Lsp server name
  {1
   (fn []
     (let [msg "No Active Lsp"
-          buf-ft (vim.api.nvim_get_option_value "filetype" {:buf 0})
+          buf_ft (vim.api.nvim_get_option_value "filetype" {:buf 0})
           clients (vim.lsp.get_clients)]
       (if (= (next clients) nil)
           msg
@@ -158,30 +171,30 @@
             (each [_ client (ipairs clients)]
               (let [filetypes (. client.config :filetypes)]
                 (if (and filetypes
-                         (not= (vim.fn.index filetypes buf-ft) -1))
+                         (not= (vim.fn.index filetypes buf_ft) -1))
                     client.name)))
             msg))))
   :icon " LSP:"
   :color {:fg "#ffffff" :gui "bold"}})
 
 ;; Add components to right
-(ins-right {:component "o:encoding"
+(ins_right {1 "o:encoding"
             :fmt string.upper
-            :cond conditions.hide-in-width
+            :cond conditions.hide_in_width
             :color {:fg colors.green :gui "bold"}})
-(ins-right {:component "fileformat"
+(ins_right {1 "fileformat"
             :fmt string.upper
             :icons_enabled false
             :color {:fg colors.green :gui "bold"}})
-(ins-right {:component "branch" :icon ""
+(ins_right {1 "branch" :icon ""
             :color {:fg colors.violet :gui "bold"}})
-(ins-right {:component "diff"
+(ins_right {1 "diff"
             :symbols {:added " " :modified "󰝤 " :removed " "}
             :diff_color {:added {:fg colors.green}
                          :modified {:fg colors.orange}
                          :removed {:fg colors.red}}
-            :cond conditions.hide-in-width})
-(ins-right {1 (fn [] "▊")
+            :cond conditions.hide_in_width})
+(ins_right {1 (fn [] "▊")
             :color {:fg colors.blue}
             :padding {:left 1}})
 
