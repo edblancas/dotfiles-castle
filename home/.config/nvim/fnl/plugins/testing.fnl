@@ -25,4 +25,4 @@
            {1 "<leader>tn" 2 ":TestNearest<cr>" :desc "Run nearest test"}
            {1 "<leader>ts" 2 ":TestSuite<cr>" :desc "Run all tests"}
            {1 "<leader>tl" 2 ":TestLast<cr>" :desc "Run last test"}
-           {1 "<leader>tt" 2 ":TestVisit<cr>" :desc "Run test under cursor"}]}]
+           {1 "<leader>tv" 2 ":TestVisit<cr>" :desc "Visit test"}]}]
