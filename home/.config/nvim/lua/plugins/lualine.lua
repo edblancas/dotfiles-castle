@@ -65,15 +65,15 @@ local function _10_()
   if (next(clients) == nil) then
     return msg
   else
-    for _, client in ipairs(clients) do
-      local filetypes = client.config.filetypes
-      if (filetypes and (vim.fn.index(filetypes, buf_ft) ~= -1)) then
-        do local _ = client.name end
-      else
-      end
-    end
-    return msg
   end
+  for _, client in ipairs(clients) do
+    local filetypes = client.config.filetypes
+    if (filetypes and (vim.fn.index(filetypes, buf_ft) ~= -1)) then
+      return client.name
+    else
+    end
+  end
+  return msg
 end
 ins_left({_10_, icon = "\239\130\133 LSP:", color = {fg = "#ffffff", gui = "bold"}})
 ins_right({"o:encoding", fmt = string.upper, cond = conditions.hide_in_width, color = {fg = colors.green, gui = "bold"}})

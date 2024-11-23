@@ -166,14 +166,13 @@
           buf_ft (vim.api.nvim_get_option_value "filetype" {:buf 0})
           clients (vim.lsp.get_clients)]
       (if (= (next clients) nil)
-          msg
-          (do
-            (each [_ client (ipairs clients)]
-              (let [filetypes (. client.config :filetypes)]
-                (if (and filetypes
-                         (not= (vim.fn.index filetypes buf_ft) -1))
-                    client.name)))
-            msg))))
+          (lua "return msg"))
+      (each [_ client (ipairs clients)]
+        (let [filetypes (. client.config :filetypes)]
+          (if (and filetypes
+                   (not= (vim.fn.index filetypes buf_ft) -1))
+            (lua "return client.name"))))
+      msg))
   :icon " LSP:"
   :color {:fg "#ffffff" :gui "bold"}})
 
