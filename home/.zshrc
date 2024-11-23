@@ -123,7 +123,7 @@ alias update_dotfiles_submodules="cd ~/.homesick/repos/dotfiles-castle && git su
 # Override system vi and vim
 alias vi='nvim'
 alias vim='nvim'
-alias v='nvim'
+alias nv='nvim'
 # Aliases for vim and kaleidoscope merge diff tool
 alias gkdiff='git config diff.tool kaleidoscope; git difftool'
 alias gkmerge='git config merge.tool kaleidoscope; git mergetool'
@@ -143,7 +143,7 @@ alias update='brew update; brew upgrade clojure-lsp/brew/clojure-lsp-native; bre
 alias cloud="cd $HOME/Library/Mobile\ Documents/com~apple~CloudDocs"
 
 ### Functions ###
-function nv() {
+function v() {
     if [ $# -eq 0 ]; then
         nvim .;
     else
@@ -280,8 +280,9 @@ export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
 ### PERSONAL OR WORK PATH settings ###
 if [[ $USER == "dan" ]]; then
   source $HOME/.personalrc
-else
-  source $HOME/.jobrc-example
+#else
+# I use the same mbp for work and personal
+  source $HOME/.onestrc.zsh
 fi
 
 ### BABASHKA ###
