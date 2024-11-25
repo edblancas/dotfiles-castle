@@ -20,9 +20,10 @@
 
  {1 :vim-test/vim-test
     :config (fn []
-              (vim.cmd "let test#strategy = 'kitty'"))
-    :keys [{1 "<leader>tb" 2 ":TestFile<cr>" :desc "Run current test file"}
-           {1 "<leader>tn" 2 ":TestNearest<cr>" :desc "Run nearest test"}
-           {1 "<leader>ts" 2 ":TestSuite<cr>" :desc "Run all tests"}
-           {1 "<leader>tl" 2 ":TestLast<cr>" :desc "Run last test"}
-           {1 "<leader>tv" 2 ":TestVisit<cr>" :desc "Visit test"}]}]
+              (vim.cmd "let test#strategy = 'basic'")
+              (vim.cmd "let test#python#runner = 'pyunit'"))
+    :keys [{1 "<leader>tb" 2 ":TestFile<cr>" :desc "[vim-test] Run current test file"}
+           {1 "<leader>tn" 2 ":TestNearest<cr>" :desc "[vim-test] Run nearest test"}
+           {1 "<leader>ts" 2 ":TestSuite<cr>" :desc "[vim-test] Run all tests"}
+           {1 "<leader>tl" 2 ":TestLast<cr>" :desc "[vim-test] Run last test"}
+           {1 "<leader>tv" 2 ":TestVisit<cr>" :desc "[vim-test] Visit test"}]}]
