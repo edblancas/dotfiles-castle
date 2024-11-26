@@ -11,6 +11,6 @@ end
 local function _3_()
   local null_ls = require("null-ls")
   local eslint_diagnostics = require("none-ls.diagnostics.eslint")
-  return null_ls.setup({sources = {null_ls.builtins.diagnostics.mypy.with(mypy_opts(null_ls)), null_ls.builtins.formatting.black, eslint_diagnostics.with({diagnostic_config = {signs = false, virtual_text = false}}), require("none-ls.formatting.eslint"), require("none-ls.code_actions.eslint")}})
+  return null_ls.setup({sources = {null_ls.builtins.diagnostics.mypy.with(mypy_opts(null_ls)), null_ls.builtins.formatting.black, require("none-ls.formatting.eslint"), require("none-ls.code_actions.eslint")}})
 end
 return {{"nvimtools/none-ls.nvim", dependencies = {"williamboman/mason.nvim", "nvimtools/none-ls-extras.nvim"}, ft = {"python", "typescript", "typescriptreact"}, config = _3_}}

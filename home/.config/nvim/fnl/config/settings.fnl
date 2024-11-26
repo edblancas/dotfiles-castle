@@ -107,7 +107,8 @@
        :foldenable false
        :foldmethod "expr"
        :foldexpr "v:lua.vim.treesitter.foldexpr()"
-       :foldtext "" }]
+       :foldtext "" 
+       :colorcolumn "80"}]
   (each [option value (pairs options)]
     (core.assoc nvim.o option value)))
 

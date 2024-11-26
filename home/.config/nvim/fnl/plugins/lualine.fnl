@@ -22,12 +22,23 @@
       ; else
       "")))
 
+(fn lsp_connection_evil []
+  (let [msg "No Active Lsp"
+        buf_ft (vim.api.nvim_get_option_value "filetype" {:buf 0})
+        clients (vim.lsp.get_clients)]
+    (if (= (next clients) nil)
+        (lua "return msg"))
+    (each [_ client (ipairs clients)]
+      (let [filetypes (. client.config :filetypes)]
+        (if (and filetypes
+                 (not= (vim.fn.index filetypes buf_ft) -1))
+          (lua "return client.name"))))
+    msg))
+
 ;; Me ;;
 (local my_setup {:options {:theme "tokyonight"
                            :icons_enabled true
-                           :globalstatus true
-                           :section_separators {:left "" :right ""}
-                           :component_separators {:left "|" :right "|"}}
+                           :globalstatus true}
                  :winbar {:lualine_a []}
                  :inactive_winbar {:lualine_a []}
                  :disabled_filetypes {:statusline {}
@@ -38,12 +49,13 @@
                                         {1 :diagnostics
                                          :sections [:error :warn :info :hint]
                                          :sources [:nvim_lsp]}
+                                        {1 lsp_connection_evil
+                                           :icon " LSP:"}
                                         {1 :filename
                                          :file_status true
                                          :path 1
                                          :shorting_target 40}]
-                            :lualine_x [[lsp_connection]
-                                        :filetype]
+                            :lualine_x [:filetype]
                             :lualine_y [:progress]
                             :lualine_z [:location]}
                  :inactive_sections {:lualine_a []
@@ -160,21 +172,9 @@
 (ins_left [(fn [] "%=")])
 (ins_left
  ;Lsp server name
- {1
-  (fn []
-    (let [msg "No Active Lsp"
-          buf_ft (vim.api.nvim_get_option_value "filetype" {:buf 0})
-          clients (vim.lsp.get_clients)]
-      (if (= (next clients) nil)
-          (lua "return msg"))
-      (each [_ client (ipairs clients)]
-        (let [filetypes (. client.config :filetypes)]
-          (if (and filetypes
-                   (not= (vim.fn.index filetypes buf_ft) -1))
-            (lua "return client.name"))))
-      msg))
-  :icon " LSP:"
-  :color {:fg "#ffffff" :gui "bold"}})
+ {1 lsp_connection_evil
+    :icon " LSP:"
+    :color {:fg "#ffffff" :gui "bold"}})
 
 ;; Add components to right
 (ins_right {1 "o:encoding"
@@ -201,4 +201,4 @@
   :config (fn []
             (let [lualine (require :lualine)]
               ;NOTE: withoyt setting it renders well the separators
-              (lualine.setup config)))}]
+              (lualine.setup my_setup)))}]
