@@ -14,6 +14,7 @@ local function _1_()
     hl.TelescopePromptTitle = {bg = c["bg-dark"], fg = c["fg-dark"]}
     hl.TelescopePreviewTitle = {bg = c["bg-dark"], fg = c["fg-dark"]}
     hl.TelescopeResultsTitle = {bg = c["bg-dark"], fg = c["fg-dark"]}
+    hl.WinSeparator = {fg = "#3b4261", bold = true}
     return nil
   end
   theme.setup({style = "night", transparent = vim.g.transparent_enabled, styles = {comments = {italic = true}, floats = "dark", functions = {}, keywords = {italic = true}, sidebars = "dark", variables = {}}, on_colors = _2_, on_highlights = _3_, terminal_colors = true})
