@@ -39,11 +39,10 @@
                                                      :fg c.fg-dark})
                                                (set hl.TelescopeResultsTitle
                                                     {:bg c.bg-dark
-                                                     :fg c.fg-dark})
-                                               ;Set `fg` to the color you want your window separators to have
-                                               (set hl.WinSeparator
-                                                    {:fg "#3b4261" 
-                                                     :bold true}))
+                                                     :fg c.fg-dark}))
                               :terminal_colors true})
-                (vim.cmd "colorscheme tokyonight")))}]
+                (vim.cmd "colorscheme tokyonight")))}
+    {1 :nvim-zh/colorful-winsep.nvim
+       :config {:hi {:fg "#3b4261"}}
+       :event [:WinLeave]}]
 
