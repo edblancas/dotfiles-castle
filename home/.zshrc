@@ -365,3 +365,5 @@ function y() {
 # aws completion
 complete -C '/usr/local/bin/aws_completer' aws
 
+# nvchad - neovim config
+alias vc='NVIM_APPNAME=nvim-nvchad nvim' # NvChad
