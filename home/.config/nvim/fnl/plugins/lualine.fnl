@@ -23,7 +23,7 @@
       "")))
 
 (fn lsp_connection_evil []
-  (let [msg "No Active Lsp"
+  (let [msg "No Active LSP"
         buf_ft (vim.api.nvim_get_option_value "filetype" {:buf 0})
         clients (vim.lsp.get_clients)]
     (if (= (next clients) nil)

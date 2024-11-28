@@ -39,10 +39,10 @@
                                                      :fg c.fg-dark})
                                                (set hl.TelescopeResultsTitle
                                                     {:bg c.bg-dark
-                                                     :fg c.fg-dark}))
+                                                     :fg c.fg-dark})
+                                               (set hl.WinSeparator
+                                                    {:fg "#3b4261" 
+                                                     :bold true}))
                               :terminal_colors true})
-                (vim.cmd "colorscheme tokyonight")))}
-    {1 :nvim-zh/colorful-winsep.nvim
-       :config {:hi {:fg "#3b4261"}}
-       :event [:WinLeave]}]
+                (vim.cmd "colorscheme tokyonight")))}]
 
