@@ -20,19 +20,19 @@ local function lsp_connection_evil()
   local buf_ft = vim.api.nvim_get_option_value("filetype", {buf = 0})
   local clients = vim.lsp.get_clients()
   if (next(clients) == nil) then
-    return msg
+    return ' ' .. msg
   else
   end
   for _, client in ipairs(clients) do
     local filetypes = client.config.filetypes
     if (filetypes and (vim.fn.index(filetypes, buf_ft) ~= -1)) then
-      return client.name
+      return ' ' .. client.name
     else
     end
   end
   return msg
 end
-local my_setup = {options = {theme = "tokyonight", icons_enabled = true, globalstatus = true}, winbar = {lualine_a = {}}, inactive_winbar = {lualine_a = {}}, disabled_filetypes = {statusline = {}, winbar = {}}, sections = {lualine_a = {"mode"}, lualine_b = {"branch"}, lualine_c = {"diff", {"diagnostics", sections = {"error", "warn", "info", "hint"}, sources = {"nvim_lsp"}}, {lsp_connection_evil, icon = "\239\130\133 LSP:"}, {"filename", file_status = true, path = 1, shorting_target = 40}}, lualine_x = {"filetype"}, lualine_y = {"progress"}, lualine_z = {"location"}}, inactive_sections = {lualine_a = {}, lualine_b = {}, lualine_c = {{"filename", file_status = true, path = 1}}, lualine_x = {}, lualine_y = {}, lualine_z = {}}, extensions = {"neo-tree", "oil", "nvim-dap-ui", "fugitive", "aerial", "quickfix", "lazy", "mason"}}
+local my_setup = {options = {theme = "tokyonight", icons_enabled = true, globalstatus = true}, winbar = {lualine_a = {}}, inactive_winbar = {lualine_a = {}}, disabled_filetypes = {statusline = {}, winbar = {}}, sections = {lualine_a = {"mode"}, lualine_b = {{"branch", icon = "\239\145\191"}}, lualine_c = {"diff", {"diagnostics", sections = {"error", "warn", "info", "hint"}, sources = {"nvim_lsp"}}, {lsp_connection_evil}, {"filename", file_status = true, path = 1, shorting_target = 40}}, lualine_x = {"filetype"}, lualine_y = {"progress"}, lualine_z = {"location"}}, inactive_sections = {lualine_a = {}, lualine_b = {}, lualine_c = {{"filename", file_status = true, path = 1}}, lualine_x = {}, lualine_y = {}, lualine_z = {}}, extensions = {"neo-tree", "oil", "nvim-dap-ui", "fugitive", "aerial", "quickfix", "lazy", "mason"}}
 local colors = {bg = "#202328", fg = "#bbc2cf", yellow = "#ECBE7B", cyan = "#008080", darkblue = "#081633", green = "#98be65", orange = "#FF8800", violet = "#a9a1e1", magenta = "#c678dd", blue = "#51afef", red = "#ec5f67"}
 local conditions
 local function _5_()

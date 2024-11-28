@@ -27,12 +27,12 @@
         buf_ft (vim.api.nvim_get_option_value "filetype" {:buf 0})
         clients (vim.lsp.get_clients)]
     (if (= (next clients) nil)
-        (lua "return msg"))
+        (lua "return ' ' .. msg"))
     (each [_ client (ipairs clients)]
       (let [filetypes (. client.config :filetypes)]
         (if (and filetypes
                  (not= (vim.fn.index filetypes buf_ft) -1))
-          (lua "return client.name"))))
+          (lua "return ' ' .. client.name"))))
     msg))
 
 ;; Me ;;
@@ -44,13 +44,12 @@
                  :disabled_filetypes {:statusline {}
                                       :winbar []}
                  :sections {:lualine_a [:mode]
-                            :lualine_b [:branch]
+                            :lualine_b [{1 :branch :icon ""}]
                             :lualine_c [:diff
                                         {1 :diagnostics
                                          :sections [:error :warn :info :hint]
                                          :sources [:nvim_lsp]}
-                                        {1 lsp_connection_evil
-                                           :icon " LSP:"}
+                                        [lsp_connection_evil]
                                         {1 :filename
                                          :file_status true
                                          :path 1
