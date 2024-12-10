@@ -24,4 +24,4 @@ local function _1_()
   vim.keymap.set({"n", "i"}, "<D-e>", builtin.buffers, {})
   return vim.keymap.set("n", "<leader>fh", builtin.help_tags, {desc = "telescope help tags"})
 end
-return {{"nvim-telescope/telescope.nvim", dependencies = {"nvim-telescope/telescope-ui-select.nvim", "nvim-lua/popup.nvim", "nvim-lua/plenary.nvim"}, config = _1_}}
+return {{"nvim-telescope/telescope.nvim", dependencies = {"nvim-telescope/telescope-ui-select.nvim", "nvim-lua/popup.nvim", "nvim-lua/plenary.nvim", {"nvim-telescope/telescope-fzf-native.nvim", build = "make"}}, config = _1_}}

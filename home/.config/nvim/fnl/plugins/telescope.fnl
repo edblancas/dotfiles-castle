@@ -1,7 +1,8 @@
 [{1 :nvim-telescope/telescope.nvim
   :dependencies [:nvim-telescope/telescope-ui-select.nvim
                  :nvim-lua/popup.nvim
-                 :nvim-lua/plenary.nvim]
+                 :nvim-lua/plenary.nvim
+                 {1 :nvim-telescope/telescope-fzf-native.nvim :build "make"}]
   :config (fn []
             (let [telescope (require :telescope)
                   builtin   (require :telescope.builtin)
