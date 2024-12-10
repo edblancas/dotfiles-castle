@@ -38,8 +38,10 @@
 ;; Me ;;
 (local my_setup {:options {:theme "tokyonight"
                            :icons_enabled true
-                           :globalstatus true}
+                           :globalstatus true
+                           :always_show_tabline false}
                  :winbar {:lualine_a []}
+                 :tabline {:lualine_a [{1 :tabs :mode 2 :path 1}]}
                  :inactive_winbar {:lualine_a []}
                  :disabled_filetypes {:statusline {}
                                       :winbar []}

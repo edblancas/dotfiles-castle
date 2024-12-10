@@ -178,6 +178,8 @@
                 "<leader>tt" 
                 (fn []
                   (vim.cmd.new)
+                  (vim.cmd.set "nonumber")
+                  (vim.cmd.set "norelativenumber")
                   (vim.cmd.wincmd "J")
                   (vim.api.nvim_win_set_height 0 12)
                   (core.assoc vim.wo :winfixheight true)
