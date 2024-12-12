@@ -48,13 +48,14 @@ sessions_list(){
 }
 
 project_list(){
-    list=$(find ~/projects/onest/ -maxdepth 1 -type d)
-    list="$(realpath ~/.homesick/repos/dotfiles-castle) ${list}"
-    echo $list | tr " /" "\n" | awk '{ print "("NR")\t[Directory]\t"$1 }' 
+    { 
+        echo "$(realpath ~/.homesick/repos/dotfiles-castle)"
+        find ~/projects/onest -maxdepth 1 -type d 
+    } | awk '{ print "("NR")\t[Directory]\t"$1 }'
 }
 
 select_project() {
-    project_dir=$({ last_session; sessions_list; project_list; } | fzf_window)
+    project_dir=$({ last_session; sessions_list; project_list; } | fzf)
     if [ "$project_dir" = "" ]; then
         exit
     fi
