@@ -2,80 +2,6 @@
 (local lsp (autoload :config.lsp))
 (local core (autoload :nfnl.core))
 
-(fn lsp_connection []
-  (let [message (lsp.get-progress-message)]
-    (if
-      ; if has progress handler and is loading
-      (or (= message.status "begin")
-          (= message.status "report"))
-      (.. message.msg " : " message.percent "%% ")
-
-      ; if has progress handler and finished loading
-      (= message.status "end")
-      ""
-
-      ; if hasn't progress handler, but has connected lsp client
-      (and (= message.status "")
-           (not (vim.tbl_isempty (vim.lsp.get_clients 0))))
-      ""
-
-      ; else
-      "")))
-
-(fn lsp_connection_evil []
-  (let [msg "No Active LSP"
-        buf_ft (vim.api.nvim_get_option_value "filetype" {:buf 0})
-        clients (vim.lsp.get_clients)]
-    (if (= (next clients) nil)
-        (lua "return ' ' .. msg"))
-    (each [_ client (ipairs clients)]
-      (let [filetypes (. client.config :filetypes)]
-        (if (and filetypes
-                 (not= (vim.fn.index filetypes buf_ft) -1))
-          (lua "return ' ' .. client.name"))))
-    msg))
-
-;; Me ;;
-(local my_setup {:options {:theme "tokyonight"
-                           :icons_enabled true
-                           :globalstatus true
-                           :always_show_tabline false}
-                 :winbar {:lualine_a []}
-                 :tabline {:lualine_a [{1 :tabs :mode 2 :path 1}]}
-                 :inactive_winbar {:lualine_a []}
-                 :disabled_filetypes {:statusline {}
-                                      :winbar []}
-                 :sections {:lualine_a [:mode]
-                            :lualine_b [{1 :branch :icon ""}]
-                            :lualine_c [:diff
-                                        {1 :diagnostics
-                                         :sections [:error :warn :info :hint]
-                                         :sources [:nvim_lsp]}
-                                        [lsp_connection_evil]
-                                        {1 :filename
-                                         :file_status true
-                                         :path 1
-                                         :shorting_target 40}]
-                            :lualine_x [:filetype]
-                            :lualine_y [:progress]
-                            :lualine_z [:location]}
-                 :inactive_sections {:lualine_a []
-                                     :lualine_b []
-                                     :lualine_c [{1 :filename
-                                                  :file_status true
-                                                  :path 1}]
-                                     :lualine_x []
-                                     :lualine_y []
-                                     :lualine_z []}
-                 :extensions [:neo-tree 
-                              :oil 
-                              :nvim-dap-ui 
-                              :fugitive 
-                              :aerial 
-                              :quickfix
-                              :lazy
-                              :mason]})
-
 ;; https://github.com/nvim-lualine/lualine.nvim/blob/master/examples/evil_lualine.lua
 ;; Eviline config for lualine
 ;; Author: shadmansaleh
@@ -142,19 +68,20 @@
   :color {:fg colors.blue}
   :padding {:left 0 :right 1}})
 
-(ins_left
+(local mode {1 (fn [] "")
+             :color (fn []
+                      (let [mode_color
+                            {:n colors.red :i colors.green :v colors.blue "" colors.blue
+                             :V colors.blue :c colors.magenta :no colors.red
+                             :s colors.orange :S colors.orange "" colors.orange
+                             :ic colors.yellow :R colors.violet :Rv colors.violet
+                             :cv colors.red :ce colors.red :r colors.cyan :rm colors.cyan
+                             :r? colors.cyan :! colors.red :t colors.red}]
+                        {:fg (. mode_color (vim.fn.mode))}))
+             :padding {:right 1}})
+
  ;mode component
- {1 (fn [] "")
-  :color (fn []
-           (let [mode_color
-                 {:n colors.red :i colors.green :v colors.blue "" colors.blue
-                  :V colors.blue :c colors.magenta :no colors.red
-                  :s colors.orange :S colors.orange "" colors.orange
-                  :ic colors.yellow :R colors.violet :Rv colors.violet
-                  :cv colors.red :ce colors.red :r colors.cyan :rm colors.cyan
-                  :r? colors.cyan :! colors.red :t colors.red}]
-             {:fg (. mode_color (vim.fn.mode))}))
-  :padding {:right 1}})
+(ins_left mode)
 
 (ins_left {1 "filesize" :cond conditions.buffer_not_empty})
 (ins_left {1 "filename" :cond conditions.buffer_not_empty
@@ -197,6 +124,81 @@
 (ins_right {1 (fn [] "▊")
             :color {:fg colors.blue}
             :padding {:left 1}})
+
+;; Me ;;
+(fn lsp_connection []
+  (let [message (lsp.get-progress-message)]
+    (if
+      ; if has progress handler and is loading
+      (or (= message.status "begin")
+          (= message.status "report"))
+      (.. message.msg " : " message.percent "%% ")
+
+      ; if has progress handler and finished loading
+      (= message.status "end")
+      ""
+
+      ; if hasn't progress handler, but has connected lsp client
+      (and (= message.status "")
+           (not (vim.tbl_isempty (vim.lsp.get_clients 0))))
+      ""
+
+      ; else
+      "")))
+
+(fn lsp_connection_evil []
+  (let [msg "No Active LSP"
+        buf_ft (vim.api.nvim_get_option_value "filetype" {:buf 0})
+        clients (vim.lsp.get_clients)]
+    (if (= (next clients) nil)
+        (lua "return ' ' .. msg"))
+    (each [_ client (ipairs clients)]
+      (let [filetypes (. client.config :filetypes)]
+        (if (and filetypes
+                 (not= (vim.fn.index filetypes buf_ft) -1))
+          (lua "return ' ' .. client.name"))))
+    msg))
+
+(local my_setup {:options {:theme "tokyonight"
+                           :icons_enabled true
+                           :globalstatus true
+                           :always_show_tabline false}
+                 :winbar {:lualine_a []}
+                 :tabline {:lualine_a [{1 :tabs :mode 2 :path 1}]}
+                 :inactive_winbar {:lualine_a []}
+                 :disabled_filetypes {:statusline {}
+                                      :winbar []}
+                 :sections {:lualine_a [[:mode]]
+                            :lualine_b [{1 :branch :icon ""}]
+                            :lualine_c [:diff
+                                        {1 :diagnostics
+                                         :sections [:error :warn :info :hint]
+                                         :sources [:nvim_lsp]}
+                                        [lsp_connection_evil]
+                                        {1 :filename
+                                         :file_status true
+                                         :path 1
+                                         :shorting_target 40}
+                                         :navic]
+                            :lualine_x [:filetype]
+                            :lualine_y [:progress]
+                            :lualine_z [:location]}
+                 :inactive_sections {:lualine_a []
+                                     :lualine_b []
+                                     :lualine_c [{1 :filename
+                                                  :file_status true
+                                                  :path 1}]
+                                     :lualine_x []
+                                     :lualine_y []
+                                     :lualine_z []}
+                 :extensions [:neo-tree 
+                              :oil 
+                              :nvim-dap-ui 
+                              :fugitive 
+                              :aerial 
+                              :quickfix
+                              :lazy
+                              :mason]})
 
 [{1 :nvim-lualine/lualine.nvim
   :config (fn []

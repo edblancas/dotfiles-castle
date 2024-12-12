@@ -22,13 +22,16 @@
                                                                "--iglob"
                                                                "!.git"
                                                                "--hidden"]}
-                                :extensions {:ui-select {1 (themes.get_dropdown {})}}
+                                :extensions {:ui-select {1 (themes.get_dropdown {})}
+                                             :fzf {}}
                                 :pickers {:find_files {:find_command ["rg"
                                                                       "--files"
                                                                       "--iglob"
                                                                       "!.git"
-                                                                      "--hidden"]}}})
+                                                                      "--hidden"]
+                                                       :theme :ivy}}})
               (telescope.load_extension "ui-select")
+              (telescope.load_extension "fzf")
               ;transparent background
               ;(vim.api.nvim_set_hl 0 "TelescopeNormal" {:bg :none})
               (vim.keymap.set :n "<leader>fws" (grep-w "word") {:desc "telescope grep string word"})

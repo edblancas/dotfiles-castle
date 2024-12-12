@@ -11,8 +11,9 @@ local function _1_()
     return _3_
   end
   grep_w = _2_
-  telescope.setup({defaults = {file_ignore_patterns = {"node_modules"}, vimgrep_arguments = {"rg", "--color=never", "--no-heading", "--with-filename", "--line-number", "--column", "--smart-case", "--iglob", "!.git", "--hidden"}}, extensions = {["ui-select"] = {themes.get_dropdown({})}}, pickers = {find_files = {find_command = {"rg", "--files", "--iglob", "!.git", "--hidden"}}}})
+  telescope.setup({defaults = {file_ignore_patterns = {"node_modules"}, vimgrep_arguments = {"rg", "--color=never", "--no-heading", "--with-filename", "--line-number", "--column", "--smart-case", "--iglob", "!.git", "--hidden"}}, extensions = {["ui-select"] = {themes.get_dropdown({})}, fzf = {}}, pickers = {find_files = {find_command = {"rg", "--files", "--iglob", "!.git", "--hidden"}, theme = "ivy"}}})
   telescope.load_extension("ui-select")
+  telescope.load_extension("fzf")
   vim.keymap.set("n", "<leader>fws", grep_w("word"), {desc = "telescope grep string word"})
   vim.keymap.set("n", "<leader>fWs", grep_w("WORD"), {desc = "telescope grep string WORD"})
   vim.keymap.set("n", "<leader>ff", builtin.find_files, {desc = "telescope find files"})

@@ -12,7 +12,7 @@
     (vim.lsp.buf.execute_command params)))
 
 [{1 :SmiteshP/nvim-navic
-    :enabled false
+    :enabled true
     :lazy true
     :config true
     :opts {:lsp {:auto_attach true
