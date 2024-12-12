@@ -177,6 +177,7 @@ keybinds {
         bind "Ctrl k" { MoveFocus "Up"; }
         bind "Ctrl h" { MoveFocusOrTab "Left"; }
         bind "Ctrl l" { MoveFocusOrTab "Right"; }
+        bind "Alt p" { Run "/Users/dan/bin/zellij-smart-sessionizer/zellij-smart-sessionizer"; }
     }
     shared_except "normal" "locked" {
         bind "Enter" "Esc" { SwitchToMode "Normal"; }
