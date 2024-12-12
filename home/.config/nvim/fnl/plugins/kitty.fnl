@@ -15,6 +15,7 @@
                 (kr.setup krc.window_config)))}
 
  {1 :MunsMan/kitty-navigator.nvim
+    :enabled false
     :config (fn []
               (let [kn (require :kitty-navigator)]
                 	(vim.keymap.set [:n :i] :<C-j> kn.navigateDown {:silent false})

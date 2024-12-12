@@ -15,4 +15,4 @@ local function _3_()
   vim.keymap.set({"n", "i"}, "<C-l>", kn.navigateRight, {silent = false})
   return vim.keymap.set({"n", "i"}, "<C-h>", kn.navigateLeft, {silent = false})
 end
-return {{"mikesmithgh/kitty-scrollback.nvim", enabled = true, lazy = true, cmd = {"KittyScrollbackGenerateKittens", "KittyScrollbackCheckHealth"}, event = {"User KittyScrollbackLaunch"}, version = "*", config = _1_}, {"edblancas/kitty-runner.nvim", branch = "fix", config = _2_, enabled = false}, {"MunsMan/kitty-navigator.nvim", config = _3_, build = {"cp navigate_kitty.py ~/.config/kitty", "cp pass_keys.py ~/.config/kitty"}}}
+return {{"mikesmithgh/kitty-scrollback.nvim", enabled = true, lazy = true, cmd = {"KittyScrollbackGenerateKittens", "KittyScrollbackCheckHealth"}, event = {"User KittyScrollbackLaunch"}, version = "*", config = _1_}, {"edblancas/kitty-runner.nvim", branch = "fix", config = _2_, enabled = false}, {"MunsMan/kitty-navigator.nvim", config = _3_, build = {"cp navigate_kitty.py ~/.config/kitty", "cp pass_keys.py ~/.config/kitty"}, enabled = false}}
