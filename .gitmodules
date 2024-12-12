@@ -52,3 +52,6 @@
 [submodule "home/.utils/fzf-git.sh"]
 	path = home/.utils/fzf-git.sh
 	url = https://github.com/junegunn/fzf-git.sh
+[submodule "home/bin/zellij-smart-sessionizer"]
+	path = home/bin/zellij-smart-sessionizer
+	url = https://github.com/demestoss/zellij-smart-sessionizer.git
