@@ -1,5 +1,5 @@
 // If you'd like to override the default keybindings completely, be sure to change "keybinds" to "keybinds clear-defaults=true"
-keybinds {
+keybinds clear-defaults=true {
     unbind "Ctrl o"
     unbind "Ctrl h"
     normal {
@@ -223,16 +223,10 @@ plugins {
     }
     configuration location="zellij:configuration"
     plugin-manager location="zellij:plugin-manager"
-    autolock location="https://github.com/fresh2dev/zellij-autolock/releases/latest/download/zellij-autolock.wasm" {
-        triggers "nvim|vim|v|nv"  // Lock when any open these programs open. They are expected to unlock themselves when closed (e.g., using zellij.vim plugin).
-        watch_triggers "fzf|zoxide|atuin|atac"  // Lock when any of these open and monitor until closed.
-        watch_interval "1.0"  // When monitoring, check every X seconds.
-    }
 }
 
 // Plugins to load in the background when a new session starts
 load_plugins {
-    autolock
   // "file:/path/to/my-plugin.wasm"
   // "https://example.com/my-plugin.wasm"
 }
@@ -322,7 +316,7 @@ load_plugins {
 // Choose the theme that is specified in the themes section.
 // Default: default
 //
-   theme "tokyo-night"
+theme "tokyo-night"
 
 // The name of the default layout to load on startup
 // Default: "default"
@@ -333,7 +327,7 @@ load_plugins {
 // Choose the mode that zellij uses when starting up.
 // Default: normal
 //
-// default_mode "locked"
+default_mode "normal"
 
 // Toggle enabling the mouse mode.
 // On certain configurations, or terminals this could
