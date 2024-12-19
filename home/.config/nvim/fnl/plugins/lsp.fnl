@@ -114,8 +114,17 @@
                                           :on_attach on_attach
                                           :handlers handlers})
 
-                (lspconfig.fennel_ls.setup {:capabilities capabilities
-                                            ;:root_dir (lspconfig-util.root_pattern "flsproject.fnl")
+                (lspconfig.fennel_ls.setup {
+                                            :capabilities capabilities
+                                            :single_file_support true
+                                            :root_dir (lspconfig.util.root_pattern "fnl")
+                                            ;don't work with fennel_ls, works
+                                            ;with fennel_language_server but
+                                            ;don't get autocomplete for vim runtime
+                                            :settings {:fennel {:diagnostics {:globals [:vim]}
+                                                                :workspace {:library (vim.api.nvim_get_runtime_file "" true)
+                                                                            :maxPreload 1000
+                                                                            :preloadFileSize 1000}}}
                                             :before_init before_init
                                             :on_attach on_attach
                                             :handlers handlers})
