@@ -196,9 +196,11 @@
                           (vim.api.nvim_win_set_height 0 15))))
                     ; Otherwise, create a new terminal
                     (do
-                      (vim.cmd.vnew)
+                      (vim.cmd.split)
                       (vim.cmd.term)
-                      (vim.cmd.wincmd "J")
+                      ; Cuz sometimes the autocommand TermOpen is not triggered
+                      (vim.cmd.set "nonumber")
+                      (vim.cmd.set "norelativenumber")
                       (vim.api.nvim_win_set_height 0 15)
                       (set term-buf (vim.api.nvim_get_current_buf))
                       (set job-id vim.bo.channel))))
