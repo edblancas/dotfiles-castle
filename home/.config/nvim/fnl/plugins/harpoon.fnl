@@ -5,7 +5,7 @@
     (let [h (require :harpoon)
           lst (h:list)]
       (h:setup)
-      (vim.keymap.set :n "<leader>ha" (fn [] (lst:add) {:desc "Harpoon add"}))
+      (vim.keymap.set :n "<leader>ha" (fn [] (lst:add)) {:desc "Harpoon add"})
       (vim.keymap.set [:n :i] "<C-e>" (fn [] (h.ui:toggle_quick_menu (h:list))))
 
       (vim.keymap.set [:n :i] "<M-D-1>" (fn [] (lst:select 1)))

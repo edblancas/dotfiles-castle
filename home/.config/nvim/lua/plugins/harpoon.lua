@@ -4,10 +4,9 @@ local function _1_()
   local lst = h:list()
   h:setup()
   local function _2_()
-    lst:add()
-    return {desc = "Harpoon add"}
+    return lst:add()
   end
-  vim.keymap.set("n", "<leader>ha", _2_)
+  vim.keymap.set("n", "<leader>ha", _2_, {desc = "Harpoon add"})
   local function _3_()
     return h.ui:toggle_quick_menu(h:list())
   end
