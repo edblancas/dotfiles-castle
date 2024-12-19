@@ -108,12 +108,14 @@ local function _13_()
     if (term_win >= 0) then
       return vim.api.nvim_win_close(term_win, true)
     else
-      vim.cmd.split()
+      vim.cmd.new()
+      vim.cmd.wincmd("J")
       vim.cmd.buffer(term_buf)
       return vim.api.nvim_win_set_height(0, 15)
     end
   else
-    vim.cmd.split()
+    vim.cmd.new()
+    vim.cmd.wincmd("J")
     vim.cmd.term()
     vim.cmd.set("nonumber")
     vim.cmd.set("norelativenumber")

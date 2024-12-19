@@ -367,4 +367,7 @@ complete -C '/usr/local/bin/aws_completer' aws
 
 # nvchad - neovim config
 alias vc='NVIM_APPNAME=nvim-nvchad nvim' # NvChad
+
+alias vl='NVIM_APPNAME=nvim-lua nvim' # nvim lua config
+
 alias zs="~/bin/zellij-smart-sessionizer/zellij-smart-sessionizer"

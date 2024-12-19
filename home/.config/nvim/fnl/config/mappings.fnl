@@ -191,12 +191,14 @@
                       (if (>= term-win 0)
                         (vim.api.nvim_win_close term-win true)
                         (do
-                          (vim.cmd.split)
+                          (vim.cmd.new)
+                          (vim.cmd.wincmd "J")
                           (vim.cmd.buffer term-buf)
                           (vim.api.nvim_win_set_height 0 15))))
                     ; Otherwise, create a new terminal
                     (do
-                      (vim.cmd.split)
+                      (vim.cmd.new)
+                      (vim.cmd.wincmd "J")
                       (vim.cmd.term)
                       ; Cuz sometimes the autocommand TermOpen is not triggered
                       (vim.cmd.set "nonumber")
