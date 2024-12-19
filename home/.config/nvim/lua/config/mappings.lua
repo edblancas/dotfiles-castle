@@ -100,18 +100,31 @@ local function _12_(_)
 end
 vim.api.nvim_create_user_command("CreateNote", _12_, {})
 vim.keymap.set({"t"}, "<esc><esc>", "<c-\\><c-n>")
-local job_id = 0
+local job_id = nil
+local term_buf = nil
 local function _13_()
-  vim.cmd.vnew()
-  vim.cmd.term()
-  vim.cmd.wincmd("J")
-  vim.api.nvim_win_set_height(0, 15)
-  job_id = vim.bo.channel
-  return nil
+  if (job_id and vim.api.nvim_buf_is_valid(term_buf)) then
+    local term_win = vim.fn.bufwinid(term_buf)
+    if (term_win >= 0) then
+      return vim.api.nvim_win_close(term_win, true)
+    else
+      vim.cmd.split()
+      vim.cmd.buffer(term_buf)
+      return vim.api.nvim_win_set_height(0, 15)
+    end
+  else
+    vim.cmd.vnew()
+    vim.cmd.term()
+    vim.cmd.wincmd("J")
+    vim.api.nvim_win_set_height(0, 15)
+    term_buf = vim.api.nvim_get_current_buf()
+    job_id = vim.bo.channel
+    return nil
+  end
 end
 vim.keymap.set({"n"}, "<leader>tt", _13_, {desc = "Toggle terminal"})
-local function _14_()
+local function _16_()
   return vim.fn.chansend(job_id, {"npm run create-on-time-challenge\13\n"})
 end
-vim.keymap.set({"n"}, "<leader>mm", _14_, {desc = "npm run create-on-time-challenge"})
+vim.keymap.set({"n"}, "<leader>mm", _16_, {desc = "npm run create-on-time-challenge"})
 return {}

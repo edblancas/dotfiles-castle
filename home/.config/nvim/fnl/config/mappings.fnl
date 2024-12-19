@@ -177,16 +177,31 @@
 ;https://github.com/tjdevries/config.nvim/blob/master/plugin/terminal.lua
 ;Easily hit escape in terminal mode.
 (vim.keymap.set [:t] "<esc><esc>" "<c-\\><c-n>")
-(var job-id 0)
-;Open a terminal at the bottom of the screen with a fixed height.
-(vim.keymap.set [:n] 
-                "<leader>tt" 
+
+(var job-id nil)
+(var term-buf nil)
+; Toggle terminal keybind
+(vim.keymap.set [:n]
+                "<leader>tt"
                 (fn []
-                  (vim.cmd.vnew)
-                  (vim.cmd.term)
-                  (vim.cmd.wincmd "J")
-                  (vim.api.nvim_win_set_height 0 15)
-                  (set job-id vim.bo.channel))
+                  (if (and job-id
+                           (vim.api.nvim_buf_is_valid term-buf))
+                    ; If the terminal exists, toggle its visibility
+                    (let [term-win (vim.fn.bufwinid term-buf)]
+                      (if (>= term-win 0)
+                        (vim.api.nvim_win_close term-win true)
+                        (do
+                          (vim.cmd.split)
+                          (vim.cmd.buffer term-buf)
+                          (vim.api.nvim_win_set_height 0 15))))
+                    ; Otherwise, create a new terminal
+                    (do
+                      (vim.cmd.vnew)
+                      (vim.cmd.term)
+                      (vim.cmd.wincmd "J")
+                      (vim.api.nvim_win_set_height 0 15)
+                      (set term-buf (vim.api.nvim_get_current_buf))
+                      (set job-id vim.bo.channel))))
                 {:desc "Toggle terminal"})
 
 (vim.keymap.set [:n] 
