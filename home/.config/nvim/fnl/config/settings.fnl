@@ -17,16 +17,14 @@
 ;disable aoutoformat at textwidth, remove t option
 (nvim.ex.autocmd "FileType" "python" "setlocal formatoptions-=t")
 
-(local cusmtom-term-open (vim.api.nvim_create_augroup :cusmtom-term-open {}))
+(local cusmtom-term-open (vim.api.nvim_create_augroup :cusmtom-term-open {:clear  true}))
 (vim.api.nvim_create_autocmd 
   ["TermOpen"] 
   {:desc "Custom terminal config, no line numbers"
    :pattern "*"
    :callback (fn []
-               (core.assoc vim.opt_local :number false)
-               (core.assoc vim.opt_local :relativenumber false)
-               (core.assoc vim.opt_local :scrolloff 0)
-               (core.assoc vim.bo :filetype :terminal))
+               (core.assoc vim.opt :number false)
+               (core.assoc vim.opt :relativenumber false))
 	 :group cusmtom-term-open})
 
 ;Automatic toggleing between line number modes

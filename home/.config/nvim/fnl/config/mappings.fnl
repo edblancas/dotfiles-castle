@@ -177,17 +177,22 @@
 ;https://github.com/tjdevries/config.nvim/blob/master/plugin/terminal.lua
 ;Easily hit escape in terminal mode.
 (vim.keymap.set [:t] "<esc><esc>" "<c-\\><c-n>")
+(var job-id 0)
 ;Open a terminal at the bottom of the screen with a fixed height.
 (vim.keymap.set [:n] 
                 "<leader>tt" 
                 (fn []
-                  (vim.cmd.new)
-                  (vim.cmd.set "nonumber")
-                  (vim.cmd.set "norelativenumber")
+                  (vim.cmd.vnew)
+                  (vim.cmd.term)
                   (vim.cmd.wincmd "J")
-                  (vim.api.nvim_win_set_height 0 12)
-                  (core.assoc vim.wo :winfixheight true)
-                  (vim.cmd.term))
+                  (vim.api.nvim_win_set_height 0 15)
+                  (set job-id vim.bo.channel))
                 {:desc "Toggle terminal"})
+
+(vim.keymap.set [:n] 
+                "<leader>mm" 
+                (fn []
+                  (vim.fn.chansend job-id ["npm run create-on-time-challenge\r\n"]))
+                {:desc "npm run create-on-time-challenge"})
 
 {}
