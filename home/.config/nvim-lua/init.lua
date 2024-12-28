@@ -2,6 +2,7 @@ require("config.lazy")
 
 vim.opt.shiftwidth = 2
 vim.opt.clipboard = "unnamed"
+vim.opt.timeoutlen = 300
 
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
@@ -47,6 +48,6 @@ vim.keymap.set("n", "<space>st", function()
   end
 end)
 
-vim.keymap.set("n", "<space>example", function()
-  vim.fn.chansend(job_id, { "echo 'hi'\r\n" })
-end)
+vim.keymap.set({ "n" }, "<leader>mt", function()
+  vim.fn.chansend(job_id, { "make test\13\n" })
+end, { desc = "make test" })

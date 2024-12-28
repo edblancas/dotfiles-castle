@@ -1,4 +1,6 @@
 return {
+  { "LuaCATS/luassert", name = "luassert-types", lazy = true },
+  { "LuaCATS/busted",   name = "busted-types",   lazy = true },
   {
     "neovim/nvim-lspconfig",
     dependencies = {
@@ -10,7 +12,9 @@ return {
           library = {
             -- See the configuration section for more details
             -- Load luvit types when the `vim.uv` word is found
-            { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+            { path = "${3rd}/luv/library",     words = { "vim%.uv" } },
+            { path = "luassert-types/library", words = { "assert" } },
+            { path = "busted-types/library",   words = { "describe", "it" } },
           },
         },
       },
@@ -19,7 +23,7 @@ return {
       local capabilities = require('blink.cmp').get_lsp_capabilities()
       require("lspconfig").lua_ls.setup { capabilities = capabilities }
 
-      vim.keymap.set("n", "<space>f", function() vim.lsp.buf.format() end)
+      vim.keymap.set("n", "<space>lf", function() vim.lsp.buf.format() end)
 
       vim.api.nvim_create_autocmd('LspAttach', {
         callback = function(args)

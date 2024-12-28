@@ -16,18 +16,20 @@ return {
 
     require('telescope').load_extension('fzf')
 
-    vim.keymap.set("n", "<space>fh", require('telescope.builtin').help_tags)
-    vim.keymap.set("n", "<space>fd", require('telescope.builtin').find_files)
+    vim.keymap.set("n", "<space>fh", require('telescope.builtin').help_tags, { desc = 'Telescope: help tags' })
+    vim.keymap.set("n", "<space>fd", require('telescope.builtin').find_files, { desc = 'Telescope: find files' })
     vim.keymap.set("n", "<space>en", function()
-      require('telescope.builtin').find_files({
-        cwd = vim.fn.stdpath("config")
-      })
-    end)
+        require('telescope.builtin').find_files({
+          cwd = vim.fn.stdpath("config")
+        })
+      end,
+      { desc = 'Telescope: nvim config' })
     vim.keymap.set("n", "<space>ep", function()
-      require('telescope.builtin').find_files({
-        cwd = vim.fs.joinpath(vim.fn.stdpath("data"), "lazy")
-      })
-    end)
+        require('telescope.builtin').find_files({
+          cwd = vim.fs.joinpath(vim.fn.stdpath("data"), "lazy")
+        })
+      end,
+      { desc = 'Telescope: lazy plugins' })
     require "config.telescope.multigrep".setup()
   end
 }
