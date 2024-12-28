@@ -1,0 +1,13 @@
+window-padding-color = background
+theme = tokyonight
+font-family = "TX-02"
+font-style = "Regular"
+font-style-bold = "Bold"
+font-style-italic = "Oblique"
+font-style-bold-italic = "Bold Oblique"
+font-synthetic-style = false
+font-size = 18
+font-feature = -liga
+macos-option-as-alt = left
+macos-titlebar-style = hidden
+background-opacity = 0.98

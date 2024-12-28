@@ -20,14 +20,31 @@ vim.api.nvim_create_autocmd('TermOpen', {
   end,
 })
 
-local job_id = 0
+vim.keymap.set({ "t" }, "<esc><esc>", "<c-\\><c-n>")
+local job_id = -1
+local term_buf = -1
 vim.keymap.set("n", "<space>st", function()
-  vim.cmd.vnew()
-  vim.cmd.term()
-  vim.cmd.wincmd("J")
-  vim.api.nvim_win_set_height(0, 15)
-
-  job_id = vim.bo.channel
+  if (job_id and vim.api.nvim_buf_is_valid(term_buf)) then
+    local term_win = vim.fn.bufwinid(term_buf)
+    if (term_win >= 0) then
+      return vim.api.nvim_win_close(term_win, true)
+    else
+      vim.cmd.new()
+      vim.cmd.wincmd("J")
+      vim.cmd.buffer(term_buf)
+      return vim.api.nvim_win_set_height(0, 15)
+    end
+  else
+    vim.cmd.new()
+    vim.cmd.wincmd("J")
+    vim.cmd.term()
+    vim.cmd.set("nonumber")
+    vim.cmd.set("norelativenumber")
+    vim.api.nvim_win_set_height(0, 15)
+    term_buf = vim.api.nvim_get_current_buf()
+    job_id = vim.bo.channel
+    return nil
+  end
 end)
 
 vim.keymap.set("n", "<space>example", function()
