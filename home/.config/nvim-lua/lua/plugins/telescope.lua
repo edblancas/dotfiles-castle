@@ -16,15 +16,17 @@ return {
 
     require('telescope').load_extension('fzf')
 
-    vim.keymap.set("n", "<space>fh", require('telescope.builtin').help_tags, { desc = 'Telescope: help tags' })
-    vim.keymap.set("n", "<space>fd", require('telescope.builtin').find_files, { desc = 'Telescope: find files' })
-    vim.keymap.set("n", "<space>en", function()
+    local builtin = require 'telescope.builtin'
+    vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = 'Telescope: help tags' })
+    vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = 'Telescope: find files' })
+    vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = 'Telescope: [S]earch [K]eymaps' })
+    vim.keymap.set("n", "<leader>sn", function()
         require('telescope.builtin').find_files({
           cwd = vim.fn.stdpath("config")
         })
       end,
       { desc = 'Telescope: nvim config' })
-    vim.keymap.set("n", "<space>ep", function()
+    vim.keymap.set("n", "<leader>sp", function()
         require('telescope.builtin').find_files({
           cwd = vim.fs.joinpath(vim.fn.stdpath("data"), "lazy")
         })
