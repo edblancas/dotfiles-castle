@@ -31,7 +31,7 @@ return {
       require("lspconfig").lua_ls.setup { capabilities = capabilities }
       require("lspconfig").ts_ls.setup { capabilities = capabilities }
 
-      vim.keymap.set("n", "<space>lf", function() vim.lsp.buf.format() end)
+      vim.keymap.set("n", "<leader>rf", function() vim.lsp.buf.format() end, { desc = 'LSP: format buffer' })
 
       vim.api.nvim_create_autocmd('LspAttach', {
         callback = function(args)

@@ -23,6 +23,21 @@ require("lazy").setup({
     { 'tpope/vim-sleuth' },
     { import = "plugins" },
   },
-  install = { colorscheme = { "tokyonight" } },
-  checker = { enabled = true },
+  install = { colorscheme = { "tokyonight", "habamax" } },
+  checker = { enabled = true, notify = true },
+  performance = {
+    rtp = {
+      -- disable some rtp plugins
+      disabled_plugins = {
+        "gzip",
+        -- "matchit",
+        -- "matchparen",
+        "netrwPlugin",
+        "tarPlugin",
+        "tohtml",
+        "tutor",
+        "zipPlugin",
+      },
+    },
+  },
 })
