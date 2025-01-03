@@ -3,9 +3,7 @@ local finders = require "telescope.finders"
 local make_entry = require "telescope.make_entry"
 local conf = require "telescope.config".values
 
-local M = {}
-
-local live_multigrep = function(opts)
+return function(opts)
   -- default setup for the setup
   opts = opts or {}
   -- if we pass one or the curren work dir
@@ -50,10 +48,3 @@ local live_multigrep = function(opts)
     sorter = require('telescope.sorters').empty(),
   }):find()
 end
-
-
-M.setup = function()
-  vim.keymap.set("n", "<leader>sg", live_multigrep, { desc = 'Telescope: live multigrep' })
-end
-
-return M

@@ -1,4 +1,3 @@
--- everything inside plugin/*.lua will execute after you lazy config
 local set = vim.keymap.set
 set('n', '<space><space>x', '<cmd>source %<CR>', { desc = 'Source this buffer' })
 set('n', '<space>x', ':.lua<CR>', { desc = 'Lua: source this line' })

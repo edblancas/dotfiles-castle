@@ -114,8 +114,7 @@
                                           :on_attach on_attach
                                           :handlers handlers})
 
-                (lspconfig.fennel_ls.setup {
-                                            :capabilities capabilities
+                (lspconfig.fennel_ls.setup {:capabilities capabilities
                                             :single_file_support true
                                             :root_dir (lspconfig.util.root_pattern "fnl")
                                             ;don't work with fennel_ls, works

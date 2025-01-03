@@ -1,3 +1,10 @@
+local function organize_imports()
+  vim.lsp.buf.code_action({
+    context = { only = { "source.organizeImports" } },
+    apply = true,
+  })
+end
+
 return {
   { "LuaCATS/luassert", name = "luassert-types", lazy = true },
   { "LuaCATS/busted",   name = "busted-types",   lazy = true },
@@ -22,6 +29,7 @@ return {
     config = function()
       local capabilities = require('blink.cmp').get_lsp_capabilities()
       require("lspconfig").lua_ls.setup { capabilities = capabilities }
+      require("lspconfig").ts_ls.setup { capabilities = capabilities }
 
       vim.keymap.set("n", "<space>lf", function() vim.lsp.buf.format() end)
 
@@ -29,6 +37,11 @@ return {
         callback = function(args)
           local client = vim.lsp.get_client_by_id(args.data.client_id)
           if not client then return end
+
+          if client.name == "ts_ls" then
+            vim.api.nvim_buf_create_user_command(args.buf, "OrganizeImports", organize_imports,
+              { desc = 'Organize Imports' })
+          end
 
           if client:supports_method('textDocument/formatting') then
             -- Format the current buffer on save

@@ -18,3 +18,5 @@ opt.shiftwidth = 2
 opt.timeoutlen = 300
 
 opt.clipboard = "unnamed"
+
+opt.showmode = false
