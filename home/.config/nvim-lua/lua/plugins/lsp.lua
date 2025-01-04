@@ -6,8 +6,9 @@ local function organize_imports()
 end
 
 return {
-  { "LuaCATS/luassert", name = "luassert-types", lazy = true },
-  { "LuaCATS/busted",   name = "busted-types",   lazy = true },
+  { 'github/copilot.vim' },
+  { "LuaCATS/luassert",  name = "luassert-types", lazy = true },
+  { "LuaCATS/busted",    name = "busted-types",   lazy = true },
   {
     "neovim/nvim-lspconfig",
     dependencies = {

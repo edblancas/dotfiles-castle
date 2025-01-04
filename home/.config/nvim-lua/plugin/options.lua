@@ -39,3 +39,9 @@ opt.cursorline = true
 opt.scrolloff = 10
 
 opt.breakindent = true
+
+opt.foldopen = "block,insert,jump,mark,percent,quickfix,search,tag,undo"
+opt.foldmethod = "expr"
+opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+opt.foldtext = ""
+opt.foldlevel = 99
