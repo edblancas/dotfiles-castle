@@ -19,7 +19,7 @@ vim.g.maplocalleader = ","
 
 require("lazy").setup({
   spec = {
-    { "folke/tokyonight.nvim", priority = 1000, config = function() vim.cmd.colorscheme "tokyonight" end },
+    { "folke/tokyonight.nvim", priority = 1000, config = function() vim.cmd.colorscheme "tokyonight-night" end },
     { 'tpope/vim-sleuth' },
     { import = "plugins" },
   },

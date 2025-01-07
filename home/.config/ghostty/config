@@ -11,5 +11,3 @@ font-feature = -liga
 macos-option-as-alt = left
 macos-titlebar-style = hidden
 background-opacity = 0.98
-keybind = ctrl+shift+j=csi:106;6u
-keybind = ctrl+shift+k=csi:107;6u
