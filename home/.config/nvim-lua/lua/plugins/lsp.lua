@@ -1,7 +1,7 @@
 local function organize_imports()
   vim.lsp.buf.code_action({
     context = { only = { "source.organizeImports" } },
-    apply = true,
+    apply = true
   })
 end
 
@@ -14,11 +14,9 @@ return {
       'saghen/blink.cmp',
       {
         "folke/lazydev.nvim",
-        ft = "lua", -- only load on lua files
+        ft = "lua",
         opts = {
           library = {
-            -- See the configuration section for more details
-            -- Load luvit types when the `vim.uv` word is found
             { path = "${3rd}/luv/library",     words = { "vim%.uv" } },
             { path = "luassert-types/library", words = { "assert" } },
             { path = "busted-types/library",   words = { "describe", "it" } },
