@@ -100,6 +100,7 @@
   # Include summaries of merged commits in newly created merge commit messages
   #log = true
   conflictStyle = diff3
+  #tool = Kaleidoscope
 
 [diff]
   # Detect copies as well as renames
@@ -111,9 +112,9 @@
   # Use colors in Git commands that are capable of colored output when
   # outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
   ui = auto
-	diff = auto
-	status = auto
-	branch = auto
+  diff = auto
+  status = auto
+  branch = auto
 
 [color "branch"]
   current = yellow reverse
@@ -156,14 +157,27 @@
   helper = cache
 
 [filter "lfs"]
-	smudge = git-lfs smudge --skip %f
-	process = git-lfs filter-process --skip
-	required = True
-	clean = git-lfs clean -- %f
+  smudge = git-lfs smudge --skip %f
+  process = git-lfs filter-process --skip
+  required = True
+  clean = git-lfs clean -- %f
+
 [url "git@github.com:"]
-	insteadOf = git://github.com/
+  insteadOf = git://github.com/
+
 [init]
-	defaultBranch = main
+  defaultBranch = main
+
+[difftool "Kaleidoscope"]
+  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+
+[difftool]
+  prompt = false
+  trustExitCode = true
+
+[mergetool "Kaleidoscope"]
+  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+  trustExitCode = true
 
 [includeIf "gitdir:~/projects/onest/"]
   path = ~/.gitconfig-onest

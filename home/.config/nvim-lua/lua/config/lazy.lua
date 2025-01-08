@@ -19,7 +19,13 @@ vim.g.maplocalleader = ","
 
 require("lazy").setup({
   spec = {
-    { "folke/tokyonight.nvim", priority = 1000, config = function() vim.cmd.colorscheme "tokyonight-night" end },
+    {
+      "folke/tokyonight.nvim",
+      priority = 1000,
+      config = function()
+        vim.cmd.colorscheme "tokyonight-moon"
+      end
+    },
     { 'tpope/vim-sleuth' },
     { import = "plugins" },
   },
@@ -27,11 +33,8 @@ require("lazy").setup({
   checker = { enabled = true, notify = true },
   performance = {
     rtp = {
-      -- disable some rtp plugins
       disabled_plugins = {
         "gzip",
-        -- "matchit",
-        -- "matchparen",
         "netrwPlugin",
         "tarPlugin",
         "tohtml",

@@ -209,7 +209,8 @@ alias pscpu10=' ps aux | sort -nr -k 3 | head -10 '
 unsetopt MULTIOS
 
 ### fzf ###
-export FZF_DEFAULT_OPTS='--no-height'
+#export FZF_DEFAULT_OPTS='--no-height'  # no tmux
+export FZF_DEFAULT_OPTS='--height 80% --tmux bottom,80% --layout reverse --border top'
 export FZF_DEFAULT_COMMAND='fd --hidden --strip-cwd-prefix --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_COMMAND='fd --type=d --hidden --strip-cwd-prefix --exclude .git'

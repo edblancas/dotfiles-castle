@@ -28,7 +28,7 @@
                      :<C-t> {1 :actions.select :opts {:tab true} :desc "Open the entry in new tab"}
                      :<C-p> "actions.preview"
                      :<C-c> "actions.close"
-                     :<C-.> "actions.refresh"
+                     :<C-r> "actions.refresh"
                      :- "actions.parent"
                      :_ "actions.open_cwd"
                      "`" "actions.cd"
