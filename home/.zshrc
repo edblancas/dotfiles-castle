@@ -14,6 +14,7 @@ FPATH="$HOMEBREW/share/zsh/site-functions:${FPATH}"
 
 export EDITOR='nvim'
 export VISUAL='nvim'
+export SHELL='/usr/local/bin/zsh'
 
 ### START OH-MY-ZSH ###
 export ZSH=$HOME/.oh-my-zsh
@@ -369,6 +370,11 @@ complete -C '/usr/local/bin/aws_completer' aws
 # nvchad - neovim config
 alias vc='NVIM_APPNAME=nvim-nvchad nvim' # NvChad
 
-alias vl='NVIM_APPNAME=nvim-lua nvim' # nvim lua config
+alias vf='NVIM_APPNAME=nvim-fennel nvim' # nvim fennel config
 
 alias zs="~/bin/zellij-smart-sessionizer/zellij-smart-sessionizer"
+
+alias ts='tmux-sessionizer -rp ~/projects/onest ~/projects/current'
+
+# https://github.com/tmuxinator/tmuxinator#faq
+export DISABLE_AUTO_TITLE=true
