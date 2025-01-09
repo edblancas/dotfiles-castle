@@ -376,5 +376,3 @@ alias zs="~/bin/zellij-smart-sessionizer/zellij-smart-sessionizer"
 
 alias ts='tmux-sessionizer -rp ~/projects/onest ~/projects/current'
 
-# https://github.com/tmuxinator/tmuxinator#faq
-export DISABLE_AUTO_TITLE=true

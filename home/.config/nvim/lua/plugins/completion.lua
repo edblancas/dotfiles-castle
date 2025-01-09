@@ -5,18 +5,19 @@ return {
     event = "InsertEnter",
     config = function()
       require('copilot').setup({
-        panel = {
-          keymap = {
-            refresh = "grc"
-          },
-        },
         suggestion = {
           auto_trigger = true,
           keymap = {
+            accept = "<C-M-y>",
             accept_word = "<C-f>",
             accept_line = "<C-M-f>",
           },
-        },
+          panel = {
+            keymap = {
+              refresh = "grc"
+            },
+          }
+        }
       })
     end
   },
