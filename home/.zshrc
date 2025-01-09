@@ -375,4 +375,4 @@ alias vf='NVIM_APPNAME=nvim-fennel nvim' # nvim fennel config
 alias zs="~/bin/zellij-smart-sessionizer/zellij-smart-sessionizer"
 
 alias ts='tmux-sessionizer -rp ~/projects/onest ~/projects/current'
-
+alias tf='tmuxinator-fzf-start'
