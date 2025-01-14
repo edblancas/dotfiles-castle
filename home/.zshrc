@@ -14,7 +14,6 @@ FPATH="$HOMEBREW/share/zsh/site-functions:${FPATH}"
 
 export EDITOR='nvim'
 export VISUAL='nvim'
-export SHELL='/usr/local/bin/zsh'
 
 ### START OH-MY-ZSH ###
 export ZSH=$HOME/.oh-my-zsh
