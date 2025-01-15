@@ -1,6 +1,7 @@
 return {
   {
     "tpope/vim-fugitive",
+    dependencies = { "tpope/vim-rhubarb" },
     keys = {
       {
         "<M-0>",
