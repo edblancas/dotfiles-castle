@@ -18,7 +18,7 @@ vim.api.nvim_create_autocmd('TermOpen', {
 vim.keymap.set({ "t" }, "<esc><esc>", "<c-\\><c-n>")
 local job_id = -1
 local term_buf = -1
-vim.keymap.set("n", "<space>tt", function()
+vim.keymap.set("n", "<space>mt", function()
     if (job_id and vim.api.nvim_buf_is_valid(term_buf)) then
       local term_win = vim.fn.bufwinid(term_buf)
       if (term_win >= 0) then
@@ -43,6 +43,6 @@ vim.keymap.set("n", "<space>tt", function()
   end,
   { desc = 'Toggle terminal' })
 
-vim.keymap.set({ "n" }, "<leader>mt", function()
+vim.keymap.set({ "n" }, "<leader>mm", function()
   vim.fn.chansend(job_id, { "make test\13\n" })
 end, { desc = "Makefile: make test" })
