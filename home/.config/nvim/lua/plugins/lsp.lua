@@ -40,6 +40,16 @@ return {
             vim.api.nvim_buf_create_user_command(args.buf, "OrganizeImports", organize_imports, {})
             vim.keymap.set("n", "gro", "<cmd>OrganizeImports<CR>", { desc = 'LSP: Organize imports' })
           end
+
+          if client:supports_method('textDocument/formatting') then
+            vim.api.nvim_create_autocmd('BufWritePre', {
+              desc = 'Format the current buffer on save',
+              buffer = args.buf,
+              callback = function()
+                vim.lsp.buf.format({ bufnr = args.buf, id = client.id })
+              end,
+            })
+          end
         end,
       })
     end,
