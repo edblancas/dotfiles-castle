@@ -5,7 +5,7 @@ opt.inccommand = 'split'
 opt.smartcase = true
 opt.ignorecase = true
 
-opt.number = false
+opt.number = true
 opt.relativenumber = false
 
 opt.splitbelow = true

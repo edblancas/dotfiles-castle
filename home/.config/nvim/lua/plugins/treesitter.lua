@@ -24,38 +24,39 @@ return {
       }
     end,
   },
-  {'nvim-treesitter/nvim-treesitter-context'},
+  { 'nvim-treesitter/nvim-treesitter-context' },
   {
     'nvim-treesitter/nvim-treesitter-textobjects',
     config = true,
     main = 'nvim-treesitter.configs',
     opts = {
       textobjects =
+      {
+        select =
         {
-          select =
-            {
-              enable = true,
-              -- Automatically jump forward to textobj, similar to targets.vim
-              lookahead = true,
-              keymaps =
-                {
-                  -- Capture groups defined in textobjects.scm
-                  af = "@function.outer",
-                  ['if'] ="@function.inner",
-                  ac ="@class.outer",
-                  -- Optionally set descriptions to the mappings
-                  ic = {query = "@class.inner", desc = "Select inner part of a class region"}},
-                  -- Select mode (default is charwise 'v')
-                  selection_modes =
-                    {
-                      ["@parameter.outer"] = "v", -- charwise
-                      ["@function.outer"] = "V", -- linewise
-                      ["@class.outer"] = "<c-v>"
-                    }, -- blockwise
-                -- Include surrounding whitespace (default is false)
-                include_surrounding_whitespace = true
-            }
+          enable = true,
+          -- Automatically jump forward to textobj, similar to targets.vim
+          lookahead = true,
+          keymaps =
+          {
+            -- Capture groups defined in textobjects.scm
+            af = "@function.outer",
+            ['if'] = "@function.inner",
+            ac = "@class.outer",
+            -- Optionally set descriptions to the mappings
+            ic = { query = "@class.inner", desc = "Select inner part of a class region" }
+          },
+          -- Select mode (default is charwise 'v')
+          selection_modes =
+          {
+            ["@parameter.outer"] = "v",           -- charwise
+            ["@function.outer"] = "V",            -- linewise
+            ["@class.outer"] = "<c-v>"
+          },                                      -- blockwise
+          -- Include surrounding whitespace (default is false)
+          include_surrounding_whitespace = false
         }
+      }
     }
   }
 }
