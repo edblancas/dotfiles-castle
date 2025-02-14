@@ -26,6 +26,7 @@ require("lazy").setup({
         vim.cmd.colorscheme "tokyonight-moon"
       end
     },
+    { 'tpope/vim-sleuth' },
     { import = "plugins" },
   },
   install = { colorscheme = { "tokyonight", "habamax" } },
