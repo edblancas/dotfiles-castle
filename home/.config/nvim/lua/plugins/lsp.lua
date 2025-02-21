@@ -36,8 +36,6 @@ return {
 
           vim.keymap.set({ "n", "v" }, "grf", function() vim.lsp.buf.format() end,
             { desc = 'LSP: format buffer', buffer = args.buf })
-          vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end,
-            { buffer = args.buf })
 
           if client.name == "ts_ls" then
             vim.api.nvim_buf_create_user_command(args.buf, "OrganizeImports", organize_imports, {})
