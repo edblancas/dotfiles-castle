@@ -29,12 +29,15 @@ return {
       require("lspconfig").lua_ls.setup { capabilities = capabilities }
       require("lspconfig").ts_ls.setup { capabilities = capabilities }
 
-      vim.keymap.set({"n", "v"}, "grf", function() vim.lsp.buf.format() end, { desc = 'LSP: format buffer' })
-
       vim.api.nvim_create_autocmd('LspAttach', {
         callback = function(args)
           local client = vim.lsp.get_client_by_id(args.data.client_id)
           if not client then return end
+
+          vim.keymap.set({ "n", "v" }, "grf", function() vim.lsp.buf.format() end,
+            { desc = 'LSP: format buffer', buffer = args.buf })
+          vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end,
+            { buffer = args.buf })
 
           if client.name == "ts_ls" then
             vim.api.nvim_buf_create_user_command(args.buf, "OrganizeImports", organize_imports, {})
