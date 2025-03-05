@@ -18,8 +18,8 @@ pcall(require("telescope").load_extension, "ui-select")
 
 local builtin = require 'telescope.builtin'
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = 'Telescope: help tags' })
-vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = 'Telescope: find files' })
-vim.keymap.set("n", "<space>fs", function()
+vim.keymap.set("n", "<leader><leader>", builtin.find_files, { desc = 'Telescope: find files' })
+vim.keymap.set("n", "<space>ff", function()
     return builtin.git_files { cwd = vim.fn.expand "%:h" }
   end,
   { desc = 'Telescope: git_files' })

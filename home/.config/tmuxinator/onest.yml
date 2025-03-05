@@ -1,7 +1,7 @@
-# /Users/dan/.config/tmuxinator/messaging.yml
+# /Users/dan/.config/tmuxinator/onest.yml
 
-name: messaging
-root: ~/projects/onest/pidgeotto/
+name: onest
+root: ~/projects/onest/
 
 windows:
   - editor:
@@ -10,5 +10,5 @@ windows:
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after
       panes:
-        - vim .
-        - npm test
+        - ls
+        - echo 'hi!'
