@@ -36,8 +36,6 @@ opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 opt.cursorline = true
 
-opt.scrolloff = 10
-
 opt.breakindent = true
 
 opt.foldopen = "block,insert,jump,mark,percent,quickfix,search,tag,undo"
