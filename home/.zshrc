@@ -3,7 +3,7 @@ source $HOME/.config/dracula_zsh-syntax-highlighting/zsh-syntax-highlighting.sh
 
 # Homebrew installation
 # Homebrew binaries, the paths are not exclusive of homebrew!
-export HOMEBREW=$(brew --prefix)
+export HOMEBREW=$(/opt/homebrew/bin/brew --prefix)
 export HOMEBREW_COREUTILS="$HOMBREW/opt/coreutils/libexec"
 
 ### zsh-completions ###
@@ -299,8 +299,8 @@ compdef _bb_tasks bb
 
 ### COMMON PATH SETTINGS ###
 # Created by `pipx` on 2024-05-02 19:24:48
-export PATH="$PATH:$HOME/.local/bin"
-eval "$(register-python-argcomplete pipx)"
+# export PATH="$PATH:$HOME/.local/bin"
+# eval "$(register-python-argcomplete pipx)"
 
 ### PTPYTHON ###
 export PTPYTHON_CONFIG_HOME="$XDG_CONFIG_HOME/ptpython"
