@@ -188,3 +188,15 @@ run= [
   "layout tiling",
   "move-node-to-workspace T",
 ]
+
+[[on-window-detected]]
+if.app-id="company.thebrowser.Browser"
+run= "move-node-to-workspace B"
+
+[[on-window-detected]]
+if.app-id="com.apple.Notes"
+run= "move-node-to-workspace N"
+
+[[on-window-detected]]
+if.app-id="com.apple.finder"
+run= "move-node-to-workspace F"
