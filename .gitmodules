@@ -52,3 +52,6 @@
 [submodule "home/bin/zellij-smart-sessionizer"]
 	path = home/bin/zellij-smart-sessionizer
 	url = https://github.com/demestoss/zellij-smart-sessionizer.git
+[submodule "home/.config/tmux/plugins/tpm"]
+	path = home/.config/tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm.git

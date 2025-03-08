@@ -361,7 +361,7 @@ function y() {
 	rm -f -- "$tmp"
 }
 
-. "/Users/dan/.deno/env"
+# . "/Users/dan/.deno/env"
 
 # aws completion
 complete -C '/usr/local/bin/aws_completer' aws
