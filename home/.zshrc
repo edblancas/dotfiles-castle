@@ -18,7 +18,7 @@ export VISUAL='nvim'
 ### START OH-MY-ZSH ###
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME=""
-plugins=(zsh-syntax-highlighting history-substring-search zsh-autosuggestions zsh-vi-mode fzf-tab)
+plugins=(zsh-syntax-highlighting history-substring-search zsh-autosuggestions zsh-vi-mode)
 
 # zsh-autosuggest plugin settings
 # https://github.com/zsh-users/zsh-autosuggestions
@@ -304,10 +304,6 @@ compdef _bb_tasks bb
 
 ### PTPYTHON ###
 export PTPYTHON_CONFIG_HOME="$XDG_CONFIG_HOME/ptpython"
-
-### fzf-tab ###
-zstyle ':completion:*' menu no
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'gls --color -A $realpath'
 
 ### zoxide ###
 zstyle ':fzf-tab:complete:z:*' fzf-preview 'gls --color -A $realpath'
