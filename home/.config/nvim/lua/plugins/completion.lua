@@ -3,15 +3,15 @@ return {
     'zbirenbaum/copilot.lua',
     cmd = "Copilot",
     event = "InsertEnter",
-    enabled = false,
+    enabled = true,
     config = function()
       require('copilot').setup({
         suggestion = {
           auto_trigger = true,
           keymap = {
-            accept = "<C-M-y>",
+            accept = "<C-g>",
             accept_word = "<C-f>",
-            accept_line = "<C-M-f>",
+            accept_line = "<C-h>",
           },
           panel = {
             keymap = {
