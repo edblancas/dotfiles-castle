@@ -10,10 +10,10 @@ windows:
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after
       panes:
-        - v ~/projects/current/kata-machine/
+        - v ~/projects/personal/kata-machine/
         - echo 'hi!'
   - editor:
       layout: main-horizontal
       panes:
-        - v ~/projects/current/coding-patterns/
+        - v ~/projects/personal/coding-patterns/
         - echo 'hello!'

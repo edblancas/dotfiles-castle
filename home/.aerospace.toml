@@ -37,8 +37,6 @@ default-root-container-orientation = 'auto'
 # See https://nikitabobko.github.io/AeroSpace/commands#move-mouse
 # Fallback value (if you omit the key): on-focused-monitor-changed = []
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
-# me
-on-focus-changed = "move-mouse window-lazy-center"
 
 # You can effectively turn off macOS "Hide application" (cmd-h) feature by toggling this flag
 # Useful if you don't use this macOS feature, but accidentally hit cmd-h or cmd-alt-h key
@@ -123,32 +121,24 @@ automatically-unhide-macos-hidden-apps = false
     alt-2 = 'workspace 2'
     alt-3 = 'workspace 3'
     alt-4 = 'workspace 4'
-    alt-5 = 'workspace 5'
-    alt-6 = 'workspace 6'
-    alt-7 = 'workspace 7'
-    alt-8 = 'workspace 8'
-    alt-9 = 'workspace 9'
     alt-b = 'workspace B' # for Browser
-    alt-f = 'workspace F' # for Finder
-    alt-m = 'workspace M' # for Music
-    alt-n = 'workspace N' # for Notes
+    alt-x = 'workspace X' # for Finder aka File [X]plorer
     alt-t = 'workspace T' # for Terminal
+    alt-c = 'workspace C' # for Comms/Chats: like Slack
+    alt-w = 'workspace W' # for Note Apps: like Notions, and Notes
+    alt-m = 'workspace M' # for Music Apps
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
-    cmd-ctrl-alt-shift-1 = 'move-node-to-workspace 1'
-    cmd-ctrl-alt-shift-2 = 'move-node-to-workspace 2'
-    cmd-ctrl-alt-shift-3 = 'move-node-to-workspace 3'
-    cmd-ctrl-alt-shift-4 = 'move-node-to-workspace 4'
-    cmd-ctrl-alt-shift-5 = 'move-node-to-workspace 5'
-    cmd-ctrl-alt-shift-6 = 'move-node-to-workspace 6'
-    cmd-ctrl-alt-shift-7 = 'move-node-to-workspace 7'
-    cmd-ctrl-alt-shift-8 = 'move-node-to-workspace 8'
-    cmd-ctrl-alt-shift-9 = 'move-node-to-workspace 9'
-    cmd-ctrl-alt-shift-b = 'move-node-to-workspace B' # for Browser
-    cmd-ctrl-alt-shift-f = 'move-node-to-workspace F' # for Finder
-    cmd-ctrl-alt-shift-m = 'move-node-to-workspace M' # for Music
-    cmd-ctrl-alt-shift-n = 'move-node-to-workspace N' # for Notes
-    cmd-ctrl-alt-shift-t = 'move-node-to-workspace T' # for Terminal
+    alt-shift-1 = 'move-node-to-workspace 1'
+    alt-shift-2 = 'move-node-to-workspace 2'
+    alt-shift-3 = 'move-node-to-workspace 3'
+    alt-shift-4 = 'move-node-to-workspace 4'
+    alt-shift-b = 'move-node-to-workspace B'
+    alt-shift-x = 'move-node-to-workspace X'
+    alt-shift-t = 'move-node-to-workspace T'
+    alt-shift-c = 'move-node-to-workspace C'
+    alt-shift-w = 'move-node-to-workspace W'
+    alt-shift-m = 'move-node-to-workspace M'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
     alt-tab = 'workspace-back-and-forth'
@@ -195,7 +185,7 @@ run= "move-node-to-workspace B"
 
 [[on-window-detected]]
 if.app-id="com.apple.Notes"
-run= "move-node-to-workspace N"
+run= "move-node-to-workspace O"
 
 [[on-window-detected]]
 if.app-id="com.apple.finder"
