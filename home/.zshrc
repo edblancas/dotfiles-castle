@@ -371,3 +371,13 @@ alias zs="~/bin/zellij-smart-sessionizer/zellij-smart-sessionizer"
 
 alias ts='tmux-sessionizer -rp ~/projects/onest ~/projects/current'
 alias tf='tmuxinator-fzf-start'
+
+# search with rg and pass it to nvim quickfix
+alias vgrep='nvim -q <(rg --vimgrep)'
+
+# bun completions
+[ -s "/Users/dan/.bun/_bun" ] && source "/Users/dan/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

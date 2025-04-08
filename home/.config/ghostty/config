@@ -1,19 +1,30 @@
 window-padding-color = background
 theme = tokyonight
-font-family = "Berkeley Mono"
-font-style = "Regular"
-#font-style = "SemiCondensed"
-font-style-italic = "Oblique"
-#font-style-italic = "SemiCondensed Oblique"
-font-style-bold = "Bold"
-#font-style-bold = "Bold SemiCondensed"
-font-style-bold-italic = "Bold Oblique"
-#font-style-bold-italic = "Bold SemiCondensed Oblique"
-font-synthetic-style = false
-font-size = 18
+
+font-family = "JetBrains Mono"
+
+# font-family = "Berkeley Mono"
 #font-feature = -calt
 #font-feature = -liga
 #font-feature = -dlig
+
+#font-style = "Regular"
+#font-style-italic = "Oblique"
+#font-style-bold = "Bold"
+#font-style-bold-italic = "Bold Oblique"
+
+# font-style = "SemiCondensed"
+# font-style-italic = "SemiCondensed Oblique"
+# font-style-bold = "Bold SemiCondensed"
+# font-style-bold-italic = "Bold SemiCondensed Oblique"
+
+font-size = 18
+
+# disable ghostty create other styles automatically
+font-synthetic-style = false
+
 macos-option-as-alt = left
 macos-titlebar-style = hidden
-background-opacity = 0.98
+background-opacity = 0.95
+
+keybind = global:cmd+grave_accent=toggle_quick_terminal
