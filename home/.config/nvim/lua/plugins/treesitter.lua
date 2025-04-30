@@ -1,7 +1,6 @@
 return {
-  { "HiPhish/rainbow-delimiters.nvim" },
-  {
-    "nvim-treesitter/nvim-treesitter",
+  {"HiPhish/rainbow-delimiters.nvim" },
+  {"nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     config = function()
       require 'nvim-treesitter.configs'.setup {
@@ -11,6 +10,15 @@ return {
         ignore_install = {},
         modules = {},
         indent = { enable = true },
+        incremental_selection = {
+          enable = true,
+          keymaps = {
+            init_selection = "<leader>rs",
+            node_incremental = "<leader>ri",
+            node_decremental = "<leader>rd",
+            scope_incremental = "<leader>rc",
+          },
+        },
         highlight = {
           enable = true,
           disable = function(_, buf)
@@ -25,7 +33,7 @@ return {
       }
     end,
   },
-  { 'nvim-treesitter/nvim-treesitter-context' },
+  {'nvim-treesitter/nvim-treesitter-context'},
   {'nvim-treesitter/nvim-treesitter-textobjects',
     config = true,
     main = 'nvim-treesitter.configs',
@@ -56,8 +64,8 @@ return {
           selection_modes = {
             ["@parameter.outer"] = "v",           -- charwise
             ["@function.outer"] = "V",            -- linewise
-            ["@class.outer"] = "<c-v>"
-          },                                      -- blockwise
+            ["@class.outer"] = "<c-v>"            -- blockwise
+          },
           -- Include surrounding whitespace (default is false)
           include_surrounding_whitespace = false
         }
