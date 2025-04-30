@@ -14,7 +14,7 @@ return {
           enable = true,
           keymaps = {
             init_selection = "<leader>rs",
-            node_incremental = "<leader>ri",
+            node_incremental = "<leader>rs",
             node_decremental = "<leader>rd",
             scope_incremental = "<leader>rc",
           },
