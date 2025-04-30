@@ -26,20 +26,25 @@ return {
     end,
   },
   { 'nvim-treesitter/nvim-treesitter-context' },
-  {
-    'nvim-treesitter/nvim-treesitter-textobjects',
+  {'nvim-treesitter/nvim-treesitter-textobjects',
     config = true,
     main = 'nvim-treesitter.configs',
     opts = {
-      textobjects =
-      {
-        select =
-        {
+      textobjects = {
+        lsp_interop = {
+          enable = true,
+          border = 'none',
+          floating_preview_opts = {},
+          peek_definition_code = {
+            ["<leader>rf"] = "@function.outer",
+            ["<leader>rF"] = "@class.outer",
+          },
+        },
+        select = {
           enable = true,
           -- Automatically jump forward to textobj, similar to targets.vim
           lookahead = true,
-          keymaps =
-          {
+          keymaps = {
             -- Capture groups defined in textobjects.scm
             af = "@function.outer",
             ['if'] = "@function.inner",
@@ -48,8 +53,7 @@ return {
             ic = { query = "@class.inner", desc = "Select inner part of a class region" }
           },
           -- Select mode (default is charwise 'v')
-          selection_modes =
-          {
+          selection_modes = {
             ["@parameter.outer"] = "v",           -- charwise
             ["@function.outer"] = "V",            -- linewise
             ["@class.outer"] = "<c-v>"
