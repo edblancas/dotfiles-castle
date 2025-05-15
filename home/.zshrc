@@ -281,9 +281,8 @@ export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
 ### PERSONAL OR WORK PATH settings ###
 if [[ $USER == "dan" ]]; then
   source $HOME/.personalrc
-#else
-# I use the same mbp for work and personal
-  source $HOME/.onestrc.zsh
+else
+  source $HOME/.workrc
 fi
 
 ### BABASHKA ###
