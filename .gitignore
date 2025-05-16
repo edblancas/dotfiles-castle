@@ -42,3 +42,6 @@ home/.config/zed/.tmp*
 home/.config/raycast
 
 home/.config/nushell/history.txt
+
+# nvim lazy package manager
+lazy-lock.json
