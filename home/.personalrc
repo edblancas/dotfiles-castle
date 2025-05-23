@@ -1,5 +1,5 @@
 # PATH
-export PATH="$HOMEBREW_COREUTILS/gnubin:$HOMEBREW/bin:$HOMEBREW/sbin:/opt/local/bin:/opt/local/sbin:$PATH"
+export PATH="$HOMEBREW_COREUTILS/gnubin:$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:/opt/local/bin:/opt/local/sbin:$PATH"
 
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:/opt/local/share/man:$MANPATH"
 

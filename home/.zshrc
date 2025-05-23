@@ -3,14 +3,14 @@ source $HOME/.config/dracula_zsh-syntax-highlighting/zsh-syntax-highlighting.sh
 
 # Homebrew installation
 # Homebrew binaries, the paths are not exclusive of homebrew!
-export HOMEBREW=$(/opt/homebrew/bin/brew --prefix)
+export HOMEBREW_PREFIX=$(/opt/homebrew/bin/brew --prefix)
 export HOMEBREW_COREUTILS="$HOMBREW/opt/coreutils/libexec"
 
 ### zsh-completions ###
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 
 ### Hombrew completions ###
-FPATH="$HOMEBREW/share/zsh/site-functions:${FPATH}"
+FPATH="$HOMEBREW_PREFIX/share/zsh/site-functions:${FPATH}"
 
 export EDITOR='nvim'
 export VISUAL='nvim'
