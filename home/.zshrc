@@ -283,6 +283,8 @@ if [[ $USER == "dan" ]]; then
   source $HOME/.personalrc
 else
   source $HOME/.workrc
+  # The next line exports various Ironclad env variables
+  source $HOME/.zshrc_ironclad
 fi
 
 ### BABASHKA ###
@@ -341,7 +343,7 @@ eval $(thefuck --alias fk)
 
 alias cd="z"
 alias n="cd $HOME/Documents/dev/notes/ && nv"
-alias notes="cd $HOME/Documents/dev/notes/"
+alias notes="cd $HOME/Library/Mobile Documents/com~apple~CloudDocs/Documents/dev/notes"
 alias icat="kitten icat"
 
 # yazi shell wrapper

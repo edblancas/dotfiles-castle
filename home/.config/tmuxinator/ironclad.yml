@@ -1,7 +1,7 @@
-# /Users/dan/.config/tmuxinator/onest.yml
+# /Users/dan/.config/tmuxinator/ironclad.yml
 
-name: onest
-root: ~/projects/onest/
+name: ironclad
+root: ~/projects/
 
 windows:
   - editor:
