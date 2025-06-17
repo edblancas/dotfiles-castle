@@ -283,7 +283,7 @@ if [[ $USER == "dan" ]]; then
   source $HOME/.personalrc
 else
   source $HOME/.workrc
-  # The next line exports various Ironclad env variables
+  # add vars by ironclad setup
   source $HOME/.zshrc_ironclad
 fi
 
