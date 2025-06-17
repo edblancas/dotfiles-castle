@@ -3,29 +3,14 @@
     {
       "key" : "t",
       "type" : "application",
-      "value" : "/System/Applications/Utilities/Terminal.app"
+      "value" : "/Applications/Ghostty.app"
     },
     {
       "actions" : [
         {
-          "key" : "s",
-          "type" : "application",
-          "value" : "/Applications/Safari.app"
-        },
-        {
-          "key" : "e",
-          "type" : "application",
-          "value" : "/Applications/Mail.app"
-        },
-        {
           "key" : "i",
           "type" : "application",
           "value" : "/System/Applications/Music.app"
-        },
-        {
-          "key" : "m",
-          "type" : "application",
-          "value" : "/Applications/Messages.app"
         }
       ],
       "key" : "o",
@@ -55,13 +40,57 @@
     {
       "actions" : [
         {
-          "key" : "w",
-          "label" : "move ws to monitor",
+          "iconPath" : "uiwindow.split.2x1",
+          "key" : "m",
+          "label" : "move workspace to monitor",
           "type" : "command",
-          "value" : "aerospace move-workspace-to-monitor --wrap-around next"
+          "value" : "/opt/homebrew/bin/aerospace move-workspace-to-monitor --wrap-around next"
+        },
+        {
+          "iconPath" : "uiwindow.split.2x1",
+          "key" : "f",
+          "label" : "fullscreen",
+          "type" : "command",
+          "value" : "/opt/homebrew/bin/aerospace fullscreen"
+        },
+        {
+          "iconPath" : "uiwindow.split.2x1",
+          "key" : "o",
+          "label" : "toggle between floating and tiling layout",
+          "type" : "command",
+          "value" : "/opt/homebrew/bin/aerospace layout floating tiling"
+        },
+        {
+          "iconPath" : "uiwindow.split.2x1",
+          "key" : "h",
+          "label" : "join with left",
+          "type" : "command",
+          "value" : "/opt/homebrew/bin/aerospace join-with left"
+        },
+        {
+          "iconPath" : "uiwindow.split.2x1",
+          "key" : "j",
+          "label" : "join with down",
+          "type" : "command",
+          "value" : "/opt/homebrew/bin/aerospace join-with down"
+        },
+        {
+          "iconPath" : "uiwindow.split.2x1",
+          "key" : "k",
+          "label" : "join with up",
+          "type" : "command",
+          "value" : "/opt/homebrew/bin/aerospace join-with up"
+        },
+        {
+          "iconPath" : "uiwindow.split.2x1",
+          "key" : "l",
+          "label" : "join with right",
+          "type" : "command",
+          "value" : "/opt/homebrew/bin/aerospace join-with right"
         }
       ],
-      "key" : "w",
+      "iconPath" : "uiwindow.split.2x1",
+      "key" : "a",
       "label" : "Aerospace",
       "type" : "group"
     }
