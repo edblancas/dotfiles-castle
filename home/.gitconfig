@@ -159,7 +159,7 @@
 [filter "lfs"]
   smudge = git-lfs smudge --skip %f
   process = git-lfs filter-process --skip
-  required = True
+  required = true
   clean = git-lfs clean -- %f
 
 [url "git@github.com:"]
@@ -168,16 +168,8 @@
 [init]
   defaultBranch = main
 
-[difftool "Kaleidoscope"]
-  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[includeIf "gitdir:~/projects/"]
+  path = ~/.gitconfig_ironclad
 
-[difftool]
-  prompt = false
-  trustExitCode = true
-
-[mergetool "Kaleidoscope"]
-  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-  trustExitCode = true
-
-[includeIf "gitdir:~/projects/onest/"]
-  path = ~/.gitconfig-onest
+[includeIf "gitdir:/usr/local/repos/"]
+  path = ~/.gitconfig_ironclad

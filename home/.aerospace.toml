@@ -36,7 +36,7 @@ default-root-container-orientation = 'auto'
 # See https://nikitabobko.github.io/AeroSpace/guide#on-focus-changed-callbacks
 # See https://nikitabobko.github.io/AeroSpace/commands#move-mouse
 # Fallback value (if you omit the key): on-focused-monitor-changed = []
-on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+# on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 
 # You can effectively turn off macOS "Hide application" (cmd-h) feature by toggling this flag
 # Useful if you don't use this macOS feature, but accidentally hit cmd-h or cmd-alt-h key
@@ -124,9 +124,10 @@ automatically-unhide-macos-hidden-apps = false
     alt-b = 'workspace B' # for Browser
     alt-x = 'workspace X' # for Finder aka File [X]plorer
     alt-t = 'workspace T' # for Terminal
-    alt-s = 'workspace S' # for Comms/Chats: like Slack
-    alt-w = 'workspace W' # for Note Apps: like Notions, and Notes
+    alt-s = 'workspace S' # for Comms/Chats: like [S]lack
+    alt-w = 'workspace W' # for Note/Write Apps: like Notions, and Notes
     alt-m = 'workspace M' # for Music Apps
+    alt-c = 'workspace C' # for Code Apps
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
     alt-shift-1 = 'move-node-to-workspace 1'
@@ -139,6 +140,7 @@ automatically-unhide-macos-hidden-apps = false
     alt-shift-s = 'move-node-to-workspace S'
     alt-shift-w = 'move-node-to-workspace W'
     alt-shift-m = 'move-node-to-workspace M'
+    alt-shift-c = 'move-node-to-workspace C'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
     alt-tab = 'workspace-back-and-forth'
@@ -190,3 +192,11 @@ run= "move-node-to-workspace W"
 [[on-window-detected]]
 if.app-id="com.apple.finder"
 run= "move-node-to-workspace X"
+
+[[on-window-detected]]
+if.app-id="com.todesktop.230313mzl4w4u92"
+run= "move-node-to-workspace C"
+
+[[on-window-detected]]
+if.app-id="com.google.Chrome"
+run= "move-node-to-workspace B"
