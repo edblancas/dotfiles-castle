@@ -19,27 +19,6 @@
     {
       "actions" : [
         {
-          "key" : "e",
-          "type" : "url",
-          "value" : "raycast://extensions/raycast/emoji-symbols/search-emoji-symbols"
-        },
-        {
-          "key" : "p",
-          "type" : "url",
-          "value" : "raycast://confetti"
-        },
-        {
-          "key" : "c",
-          "type" : "url",
-          "value" : "raycast://extensions/raycast/system/open-camera"
-        }
-      ],
-      "key" : "r",
-      "type" : "group"
-    },
-    {
-      "actions" : [
-        {
           "iconPath" : "uiwindow.split.2x1",
           "key" : "m",
           "label" : "move workspace to monitor",
@@ -92,6 +71,27 @@
       "iconPath" : "uiwindow.split.2x1",
       "key" : "a",
       "label" : "Aerospace",
+      "type" : "group"
+    },
+    {
+      "actions" : [
+        {
+          "key" : "e",
+          "type" : "url",
+          "value" : "raycast://extensions/raycast/emoji-symbols/search-emoji-symbols"
+        },
+        {
+          "key" : "p",
+          "type" : "url",
+          "value" : "raycast://confetti"
+        },
+        {
+          "key" : "c",
+          "type" : "url",
+          "value" : "raycast://extensions/raycast/system/open-camera"
+        }
+      ],
+      "key" : "r",
       "type" : "group"
     }
   ],
