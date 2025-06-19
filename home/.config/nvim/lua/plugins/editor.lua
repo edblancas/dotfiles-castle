@@ -17,6 +17,7 @@ return {
       { 
         "<leader>u", 
         "<cmd>UndotreeToggle<CR>"
+     }
     }
   }
 }
