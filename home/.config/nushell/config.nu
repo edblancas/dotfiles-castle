@@ -888,7 +888,7 @@ $env.config = {
 source ~/.zoxide.nu
 source ~/.cache/carapace/init.nu
 
-alias l = eza --color=always --long --git --icons=always --no-user --no-permissions
+alias l = ls
 alias la = ls --all
 alias tree = eza --tree
 alias cd = z
@@ -910,13 +910,13 @@ def nv [] {
 }
 
 def --env y [...args] {
-	let tmp = (mktemp -t "yazi-cwd.XXXXXX")
-	yazi ...$args --cwd-file $tmp
-	let cwd = (open $tmp)
-	if $cwd != "" and $cwd != $env.PWD {
-		cd $cwd
-	}
-	rm -fp $tmp
+    let tmp = (mktemp -t "yazi-cwd.XXXXXX")
+    yazi ...$args --cwd-file $tmp
+    let cwd = (open $tmp)
+    if $cwd != "" and $cwd != $env.PWD {
+        cd $cwd
+    }
+    rm -fp $tmp
 }
 
 def mkd [dir: string] {
