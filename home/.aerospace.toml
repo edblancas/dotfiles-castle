@@ -168,17 +168,17 @@ run= "move-node-to-workspace 1"
 if.app-id="com.mitchellh.ghostty"
 run= [
   "layout tiling",
-  "move-node-to-workspace 1",
+  "move-node-to-workspace 2",
 ]
 
 # Cursor.app
 [[on-window-detected]]
 if.app-id="com.todesktop.230313mzl4w4u92"
-run= "move-node-to-workspace 2"
+run= "move-node-to-workspace 3"
 
 [[on-window-detected]]
 if.app-id="com.apple.Notes"
-run= "move-node-to-workspace 3"
+run= "move-node-to-workspace 4"
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'finder'
