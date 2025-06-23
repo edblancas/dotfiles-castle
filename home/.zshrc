@@ -403,3 +403,7 @@ _gt_yargs_completions()
 compdef _gt_yargs_completions gt
 ###-end-gt-completions-###
 
+# Function to list all windows and focus on the selected one using fzf
+ff() {
+  aerospace list-windows --all | fzf --bind 'enter:execute(aerospace focus --window-id {1})+abort'
+}

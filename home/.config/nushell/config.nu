@@ -914,8 +914,10 @@ alias vim = nvim
 alias v = nvim
 alias g = git
 alias c = clear
+alias k = kubectl
 
 def nvimconf [] { cd ~/.config/nvim; nvim . }
+
 def nv [] {
     if ($in.is_empty) {
         nvim .
@@ -923,6 +925,7 @@ def nv [] {
         nvim $in
     }
 }
+
 def --env y [...args] {
 	let tmp = (mktemp -t "yazi-cwd.XXXXXX")
 	yazi ...$args --cwd-file $tmp
@@ -932,11 +935,18 @@ def --env y [...args] {
 	}
 	rm -fp $tmp
 }
+
 def mkd [dir: string] {
     mkdir $dir
     cd $dir
 }
+
 def gi [args: string] {
     let keywords = ($args | str join ",")
     curl -L -s $"https://www.gitignore.io/api/($keywords)"
 }
+
+def ff [] {
+    aerospace list-windows --all | fzf --bind 'enter:execute(bash -c "aerospace focus --window-id {1}")+abort'
+}
+
