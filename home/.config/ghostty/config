@@ -27,4 +27,5 @@ macos-option-as-alt = left
 macos-titlebar-style = hidden
 background-opacity = 0.95
 
-keybind = global:cmd+grave_accent=toggle_quick_terminal
+keybind = global:cmd+backslash=toggle_quick_terminal
+keybind = global:f13=toggle_quick_terminal

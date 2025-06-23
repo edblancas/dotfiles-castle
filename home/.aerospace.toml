@@ -9,7 +9,9 @@ after-login-command = []
 # You can use it to add commands that run after AeroSpace startup.
 # 'after-startup-command' is run after 'after-login-command'
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
-after-startup-command = []
+after-startup-command = [
+    'exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0'
+]
 
 # Start AeroSpace at login
 start-at-login = true
@@ -96,6 +98,14 @@ automatically-unhide-macos-hidden-apps = false
     # end tell'
     # '''
 
+    alt-ctrl-shift-f = 'fullscreen'
+    alt-ctrl-f = 'layout floating tiling'
+
+    alt-shift-left = 'join-with left'
+    alt-shift-down = 'join-with down'
+    alt-shift-up = 'join-with up'
+    alt-shift-right = 'join-with right'
+
     # See: https://nikitabobko.github.io/AeroSpace/commands#layout
     alt-slash = 'layout tiles horizontal vertical'
     alt-comma = 'layout accordion horizontal vertical'
@@ -121,26 +131,12 @@ automatically-unhide-macos-hidden-apps = false
     alt-2 = 'workspace 2'
     alt-3 = 'workspace 3'
     alt-4 = 'workspace 4'
-    alt-b = 'workspace B' # for Browser
-    alt-x = 'workspace X' # for Finder aka File [X]plorer
-    alt-t = 'workspace T' # for Terminal
-    alt-s = 'workspace S' # for Comms/Chats: like [S]lack
-    alt-w = 'workspace W' # for Note/Write Apps: like Notions, and Notes
-    alt-m = 'workspace M' # for Music Apps
-    alt-c = 'workspace C' # for Code Apps
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
-    alt-shift-1 = 'move-node-to-workspace 1'
-    alt-shift-2 = 'move-node-to-workspace 2'
-    alt-shift-3 = 'move-node-to-workspace 3'
-    alt-shift-4 = 'move-node-to-workspace 4'
-    alt-shift-b = 'move-node-to-workspace B'
-    alt-shift-x = 'move-node-to-workspace X'
-    alt-shift-t = 'move-node-to-workspace T'
-    alt-shift-s = 'move-node-to-workspace S'
-    alt-shift-w = 'move-node-to-workspace W'
-    alt-shift-m = 'move-node-to-workspace M'
-    alt-shift-c = 'move-node-to-workspace C'
+    alt-shift-1 = 'move-node-to-workspace 1 --focus-follows-window'
+    alt-shift-2 = 'move-node-to-workspace 2 --focus-follows-window'
+    alt-shift-3 = 'move-node-to-workspace 3 --focus-follows-window'
+    alt-shift-4 = 'move-node-to-workspace 4 --focus-follows-window'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
     alt-tab = 'workspace-back-and-forth'
@@ -150,53 +146,45 @@ automatically-unhide-macos-hidden-apps = false
     # See: https://nikitabobko.github.io/AeroSpace/commands#mode
     alt-shift-semicolon = 'mode service'
 
-    # me
-    alt-shift-f = 'fullscreen'
-
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 [mode.service.binding]
     esc = ['reload-config', 'mode main']
     r = ['flatten-workspace-tree', 'mode main'] # reset layout
-    f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
     backspace = ['close-all-windows-but-current', 'mode main']
 
     # sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
     #s = ['layout sticky tiling', 'mode main']
 
-    alt-shift-h = ['join-with left', 'mode main']
-    alt-shift-j = ['join-with down', 'mode main']
-    alt-shift-k = ['join-with up', 'mode main']
-    alt-shift-l = ['join-with right', 'mode main']
+[[on-window-detected]]
+if.app-id="com.google.Chrome"
+run= "move-node-to-workspace 1"
 
-    down = 'volume down'
-    up = 'volume up'
-    shift-down = ['volume set 0', 'mode main']
+[[on-window-detected]]
+if.app-id="company.thebrowser.Browser"
+run= "move-node-to-workspace 1"
 
-## me ##
 [[on-window-detected]]
 if.app-id="com.mitchellh.ghostty"
 run= [
   "layout tiling",
-  "move-node-to-workspace T",
+  "move-node-to-workspace 1",
 ]
 
+# Cursor.app
 [[on-window-detected]]
-if.app-id="company.thebrowser.Browser"
-run= "move-node-to-workspace B"
+if.app-id="com.todesktop.230313mzl4w4u92"
+run= "move-node-to-workspace 2"
 
 [[on-window-detected]]
 if.app-id="com.apple.Notes"
-run= "move-node-to-workspace W"
+run= "move-node-to-workspace 3"
 
 [[on-window-detected]]
-if.app-id="com.apple.finder"
-run= "move-node-to-workspace X"
+if.app-name-regex-substring = 'finder'
+run = 'layout floating'
 
 [[on-window-detected]]
-if.app-id="com.todesktop.230313mzl4w4u92"
-run= "move-node-to-workspace C"
-
-[[on-window-detected]]
-if.app-id="com.google.Chrome"
-run= "move-node-to-workspace B"
+if.app-name-regex-substring = 'safari'
+run = 'layout floating'
+ 
