@@ -23,6 +23,7 @@ mkdir ~/.cache/carapace
 carapace _carapace nushell | save --force ~/.cache/carapace/init.nu
 
 $env.EDITOR = 'nvim'
+$env.config.edit_mode = 'vi'
 
 def nvimconf [] { cd ~/.config/nvim; nvim . }
 
