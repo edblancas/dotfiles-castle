@@ -46,5 +46,6 @@ home/.config/nushell/history.txt
 # nvim lazy package manager, each machjinge has its own versions, personal and job
 lazy-lock.json
 
-# ignore git repositories managed by tpm
-home/.config/tmux/plugins/
+# This ignores all plugins installed by tpm, except for the plugin manager itself (which you track as a submodule).
+home/.config/tmux/plugins/*
+!home/.config/tmux/plugins/tpm
