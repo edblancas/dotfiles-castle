@@ -55,3 +55,7 @@
 [submodule "home/.config/tmux/plugins/tpm"]
 	path = home/.config/tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm.git
+[submodule "home/.config/yazi/plugins"]
+	path = home/.config/yazi/plugins
+	url = https://github.com/yazi-rs/plugins.git
+	branch = main
