@@ -43,5 +43,8 @@ home/.config/raycast
 
 home/.config/nushell/history.txt
 
-# nvim lazy package manager
+# nvim lazy package manager, each machjinge has its own versions, personal and job
 lazy-lock.json
+
+# ignore git repositories managed by tpm
+home/.config/tmux/plugins/
