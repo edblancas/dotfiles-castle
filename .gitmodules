@@ -59,3 +59,6 @@
 	path = home/.config/yazi/plugins
 	url = https://github.com/yazi-rs/plugins.git
 	branch = main
+[submodule "home/.config/yazi/flavors"]
+	path = home/.config/yazi/flavors
+	url = https://github.com/yazi-rs/flavors.git
