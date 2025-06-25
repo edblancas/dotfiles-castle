@@ -178,7 +178,7 @@ run= "move-node-to-workspace 3"
 
 [[on-window-detected]]
 if.app-id="com.apple.Notes"
-run= "move-node-to-workspace 4"
+run= "layout floating"
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'finder'
@@ -188,3 +188,10 @@ run = 'layout floating'
 if.app-name-regex-substring = 'safari'
 run = 'layout floating'
  
+[[on-window-detected]]
+if.app-id = 'com.apple.VoiceMemos'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'us.zoom.xos'
+run = 'layout floating'
