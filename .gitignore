@@ -49,3 +49,41 @@ lazy-lock.json
 # This ignores all plugins installed by tpm, except for the plugin manager itself (which you track as a submodule).
 home/.config/tmux/plugins/*
 !home/.config/tmux/plugins/tpm
+
+### Cursor ###
+# Ignore all files and directories in .cursor by default
+*
+
+# Exceptions: Allow specific files/directories to be tracked
+
+# Keep the extensions.json file within the extensions/ directory
+!/extensions/
+/extensions/*
+!/extensions/extensions.json
+
+# Keep the snippets directory and its contents
+!/snippets/
+/snippets/*
+!/snippets/
+# !/snippets/: This new line tells Git not to ignore the snippets/ directory itself.
+# /snippets/*: This line then tells Git to ignore all files and subdirectories inside the snippets/ directory.
+# !/snippets/: This final line explicitly tells Git to include all the contents inside the snippets directory. This is sometimes necessary for certain Git versions or edge cases when trying to include a directory after ignoring its contents.
+
+# Keep other essential configuration files if you wish to track them.
+# Uncomment the lines below for any files you want to keep.
+!argv.json
+!keybindings.json
+!mcp.json
+!settings.json
+!unified_repo_list.json
+
+# If you want to keep specific files inside subdirectories like globalStorage,
+# you'll need to explicitly allow the directory first and then the file.
+# Example:
+#!globalStorage/
+#/globalStorage/*
+#!globalStorage/someImportantFile.json
+
+# Ignore history and workspace storage as they are usually user-specific and dynamic
+History/
+workspaceStorage/
