@@ -11,6 +11,8 @@ alias v = nvim
 alias g = git
 alias c = clear
 alias k = kubectl
+alias kctx = kubectx
+alias kns = kubens
 
 mkdir ($nu.data-dir | path join "vendor/autoload")
 starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")

@@ -4,3 +4,9 @@
 # Disable the package module, hiding it from the prompt completely
 [aws]
 disabled = true
+
+[kubernetes]
+disabled = false
+
+[gcloud]
+format = 'on [☁️($domain)]($style) '
