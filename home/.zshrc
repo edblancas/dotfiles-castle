@@ -35,9 +35,18 @@ source $ZSH/oh-my-zsh.sh
 autoload -Uz compinit && compinit
 autoload bashcompinit && bashcompinit
 
-# https://gist.github.com/zulhfreelancer/9c410cad5efa9c5f7c74cd0849765865
-# man strftime
-RPROMPT="[%D{%a %f %b} %D{%T}]"
+RPROMPT='$(kube_ps1)'
+trprompt() {
+  if [[ "$_RPROMPT_STATE" == "datetime" ]]; then
+    RPROMPT='$(kube_ps1)'
+    _RPROMPT_STATE="kube_ps1"
+    echo "RPROMPT set to kube-ps1"
+  else
+    RPROMPT="[%D{%a %f %b} %D{%T}]"
+    _RPROMPT_STATE="datetime"
+    echo "RPROMPT set to date/time"
+  fi
+}
 
 ### START PURE PROMPT ###
 fpath+=($HOME/.zsh/pure)
@@ -50,9 +59,6 @@ zstyle :prompt:pure:git:fetch only_upstream yes
 
 prompt pure
 ### END PURE PROMPT ###
-
-# kube-ps1
-PROMPT='$(kube_ps1)'$PROMPT # or RPROMPT='$(kube_ps1)'
 
 ### START ZSH VIM MODE PLUGIN ###
 # history-substring-search with vim mode
