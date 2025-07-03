@@ -18,7 +18,7 @@ export VISUAL='nvim'
 ### START OH-MY-ZSH ###
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME=""
-plugins=(zsh-syntax-highlighting history-substring-search zsh-autosuggestions zsh-vi-mode)
+plugins=(zsh-syntax-highlighting history-substring-search zsh-autosuggestions zsh-vi-mode kube-ps1)
 
 # zsh-autosuggest plugin settings
 # https://github.com/zsh-users/zsh-autosuggestions
@@ -51,6 +51,8 @@ zstyle :prompt:pure:git:fetch only_upstream yes
 prompt pure
 ### END PURE PROMPT ###
 
+# kube-ps1
+PROMPT='$(kube_ps1)'$PROMPT # or RPROMPT='$(kube_ps1)'
 
 ### START ZSH VIM MODE PLUGIN ###
 # history-substring-search with vim mode
@@ -111,7 +113,6 @@ export MANPAGER='less -X'
 alias zshrc="nvim $HOME/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias nvimconf="cd ~/.config/nvim && nvim ."
-alias kittyconf="cd ~/.config/kitty && nvim kitty.conf"
 alias c="clear"
 alias e="exit"
 alias g="git"
@@ -407,3 +408,7 @@ compdef _gt_yargs_completions gt
 ff() {
   aerospace list-windows --all | fzf --bind 'enter:execute(aerospace focus --window-id {1})+abort'
 }
+
+alias k=kubectl
+alias kctx=kubectx
+alias kns=kubens

@@ -101,10 +101,10 @@ automatically-unhide-macos-hidden-apps = false
     alt-shift-f = 'fullscreen'
     alt-ctrl-f = 'layout floating tiling'
 
-    alt-shift-left = 'join-with left'
-    alt-shift-down = 'join-with down'
-    alt-shift-up = 'join-with up'
-    alt-shift-right = 'join-with right'
+    alt-ctrl-left = 'join-with left'
+    alt-ctrl-down = 'join-with down'
+    alt-ctrl-up = 'join-with up'
+    alt-ctrl-right = 'join-with right'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#layout
     alt-slash = 'layout tiles horizontal vertical'
