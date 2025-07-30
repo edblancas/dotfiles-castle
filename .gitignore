@@ -54,7 +54,6 @@ home/.config/tmux/plugins/*
 home/.cursor/*
 !home/.cursor/argv.json
 !home/.cursor/keybindings.json
-!home/.cursor/mcp.json
 !home/.cursor/settings.json
 !home/.cursor/unified_repo_list.json
 !home/.cursor/blocklist 

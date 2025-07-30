@@ -36,7 +36,7 @@ autoload -Uz compinit && compinit
 autoload bashcompinit && bashcompinit
 
 RPROMPT='$(kube_ps1)'
-trprompt() {
+toggle_rprompt() {
   if [[ "$_RPROMPT_STATE" == "datetime" ]]; then
     RPROMPT='$(kube_ps1)'
     _RPROMPT_STATE="kube_ps1"
@@ -418,3 +418,7 @@ ff() {
 alias k=kubectl
 alias kctx=kubectx
 alias kns=kubens
+
+# Task Master aliases added on 7/23/2025
+alias tm='task-master'
+alias taskmaster='task-master'

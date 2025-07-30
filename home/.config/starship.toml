@@ -7,6 +7,7 @@ disabled = true
 
 [kubernetes]
 disabled = false
+symbol = '☸️'
 
 [gcloud]
 format = 'on [☁️($domain)]($style) '
