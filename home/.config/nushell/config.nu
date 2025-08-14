@@ -61,3 +61,4 @@ def ff [] {
     aerospace list-windows --all | fzf --bind 'enter:execute(bash -c "aerospace focus --window-id {1}")+abort'
 }
 
+source $"($nu.home-path)/.cargo/env.nu"

@@ -99,7 +99,7 @@ automatically-unhide-macos-hidden-apps = false
     # '''
 
     alt-shift-f = 'fullscreen'
-    alt-ctrl-f = 'layout floating tiling'
+    alt-shift-t = 'layout floating tiling'
 
     alt-ctrl-left = 'join-with left'
     alt-ctrl-down = 'join-with down'

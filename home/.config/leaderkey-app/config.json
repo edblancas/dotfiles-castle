@@ -34,7 +34,7 @@
         },
         {
           "iconPath" : "uiwindow.split.2x1",
-          "key" : "o",
+          "key" : "t",
           "label" : "toggle between floating and tiling layout",
           "type" : "command",
           "value" : "/opt/homebrew/bin/aerospace layout floating tiling"
