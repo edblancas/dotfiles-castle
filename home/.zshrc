@@ -35,7 +35,7 @@ source $ZSH/oh-my-zsh.sh
 autoload -Uz compinit && compinit
 autoload bashcompinit && bashcompinit
 
-RPROMPT='$(kube_ps1)'
+RPROMPT="[%D{%a %f %b} %D{%T}]"
 toggle_rprompt() {
   if [[ "$_RPROMPT_STATE" == "datetime" ]]; then
     RPROMPT='$(kube_ps1)'
@@ -145,7 +145,7 @@ alias ls='gls $LS_OPTIONS -FGH'
 # Zsh to use the same colors as ls
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
-alias update='brew update; brew cleanup; update_dotfiles_submodules'
+alias update='brew upgrade; brew update; brew cleanup; update_dotfiles_submodules'
 alias cloud="cd $HOME/Library/Mobile\ Documents/com~apple~CloudDocs"
 
 ### Functions ###
