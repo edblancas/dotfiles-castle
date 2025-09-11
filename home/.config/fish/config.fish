@@ -24,3 +24,5 @@ set -g __fish_vi_mode 0
 bass (gdircolors $HOME/.dircolors/dircolors-solarized/dircolors.ansi-dark)
 
 [ -f /usr/local/share/autojump/autojump.fish ]; and source /usr/local/share/autojump/autojump.fish
+
+string match -q "$TERM_PROGRAM" "kiro" and . (kiro --locate-shell-integration-path fish)

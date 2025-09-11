@@ -421,3 +421,5 @@ alias kns=kubens
 # Task Master aliases added on 7/23/2025
 alias tm='task-master'
 alias taskmaster='task-master'
+
+[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
