@@ -35,9 +35,6 @@ backups
 .recentf
 custom.el
 
-home/.config/zed/embeddings/
-home/.config/zed/.tmp*
-
 .cpcache
 home/.config/raycast
 
@@ -61,3 +58,8 @@ home/.cursor/*
 home/.cursor/extensions/*
 !home/.cursor/extensions/extensions.json
 !home/.cursor/snippets/
+
+### Zed ###
+home/.config/zed/embeddings/
+home/.config/zed/.tmp*
+home/.config/zed/prompts/

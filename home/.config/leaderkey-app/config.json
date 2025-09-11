@@ -68,6 +68,7 @@
           "value" : "/opt/homebrew/bin/aerospace join-with right"
         },
         {
+          "iconPath" : "uiwindow.split.2x1",
           "key" : "m",
           "label" : "move win to monitor ",
           "type" : "command",
@@ -99,5 +100,6 @@
       ],
       "key" : "r",
       "type" : "group"
-    }
+    },
+  ]
 }
