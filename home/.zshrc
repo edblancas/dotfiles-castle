@@ -132,7 +132,7 @@ alias vi='nvim'
 alias vim='nvim'
 alias nv='nvim'
 alias update_nvim_plugins='nvim --headless "+Lazy! sync" +qa'
-alias update_nvim='$HOME/bin/update_neovim.sh master'
+alias update_nvim='$HOME/bin/update-neovim.sh master'
 
 # Aliases for vim and kaleidoscope merge diff tool
 alias gkdiff='git config diff.tool kaleidoscope; git difftool'
