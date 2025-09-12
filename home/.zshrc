@@ -131,6 +131,9 @@ alias update_dotfiles_submodules="cd ~/.homesick/repos/dotfiles-castle && git su
 alias vi='nvim'
 alias vim='nvim'
 alias nv='nvim'
+alias update_nvim_plugins='nvim --headless "+Lazy! sync" +qa'
+alias update_nvim='$HOME/bin/update_neovim.sh master'
+
 # Aliases for vim and kaleidoscope merge diff tool
 alias gkdiff='git config diff.tool kaleidoscope; git difftool'
 alias gkmerge='git config merge.tool kaleidoscope; git mergetool'
@@ -145,7 +148,7 @@ alias ls='gls $LS_OPTIONS -FGH'
 # Zsh to use the same colors as ls
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
-alias update='brew upgrade; brew update; brew cleanup; update_dotfiles_submodules'
+alias update='brew upgrade; brew update; brew cleanup; update_dotfiles_submodules; $HOME/bin/aerospace-swipe-update.sh; update_nvim_plugins; update_nvim'
 alias cloud="cd $HOME/Library/Mobile\ Documents/com~apple~CloudDocs"
 
 ### Functions ###
