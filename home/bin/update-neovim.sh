@@ -1,4 +1,4 @@
-#!/bin/bash
+#echo -e "\033]777;notify;your title;your body\007"!/bin/bash
 
 set -e
 
@@ -41,6 +41,10 @@ log_info "building neovim ($BRANCH)..."
 make CMAKE_BUILD_TYPE=RelWithDebInfo
 
 log_info "installing neovim..."
+# Ghostty notification
+# https://github.com/ghostty-org/ghostty/discussions/3555#discussioncomment-11687079
+# https://github.com/ghostty-org/ghostty/discussions/8527#discussioncomment-14381405
+echo -e "\033]9;Enter passwor to install neovim\007"
 sudo make install
 
 log_success "neovim ($BRANCH) installation complete"

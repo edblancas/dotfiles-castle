@@ -148,7 +148,7 @@ alias ls='gls $LS_OPTIONS -FGH'
 # Zsh to use the same colors as ls
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
-alias update='brew upgrade; brew update; brew cleanup; update_dotfiles_submodules; $HOME/bin/aerospace-swipe-update.sh; update_nvim_plugins; update_nvim'
+alias update='updade_nvim ; brew upgrade; brew update; brew cleanup; update_dotfiles_submodules; $HOME/bin/aerospace-swipe-update.sh; update_nvim_plugins'
 alias cloud="cd $HOME/Library/Mobile\ Documents/com~apple~CloudDocs"
 
 ### Functions ###
