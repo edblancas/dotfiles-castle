@@ -426,3 +426,11 @@ alias tm='task-master'
 alias taskmaster='task-master'
 
 [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/daniel.blancas/.lmstudio/bin"
+# End of LM Studio CLI section
+
+# Cursor CLI
+export PATH="$HOME/.local/bin:$PATH"
+# End Cursor CLI

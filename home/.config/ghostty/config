@@ -2,9 +2,9 @@ window-padding-color = background
 theme = tokyonight
 
 #font-family = "JetBrains Mono"
-font-family = "Geist Mono"
+#font-family = "Geist Mono"
 
-#font-family = "Berkeley Mono"
+font-family = "Berkeley Mono"
 #font-feature = -calt
 #font-feature = -liga
 #font-feature = -dlig
@@ -14,7 +14,7 @@ font-family = "Geist Mono"
 #font-style-bold = "Bold"
 #font-style-bold-italic = "Bold Oblique"
 
-#font-style = "SemiCondensed"
+font-style = "SemiCondensed"
 #font-style-italic = "SemiCondensed Oblique"
 #font-style-bold = "Bold SemiCondensed"
 #font-style-bold-italic = "Bold SemiCondensed Oblique"

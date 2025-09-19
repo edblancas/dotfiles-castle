@@ -26,3 +26,8 @@ bass (gdircolors $HOME/.dircolors/dircolors-solarized/dircolors.ansi-dark)
 [ -f /usr/local/share/autojump/autojump.fish ]; and source /usr/local/share/autojump/autojump.fish
 
 string match -q "$TERM_PROGRAM" "kiro" and . (kiro --locate-shell-integration-path fish)
+
+# Added by LM Studio CLI (lms)
+set -gx PATH $PATH /Users/daniel.blancas/.lmstudio/bin
+# End of LM Studio CLI section
+

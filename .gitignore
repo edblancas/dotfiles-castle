@@ -48,16 +48,16 @@ home/.config/tmux/plugins/*
 !home/.config/tmux/plugins/tpm
 
 ### Cursor ###
-home/.cursor/*
-!home/.cursor/argv.json
-!home/.cursor/keybindings.json
-!home/.cursor/settings.json
-!home/.cursor/unified_repo_list.json
-!home/.cursor/blocklist 
-!home/.cursor/extensions/
-home/.cursor/extensions/*
-!home/.cursor/extensions/extensions.json
-!home/.cursor/snippets/
+home/.config/cursor/*
+!home/.config/cursor/argv.json
+!home/.config/cursor/keybindings.json
+!home/.config/cursor/settings.json
+!home/.config/cursor/unified_repo_list.json
+!home/.config/cursor/blocklist 
+!home/.config/cursor/extensions/
+home/.config/cursor/extensions/*
+!home/.config/cursor/extensions/extensions.json
+!home/.config/cursor/snippets/
 
 ### Zed ###
 home/.config/zed/embeddings/
