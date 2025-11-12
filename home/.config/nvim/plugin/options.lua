@@ -46,4 +46,3 @@ opt.foldlevel = 99
 
 opt.shell = 'nu'
 
-opt.winborder = 'single'
