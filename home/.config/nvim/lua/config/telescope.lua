@@ -43,3 +43,17 @@ vim.keymap.set("n", "<leader>fg", require "config.telescope.multigrep", { desc =
 vim.keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = 'Telescope: diagnostics' })
 vim.keymap.set("n", "<leader>fs", builtin.lsp_document_symbols, { desc = 'Telescope: doc symbols' })
 vim.keymap.set("n", "<leader>fw", builtin.lsp_workspace_symbols, { desc = 'Telescope: workspace symbols' })
+vim.keymap.set("n", "<leader>fc", function()
+  require("telescope.builtin").find_files({
+    cwd = vim.fn.expand("$HOME/.homesick/repos/dotfiles-castle"),
+    hidden = true,      -- show dotfiles
+    no_ignore = true,   -- do not ignore files from .gitignore, etc.
+    follow = true,      -- follow symlinks (common in dotfiles)
+  })
+end, { desc = "Telescope: dotfiles castle" })
+vim.keymap.set("n", "<leader>fC", function()
+  require("telescope.builtin").live_grep({
+    cwd = vim.fn.expand("$HOME/.homesick/repos/dotfiles-castle"),
+    hidden = true,
+  })
+end, { desc = "Telescope: grep dotfiles castle" })
