@@ -1,6 +1,7 @@
 window-padding-color = background
 theme = tokyonight
 
+#font-family = "Google Sans Code"
 #font-family = "JetBrains Mono"
 #font-family = "Geist Mono"
 
@@ -15,9 +16,9 @@ font-family = "Berkeley Mono"
 #font-style-bold-italic = "Bold Oblique"
 
 font-style = "SemiCondensed"
-#font-style-italic = "SemiCondensed Oblique"
-#font-style-bold = "Bold SemiCondensed"
-#font-style-bold-italic = "Bold SemiCondensed Oblique"
+font-style-italic = "SemiCondensed Oblique"
+font-style-bold = "Bold SemiCondensed"
+font-style-bold-italic = "Bold SemiCondensed Oblique"
 
 font-size = 17
 
@@ -28,6 +29,8 @@ macos-option-as-alt = left
 macos-titlebar-style = hidden
 background-opacity = 0.95
 background-blur-radius = 20
+# macos-glass-clear
+# background-blur = macos-glass-regular
 mouse-hide-while-typing = true
 
 keybind = global:cmd+alt+period=toggle_quick_terminal
