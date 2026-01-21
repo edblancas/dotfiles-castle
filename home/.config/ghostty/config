@@ -44,3 +44,7 @@ keybind = global:f13=toggle_quick_terminal
 
 # not works with aerospace
 # macos-non-native-fullscreen = visible-menu
+
+
+### fixed the mem leak ###
+auto-update-channel = tip
