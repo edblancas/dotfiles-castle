@@ -48,3 +48,8 @@ keybind = global:f13=toggle_quick_terminal
 
 ### fixed the mem leak ###
 auto-update-channel = tip
+
+### icon ###
+macos-icon = blueprint
+#macos-custom-icon = ~/Config/ghostty/icon_256x256@2x.png
+#macos-icon = custom
