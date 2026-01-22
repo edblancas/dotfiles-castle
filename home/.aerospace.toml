@@ -145,7 +145,7 @@ automatically-unhide-macos-hidden-apps = false
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
     alt-ctrl-tab = 'workspace-back-and-forth'
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
-    alt-tab = 'exec-and-forget aerospace list-workspaces --monitor focused --empty no | aerospace workspace --wrap-around next'
+    alt-tab = 'exec-and-forget aerospace list-workspaces --monitor focused --empty no | aerospace workspace --wrap-around next --stdin'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-monitor
     alt-cmd-tab = 'move-node-to-monitor --wrap-around next'
