@@ -1,0 +1,90 @@
+schemaVersion = 1
+
+[hotkeys]
+custom = []
+
+    [hotkeys.app.activate]
+    carbonKeyCode = 49
+    carbonModifiers = 256
+
+[[leaderMode.bindings]]
+key = 't'
+url = 'tuna://run/path.%252FApplications%252FGhostty.app/Open'
+
+[[leaderMode.bindings]]
+key = 'o'
+
+    [[leaderMode.bindings.children]]
+    key = 'i'
+    url = 'tuna://run/path.%252FSystem%252FApplications%252FMusic.app/Open'
+
+[[leaderMode.bindings]]
+iconPath = 'uiwindow.split.2x1'
+key = 'a'
+label = 'Aerospace'
+
+    [[leaderMode.bindings.children]]
+    iconPath = 'uiwindow.split.2x1'
+    key = 'w'
+    label = 'move workspace to monitor'
+    url = 'tuna://run/text.%252Fopt%252Fhomebrew%252Fbin%252Faerospace%2520move-workspace-to-monitor%2520--wrap-around%2520next/Run%20Text%20as%20Shell%20Command'
+
+    [[leaderMode.bindings.children]]
+    iconPath = 'uiwindow.split.2x1'
+    key = 'f'
+    label = 'fullscreen'
+    url = 'tuna://run/text.%252Fopt%252Fhomebrew%252Fbin%252Faerospace%2520fullscreen/Run%20Text%20as%20Shell%20Command'
+
+    [[leaderMode.bindings.children]]
+    iconPath = 'uiwindow.split.2x1'
+    key = 't'
+    label = 'toggle between floating and tiling layout'
+    url = 'tuna://run/text.%252Fopt%252Fhomebrew%252Fbin%252Faerospace%2520layout%2520floating%2520tiling/Run%20Text%20as%20Shell%20Command'
+
+    [[leaderMode.bindings.children]]
+    iconPath = 'uiwindow.split.2x1'
+    key = 'h'
+    label = 'join with left'
+    url = 'tuna://run/text.%252Fopt%252Fhomebrew%252Fbin%252Faerospace%2520join-with%2520left/Run%20Text%20as%20Shell%20Command'
+
+    [[leaderMode.bindings.children]]
+    iconPath = 'uiwindow.split.2x1'
+    key = 'j'
+    label = 'join with down'
+    url = 'tuna://run/text.%252Fopt%252Fhomebrew%252Fbin%252Faerospace%2520join-with%2520down/Run%20Text%20as%20Shell%20Command'
+
+    [[leaderMode.bindings.children]]
+    iconPath = 'uiwindow.split.2x1'
+    key = 'k'
+    label = 'join with up'
+    url = 'tuna://run/text.%252Fopt%252Fhomebrew%252Fbin%252Faerospace%2520join-with%2520up/Run%20Text%20as%20Shell%20Command'
+
+    [[leaderMode.bindings.children]]
+    iconPath = 'uiwindow.split.2x1'
+    key = 'l'
+    label = 'join with right'
+    url = 'tuna://run/text.%252Fopt%252Fhomebrew%252Fbin%252Faerospace%2520join-with%2520right/Run%20Text%20as%20Shell%20Command'
+
+    [[leaderMode.bindings.children]]
+    iconPath = 'uiwindow.split.2x1'
+    key = 'm'
+    label = 'move win to monitor '
+    url = 'tuna://run/text.%2520%252Fopt%252Fhomebrew%252Fbin%252Faerospace%2520move-node-to-monitor%2520--wrap-around%2520next/Run%20Text%20as%20Shell%20Command'
+
+[[leaderMode.bindings]]
+key = 'r'
+
+    [[leaderMode.bindings.children]]
+    key = 'e'
+    url = 'tuna://run/url.raycast:%252F%252Fextensions%252Fraycast%252Femoji-symbols%252Fsearch-emoji-symbols/Open%20URL'
+
+    [[leaderMode.bindings.children]]
+    key = 'p'
+    url = 'tuna://run/url.raycast:%252F%252Fconfetti/Open%20URL'
+
+    [[leaderMode.bindings.children]]
+    key = 'c'
+    url = 'tuna://run/url.raycast:%252F%252Fextensions%252Fraycast%252Fsystem%252Fopen-camera/Open%20URL'
+
+[settings]
+themeIdentifier = 'com.brnbw.tuna.themes.default'
