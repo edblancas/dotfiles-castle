@@ -379,6 +379,7 @@ alias vf='NVIM_APPNAME=nvim-fennel nvim' # nvim fennel config
 
 alias zs="~/bin/zellij-smart-sessionizer/zellij-smart-sessionizer"
 
+alias t='tmux attach || tmux new -s work'
 alias ts='tmux-sessionizer -rp /usr/local/repos ~/projects'
 alias tf='tmuxinator-fzf-start'
 
@@ -386,7 +387,7 @@ alias tf='tmuxinator-fzf-start'
 alias vgrep='nvim -q <(rg --vimgrep)'
 
 # bun completions
-[ -s "/Users/dan/.bun/_bun" ] && source "/Users/dan/.bun/_bun"
+[ -s "/Users/dan/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
@@ -434,3 +435,6 @@ export PATH="$PATH:/Users/daniel.blancas/.lmstudio/bin"
 # Cursor CLI
 export PATH="$HOME/.local/bin:$PATH"
 # End Cursor CLI
+
+# tmux fns
+source $HOME/.bash/tmux.sh

@@ -1,17 +1,135 @@
 schemaVersion = 1
 
-[hotkeys]
-custom = []
+[hotkeys.app.activate]
+carbonKeyCode = 49
+carbonModifiers = 256
 
-    [hotkeys.app.activate]
-    carbonKeyCode = 49
-    carbonModifiers = 256
+[hotkeys.app.leaderMode]
+carbonKeyCode = 49
+carbonModifiers = 6912
+
+[[hotkeys.custom]]
+id = '1BB9EDAF-2CC9-49FC-BF1E-EFAAAB53F98A'
+presentation = 'auto'
+
+    [hotkeys.custom.command]
+    actionIdentifier = 'TunaCore.CommonActionsCatalog.Toggle Application'
+    subjectIdentifier = 'TunaCore.AllApplicationsCatalog.zoom.us'
+
+    [hotkeys.custom.shortcut]
+    carbonKeyCode = 6
+    carbonModifiers = 6912
+
+[[hotkeys.custom]]
+id = '1D01A931-B371-4149-8612-5D0F4E458EB2'
+presentation = 'auto'
+
+    [hotkeys.custom.command]
+    actionIdentifier = 'TunaCore.CommonActionsCatalog.Toggle Application'
+    subjectIdentifier = 'TunaCore.SystemApplicationsCatalog.Notes'
+
+    [hotkeys.custom.shortcut]
+    carbonKeyCode = 45
+    carbonModifiers = 6912
+
+[[hotkeys.custom]]
+id = '56C0876D-5996-47F8-968E-251352B60F38'
+presentation = 'auto'
+
+    [hotkeys.custom.command]
+    actionIdentifier = 'TunaCore.CommonActionsCatalog.Toggle Application'
+    subjectIdentifier = 'TunaCore.AllApplicationsCatalog.Slack'
+
+    [hotkeys.custom.shortcut]
+    carbonKeyCode = 1
+    carbonModifiers = 6912
+
+[[hotkeys.custom]]
+id = '8196B9DD-89E2-498B-8E75-D27C594AE482'
+presentation = 'auto'
+
+    [hotkeys.custom.command]
+    actionIdentifier = 'TunaCore.CommonActionsCatalog.Toggle Application'
+    subjectIdentifier = 'TunaCore.SystemApplicationsCatalog.Reminders'
+
+    [hotkeys.custom.shortcut]
+    carbonKeyCode = 15
+    carbonModifiers = 6912
+
+[[hotkeys.custom]]
+id = '85CAF09F-C839-48FB-8D47-E009529F8BB4'
+presentation = 'auto'
+
+    [hotkeys.custom.command]
+    actionIdentifier = 'TunaCore.CommonActionsCatalog.Toggle Application'
+    subjectIdentifier = 'TunaCore.SystemApplicationsCatalog.Finder'
+
+    [hotkeys.custom.shortcut]
+    carbonKeyCode = 31
+    carbonModifiers = 6912
+
+[[hotkeys.custom]]
+id = '89CCD2BD-87E7-4570-8F12-ABF8361234AE'
+presentation = 'auto'
+
+    [hotkeys.custom.command]
+    actionIdentifier = 'TunaCore.CommonActionsCatalog.Toggle Application'
+    subjectIdentifier = 'TunaCore.AllApplicationsCatalog.Arc'
+
+    [hotkeys.custom.shortcut]
+    carbonKeyCode = 0
+    carbonModifiers = 6912
+
+[[hotkeys.custom]]
+id = 'B31688D2-5A0A-40CF-8FC9-A8FC3665EB47'
+presentation = 'auto'
+
+    [hotkeys.custom.command]
+    actionIdentifier = 'TunaCore.CommonActionsCatalog.Toggle Application'
+    subjectIdentifier = 'TunaCore.AllApplicationsCatalog.Ghostty'
+
+    [hotkeys.custom.shortcut]
+    carbonKeyCode = 5
+    carbonModifiers = 6912
+
+[[hotkeys.custom]]
+id = 'C393537F-1C92-45C1-96C0-9BB5AC72B773'
+presentation = 'auto'
+
+    [hotkeys.custom.command]
+    actionIdentifier = 'TunaCore.CommonActionsCatalog.Toggle Application'
+    subjectIdentifier = 'TunaCore.AllApplicationsCatalog.Google Chrome'
+
+    [hotkeys.custom.shortcut]
+    carbonKeyCode = 8
+    carbonModifiers = 6912
+
+[[hotkeys.custom]]
+id = 'DB36F5F3-64C1-40B8-8034-09C65BC8B7CA'
+presentation = 'auto'
+
+    [hotkeys.custom.command]
+    actionIdentifier = 'TunaCore.CommonActionsCatalog.Toggle Application'
+    subjectIdentifier = 'TunaCore.AllApplicationsCatalog.Cursor'
+
+    [hotkeys.custom.shortcut]
+    carbonKeyCode = 14
+    carbonModifiers = 6912
+
+[[hotkeys.custom]]
+id = 'EDB93138-C981-42EA-8889-163945C3F1B9'
+presentation = 'auto'
+
+    [hotkeys.custom.command]
+    actionIdentifier = 'TunaCore.CommonActionsCatalog.Toggle Application'
+    subjectIdentifier = 'TunaCore.AllApplicationsCatalog.Notion'
+
+    [hotkeys.custom.shortcut]
+    carbonKeyCode = 17
+    carbonModifiers = 6912
 
 [[leaderMode.bindings]]
-key = 't'
-url = 'tuna://run/path.%252FApplications%252FGhostty.app/Open'
-
-[[leaderMode.bindings]]
+iconPath = 'figure.run'
 key = 'o'
 
     [[leaderMode.bindings.children]]
@@ -72,6 +190,7 @@ label = 'Aerospace'
     url = 'tuna://run/text.%2520%252Fopt%252Fhomebrew%252Fbin%252Faerospace%2520move-node-to-monitor%2520--wrap-around%2520next/Run%20Text%20as%20Shell%20Command'
 
 [[leaderMode.bindings]]
+iconPath = '/Applications/Raycast.app'
 key = 'r'
 
     [[leaderMode.bindings.children]]
@@ -86,5 +205,28 @@ key = 'r'
     key = 'c'
     url = 'tuna://run/url.raycast:%252F%252Fextensions%252Fraycast%252Fsystem%252Fopen-camera/Open%20URL'
 
+[[leaderMode.bindings]]
+iconPath = 'folder.fill'
+key = 'f'
+
+    [[leaderMode.bindings.children]]
+    key = 'm'
+    url = 'tuna://run/path.%252FUsers%252Fdaniel.blancas%252FMovies/Open'
+
+[[leaderMode.bindings]]
+iconPath = 'suitcase.fill'
+key = 'i'
+
+    [[leaderMode.bindings.children]]
+    key = 'j'
+    url = 'tuna://run/url.https:%252F%252Fironcladapp.atlassian.net%252Fjira%252Fsoftware%252Fprojects%252FDEVPROD%252Fboards%252F303%253Fjql=assignee%252520%25253D%252520712020%25253A5782146c-7b37-44fc-86d3-116ec047b288/Open%20URL'
+
 [settings]
+leaderModeCheatsheetBehavior = 'always'
 themeIdentifier = 'com.brnbw.tuna.themes.default'
+
+[[catalogSettings]]
+catalogIdentifier = 'TunaCore.TextActionsCatalog'
+
+    [catalogSettings.values]
+    TextActionsFileExtension = 'txt'
