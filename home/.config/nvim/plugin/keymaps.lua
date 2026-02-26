@@ -20,3 +20,8 @@ set("i", "<C-U>", "<nop>", { desc = 'To avoid when C-Y' })
 set('', '<F1>', '<Nop>', { noremap = true, silent = true })
 set({ 'n', 'v', 'i' }, "<C-C>", "<CMD>cclose<CR>", { desc = "Close quickfix" })
 set("n", "<leader>cf", ":let @+ = expand('%:p')<CR>", { desc = 'Copy full path curren file to os register' })
+if vim.fn.executable("lazygit") == 1 then
+  set("n", "<leader>gg", function() Snacks.lazygit.open() end, { desc = "Lazygit" })
+  set("n", "<leader>gf", function() Snacks.lazygit.log_file() end, { desc = "Lazygit (log current file)" })
+  set("n", "<leader>gl", function() Snacks.lazygit.log_file() end, { desc = "Lazygit (log)" })
+end
