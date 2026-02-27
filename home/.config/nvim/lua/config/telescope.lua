@@ -20,7 +20,7 @@ local builtin = require 'telescope.builtin'
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = 'Telescope: help tags' })
 vim.keymap.set("n", "<leader><leader>", builtin.find_files, { desc = 'Telescope: find files' })
 vim.keymap.set("n", "<space>ff", function()
-    return builtin.git_files { cwd = vim.fn.expand "%:h" }
+    return builtin.git_files()
   end,
   { desc = 'Telescope: git_files' })
 vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = 'Telescope: keymaps' })
