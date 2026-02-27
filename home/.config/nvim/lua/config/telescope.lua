@@ -1,3 +1,5 @@
+local root = require("root")
+
 require('telescope').setup {
   pickers = {
     find_files = {
@@ -18,11 +20,19 @@ pcall(require("telescope").load_extension, "ui-select")
 
 local builtin = require 'telescope.builtin'
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = 'Telescope: help tags' })
-vim.keymap.set("n", "<leader><leader>", builtin.find_files, { desc = 'Telescope: find files' })
-vim.keymap.set("n", "<space>ff", function()
-    return builtin.git_files()
-  end,
-  { desc = 'Telescope: git_files' })
+vim.keymap.set("n", "<leader>ff", function()
+  builtin.find_files({ cwd = root.get() })
+end, { desc = "Find Files (root)" })
+vim.keymap.set("n", "<leader>fF", function()
+  builtin.find_files()
+end, { desc = "Find Files (cwd)" })
+vim.keymap.set("n", "<leader>fv", function()
+  local cwd = root.get()
+  local ok = pcall(builtin.git_files, { cwd = cwd })
+  if not ok then
+    builtin.find_files({ cwd = cwd })
+  end
+end, { desc = "Git Files (root, fallback)" })
 vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = 'Telescope: keymaps' })
 vim.keymap.set("n", "<space>fb", builtin.buffers, { desc = 'Telescope: buffers' })
 vim.keymap.set("n", "<space>/", builtin.current_buffer_fuzzy_find, { desc = 'Telescope: current buffer fuzzy find' })
