@@ -3,6 +3,7 @@ return {
     "folke/which-key.nvim",
     event = "VeryLazy",
     opts = {
+      preset = "classic",
       spec = {
         {
           "<leader>v",
@@ -18,10 +19,22 @@ return {
         },
         {
           "<leader>f",
-          desc = "Telescope",
-          icon = { cat = "filetype", name = "telescopeprompt" },
+          desc = "Find/Picker",
+          icon = { icon = " ", color = "blue" },
           mode = { "n" }
-        }
+        },
+        {
+          "<leader>g",
+          desc = "Git",
+          icon = { icon = " ", color = "orange" },
+          mode = { "n" }
+        },
+        {
+          "<leader>s",
+          desc = "Search",
+          icon = { icon = " ", color = "green" },
+          mode = { "n", "x" }
+        },
       }
     },
     keys = {

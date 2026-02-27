@@ -45,6 +45,38 @@ return {
           vim.keymap.set({ "n", "v" }, "grf", function() vim.lsp.buf.format() end,
             { desc = 'LSP: format buffer', buffer = args.buf })
 
+          -- Snacks picker LSP navigation
+          if client:supports_method('textDocument/definition') then
+            vim.keymap.set("n", "gd", function() Snacks.picker.lsp_definitions() end,
+              { desc = "Goto Definition", buffer = args.buf })
+          end
+          vim.keymap.set("n", "gr", function() Snacks.picker.lsp_references() end,
+            { desc = "References", nowait = true, buffer = args.buf })
+          if client:supports_method('textDocument/implementation') then
+            vim.keymap.set("n", "gI", function() Snacks.picker.lsp_implementations() end,
+              { desc = "Goto Implementation", buffer = args.buf })
+          end
+          if client:supports_method('textDocument/typeDefinition') then
+            vim.keymap.set("n", "gy", function() Snacks.picker.lsp_type_definitions() end,
+              { desc = "Goto T[y]pe Definition", buffer = args.buf })
+          end
+          if client:supports_method('textDocument/documentSymbol') then
+            vim.keymap.set("n", "<leader>ss", function() Snacks.picker.lsp_symbols() end,
+              { desc = "LSP Symbols", buffer = args.buf })
+          end
+          if client:supports_method('workspace/symbol') then
+            vim.keymap.set("n", "<leader>sS", function() Snacks.picker.lsp_workspace_symbols() end,
+              { desc = "LSP Workspace Symbols", buffer = args.buf })
+          end
+          if client:supports_method('callHierarchy/incomingCalls') then
+            vim.keymap.set("n", "gai", function() Snacks.picker.lsp_incoming_calls() end,
+              { desc = "Calls Incoming", buffer = args.buf })
+          end
+          if client:supports_method('callHierarchy/outgoingCalls') then
+            vim.keymap.set("n", "gao", function() Snacks.picker.lsp_outgoing_calls() end,
+              { desc = "Calls Outgoing", buffer = args.buf })
+          end
+
           if client.name == "ts_ls" then
             vim.api.nvim_buf_create_user_command(args.buf, "OrganizeImports", organize_imports, {})
             vim.keymap.set("n", "gro", "<cmd>OrganizeImports<CR>", { desc = 'LSP: Organize imports' })

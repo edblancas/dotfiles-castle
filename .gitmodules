@@ -62,3 +62,6 @@
 [submodule "home/.config/yazi/flavors"]
 	path = home/.config/yazi/flavors
 	url = https://github.com/yazi-rs/flavors.git
+[submodule "home/.config/nvim-lazyvim"]
+	path = home/.config/nvim-lazyvim
+	url = https://github.com/LazyVim/starter

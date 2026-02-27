@@ -372,9 +372,8 @@ function y() {
 # aws completion
 complete -C '/usr/local/bin/aws_completer' aws
 
-# nvchad - neovim config
 alias vc='NVIM_APPNAME=nvim-nvchad nvim' # NvChad
-
+alias vl='NVIM_APPNAME=nvim-lazyvim nvim' # LazyVim
 alias vf='NVIM_APPNAME=nvim-fennel nvim' # nvim fennel config
 
 alias zs="~/bin/zellij-smart-sessionizer/zellij-smart-sessionizer"
