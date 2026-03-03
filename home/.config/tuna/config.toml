@@ -65,7 +65,7 @@ presentation = 'auto'
     subjectIdentifier = 'TunaCore.SystemApplicationsCatalog.Finder'
 
     [hotkeys.custom.shortcut]
-    carbonKeyCode = 31
+    carbonKeyCode = 3
     carbonModifiers = 6912
 
 [[hotkeys.custom]]
@@ -78,6 +78,18 @@ presentation = 'auto'
 
     [hotkeys.custom.shortcut]
     carbonKeyCode = 0
+    carbonModifiers = 6912
+
+[[hotkeys.custom]]
+id = '9457CD49-1843-461D-9A60-D8E27220C0F3'
+presentation = 'auto'
+
+    [hotkeys.custom.command]
+    actionIdentifier = 'TunaCore.CommonActionsCatalog.Toggle Application'
+    subjectIdentifier = 'TunaCore.SystemApplicationsCatalog.Safari'
+
+    [hotkeys.custom.shortcut]
+    carbonKeyCode = 11
     carbonModifiers = 6912
 
 [[hotkeys.custom]]
@@ -131,6 +143,7 @@ presentation = 'auto'
 [[leaderMode.bindings]]
 iconPath = 'figure.run'
 key = 'o'
+label = 'Apps'
 
     [[leaderMode.bindings.children]]
     key = 'i'
@@ -192,6 +205,7 @@ label = 'Aerospace'
 [[leaderMode.bindings]]
 iconPath = '/Applications/Raycast.app'
 key = 'r'
+label = 'Raycast'
 
     [[leaderMode.bindings.children]]
     key = 'e'
@@ -208,6 +222,7 @@ key = 'r'
 [[leaderMode.bindings]]
 iconPath = 'folder.fill'
 key = 'f'
+label = 'Folders'
 
     [[leaderMode.bindings.children]]
     key = 'm'
@@ -216,6 +231,7 @@ key = 'f'
 [[leaderMode.bindings]]
 iconPath = 'suitcase.fill'
 key = 'i'
+label = 'Work'
 
     [[leaderMode.bindings.children]]
     key = 'j'
