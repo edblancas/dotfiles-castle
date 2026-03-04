@@ -45,7 +45,6 @@ return {
       vim.keymap.set("n", "<leader>,", function() Snacks.picker.buffers() end, { desc = "Buffers" })
       vim.keymap.set("n", "<leader>/", function() Snacks.picker.grep({ cwd = root.get() }) end, { desc = "Grep (Root Dir)" })
       vim.keymap.set("n", "<leader>:", function() Snacks.picker.command_history() end, { desc = "Command History" })
-      vim.keymap.set("n", "<leader><space>", function() Snacks.picker.files({ cwd = root.get() }) end, { desc = "Find Files (Root Dir)" })
       vim.keymap.set("n", "<leader>n", function() Snacks.picker.notifications() end, { desc = "Notification History" })
 
       -- Find

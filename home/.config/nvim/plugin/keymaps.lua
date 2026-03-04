@@ -25,3 +25,4 @@ if vim.fn.executable("lazygit") == 1 then
   set("n", "<leader>gf", function() Snacks.lazygit.log_file() end, { desc = "Lazygit (log current file)" })
   set("n", "<leader>gl", function() Snacks.lazygit.log_file() end, { desc = "Lazygit (log)" })
 end
+set("n", "<leader><leader>", ":", { desc = 'Commmand-line mode' })
