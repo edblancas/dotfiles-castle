@@ -18,7 +18,7 @@ export VISUAL='nvim'
 ### START OH-MY-ZSH ###
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME=""
-plugins=(zsh-syntax-highlighting history-substring-search zsh-autosuggestions zsh-vi-mode kube-ps1)
+plugins=(zsh-syntax-highlighting history-substring-search zsh-autosuggestions zsh-vi-mode kube-ps1 fzf-tab)
 
 # zsh-autosuggest plugin settings
 # https://github.com/zsh-users/zsh-autosuggestions
@@ -254,16 +254,16 @@ _fzf_comprun() {
 
 # fzf tokyo-night-night colors
 export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
+  --color=bg:-1 \
+  --color=gutter:-1 \
   --highlight-line \
   --info=inline-right \
   --ansi \
   --layout=reverse \
   --border=none
   --color=bg+:#283457 \
-  --color=bg:#16161e \
   --color=border:#27a1b9 \
   --color=fg:#c0caf5 \
-  --color=gutter:#16161e \
   --color=header:#ff9e64 \
   --color=hl+:#2ac3de \
   --color=hl:#2ac3de \
