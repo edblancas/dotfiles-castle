@@ -130,7 +130,6 @@ alias update_dotfiles_submodules="cd ~/.homesick/repos/dotfiles-castle && git su
 # Override system vi and vim
 alias vi='nvim'
 alias vim='nvim'
-alias nv='nvim'
 alias update_nvim_plugins='nvim --headless "+Lazy! sync" +qa'
 alias update_nvim='$HOME/bin/update-neovim.sh master'
 
@@ -372,9 +371,9 @@ function y() {
 # aws completion
 complete -C '/usr/local/bin/aws_completer' aws
 
-alias vc='NVIM_APPNAME=nvim-nvchad nvim' # NvChad
-alias vl='NVIM_APPNAME=nvim-lazyvim nvim' # LazyVim
-alias vf='NVIM_APPNAME=nvim-fennel nvim' # nvim fennel config
+alias vchad='NVIM_APPNAME=nvim-nvchad nvim' # NvChad
+alias vlazy='NVIM_APPNAME=nvim-lazyvim nvim' # LazyVim
+alias vfennel='NVIM_APPNAME=nvim-fennel nvim' # nvim fennel config
 
 alias zs="~/bin/zellij-smart-sessionizer/zellij-smart-sessionizer"
 
@@ -437,3 +436,5 @@ export PATH="$HOME/.local/bin:$PATH"
 
 # tmux fns
 source $HOME/.bash/tmux.sh
+
+alias vc='tdl claude'
