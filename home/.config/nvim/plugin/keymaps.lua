@@ -25,7 +25,7 @@ if vim.fn.executable("lazygit") == 1 then
   set("n", "<leader>gl", function() Snacks.lazygit.log_file() end, { desc = "Lazygit (log)" })
 end
 set("n", "<leader><leader>", ":", { desc = 'Commmand-line mode' })
-set({ "n", "i", "v" }, "<C-s>", "<cmd>w<CR>", { desc = "Save buffer" })
+set({ "n", "i", "v" }, "<M-s>", "<cmd>w<CR>", { desc = "Save buffer" })
 set({ "n", "i", "v" }, "<C-M-s>", "<cmd>wa<CR>", { desc = "Save all buffers" })
 set('n', '<leader>cf', function()
   local path = vim.fn.expand('%:p')
