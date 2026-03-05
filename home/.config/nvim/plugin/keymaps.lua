@@ -25,8 +25,21 @@ if vim.fn.executable("lazygit") == 1 then
   set("n", "<leader>gl", function() Snacks.lazygit.log_file() end, { desc = "Lazygit (log)" })
 end
 set("n", "<leader><leader>", ":", { desc = 'Commmand-line mode' })
-vim.keymap.set('n', '<leader>cf', function()
+set('n', '<leader>cf', function()
   local path = vim.fn.expand('%:p')
   vim.fn.setreg('+', path)
-  print("Copied path: " .. path)
-end, { desc = "Copy full file path to clipboard" })
+  print("Copied: " .. path)
+end, { desc = "Copy full file path" })
+set('v', '<leader>cf', function()
+  local path = vim.fn.expand('%:p')
+  local start_line = vim.fn.line('v')
+  local end_line = vim.fn.line('.')
+  if start_line > end_line then
+    start_line, end_line = end_line, start_line
+  end
+  local result = start_line == end_line
+    and path .. ':' .. start_line
+    or path .. ':' .. start_line .. '-' .. end_line
+  vim.fn.setreg('+', result)
+  print("Copied: " .. result)
+end, { desc = "Copy full file path with line range" })
