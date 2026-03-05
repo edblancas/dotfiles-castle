@@ -83,6 +83,16 @@ return {
       vim.keymap.set("n", "<leader>gI", function() Snacks.picker.gh_issue({ state = "all" }) end, { desc = "GitHub Issues (all)" })
       vim.keymap.set("n", "<leader>gp", function() Snacks.picker.gh_pr() end, { desc = "GitHub Pull Requests (open)" })
       vim.keymap.set("n", "<leader>gP", function() Snacks.picker.gh_pr({ state = "all" }) end, { desc = "GitHub Pull Requests (all)" })
+      local function copy_git_link(opts)
+        Snacks.gitbrowse(vim.tbl_extend("force", opts or {}, {
+          open = function(url)
+            vim.fn.setreg("+", url)
+            vim.notify("Copied: " .. url)
+          end,
+        }))
+      end
+      vim.keymap.set("n", "<leader>gy", function() copy_git_link() end, { desc = "Copy GitHub permalink" })
+      vim.keymap.set("v", "<leader>gy", function() copy_git_link() end, { desc = "Copy GitHub permalink (range)" })
 
       -- Grep
       vim.keymap.set("n", "<leader>sb", function() Snacks.picker.lines() end, { desc = "Buffer Lines" })
