@@ -24,7 +24,8 @@ if vim.fn.executable("lazygit") == 1 then
   set("n", "<leader>gf", function() Snacks.lazygit.log_file() end, { desc = "Lazygit (log current file)" })
   set("n", "<leader>gl", function() Snacks.lazygit.log_file() end, { desc = "Lazygit (log)" })
 end
-set("n", "<leader><leader>", ":", { desc = 'Commmand-line mode' })
+set("n", "<leader>;", ":", { desc = 'Command-line mode' })
+set("n", "<leader><leader>", function() Snacks.picker.files({ cwd = require("root").get() }) end, { desc = "Find Files (Root Dir)" })
 set({ "n", "i", "v" }, "<M-s>", "<cmd>w<CR>", { desc = "Save buffer" })
 set({ "n", "i", "v" }, "<C-M-s>", "<cmd>wa<CR>", { desc = "Save all buffers" })
 set('n', '<leader>cf', function()
