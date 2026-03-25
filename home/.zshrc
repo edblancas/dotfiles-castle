@@ -315,8 +315,10 @@ compdef _bb_tasks bb
 export PTPYTHON_CONFIG_HOME="$XDG_CONFIG_HOME/ptpython"
 
 ### zoxide ###
-zstyle ':fzf-tab:complete:z:*' fzf-preview 'gls --color -A $realpath'
-eval "$(zoxide init zsh)"
+if [[ $- == *i* ]]; then
+  zstyle ':fzf-tab:complete:z:*' fzf-preview 'gls --color -A $realpath'
+  eval "$(zoxide init zsh)"
+fi
 
 ### fzf-git.sh ###
 source ~/.utils/fzf-git.sh/fzf-git.sh
@@ -349,7 +351,7 @@ alias tree="eza --tree"
 eval $(thefuck --alias)
 eval $(thefuck --alias fk)
 
-alias cd="z"
+[[ $- == *i* ]] && alias cd="z"
 alias n="cd $HOME/Documents/dev/notes/ && nv"
 alias notes="cd $HOME/Library/Mobile Documents/com~apple~CloudDocs/Documents/dev/notes"
 alias icat="kitten icat"
