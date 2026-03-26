@@ -57,18 +57,6 @@ presentation = 'auto'
     carbonModifiers = 6912
 
 [[hotkeys.custom]]
-id = '85CAF09F-C839-48FB-8D47-E009529F8BB4'
-presentation = 'auto'
-
-    [hotkeys.custom.command]
-    actionIdentifier = 'TunaCore.CommonActionsCatalog.Toggle Application'
-    subjectIdentifier = 'TunaCore.SystemApplicationsCatalog.Finder'
-
-    [hotkeys.custom.shortcut]
-    carbonKeyCode = 3
-    carbonModifiers = 6912
-
-[[hotkeys.custom]]
 id = '89CCD2BD-87E7-4570-8F12-ABF8361234AE'
 presentation = 'auto'
 
@@ -138,6 +126,18 @@ presentation = 'auto'
 
     [hotkeys.custom.shortcut]
     carbonKeyCode = 17
+    carbonModifiers = 6912
+
+[[hotkeys.custom]]
+id = 'F876BEFF-226C-468E-ACA6-F9C5A9CE5AD4'
+presentation = 'auto'
+
+    [hotkeys.custom.command]
+    actionIdentifier = 'TunaCore.CommonActionsCatalog.Toggle Application'
+    subjectIdentifier = 'TunaCore.RunningProcessesCatalog.Finder'
+
+    [hotkeys.custom.shortcut]
+    carbonKeyCode = 3
     carbonModifiers = 6912
 
 [[leaderMode.bindings]]
@@ -227,6 +227,10 @@ label = 'Folders'
     [[leaderMode.bindings.children]]
     key = 'm'
     url = 'tuna://run/path.%252FUsers%252Fdaniel.blancas%252FMovies/Open'
+
+    [[leaderMode.bindings.children]]
+    key = 'n'
+    url = 'tuna://run/path.%252FUsers%252Fdaniel.blancas%252FLibrary%252FMobile%2520Documents%252Fcom~apple~CloudDocs%252FDocuments%252Fdev%252Fnotes%252Fironclad/Open'
 
 [[leaderMode.bindings]]
 iconPath = 'suitcase.fill'

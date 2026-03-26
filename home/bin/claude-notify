@@ -15,9 +15,9 @@ except:
 
 {
     if [ -n "$TMUX" ]; then
-        printf '\033Ptmux;\033\033]9;Claude Code: %s\007\033\\' "$MESSAGE"
+        printf '\033Ptmux;\033\033]777;notify;Claude Code;%s\007\033\\' "$MESSAGE"
     else
-        printf '\033]9;Claude Code: %s\007' "$MESSAGE"
+        printf '\033]777;notify;Claude Code;%s\007' "$MESSAGE"
     fi
     printf '\a'
 } > /dev/tty

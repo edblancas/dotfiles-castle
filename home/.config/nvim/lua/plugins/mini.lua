@@ -31,16 +31,18 @@ return {
             if is_special then
               filename = statusline.section_filename({ trunc_width = 140 })
             else
-              -- cwd folder name (bold) + relative path from cwd
-              local cwd_name = vim.fn.fnamemodify(vim.uv.cwd() or '', ':t')
               local rel = vim.fn.expand('%:.')
               if rel == '' or rel:sub(1, 1) == '/' then
-                rel = vim.fn.expand('%:t')
+                -- File is outside cwd: show full path without bold prefix
+                local fullpath = vim.fn.expand('%:p')
+                rel = fullpath ~= '' and fullpath or '[No Name]'
+                filename = '%#MiniStatuslineFilename#' .. rel
+              else
+                -- cwd folder name (bold) + relative path from cwd
+                local cwd_name = vim.fn.fnamemodify(vim.uv.cwd() or '', ':t')
+                filename = '%#MiniStatuslineFilenameRoot#' .. cwd_name .. '/'
+                  .. '%#MiniStatuslineFilename#' .. rel
               end
-              if rel == '' then rel = '[No Name]' end
-
-              filename = '%#MiniStatuslineFilenameRoot#' .. cwd_name .. '/'
-                .. '%#MiniStatuslineFilename#' .. rel
               if vim.bo.modified then filename = filename .. ' [+]' end
               if vim.bo.readonly then filename = filename .. ' [-]' end
             end

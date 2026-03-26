@@ -34,7 +34,7 @@ background-blur-radius = 20
 mouse-hide-while-typing = true
 
 keybind = global:cmd+alt+period=toggle_quick_terminal
-keybind = global:f13=toggle_quick_terminal
+#keybind = global:f13=toggle_quick_terminal
 
 
 ### mitchellh settings ###
