@@ -12,19 +12,19 @@ return {
         win = {
           input = {
             keys = {
-              ["<a-c>"] = { "toggle_cwd", mode = { "n", "i" } },
+              ["<a-d>"] = { "change_cwd", mode = { "n", "i" } },
             },
           },
         },
         actions = {
           ---@param p snacks.Picker
-          toggle_cwd = function(p)
-            local root = require("root")
-            local root_dir = root.get()
-            local cwd = vim.fs.normalize((vim.uv or vim.loop).cwd() or ".")
-            local current = p:cwd()
-            p:set_cwd(current == root_dir and cwd or root_dir)
-            p:find()
+          change_cwd = function(p)
+            vim.ui.input({ prompt = "Dir: ", default = p:cwd(), completion = "dir" }, function(dir)
+              if dir then
+                p:set_cwd(vim.fn.expand(dir))
+                p:find()
+              end
+            end)
           end,
         },
       },
