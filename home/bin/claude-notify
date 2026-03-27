@@ -1,10 +1,6 @@
 #!/usr/bin/env bash
 # Claude Code notification handler
-# - Sends macOS notification via terminal-notifier
-#   title:    Claude Code
-#   subtitle: folder where Claude was invoked
-#   body:     notification message
-#   click:    focuses Ghostty and switches to the tmux pane where Claude is running
+# - Sends Ghostty native notification via OSC 777 (tmux DCS passthrough)
 # - Rings tmux bell to show bell icon (󰂞) in window tab
 
 INPUT=$(cat)
@@ -17,18 +13,16 @@ except:
     print('Task complete')
 " 2>/dev/null)
 
-FOLDER=$(basename "$PWD")
-SOCKET=$(printf '%s' "$TMUX" | cut -d, -f1)
-PANE="$TMUX_PANE"
+TTY=$(tmux display-message -p '#{pane_tty}' 2>/dev/null)
+TTY="${TTY:-/dev/tty}"
 
-terminal-notifier \
-    -title "Claude Code" \
-    -subtitle "$FOLDER" \
-    -message "$MESSAGE" \
-    -sound "Funk" \
-    -activate "com.mitchellh.ghostty" \
-    -execute "/opt/homebrew/bin/tmux -S '$SOCKET' switch-client -t '$PANE'" &
-
-printf '\a' > /dev/tty
+{
+    if [ -n "$TMUX" ]; then
+        printf '\033Ptmux;\033\033]777;notify;Claude Code;%s\007\033\\' "$MESSAGE"
+    else
+        printf '\033]777;notify;Claude Code;%s\007' "$MESSAGE"
+    fi
+    printf '\a'
+} > "$TTY"
 
 exit 0
