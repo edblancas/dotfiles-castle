@@ -1,5 +1,9 @@
 return {
   {
+    "qvalentin/helm-ls.nvim",
+    ft = "helm",
+  },
+  {
     "HiPhish/rainbow-delimiters.nvim",
     submodules = false,
   },
