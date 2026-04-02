@@ -7,7 +7,8 @@ return {
       {
         "<M-0>",
         "<cmd>G<CR>",
-        mode = { "n", 'i' }
+        mode = { "n", 'i' },
+        desc = "Git: open fugitive"
       },
     },
   },

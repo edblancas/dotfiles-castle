@@ -15,7 +15,7 @@ vim.api.nvim_create_autocmd('TermOpen', {
   end,
 })
 
-vim.keymap.set({ "t" }, "<esc><esc>", "<c-\\><c-n>")
+vim.keymap.set({ "t" }, "<esc><esc>", "<c-\\><c-n>", { desc = "Terminal: exit to normal mode" })
 local job_id = -1
 local term_buf = -1
 vim.keymap.set("n", "<space>mt", function()
