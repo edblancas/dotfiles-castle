@@ -278,6 +278,7 @@ label = 'Work'
     url = 'tuna://run/url.https:%252F%252Fironcladapp.atlassian.net%252Fjira%252Fsoftware%252Fprojects%252FDEVPROD%252Fboards%252F303%253Fjql=assignee%252520%25253D%252520712020%25253A5782146c-7b37-44fc-86d3-116ec047b288/Open%20URL'
 
 [settings]
+appPresentationMode = 'never'
 leaderModeCheatsheetBehavior = 'always'
 leaderModeModifierTrigger = 'rightCommand'
 themeIdentifier = 'com.brnbw.tuna.themes.default'

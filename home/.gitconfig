@@ -106,7 +106,8 @@
   # Detect copies as well as renames
   #renames = copies
   colorMoved = default
-  #tool = Kaleidoscope
+  #tool = Kaleidoscop
+  tool = nvim_difftool
 
 [color]
   # Use colors in Git commands that are capable of colored output when
@@ -173,3 +174,7 @@
 
 [includeIf "gitdir:/usr/local/repos/"]
   path = ~/.gitconfig_ironclad
+
+[difftool "nvim_difftool"]
+  cmd = nvim -c \"packadd nvim.difftool\" -c \"DiffTool $LOCAL $REMOTE\"
+
