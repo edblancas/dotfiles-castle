@@ -12,3 +12,5 @@ vim.api.nvim_create_autocmd("FileChangedShellPost", {
 })
 
 require("root").setup_autocmds()
+
+require("vim._core.ui2").enable({})
