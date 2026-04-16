@@ -16,7 +16,7 @@ local cache = {}
 
 -- get LSP root
 local function get_lsp_root(bufnr)
-  local clients = vim.lsp.get_active_clients({ bufnr = bufnr })
+  local clients = vim.lsp.get_clients({ bufnr = bufnr })
   for _, client in ipairs(clients) do
     if client.config and client.config.root_dir then
       return client.config.root_dir
