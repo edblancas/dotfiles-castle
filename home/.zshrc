@@ -440,3 +440,6 @@ export PATH="$HOME/.local/bin:$PATH"
 source $HOME/.bash/tmux.sh
 
 alias vc='tdl claude'
+
+# https://code.claude.com/docs/en/fullscreen
+export CLAUDE_CODE_NO_FLICKER=1
