@@ -2,10 +2,11 @@ return {
   {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
+    event = "VeryLazy",
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
       local harpoon = require("harpoon")
-      local extensions = require("harpoon.extensions");
+      local extensions = require("harpoon.extensions")
 
       harpoon:setup()
       harpoon:extend(extensions.builtins.navigate_with_number());

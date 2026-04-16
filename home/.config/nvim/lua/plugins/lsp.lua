@@ -10,6 +10,7 @@ return {
   { "LuaCATS/busted",   name = "busted-types",   lazy = true },
   {
     "neovim/nvim-lspconfig",
+    event = "BufReadPre",
     dependencies = {
       'saghen/blink.cmp',
       {

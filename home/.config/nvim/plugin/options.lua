@@ -34,8 +34,6 @@ opt.cursorline = true
 opt.list = true
 opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
-opt.cursorline = true
-
 opt.breakindent = true
 
 opt.foldopen = "block,insert,jump,mark,percent,quickfix,search,tag,undo"

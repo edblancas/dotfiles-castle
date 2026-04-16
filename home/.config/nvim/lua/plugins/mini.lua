@@ -2,6 +2,7 @@ return {
   {
     'echasnovski/mini.statusline',
     version = '*',
+    event = "VeryLazy",
     config = function()
       local statusline = require('mini.statusline')
 
@@ -61,5 +62,5 @@ return {
       })
     end,
   },
-  { 'echasnovski/mini.surround', version = '*', config = true }
+  { 'echasnovski/mini.surround', version = '*', event = "BufReadPost", config = true }
 }

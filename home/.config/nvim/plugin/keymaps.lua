@@ -22,7 +22,7 @@ set({ 'n', 'v', 'i' }, "<C-C>", "<CMD>cclose<CR>", { desc = "Close quickfix" })
 if vim.fn.executable("lazygit") == 1 then
   set("n", "<leader>gg", function() Snacks.lazygit.open() end, { desc = "Lazygit" })
   set("n", "<leader>gf", function() Snacks.lazygit.log_file() end, { desc = "Lazygit (log current file)" })
-  set("n", "<leader>gl", function() Snacks.lazygit.log_file() end, { desc = "Lazygit (log)" })
+  set("n", "<leader>gl", function() Snacks.lazygit.log() end, { desc = "Lazygit (log)" })
 end
 set("n", "<leader>;", ":", { desc = 'Command-line mode' })
 set("n", "<leader><leader>", function() Snacks.picker.files({ cwd = require("root").get() }) end, { desc = "Find Files (Root Dir)" })

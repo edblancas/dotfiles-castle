@@ -1,6 +1,7 @@
 return {
   {
     'stevearc/oil.nvim',
+    cmd = "Oil",
     opts = {
       skip_confirm_for_simple_edits = true,
       delete_to_trash = true,

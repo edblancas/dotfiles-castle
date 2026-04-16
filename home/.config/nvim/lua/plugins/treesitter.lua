@@ -6,8 +6,10 @@ return {
   {
     "HiPhish/rainbow-delimiters.nvim",
     submodules = false,
+    event = "BufReadPost",
   },
   {"nvim-treesitter/nvim-treesitter",
+    event = "BufReadPost",
     build = ":TSUpdate",
     config = function()
       require 'nvim-treesitter.configs'.setup {
@@ -40,8 +42,9 @@ return {
       }
     end,
   },
-  {'nvim-treesitter/nvim-treesitter-context'},
+  {'nvim-treesitter/nvim-treesitter-context', event = "BufReadPost"},
   {'nvim-treesitter/nvim-treesitter-textobjects',
+    event = "BufReadPost",
     config = true,
     main = 'nvim-treesitter.configs',
     opts = {
