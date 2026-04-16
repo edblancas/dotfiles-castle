@@ -6,7 +6,7 @@ opt.smartcase = true
 opt.ignorecase = true
 
 opt.number = true
-opt.relativenumber = false
+opt.relativenumber = true
 
 opt.splitbelow = true
 opt.splitright = true
