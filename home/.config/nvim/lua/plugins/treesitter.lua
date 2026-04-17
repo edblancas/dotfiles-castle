@@ -14,9 +14,18 @@ return {
     lazy = false,
     build = ":TSUpdate",
     config = function()
-      require("nvim-treesitter").setup()
       vim.api.nvim_create_autocmd("FileType", {
-        callback = function() pcall(vim.treesitter.start) end,
+        callback = function()
+          local lang = vim.treesitter.language.get_lang(vim.bo.filetype)
+          if not lang then return end
+          local ok, parsers = pcall(require, "nvim-treesitter.parsers")
+          if not (ok and parsers[lang]) then return end
+          local installed = require("nvim-treesitter.config").get_installed()
+          if not vim.tbl_contains(installed, lang) then
+            require("nvim-treesitter").install({ lang })
+          end
+          pcall(vim.treesitter.start)
+        end,
       })
     end,
   },

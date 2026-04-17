@@ -91,7 +91,15 @@ return {
           end,
         }))
       end
-      vim.keymap.set("n", "<leader>gy", function() copy_git_link() end, { desc = "Copy GitHub permalink" })
+      vim.keymap.set("n", "<leader>gy", function()
+        Snacks.gitbrowse({
+          open = function(url)
+            url = url:gsub("#L%d+-L%d+$", ""):gsub("#L%d+$", "")
+            vim.fn.setreg("+", url)
+            vim.notify("Copied: " .. url)
+          end,
+        })
+      end, { desc = "Copy GitHub permalink" })
       vim.keymap.set("v", "<leader>gy", function() copy_git_link() end, { desc = "Copy GitHub permalink (range)" })
 
       -- Grep
