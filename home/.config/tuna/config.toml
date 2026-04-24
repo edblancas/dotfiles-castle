@@ -281,6 +281,7 @@ label = 'Work'
 appPresentationMode = 'never'
 leaderModeCheatsheetBehavior = 'always'
 leaderModeModifierTrigger = 'rightCommand'
+physicalHyperKeySource = 'rightCommand'
 themeIdentifier = 'com.brnbw.tuna.themes.default'
 
 [[catalogSettings]]

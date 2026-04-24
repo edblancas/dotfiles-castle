@@ -51,8 +51,8 @@ return {
             vim.keymap.set("n", "gd", function() Snacks.picker.lsp_definitions() end,
               { desc = "Goto Definition", buffer = args.buf })
           end
-          vim.keymap.set("n", "gr", function() Snacks.picker.lsp_references() end,
-            { desc = "References", nowait = true, buffer = args.buf })
+          vim.keymap.set("n", "gR", function() Snacks.picker.lsp_references() end,
+            { desc = "References", buffer = args.buf })
           if client:supports_method('textDocument/implementation') then
             vim.keymap.set("n", "gI", function() Snacks.picker.lsp_implementations() end,
               { desc = "Goto Implementation", buffer = args.buf })
