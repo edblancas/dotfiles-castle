@@ -14,7 +14,7 @@ parts=()
 
 [ -n "$cwd" ] && parts+=("${cwd/#$HOME/~} ·")
 [ -n "$model" ] && parts+=("model:$model ·")
-[ -n "$effort" ] && parts+=("effort:$effort ·")
-[ -n "$used_pct" ] && parts+=("ctx:$(printf '%.0f' "$used_pct")%")
+[ -n "$effort" ] && parts+=("effort:$effort")
+[ -n "$used_pct" ] && parts+=("· ctx:$(printf '%.0f' "$used_pct")%")
 
 printf '%s' "$(IFS=' | '; echo "${parts[*]}")"
