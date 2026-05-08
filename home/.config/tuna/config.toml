@@ -1,12 +1,136 @@
 schemaVersion = 1
 
+[catalogConfiguration]
+customFolders = []
+folderDepthOverrides = []
+
+    [[catalogConfiguration.scriptsDirectories]]
+    id = 'EEC2069D-3003-4B28-9D50-3300732AA4F8'
+    path = '~/.homesick/repos/dotfiles-castle/home/bin'
+
+[[comboMode.bindings]]
+iconPath = 'figure.run'
+key = 'o'
+label = 'Apps'
+
+    [[comboMode.bindings.children]]
+    key = 'i'
+    url = 'tuna://run/path.%252FSystem%252FApplications%252FMusic.app/Open'
+
+[[comboMode.bindings]]
+iconPath = 'uiwindow.split.2x1'
+key = 'a'
+label = 'Aerospace'
+
+    [[comboMode.bindings.children]]
+    iconPath = 'uiwindow.split.2x1'
+    key = 'w'
+    label = 'move workspace to monitor'
+    url = 'tuna://run/text.%252Fopt%252Fhomebrew%252Fbin%252Faerospace%2520move-workspace-to-monitor%2520--wrap-around%2520next/Run%20Text%20as%20Shell%20Command'
+
+    [[comboMode.bindings.children]]
+    iconPath = 'uiwindow.split.2x1'
+    key = 'f'
+    label = 'fullscreen'
+    url = 'tuna://run/text.%252Fopt%252Fhomebrew%252Fbin%252Faerospace%2520fullscreen/Run%20Text%20as%20Shell%20Command'
+
+    [[comboMode.bindings.children]]
+    iconPath = 'uiwindow.split.2x1'
+    key = 't'
+    label = 'toggle between floating and tiling layout'
+    url = 'tuna://run/text.%252Fopt%252Fhomebrew%252Fbin%252Faerospace%2520layout%2520floating%2520tiling/Run%20Text%20as%20Shell%20Command'
+
+    [[comboMode.bindings.children]]
+    iconPath = 'uiwindow.split.2x1'
+    key = 'h'
+    label = 'join with left'
+    url = 'tuna://run/text.%252Fopt%252Fhomebrew%252Fbin%252Faerospace%2520join-with%2520left/Run%20Text%20as%20Shell%20Command'
+
+    [[comboMode.bindings.children]]
+    iconPath = 'uiwindow.split.2x1'
+    key = 'j'
+    label = 'join with down'
+    url = 'tuna://run/text.%252Fopt%252Fhomebrew%252Fbin%252Faerospace%2520join-with%2520down/Run%20Text%20as%20Shell%20Command'
+
+    [[comboMode.bindings.children]]
+    iconPath = 'uiwindow.split.2x1'
+    key = 'k'
+    label = 'join with up'
+    url = 'tuna://run/text.%252Fopt%252Fhomebrew%252Fbin%252Faerospace%2520join-with%2520up/Run%20Text%20as%20Shell%20Command'
+
+    [[comboMode.bindings.children]]
+    iconPath = 'uiwindow.split.2x1'
+    key = 'l'
+    label = 'join with right'
+    url = 'tuna://run/text.%252Fopt%252Fhomebrew%252Fbin%252Faerospace%2520join-with%2520right/Run%20Text%20as%20Shell%20Command'
+
+    [[comboMode.bindings.children]]
+    iconPath = 'uiwindow.split.2x1'
+    key = 'm'
+    label = 'move win to monitor '
+    url = 'tuna://run/text.%2520%252Fopt%252Fhomebrew%252Fbin%252Faerospace%2520move-node-to-monitor%2520--wrap-around%2520next/Run%20Text%20as%20Shell%20Command'
+
+[[comboMode.bindings]]
+iconPath = '/Applications/Raycast.app'
+key = 'r'
+label = 'Raycast'
+
+    [[comboMode.bindings.children]]
+    key = 'e'
+    url = 'tuna://run/url.raycast:%252F%252Fextensions%252Fraycast%252Femoji-symbols%252Fsearch-emoji-symbols/Open%20URL'
+
+    [[comboMode.bindings.children]]
+    key = 'p'
+    url = 'tuna://run/url.raycast:%252F%252Fconfetti/Open%20URL'
+
+    [[comboMode.bindings.children]]
+    key = 'c'
+    url = 'tuna://run/url.raycast:%252F%252Fextensions%252Fraycast%252Fsystem%252Fopen-camera/Open%20URL'
+
+[[comboMode.bindings]]
+iconPath = 'folder.fill'
+key = 'f'
+label = 'Folders'
+
+    [[comboMode.bindings.children]]
+    key = 'm'
+    url = 'tuna://run/path.%252FUsers%252Fdaniel.blancas%252FMovies/Open'
+
+    [[comboMode.bindings.children]]
+    key = 'n'
+    url = 'tuna://run/path.%252FUsers%252Fdaniel.blancas%252FLibrary%252FMobile%2520Documents%252Fcom~apple~CloudDocs%252FDocuments%252Fdev%252Fnotes%252Fironclad-notes/Open'
+
+[[comboMode.bindings]]
+iconPath = 'suitcase.fill'
+key = 'i'
+label = 'Work'
+
+    [[comboMode.bindings.children]]
+    key = 'j'
+    url = 'tuna://run/url.https:%252F%252Fironcladapp.atlassian.net%252Fjira%252Fsoftware%252Fprojects%252FDEVPROD%252Fboards%252F303%253Fjql=assignee%252520%25253D%252520712020%25253A5782146c-7b37-44fc-86d3-116ec047b288/Open%20URL'
+
+[[comboMode.bindings]]
+iconPath = 'network'
+key = 'w'
+label = 'Web'
+
+    [[comboMode.bindings.children]]
+    iconPath = 'translate'
+    key = 'e'
+    label = 'ChatGPT Eng Proj'
+    url = 'tuna://run/text.%2523%2520Arc%2520open%2520eng%2520proj%2520ChatGPT%250Aosascript%2520%253C%253CEOF%250Aon%2520run%250A%2520%2520%2520%2520tell%2520application%2520%2522Arc%2522%250A%2520%2520%2520%2520%2520%2520%2520%2520activate%250A%2520%2520%2520%2520%2520%2520%2520%2520%250A%2520%2520%2520%2520%2520%2520%2520%2520if%2520(count%2520of%2520windows)%2520=%25200%2520then%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520make%2520new%2520window%250A%2520%2520%2520%2520%2520%2520%2520%2520end%2520if%250A%2520%2520%2520%2520%2520%2520%2520%2520%250A%2520%2520%2520%2520%2520%2520%2520%2520tell%2520front%2520window%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520make%2520new%2520tab%2520with%2520properties%2520%257BURL:%2522https:%252F%252Fchatgpt.com%252Fg%252Fg-p-68b922c238a08191ae6182d95bbb30b0-english%252Fproject%2522%257D%250A%2520%2520%2520%2520%2520%2520%2520%2520end%2520tell%250A%2520%2520%2520%2520end%2520tell%250Aend%2520run%250AEOF/Run%20Text%20as%20Shell%20Command'
+
 [hotkeys.app.activate]
 carbonKeyCode = 49
 carbonModifiers = 256
 
-[hotkeys.app.leaderMode]
+[hotkeys.app.comboMode]
 carbonKeyCode = 49
 carbonModifiers = 6912
+
+[hotkeys.app.textMode]
+carbonKeyCode = 49
+carbonModifiers = 2304
 
 [[hotkeys.custom]]
 id = '1BB9EDAF-2CC9-49FC-BF1E-EFAAAB53F98A'
@@ -176,116 +300,68 @@ presentation = 'auto'
     carbonKeyCode = 3
     carbonModifiers = 6912
 
-[[leaderMode.bindings]]
-iconPath = 'figure.run'
-key = 'o'
-label = 'Apps'
-
-    [[leaderMode.bindings.children]]
-    key = 'i'
-    url = 'tuna://run/path.%252FSystem%252FApplications%252FMusic.app/Open'
-
-[[leaderMode.bindings]]
-iconPath = 'uiwindow.split.2x1'
-key = 'a'
-label = 'Aerospace'
-
-    [[leaderMode.bindings.children]]
-    iconPath = 'uiwindow.split.2x1'
-    key = 'w'
-    label = 'move workspace to monitor'
-    url = 'tuna://run/text.%252Fopt%252Fhomebrew%252Fbin%252Faerospace%2520move-workspace-to-monitor%2520--wrap-around%2520next/Run%20Text%20as%20Shell%20Command'
-
-    [[leaderMode.bindings.children]]
-    iconPath = 'uiwindow.split.2x1'
-    key = 'f'
-    label = 'fullscreen'
-    url = 'tuna://run/text.%252Fopt%252Fhomebrew%252Fbin%252Faerospace%2520fullscreen/Run%20Text%20as%20Shell%20Command'
-
-    [[leaderMode.bindings.children]]
-    iconPath = 'uiwindow.split.2x1'
-    key = 't'
-    label = 'toggle between floating and tiling layout'
-    url = 'tuna://run/text.%252Fopt%252Fhomebrew%252Fbin%252Faerospace%2520layout%2520floating%2520tiling/Run%20Text%20as%20Shell%20Command'
-
-    [[leaderMode.bindings.children]]
-    iconPath = 'uiwindow.split.2x1'
-    key = 'h'
-    label = 'join with left'
-    url = 'tuna://run/text.%252Fopt%252Fhomebrew%252Fbin%252Faerospace%2520join-with%2520left/Run%20Text%20as%20Shell%20Command'
-
-    [[leaderMode.bindings.children]]
-    iconPath = 'uiwindow.split.2x1'
-    key = 'j'
-    label = 'join with down'
-    url = 'tuna://run/text.%252Fopt%252Fhomebrew%252Fbin%252Faerospace%2520join-with%2520down/Run%20Text%20as%20Shell%20Command'
-
-    [[leaderMode.bindings.children]]
-    iconPath = 'uiwindow.split.2x1'
-    key = 'k'
-    label = 'join with up'
-    url = 'tuna://run/text.%252Fopt%252Fhomebrew%252Fbin%252Faerospace%2520join-with%2520up/Run%20Text%20as%20Shell%20Command'
-
-    [[leaderMode.bindings.children]]
-    iconPath = 'uiwindow.split.2x1'
-    key = 'l'
-    label = 'join with right'
-    url = 'tuna://run/text.%252Fopt%252Fhomebrew%252Fbin%252Faerospace%2520join-with%2520right/Run%20Text%20as%20Shell%20Command'
-
-    [[leaderMode.bindings.children]]
-    iconPath = 'uiwindow.split.2x1'
-    key = 'm'
-    label = 'move win to monitor '
-    url = 'tuna://run/text.%2520%252Fopt%252Fhomebrew%252Fbin%252Faerospace%2520move-node-to-monitor%2520--wrap-around%2520next/Run%20Text%20as%20Shell%20Command'
-
-[[leaderMode.bindings]]
-iconPath = '/Applications/Raycast.app'
-key = 'r'
-label = 'Raycast'
-
-    [[leaderMode.bindings.children]]
-    key = 'e'
-    url = 'tuna://run/url.raycast:%252F%252Fextensions%252Fraycast%252Femoji-symbols%252Fsearch-emoji-symbols/Open%20URL'
-
-    [[leaderMode.bindings.children]]
-    key = 'p'
-    url = 'tuna://run/url.raycast:%252F%252Fconfetti/Open%20URL'
-
-    [[leaderMode.bindings.children]]
-    key = 'c'
-    url = 'tuna://run/url.raycast:%252F%252Fextensions%252Fraycast%252Fsystem%252Fopen-camera/Open%20URL'
-
-[[leaderMode.bindings]]
-iconPath = 'folder.fill'
-key = 'f'
-label = 'Folders'
-
-    [[leaderMode.bindings.children]]
-    key = 'm'
-    url = 'tuna://run/path.%252FUsers%252Fdaniel.blancas%252FMovies/Open'
-
-    [[leaderMode.bindings.children]]
-    key = 'n'
-    url = 'tuna://run/path.%252FUsers%252Fdaniel.blancas%252FLibrary%252FMobile%2520Documents%252Fcom~apple~CloudDocs%252FDocuments%252Fdev%252Fnotes%252Fironclad/Open'
-
-[[leaderMode.bindings]]
-iconPath = 'suitcase.fill'
-key = 'i'
-label = 'Work'
-
-    [[leaderMode.bindings.children]]
-    key = 'j'
-    url = 'tuna://run/url.https:%252F%252Fironcladapp.atlassian.net%252Fjira%252Fsoftware%252Fprojects%252FDEVPROD%252Fboards%252F303%253Fjql=assignee%252520%25253D%252520712020%25253A5782146c-7b37-44fc-86d3-116ec047b288/Open%20URL'
-
 [settings]
-appPresentationMode = 'never'
-leaderModeCheatsheetBehavior = 'always'
-leaderModeModifierTrigger = 'rightCommand'
+comboModeCheatsheetBehavior = 'always'
+comboModeModifierTrigger = 'rightCommand'
 physicalHyperKeySource = 'rightCommand'
 themeIdentifier = 'com.brnbw.tuna.themes.default'
+
+[[smartLinks.entries]]
+enabled = false
+name = 'Bing'
+requiresInput = true
+template = 'https://www.bing.com/search?q={{input}}'
+
+[[smartLinks.entries]]
+enabled = false
+name = 'DuckDuckGo'
+requiresInput = true
+template = 'https://duckduckgo.com/?q={{input}}'
+
+[[smartLinks.entries]]
+enabled = true
+name = 'GitHub'
+requiresInput = true
+template = 'https://github.com/search?q={{input}}'
+
+[[smartLinks.entries]]
+enabled = true
+name = 'Google'
+requiresInput = true
+template = 'https://www.google.com/search?q={{input}}'
+
+[[smartLinks.entries]]
+enabled = true
+name = 'Google Translate'
+requiresInput = true
+template = 'https://translate.google.com/?sl=en&tl=es&op=translate&text={{input}}'
+
+[[smartLinks.entries]]
+enabled = false
+name = 'Stack Overflow'
+requiresInput = true
+template = 'https://stackoverflow.com/search?q={{input}}'
+
+[[smartLinks.entries]]
+enabled = false
+name = 'Wikipedia'
+requiresInput = true
+template = 'https://en.wikipedia.org/wiki/Special:Search?search={{input}}'
+
+[[smartLinks.entries]]
+enabled = true
+name = 'YouTube'
+requiresInput = true
+template = 'https://www.youtube.com/results?search_query={{input}}'
 
 [[catalogSettings]]
 catalogIdentifier = 'TunaCore.TextActionsCatalog'
 
     [catalogSettings.values]
     TextActionsFileExtension = 'txt'
+
+[[catalogSettings]]
+catalogIdentifier = 'com.brnbw.tuna.themes.default'
+
+    [catalogSettings.values]
+    ThemeTint = 'system'

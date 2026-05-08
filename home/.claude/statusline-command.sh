@@ -5,7 +5,8 @@
 input=$(cat)
 
 model=$(echo "$input" | jq -r '.model.display_name // empty')
-effort=$(echo "$input" | jq -r '.effortLevel // "normal"')
+effort=$(jq -r '.effortLevel // empty' ~/.claude/settings.json 2>/dev/null)
+[ -z "$effort" ] && effort=$(echo "$input" | jq -r '.effort.level // empty')
 cwd=$(echo "$input" | jq -r '.workspace.current_dir // .cwd // empty')
 used_pct=$(echo "$input" | jq -r '.context_window.used_percentage // empty')
 
