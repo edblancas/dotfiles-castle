@@ -122,15 +122,11 @@ label = 'Web'
 
 [hotkeys.app.activate]
 carbonKeyCode = 49
-carbonModifiers = 256
+carbonModifiers = 2048
 
 [hotkeys.app.comboMode]
 carbonKeyCode = 49
 carbonModifiers = 6912
-
-[hotkeys.app.textMode]
-carbonKeyCode = 49
-carbonModifiers = 2304
 
 [[hotkeys.custom]]
 id = '1BB9EDAF-2CC9-49FC-BF1E-EFAAAB53F98A'

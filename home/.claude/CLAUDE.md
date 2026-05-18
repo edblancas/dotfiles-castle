@@ -5,6 +5,6 @@
 
 ## Git and Publishing
 
-- Never run `git commit` or `git push`. The user commits and pushes manually.
+- Never run `git commit` or `git push` in `develop` or `main` branches. The user commits and pushes manually.
 - Never run chart publish commands (e.g. `scripts/publish-chart.sh`). The user publishes manually.
 - After preparing changes, describe what to commit/publish and stop there.
