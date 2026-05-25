@@ -10,7 +10,8 @@ after-login-command = []
 # 'after-startup-command' is run after 'after-login-command'
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
 after-startup-command = [
-    'exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0'
+    'exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=3.0',
+    'layout accordion'
 ]
 
 # Start AeroSpace at login
@@ -204,3 +205,4 @@ run = 'layout floating'
 [[on-window-detected]]
 if.app-id = 'us.zoom.xos'
 run = 'layout floating'
+

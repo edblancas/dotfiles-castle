@@ -1,12 +1,22 @@
 schemaVersion = 1
 
-[catalogConfiguration]
-customFolders = []
-folderDepthOverrides = []
+[catalogs]
+sortOrders = []
 
-    [[catalogConfiguration.scriptsDirectories]]
-    id = 'EEC2069D-3003-4B28-9D50-3300732AA4F8'
-    path = '~/.homesick/repos/dotfiles-castle/home/bin'
+    [[catalogs.globalScopes]]
+    catalogIdentifier = 'Tuna.EffectsCatalog'
+    mode = 'none'
+    selectedItemKeys = []
+
+    [[catalogs.globalScopes]]
+    catalogIdentifier = 'TunaEmoji.EmojiCatalog'
+    mode = 'none'
+    selectedItemKeys = []
+
+    [[catalogs.globalScopes]]
+    catalogIdentifier = 'TunaSystem.AllWindowsCatalog'
+    mode = 'none'
+    selectedItemKeys = []
 
 [[comboMode.bindings]]
 iconPath = 'figure.run'
@@ -98,7 +108,7 @@ label = 'Folders'
 
     [[comboMode.bindings.children]]
     key = 'n'
-    url = 'tuna://run/path.%252FUsers%252Fdaniel.blancas%252FLibrary%252FMobile%2520Documents%252Fcom~apple~CloudDocs%252FDocuments%252Fdev%252Fnotes%252Fironclad-notes/Open'
+    url = 'tuna://run/path.%252FUsers%252Fdaniel.blancas%252FLibrary%252FMobile%2520Documents%252Fcom~apple~CloudDocs%252FDocuments%252Fdev%252Fnotes%252Fironclad/Open'
 
 [[comboMode.bindings]]
 iconPath = 'suitcase.fill'
@@ -108,17 +118,6 @@ label = 'Work'
     [[comboMode.bindings.children]]
     key = 'j'
     url = 'tuna://run/url.https:%252F%252Fironcladapp.atlassian.net%252Fjira%252Fsoftware%252Fprojects%252FDEVPROD%252Fboards%252F303%253Fjql=assignee%252520%25253D%252520712020%25253A5782146c-7b37-44fc-86d3-116ec047b288/Open%20URL'
-
-[[comboMode.bindings]]
-iconPath = 'network'
-key = 'w'
-label = 'Web'
-
-    [[comboMode.bindings.children]]
-    iconPath = 'translate'
-    key = 'e'
-    label = 'ChatGPT Eng Proj'
-    url = 'tuna://run/text.%2523%2520Arc%2520open%2520eng%2520proj%2520ChatGPT%250Aosascript%2520%253C%253CEOF%250Aon%2520run%250A%2520%2520%2520%2520tell%2520application%2520%2522Arc%2522%250A%2520%2520%2520%2520%2520%2520%2520%2520activate%250A%2520%2520%2520%2520%2520%2520%2520%2520%250A%2520%2520%2520%2520%2520%2520%2520%2520if%2520(count%2520of%2520windows)%2520=%25200%2520then%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520make%2520new%2520window%250A%2520%2520%2520%2520%2520%2520%2520%2520end%2520if%250A%2520%2520%2520%2520%2520%2520%2520%2520%250A%2520%2520%2520%2520%2520%2520%2520%2520tell%2520front%2520window%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520make%2520new%2520tab%2520with%2520properties%2520%257BURL:%2522https:%252F%252Fchatgpt.com%252Fg%252Fg-p-68b922c238a08191ae6182d95bbb30b0-english%252Fproject%2522%257D%250A%2520%2520%2520%2520%2520%2520%2520%2520end%2520tell%250A%2520%2520%2520%2520end%2520tell%250Aend%2520run%250AEOF/Run%20Text%20as%20Shell%20Command'
 
 [hotkeys.app.activate]
 carbonKeyCode = 49
@@ -148,9 +147,17 @@ presentation = 'auto'
     actionIdentifier = 'TunaCore.CommonActionsCatalog.Toggle Application'
     subjectIdentifier = 'TunaCore.SystemApplicationsCatalog.Notes'
 
+[[hotkeys.custom]]
+id = '4ECC10AC-F456-4C42-BC32-16F837F2CF88'
+presentation = 'auto'
+
+    [hotkeys.custom.command]
+    actionIdentifier = 'TunaCore.CommonActionsCatalog.Toggle Application'
+    subjectIdentifier = 'TunaCore.SystemApplicationsCatalog.Safari'
+
     [hotkeys.custom.shortcut]
-    carbonKeyCode = 45
-    carbonModifiers = 6912
+    carbonKeyCode = 106
+    carbonModifiers = 256
 
 [[hotkeys.custom]]
 id = '56C0876D-5996-47F8-968E-251352B60F38'
@@ -189,16 +196,24 @@ presentation = 'auto'
     carbonModifiers = 2304
 
 [[hotkeys.custom]]
+id = '774F1BE1-0E57-4267-B2A9-9C67CD154BAC'
+presentation = 'auto'
+
+    [hotkeys.custom.command]
+    actionIdentifier = 'TunaCore.CommonActionsCatalog.Toggle Application'
+    subjectIdentifier = 'TunaCore.AllApplicationsCatalog.Google Chrome'
+
+    [hotkeys.custom.shortcut]
+    carbonKeyCode = 106
+    carbonModifiers = 0
+
+[[hotkeys.custom]]
 id = '7F2CF175-B78D-4F1C-9FEF-23C0AC71B0DD'
 presentation = 'auto'
 
     [hotkeys.custom.command]
     actionIdentifier = 'Tuna.BasicActionsCatalog.Browse'
     subjectIdentifier = 'TunaEmoji.EmojiSearchCatalog.Emoji'
-
-    [hotkeys.custom.shortcut]
-    carbonKeyCode = 49
-    carbonModifiers = 4352
 
 [[hotkeys.custom]]
 id = '8196B9DD-89E2-498B-8E75-D27C594AE482'
@@ -225,6 +240,18 @@ presentation = 'auto'
     carbonModifiers = 6912
 
 [[hotkeys.custom]]
+id = '918E066A-B0F2-4549-8717-9303AE504D06'
+presentation = 'auto'
+
+    [hotkeys.custom.command]
+    actionIdentifier = 'TunaCore.CommonActionsCatalog.Toggle Application'
+    subjectIdentifier = 'TunaCore.AllApplicationsCatalog.Arc'
+
+    [hotkeys.custom.shortcut]
+    carbonKeyCode = 105
+    carbonModifiers = 256
+
+[[hotkeys.custom]]
 id = '9457CD49-1843-461D-9A60-D8E27220C0F3'
 presentation = 'auto'
 
@@ -235,6 +262,18 @@ presentation = 'auto'
     [hotkeys.custom.shortcut]
     carbonKeyCode = 11
     carbonModifiers = 6912
+
+[[hotkeys.custom]]
+id = 'B11178B6-AA75-41AD-967F-D9B858827BE6'
+presentation = 'auto'
+
+    [hotkeys.custom.command]
+    actionIdentifier = 'TunaCore.CommonActionsCatalog.Toggle Application'
+    subjectIdentifier = 'TunaCore.AllApplicationsCatalog.Ghostty'
+
+    [hotkeys.custom.shortcut]
+    carbonKeyCode = 105
+    carbonModifiers = 0
 
 [[hotkeys.custom]]
 id = 'B31688D2-5A0A-40CF-8FC9-A8FC3665EB47'
@@ -280,10 +319,6 @@ presentation = 'auto'
     actionIdentifier = 'TunaCore.CommonActionsCatalog.Toggle Application'
     subjectIdentifier = 'TunaCore.AllApplicationsCatalog.Notion'
 
-    [hotkeys.custom.shortcut]
-    carbonKeyCode = 17
-    carbonModifiers = 6912
-
 [[hotkeys.custom]]
 id = 'F876BEFF-226C-468E-ACA6-F9C5A9CE5AD4'
 presentation = 'auto'
@@ -299,65 +334,10 @@ presentation = 'auto'
 [settings]
 comboModeCheatsheetBehavior = 'always'
 comboModeModifierTrigger = 'rightCommand'
-physicalHyperKeySource = 'rightCommand'
 themeIdentifier = 'com.brnbw.tuna.themes.default'
-
-[[smartLinks.entries]]
-enabled = false
-name = 'Bing'
-requiresInput = true
-template = 'https://www.bing.com/search?q={{input}}'
-
-[[smartLinks.entries]]
-enabled = false
-name = 'DuckDuckGo'
-requiresInput = true
-template = 'https://duckduckgo.com/?q={{input}}'
-
-[[smartLinks.entries]]
-enabled = true
-name = 'GitHub'
-requiresInput = true
-template = 'https://github.com/search?q={{input}}'
-
-[[smartLinks.entries]]
-enabled = true
-name = 'Google'
-requiresInput = true
-template = 'https://www.google.com/search?q={{input}}'
-
-[[smartLinks.entries]]
-enabled = true
-name = 'Google Translate'
-requiresInput = true
-template = 'https://translate.google.com/?sl=en&tl=es&op=translate&text={{input}}'
-
-[[smartLinks.entries]]
-enabled = false
-name = 'Stack Overflow'
-requiresInput = true
-template = 'https://stackoverflow.com/search?q={{input}}'
-
-[[smartLinks.entries]]
-enabled = false
-name = 'Wikipedia'
-requiresInput = true
-template = 'https://en.wikipedia.org/wiki/Special:Search?search={{input}}'
-
-[[smartLinks.entries]]
-enabled = true
-name = 'YouTube'
-requiresInput = true
-template = 'https://www.youtube.com/results?search_query={{input}}'
 
 [[catalogSettings]]
 catalogIdentifier = 'TunaCore.TextActionsCatalog'
 
     [catalogSettings.values]
     TextActionsFileExtension = 'txt'
-
-[[catalogSettings]]
-catalogIdentifier = 'com.brnbw.tuna.themes.default'
-
-    [catalogSettings.values]
-    ThemeTint = 'system'
