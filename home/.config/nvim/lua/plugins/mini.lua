@@ -14,11 +14,32 @@ return {
       vim.schedule(define_root_hl)
       vim.api.nvim_create_autocmd('ColorScheme', { callback = define_root_hl })
 
+      local function section_git_branch(max_len, min_tail_len)
+        local branch = vim.b.gitsigns_head
+        if branch == nil or branch == '' then return '' end
+
+        max_len = max_len or 16
+        min_tail_len = min_tail_len or 6
+        if #branch > max_len then
+          local prefix, tail = branch:match('^([^/]+)/(.+)$')
+
+          if prefix ~= nil and tail ~= nil then
+            local tail_len = max_len - #prefix - 1
+            tail_len = math.max(tail_len, min_tail_len)
+            branch = prefix .. '/' .. tail:sub(1, tail_len) .. '...'
+          else
+            branch = branch:sub(1, max_len - 3) .. '...'
+          end
+        end
+
+        return ' ' .. branch:gsub('%%', '%%%%')
+      end
+
       statusline.setup({
         content = {
           active = function()
             local mode, mode_hl = statusline.section_mode({ trunc_width = 120 })
-            local git           = statusline.section_git({ trunc_width = 75 })
+            local git           = section_git_branch(16, 6)
             local diff          = statusline.section_diff({ trunc_width = 75 })
             local diagnostics   = statusline.section_diagnostics({ trunc_width = 75 })
             local lsp           = statusline.section_lsp({ trunc_width = 75 })

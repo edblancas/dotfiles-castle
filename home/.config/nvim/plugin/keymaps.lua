@@ -24,6 +24,15 @@ if vim.fn.executable("lazygit") == 1 then
   set("n", "<leader>gf", function() Snacks.lazygit.log_file() end, { desc = "Lazygit (log current file)" })
   set("n", "<leader>gl", function() Snacks.lazygit.log() end, { desc = "Lazygit (log)" })
 end
+set("n", "<leader>gb", function()
+  local branch = vim.b.gitsigns_head
+  if branch == nil or branch == "" then
+    vim.notify("No git branch")
+    return
+  end
+
+  vim.notify(branch)
+end, { desc = "Git: show branch" })
 set("n", "<leader>;", ":", { desc = 'Command-line mode' })
 set("n", "<leader><leader>", function() Snacks.picker.files({ cwd = require("root").get() }) end, { desc = "Find Files (Root Dir)" })
 set({ "n", "i", "v" }, "<M-s>", "<cmd>w<CR>", { desc = "Save buffer" })
