@@ -63,3 +63,11 @@ set('n', '<leader>cr', function()
   vim.fn.setreg('+', path)
   print("Copied: " .. path)
 end, { desc = "Copy relative file path" })
+set('n', '<leader>fl', function()
+  local clip = vim.trim(vim.fn.getreg('+'))
+  if clip == '' then
+    vim.notify('Clipboard is empty', vim.log.levels.WARN)
+    return
+  end
+  vim.cmd.Eline(clip)
+end, { desc = "Open file:line from OS clipboard" })
