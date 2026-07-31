@@ -25,7 +25,10 @@ font-size = 15
 # disable ghostty create other styles automatically
 font-synthetic-style = false
 
+# this interferes with aerospace switch to workspace, so use right option instead
+# we put this for nvim keybinding like opt+s for save, and ctrl+opt+s for save all files
 macos-option-as-alt = left
+
 macos-titlebar-style = hidden
 background-opacity = 0.95
 background-blur-radius = 20

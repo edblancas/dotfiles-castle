@@ -83,7 +83,15 @@ function my_init() {
     # for some reason this not woks at the end of this file
     bindkey -r '^F' 
     bindkey '^F' forward-word
+
+    . "$HOME/.atuin/bin/env"
+    eval "$(atuin init zsh --disable-up-arrow)"
+
+    # Keep fzf history available with Ctrl-X, Ctrl-F.
+    bindkey -M emacs '^X^F' fzf-history-widget
+    bindkey -M viins '^X^F' fzf-history-widget
 }
+
 zvm_after_init_commands+=(my_init)
 # Disable the cursor style feature
 # With true the terminal slows down
