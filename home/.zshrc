@@ -36,6 +36,9 @@ autoload -Uz compinit && compinit
 autoload bashcompinit && bashcompinit
 
 RPROMPT="[%D{%a %f %b} %D{%T}]"
+# keep the state var in sync with the RPROMPT set above, otherwise the first
+# toggle_rprompt call is wasted just bootstrapping it
+_RPROMPT_STATE="datetime"
 toggle_rprompt() {
   if [[ "$_RPROMPT_STATE" == "datetime" ]]; then
     RPROMPT='$(kube_ps1)'
