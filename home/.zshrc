@@ -15,6 +15,12 @@ FPATH="$HOMEBREW_PREFIX/share/zsh/site-functions:${FPATH}"
 export EDITOR='nvim'
 export VISUAL='nvim'
 
+# atuin on PATH at top level, NOT inside my_init/zvm_after_init.
+# zvm's after-init hook only fires once a prompt is drawn, so anything
+# registered there never runs in `zsh -c` shells or when a child process
+# (e.g. claude-code hooks running under /bin/sh) inherits our PATH.
+. "$HOME/.atuin/bin/env"
+
 ### START OH-MY-ZSH ###
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME=""
@@ -87,7 +93,8 @@ function my_init() {
     bindkey -r '^F' 
     bindkey '^F' forward-word
 
-    . "$HOME/.atuin/bin/env"
+    # PATH is set at the top of this file; only the widget/keybinding
+    # setup needs to run late, after the other zsh plugins.
     eval "$(atuin init zsh --disable-up-arrow)"
 
     # Keep fzf history available with Ctrl-X, Ctrl-F.
